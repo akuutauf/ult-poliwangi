@@ -23,17 +23,22 @@
                             </div> <!--end auth-logo-text-->
 
 
-                            <form class="form-horizontal auth-form my-4" action="#">
+                            <form id="formAuthentication" class="form-horizontal auth-form my-4"
+                                action="{{ route('do.login') }}" method="POST">
+                                @csrf
 
                                 <div class="form-group">
-                                    <label for="username">Username</label>
+                                    <label for="name">Username</label>
                                     <div class="input-group mb-3">
                                         <span class="auth-form-icon">
                                             <i class="dripicons-user"></i>
                                         </span>
-                                        <input type="text" class="form-control" id="username"
-                                            placeholder="Masukkan username">
+                                        <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                            id="name" name="name" placeholder="Masukkan username" autofocus>
                                     </div>
+                                    @error('name')
+                                        <div class="form-text">{{ $message }}</div>
+                                    @enderror
                                 </div><!--end form-group-->
 
                                 <div class="form-group">
@@ -42,9 +47,14 @@
                                         <span class="auth-form-icon">
                                             <i class="dripicons-lock"></i>
                                         </span>
-                                        <input type="password" class="form-control" id="userpassword"
-                                            placeholder="Masukkan password">
+                                        <input type="password" id="password"
+                                            class="form-control  @error('password') is-invalid @enderror" name="password"
+                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                            aria-describedby="password">
                                     </div>
+                                    @error('password')
+                                        <div id="passwordHelp" class="form-text">{{ $message }}</div>
+                                    @enderror
                                 </div><!--end form-group-->
 
                                 <div class="form-group mb-0 row">
