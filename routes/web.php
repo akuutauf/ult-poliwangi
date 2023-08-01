@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [PageController::class, 'home_page'])->name('home.page');
+Route::get('/login', [AuthController::class, 'login_page'])->name('login.page');
+
+Route::middleware(['guest'])->group(function () {
+    //
 });
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
