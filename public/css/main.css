@@ -1,3 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
 .card-hover:hover {
     box-shadow: 0px 5px 40px rgba(29, 34, 47, 0.15) !important;
+}
+
+body {
+    font-family: "Poppins", sans-serif !important;
+    overflow-x: hidden;
+    background-color: #e5f2fe !important;
+}
+
+.fw-light {
+    font-weight: 300 !important;
+}
+
+.fw-regular {
+    font-weight: 400 !important;
+}
+
+.fw-medium {
+    font-weight: 500 !important;
+}
+
+.fw-bold {
+    font-weight: 600 !important;
+}
+
+.bg-theme {
+    background-color: #005fb1 !important;
+}
+
+.btn-theme {
+    background-color: #005fb1 !important;
+    color: white !important;
+    border-radius: 8px !important;
+    border: 2px solid #005fb1 !important;
+}
+
+.btn-theme:hover {
+    background-color: white !important;
+    color: #005fb1 !important;
+    border-radius: 8px !important;
+    border: 2px solid #005fb1 !important;
+}
+
+.btn-theme-two {
+    background-color: #005fb1 !important;
+    color: white !important;
+    border-radius: 25px !important;
+    border: 2px solid #005fb1 !important;
+}
+
+.btn-theme-two:hover {
+    background-color: white !important;
+    color: #005fb1 !important;
+    border-radius: 25px !important;
+    border: 2px solid #005fb1 !important;
+}
+
+.text-justify {
+    text-align: justify !important;
+}
+
+.section-bg-one {
+    background-color: white !important;
+}
+
+.section-bg-two {
+    background-color: #e5f2fe !important;
+}
+
+.card-rounded {
+    border-radius: 20px !important;
+    border: 0px solid transparent !important;
+}
+
+.footer-theme {
+    background-color: #005fb1 !important;
+}
+
+.tag-menu {
+    text-decoration: none !important;
+}
+
+.footer-text {
+    font-size: 12px !important;
 }
