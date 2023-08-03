@@ -12,6 +12,6 @@ class PageController extends Controller
     }
     public function admin_page()
     {
-        return view('pages.authentication.admin.home');
+        return view('pages.admin.home');
     }
 }

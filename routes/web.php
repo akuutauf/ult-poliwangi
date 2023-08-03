@@ -19,6 +19,15 @@ Route::get('/', [PageController::class, 'home_page'])->name('home.page');
 // Route::get('/login', [AuthController::class, 'login_page'])->name('login.page');
 
 Route::get('/logout', [AuthController::class, 'doLogout'])->name('do.logout');
+Route::get('/dosen', function () {
+    return view('pages.admin.document.teacher.index');
+});
+Route::get('/mahasiswa', function () {
+    return view('pages.admin.document.student.index');
+});
+Route::get('/masyarakat', function () {
+    return view('pages.admin.document.public.index');
+});
 
 Route::middleware(['guest'])->group(function () {
     //
@@ -26,7 +35,7 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/login', [AuthController::class, 'doLogin'])->name('do.login');
 });
 
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth'])->group(function () {
 
     Route::get('/home', [PageController::class, 'admin_page'])->name('admin.home.page');
 });
