@@ -1,7 +1,7 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg fixed-top bg-white">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ route('home.page') }}#">
                 <img src="{{ asset('images/logo-title-poliwangi.png') }}" class="img-fluid" width="45" alt="">
                 &nbsp;
                 <img src="{{ asset('images/logo-poliwangi.png') }}" class="img-fluid" width="94" alt="">
@@ -16,17 +16,21 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav d-flex">
                     <li class="nav-item my-auto px-2">
-                        <a class="nav-link fw-regular text-secondary navbar-hover" href="#">Beranda</a>
+                        <a class="nav-link fw-regular text-secondary navbar-hover"
+                            href="{{ route('home.page') }}#">Beranda</a>
                     </li>
                     <li class="nav-item my-auto px-2">
-                        <a class="nav-link fw-regular text-secondary navbar-hover" href="#formulir">Formulir</a>
+                        <a class="nav-link fw-regular text-secondary navbar-hover"
+                            href="{{ route('home.page') }}#formulir">Formulir</a>
                     </li>
                     <li class="nav-item my-auto px-2">
-                        <a class="nav-link fw-regular text-secondary navbar-hover" href="#lacak_dokumen">Lacak
+                        <a class="nav-link fw-regular text-secondary navbar-hover"
+                            href="{{ route('home.page') }}#lacak_dokumen">Lacak
                             Dokumen</a>
                     </li>
                     <li class="nav-item my-auto px-2">
-                        <a class="nav-link fw-regular text-secondary navbar-hover" href="#tentang_kami">Tentang Kami</a>
+                        <a class="nav-link fw-regular text-secondary navbar-hover"
+                            href="{{ route('home.page') }}#tentang_kami">Tentang Kami</a>
                     </li>
                     <li class="nav-item my-auto px-2">
                         <a href="" class="btn btn-theme px-3 py-2">

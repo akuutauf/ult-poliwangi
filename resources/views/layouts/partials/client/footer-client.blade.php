@@ -34,10 +34,13 @@
                     </h6>
                     <br>
                     <ul class="list-unstyled mb-4">
-                        <li><a class="text-white tag-menu" href="#">Beranda</a></li><br>
-                        <li><a class="text-white tag-menu" href="#formulir">Formulir</a></li><br>
-                        <li><a class="text-white tag-menu" href="#lacak_dokumen">Lacak Dokumen</a></li><br>
-                        <li><a class="text-white tag-menu" href="#tentang_kami">Tentang Kami</a></li><br>
+                        <li><a class="text-white tag-menu" href="{{ route('home.page') }}#">Beranda</a></li><br>
+                        <li><a class="text-white tag-menu" href="{{ route('home.page') }}#formulir">Formulir</a></li>
+                        <br>
+                        <li><a class="text-white tag-menu" href="{{ route('home.page') }}#lacak_dokumen">Lacak
+                                Dokumen</a></li><br>
+                        <li><a class="text-white tag-menu" href="{{ route('home.page') }}#tentang_kami">Tentang Kami</a>
+                        </li><br>
                     </ul>
                 </div>
                 <!-- Grid column -->

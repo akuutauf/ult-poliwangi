@@ -1,7 +1,7 @@
 @extends('layouts.base-client')
 
 @section('title')
-    <title>Unit Layanan Terpadu | Poliwangi</title>
+    <title>Unit Layanan Terpadu | ULT Poliwangi</title>
 @endsection
 
 @section('content')
@@ -75,7 +75,8 @@
                                 </div>
                                 <div class="row">
                                     <center>
-                                        <small><a href="#" class="tag-menu text-black fw-medium">Mahasiswa</a></small>
+                                        <small><a href="{{ route('pengajuan.mahasiswa.page') }}"
+                                                class="tag-menu text-black fw-medium">Mahasiswa</a></small>
                                     </center>
                                 </div>
                             </div>

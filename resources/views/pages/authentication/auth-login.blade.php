@@ -1,7 +1,7 @@
 @extends('layouts.auth-template')
 
 @section('title')
-    <title>Login | ULT Politeknik Negeri Banyuwangi</title>
+    <title>Login | ULT Poliwangi</title>
 @endsection
 
 @section('content')
