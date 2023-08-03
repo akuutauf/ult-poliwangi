@@ -17,11 +17,12 @@
                         </div>
                     </div>
 
-                    <h3 class="text-justify text-white fw-medium mt-3 footer-text">
-                        Copyright © {{ now()->year }}
-                        <br>
-                        All Rights Reserved.
-                    </h3>
+                    <h1 class="text-justify text-white fw-medium mt-3 footer-text">
+                        <center>
+                            Copyright © {{ now()->year }}
+                            All Rights Reserved.
+                        </center>
+                    </h1>
                 </div>
                 <!-- Grid column -->
 
@@ -33,10 +34,13 @@
                     </h6>
                     <br>
                     <ul class="list-unstyled mb-4">
-                        <li><a class="text-white tag-menu" href="#">Beranda</a></li><br>
-                        <li><a class="text-white tag-menu" href="#tentang_kami">Tentang Kami</a></li><br>
-                        <li><a class="text-white tag-menu" href="#formulir">Formulir</a></li><br>
-                        <li><a class="text-white tag-menu" href="#lacak_dokumen">Lacak Dokumen</a></li><br>
+                        <li><a class="text-white tag-menu" href="{{ route('home.page') }}#">Beranda</a></li><br>
+                        <li><a class="text-white tag-menu" href="{{ route('home.page') }}#formulir">Formulir</a></li>
+                        <br>
+                        <li><a class="text-white tag-menu" href="{{ route('home.page') }}#lacak_dokumen">Lacak
+                                Dokumen</a></li><br>
+                        <li><a class="text-white tag-menu" href="{{ route('home.page') }}#tentang_kami">Tentang Kami</a>
+                        </li><br>
                     </ul>
                 </div>
                 <!-- Grid column -->
@@ -64,13 +68,15 @@
                     <h6 class="text-uppercase text-white mb-2 fw-bold">Kontak Kami</h6>
                     <p class="text-white pt-2">
                         <i class="fa-solid fa-location-dot"></i>
-                        &ensp; Jalan Raya Jember KM 13, Kecamatan Kabat, Kabupaten Banyuwangi,
-                        Jawa Timur 68461, Indonesia
+                        &ensp; Lokasi
+                        <br>Jalan Raya Jember KM 13, Kecamatan Kabat, Kabupaten Banyuwangi,
+                        Jawa Timur 68461, Indonesia.
                         <br><br>
-                        <i class="fa-solid fa-envelope"></i>&ensp; Kontak:
-                        Tel +62 (0333) 636780
+                        <i class="fa-solid fa-phone"></i>&ensp; Kontak:
+                        <br>Tel +62 (0333) 636780
                         <br><br>
-                        <i class="fa-solid fa-phone"></i>&ensp; Email: <a href="mailto:poliwangi@poliwangi.ac.id"
+                        <i class="fa-solid fa-envelope"></i>&ensp; Email:
+                        <br><a href="mailto:poliwangi@poliwangi.ac.id"
                             class="tag-menu text-white">poliwangi@poliwangi.ac.id</a>
                         <a href="mailto:humas@poliwangi.ac.id" class="tag-menu text-white">humas@poliwangi.ac.id</a>
                     </p>
