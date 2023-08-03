@@ -16,16 +16,17 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav d-flex">
                     <li class="nav-item my-auto px-2">
-                        <a class="nav-link active fw-medium" aria-current="page" href="#">Beranda</a>
+                        <a class="nav-link fw-regular text-secondary navbar-hover" href="#">Beranda</a>
                     </li>
                     <li class="nav-item my-auto px-2">
-                        <a class="nav-link fw-regular text-secondary" href="#formulir">Formulir</a>
+                        <a class="nav-link fw-regular text-secondary navbar-hover" href="#formulir">Formulir</a>
                     </li>
                     <li class="nav-item my-auto px-2">
-                        <a class="nav-link fw-regular text-secondary" href="#lacak_dokumen">Lacak Dokumen</a>
+                        <a class="nav-link fw-regular text-secondary navbar-hover" href="#lacak_dokumen">Lacak
+                            Dokumen</a>
                     </li>
                     <li class="nav-item my-auto px-2">
-                        <a class="nav-link fw-regular text-secondary" href="#tentang_kami">Tentang Kami</a>
+                        <a class="nav-link fw-regular text-secondary navbar-hover" href="#tentang_kami">Tentang Kami</a>
                     </li>
                     <li class="nav-item my-auto px-2">
                         <a href="" class="btn btn-theme px-3 py-2">
@@ -34,6 +35,7 @@
                     </li>
                 </ul>
             </div>
+
         </div>
     </nav>
 </div>

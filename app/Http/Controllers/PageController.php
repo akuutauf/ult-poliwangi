@@ -8,10 +8,10 @@ class PageController extends Controller
 {
     public function home_page()
     {
-        return view('pages.authentication.client.home');
+        return view('pages.client.home');
     }
     public function admin_page()
     {
-        return view('pages.authentication.admin.home');
+        return view('pages.admin.home');
     }
 }

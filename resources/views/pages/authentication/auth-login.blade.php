@@ -57,12 +57,18 @@
                                     @enderror
                                 </div><!--end form-group-->
 
-                                <div class="form-group mb-0 row">
+                                <div class="form-group mb-4 row">
                                     <div class="col-12 mt-2">
                                         <button class="btn btn-primary btn-round btn-block waves-effect waves-light"
                                             type="submit">Login <i class="fas fa-sign-in-alt ml-1"></i></button>
                                     </div><!--end col-->
                                 </div> <!--end form-group-->
+
+                                <center>
+                                    <span>Kembali ke halaman <a href="{{ route('home.page') }}"
+                                            class="tag-menu fw-bold">Landing
+                                            Page </a></span>
+                                </center>
                             </form><!--end form-->
                         </div><!--end /div-->
                     </div><!--end card-body-->
