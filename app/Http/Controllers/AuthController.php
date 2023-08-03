@@ -16,15 +16,16 @@ class AuthController extends Controller
         return view('pages.authentication.auth-login');
     }
 
-    public function doLogin(Request $request){
+    public function doLogin(Request $request)
+    {
 
         //validasi
         $cridentials = $request->validate([
             'name' => ['required', 'string', 'max:100'],
-            'password' =>['required', Rules\Password::defaults()],
+            'password' => ['required', Rules\Password::defaults()],
         ]);
 
-        if(Auth::attempt($cridentials)){
+        if (Auth::attempt($cridentials)) {
             $request->session()->regenerate();
         }
 
@@ -33,10 +34,11 @@ class AuthController extends Controller
             'name' => 'Username and password invalid.',
         ])->onlyInput('name');
 
-        return redirect()->route('admin.home.page');
+        return redirect()->route('admin.dashboard.page');
     }
 
-    public function doLogout(Request $request){
+    public function doLogout(Request $request)
+    {
         Session::flush();
 
         Auth::logout();

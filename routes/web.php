@@ -16,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PageController::class, 'home_page'])->name('home.page');
-// Route::get('/login', [AuthController::class, 'login_page'])->name('login.page');
-
 Route::get('/logout', [AuthController::class, 'doLogout'])->name('do.logout');
 Route::get('/dosen', function () {
     return view('pages.admin.document.teacher.index');
@@ -30,16 +28,11 @@ Route::get('/masyarakat', function () {
 });
 
 Route::middleware(['guest'])->group(function () {
-    //
+    // authenticate for login
     Route::get('/login', [AuthController::class, 'login_page'])->name('login.page');
     Route::post('/login', [AuthController::class, 'doLogin'])->name('do.login');
 });
 
 Route::middleware(['auth'])->group(function () {
-
-    Route::get('/home', [PageController::class, 'admin_page'])->name('admin.home.page');
+    Route::get('/dashboard', [PageController::class, 'admin_page'])->name('admin.dashboard.page');
 });
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });

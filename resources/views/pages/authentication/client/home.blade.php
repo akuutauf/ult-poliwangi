@@ -5,67 +5,180 @@
 @endsection
 
 @section('content')
-    <!-- Page-Title -->
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="page-title-box">
+    <section class="container-fluid section-bg-one">
+        <div class="container">
+            <div class="row py-5">
+                <div class="col">
+                    <h2 class="fw-bold">ULT POLIWANGI</h2>
+                    <p class="fw-medium text-justify mt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. A
+                        voluptates
+                        quos
+                        corporis,
+                        minus blanditiis
+                        eum omnis pariatur? Inventore nihil temporibus dolore distinctio quas odit neque ratione deserunt,
+                        ea
+                        aspernatur quisquam accusamus illo sint quae necessitatibus voluptate repellat omnis autem, aliquam,
+                        eaque maiores. Nobis quas eum quisquam enim ea omnis nostrum.</p>
 
-                <h4 class="page-title">Dashboard</h4>
-            </div><!--end page-title-box-->
-        </div><!--end col-->
-    </div><!--end row-->
-    <!-- end page title end breadcrumb -->
+                    <div class="mt-5">
+                        <a href="#" class="btn btn-theme-two px-5 py-3">
+                            Ajukan Sekarang
+                        </a>
+                    </div>
+                </div>
 
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="mt-0 header-title">Total Patients</h4>
-                    <div class="row">
-                        <div class="col-md-4 align-self-center">
-                            <div class="text-center">
-                                <div class="icon-info mb-3">
-                                    <i class="fas fa-procedures bg-soft-info"></i>
+                <div class="col">
+                    <center>
+                        <img src="{{ asset('images/landing-page.svg') }}" width="450" class="img-fluid" alt="">
+                    </center>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="formulir" class="container-fluid section-bg-two">
+        <div class="container">
+            <div class="row d-flex pt-5">
+                <h3 class="fw-bold mt-3 text-center">Kategori Pemohon</h3>
+            </div>
+
+            <div class="row py-5 d-flex justify-content-around">
+                <div class="col-3 card card-hover card-rounded">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-6">
+                            <div class="card-body">
+                                <div>
+                                    <div class="card-body d-flex">
+                                        <img src="{{ asset('images/pemohon-dosen.png') }}" class="img-fluid mx-auto"
+                                            alt="">
+                                    </div>
                                 </div>
-                                <h2 class="mt-0 font-weight-bold">1200</h2>
-                                <p class="mb-0 text-muted"><span class="text-success"><i
-                                            class="mdi mdi-arrow-up"></i>14.5%</span> Up From Last Week</p>
+                                <div class="row">
+                                    <center>
+                                        <small> Dosen</small>
+                                    </center>
+                                </div>
                             </div>
-                        </div><!--end col-->
-                        <div class="col-md-8 align-self-center">
-                            <div class="apexchart-wrapper">
-                                <div id="patient_dash_report" class="chart-gutters"></div>
-                            </div>
-                        </div><!--end col-->
-                    </div><!--end row-->
-                </div><!--end card-body-->
-            </div><!--end card-->
-        </div><!--end col-->
+                        </div>
+                    </div>
+                </div>
 
-        <div class="col-lg-6">
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <h4 class="header-title mt-0 mb-3">Pharmacy Stocks</h4>
-                            <div class="apexchart-wrapper">
-                                <div id="dash_medicine" class="apex-charts"></div>
+                <div class="col-3 card card-hover card-rounded">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-6">
+                            <div class="card-body">
+                                <div>
+                                    <div class="card-body d-flex">
+                                        <img src="{{ asset('images/pemohon-mahasiswa.png') }}" class="img-fluid mx-auto"
+                                            alt="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <center>
+                                        <small>
+                                            Mahasiswa
+                                        </small>
+                                    </center>
+                                </div>
                             </div>
-                        </div><!--end col-->
-                        <div class="col-md-7 align-self-center">
-                            <div class="text-center">
-                                <img src="../assets/images/widgets/weather.png" alt="" height="70">
-                                <h2>32°</h2>
-                                <h4 class="title-text">San Francisco, California</h4>
-                                <p class="text-muted">SUNDAY 25<sup>th</sup> Aug 2019</p>
-                                <button type="button"
-                                    class="btn btn-sm btn-outline-primary btn-round weather-btn-icon">View
-                                    Details <i class="mdi mdi-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3 card card-hover card-rounded">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-6">
+                            <div class="card-body">
+                                <div>
+                                    <div class="card-body d-flex">
+                                        <img src="{{ asset('images/pemohon-umum.png') }}" class="img-fluid mx-auto"
+                                            alt="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <center>
+                                        <small>
+                                            Umum
+                                        </small>
+                                    </center>
+                                </div>
                             </div>
-                        </div><!--end col-->
-                    </div><!--end row-->
-                </div><!--end card-body-->
-            </div><!--end card-->
-        </div><!--end col-->
-    </div><!--end row-->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="lacak_dokumen" class="container-fluid section-bg-one">
+        <div class="row d-flex pt-5">
+            <h3 class="fw-bold mt-3 text-center">Lacak Dokumen</h3>
+        </div>
+
+        <div class="container pb-5">
+            <div class="row py-5 d-flex justify-content-around">
+                <div class="col-5">
+                    <div class="d-flex">
+                        <img src="{{ asset('images/tracking-ilustrator.svg') }}" class="img-fluid mx-auto my-auto"
+                            width="300" alt="">
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="card card-rounded card-hover shadow">
+                        <div class="card-body">
+
+                            <form accept="#" method="POST" class="p-3">
+                                @csrf
+
+                                <div class="mb-3">
+                                    <label for="ticket_code" class="form-label fw-bold">Lacak Dokumen Sekarang !</label>
+                                    <input type="text" class="form-control" name="ticket_code" id="ticket_code"
+                                        placeholder="Masukkan ID Pelaporan">
+                                </div>
+
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-theme" type="button">Lacak Status</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tentang_kami" class="container-fluid section-bg-two">
+        <div class="container">
+            <div class="row  py-5 d-flex justify-content-around">
+                <div class="col-4 d-flex">
+                    <img src="{{ asset('images/logo-title-poliwangi.png') }}" class="img-fluid mx-auto my-auto"
+                        width="300" alt="">
+                </div>
+                <div class="col-6">
+                    <div>
+                        <h2 class="fw-bold">Tentang Kami</h2>
+
+                        <p class="text-justify mt-4">
+                            Politeknik Negeri Banyuwangi adalah perguruan tinggi negeri yang terletak di Kabupaten
+                            Banyuwangi, Jawa Timur, Indonesia. Berdiri sejak tahun 2014, politeknik ini menawarkan program
+                            studi vokasi dan terapan yang berkualitas, sesuai kebutuhan industri dan pasar kerja. Dengan
+                            fasilitas modern, termasuk laboratorium dan perpustakaan, politeknik ini berkomitmen untuk
+                            menghasilkan tenaga terampil dan profesional yang berdaya saing tinggi. Melalui kemitraan aktif
+                            dengan industri, mereka memberikan kesempatan magang dan penempatan kerja bagi mahasiswa.
+                            Politeknik Negeri Banyuwangi memiliki visi menjadi politeknik unggulan yang berorientasi pada
+                            keunggulan riset, pengabdian pada masyarakat, dan kewirausahaan.
+                        </p>
+
+                        <div class="mt-4">
+                            <a href="#" class="btn btn-theme px-3 py-2">
+                                Lihat Selengkapnya
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
