@@ -12,7 +12,8 @@
                         <img src="{{ asset('images/logo-poliwangi.png') }}" alt="logo-large" class="logo-lg">
                     </span>
                 </a>
-            </div><!--topbar-left-->
+            </div>
+            <!--topbar-left-->
             <!--end logo-->
             <!--end topbar-nav-->
             <ul class="list-unstyled topbar-nav float-right mb-0">
@@ -54,7 +55,7 @@
                     <!-- Navigation Menu-->
                     <ul class="navigation-menu">
                         <li class="has-submenu">
-                            <a href="#">
+                            <a href="{{ route('admin.home.page') }}">
                                 <svg class="nav-svg mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 92">
                                     <path class="svg-primary" id="XMLID_1197_"
                                         d="M90.8,22.9C90.1,22.2,89.1,22,88,22H67V10c0-2.2-2-4-4.2-4H29.2C27,6,25,7.8,25,10v12H4
@@ -66,92 +67,32 @@
                                         S60.7,57,58.8,57H49v9.4c0,1.9-1.6,3.5-3.5,3.5S42,68.4,42,66.4V57h-8.8C31.3,57,29.7,55.4,29.7,53.5z">
                                     </path>
                                 </svg>
-                                <span>Hospital</span>
+                                <span>Dashboard</span>
                             </a>
-                            <ul class="submenu">
-                                <li><a href="../hospital/hospital-index.html"><i
-                                            class="dripicons-meter"></i>Dashboard</a></li>
-                                <li class="has-submenu">
-                                    <a href="#"><i class="dripicons-clipboard"></i>Appointments</a>
-                                    <ul class="submenu">
-                                        <li><a href="../hospital/doctor-shedule.html">Doctor Shedule</a></li>
-                                        <li><a href="../hospital/all-appointments.html">All Appointments</a></li>
-                                    </ul>
-                                </li><!--end has-submenu-->
-                                <li class="has-submenu">
-                                    <a href="#"><i class="dripicons-user-group"></i>Doctors</a>
-                                    <ul class="submenu">
-                                        <li><a href="../hospital/all-doctors.html">All Doctors</a></li>
-                                        <li><a href="../hospital/add-doctor.html">Add Doctor</a></li>
-                                        <li><a href="../hospital/doctor-edit.html">Doctor Edit</a></li>
-                                        <li><a href="../hospital/doctor-profile.html">Doctor Profile</a></li>
-                                    </ul>
-                                </li><!--end has-submenu-->
-                                <li class="has-submenu">
-                                    <a href="#"><i class="dripicons-vibrate"></i>Patients</a>
-                                    <ul class="submenu">
-                                        <li><a href="../hospital/all-patients.html">All Patients</a></li>
-                                        <li><a href="../hospital/add-patient.html">Add Patient</a></li>
-                                        <li><a href="../hospital/patient-edit.html">Patient Edit</a></li>
-                                        <li><a href="../hospital/patient-profile.html">Patient Profile</a></li>
-                                    </ul>
-                                </li><!--end has-submenu-->
-                                <li class="has-submenu">
-                                    <a href="#"><i class="dripicons-trophy"></i>Payments</a>
-                                    <ul class="submenu">
-                                        <li><a href="../hospital/all-payments.html">All Payments</a></li>
-                                        <li><a href="../hospital/payment-invoice.html">Payment Invoice</a></li>
-                                        <li><a href="../hospital/cashless-payments.html">Cashless Payments</a></li>
-                                    </ul>
-                                </li><!--end has-submenu-->
-                                <li><a href="../hospital/all-rooms.html"><i class="dripicons-home"></i>All Rooms</a>
-                                </li>
-                                <li><a href="../hospital/expenses.html"><i class="dripicons-document"></i>Expenses
-                                        Report</a></li>
-                                <li><a href="../hospital/departments.html"><i
-                                            class="dripicons-view-thumb"></i>Departments</a></li>
-                                <li><a href="../hospital/insurance-company.html"><i
-                                            class="dripicons-rocket"></i>Insurance Company</a></li>
-                                <li><a href="../hospital/events.html"><i class="dripicons-calendar"></i>Events</a>
-                                </li>
-                                <li><a href="../hospital/chat.html"><i class="dripicons-conversation"></i>Chat</a>
-                                </li>
-                            </ul><!--end submenu-->
-
-
-                        </li><!--end has-submenu-->
+                        </li>
+                        <!--end has-submenu-->
 
                         <li class="has-submenu">
                             <a href="#">
-                                <svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                    <path class="svg-primary"
-                                        d="M239.208 343.937c-17.78 10.103-38.342 15.876-60.255 15.876-21.909 0-42.467-5.771-60.246-15.87C71.544 358.331 42.643 406 32 448h293.912c-10.639-42-39.537-89.683-86.704-104.063zM178.953 120.035c-58.479 0-105.886 47.394-105.886 105.858 0 58.464 47.407 105.857 105.886 105.857s105.886-47.394 105.886-105.857c0-58.464-47.408-105.858-105.886-105.858zm0 186.488c-33.671 0-62.445-22.513-73.997-50.523H252.95c-11.554 28.011-40.326 50.523-73.997 50.523z" />
-                                    <g>
-                                        <path
-                                            d="M322.602 384H480c-10.638-42-39.537-81.691-86.703-96.072-17.781 10.104-38.343 15.873-60.256 15.873-14.823 0-29.024-2.654-42.168-7.49-7.445 12.47-16.927 25.592-27.974 34.906C289.245 341.354 309.146 364 322.602 384zM306.545 200h100.493c-11.554 28-40.327 50.293-73.997 50.293-8.875 0-17.404-1.692-25.375-4.51a128.411 128.411 0 0 1-6.52 25.118c10.066 3.174 20.779 4.862 31.895 4.862 58.479 0 105.886-47.41 105.886-105.872 0-58.465-47.407-105.866-105.886-105.866-37.49 0-70.427 19.703-89.243 49.09C275.607 131.383 298.961 163 306.545 200z" />
-                                    </g>
+                                <svg class="nav-svg mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path
+                                        d="M408 64H104c-22.091 0-40 17.908-40 40v304c0 22.092 17.909 40 40 40h304c22.092 0 40-17.908 40-40V104c0-22.092-17.908-40-40-40zM304 368H144v-48h160v48zm64-88H144v-48h224v48zm0-88H144v-48h224v48z" />
                                 </svg>
-                                <span>Staff</span>
+                                <span>Manajaemen Berkas</span>
                             </a>
                             <ul class="submenu">
                                 <li class="has-submenu">
-                                    <a href="#"><i class="dripicons-user-group"></i>Staff</a>
+                                    <a href="#"><i class="dripicons-user-group"></i>Kategori</a>
                                     <ul class="submenu">
-                                        <li><a href="../hospital/all-staff.html">All Staff</a></li>
-                                        <li><a href="../hospital/add-member.html">Add Member</a></li>
-                                        <li><a href="../hospital/edit-member.html">Edit Member</a></li>
-                                        <li><a href="../hospital/member-profile.html">Member Profile</a></li>
-                                        <li><a href="../hospital/salary.html">Staff Salary</a></li>
+                                        <li><a href="/dosen">Dosen</a></li>
+                                        <li><a href="/mahasiswa">Mahasiswa</a></li>
+                                        <li><a href="/masyarakat">Masyarakat/Umum</a></li>
                                     </ul>
-                                </li><!--end has-submenu-->
-                                <li><a href="../hospital/leaves.html"><i class="dripicons-shopping-bag"></i>Leaves</a>
                                 </li>
-                                <li><a href="../hospital/holidays.html"><i class="dripicons-headset"></i>Holidays</a>
-                                </li>
-                                <li><a href="../hospital/attendance.html"><i
-                                            class="dripicons-checkmark"></i>Attendance</a></li>
-                            </ul><!--end submenu-->
-                        </li><!--end has-submenu-->
+                            </ul>
+                            <!--end submenu-->
+                        </li>
+                        <!--end has-submenu-->
 
 
 
@@ -180,7 +121,8 @@
                                         <li><a href="../others/ui-dragula.html">Dragula</a></li>
                                         <li><a href="../others/ui-check-radio.html">Check & Radio</a></li>
                                     </ul>
-                                </li><!--end has-submenu-->
+                                </li>
+                                <!--end has-submenu-->
                                 <li class="has-submenu">
                                     <a href="#"><i class="dripicons-anchor"></i>Advanced UI</a>
                                     <ul class="submenu">
@@ -192,7 +134,8 @@
                                         <li><a href="../others/advanced-session.html">Session Timeout</a></li>
                                         <li><a href="../others/advanced-idle-timer.html">Idle Timer</a></li>
                                     </ul>
-                                </li><!--end has-submenu-->
+                                </li>
+                                <!--end has-submenu-->
                                 <li class="has-submenu">
                                     <a href="#"><i class="dripicons-document"></i>Forms</a>
                                     <ul class="submenu">
@@ -206,7 +149,8 @@
                                         <li><a href="../others/forms-uploads.html">File Upload</a></li>
                                         <li><a href="../others/forms-img-crop.html">Image Crop</a></li>
                                     </ul>
-                                </li> <!--end has-submenu-->
+                                </li>
+                                <!--end has-submenu-->
                                 <li class="has-submenu">
                                     <a href="#"><i class="dripicons-graph-line"></i>Charts</a>
                                     <ul class="submenu">
@@ -220,7 +164,8 @@
                                         <li><a href="../others/charts-knob.html">Jquery Knob</a></li>
                                         <li><a href="../others/charts-justgage.html">JustGage</a></li>
                                     </ul>
-                                </li><!--end has-submenu-->
+                                </li>
+                                <!--end has-submenu-->
                                 <li class="has-submenu">
                                     <a href="#"><i class="dripicons-view-list-large"></i>Tables </a>
                                     <ul class="submenu">
@@ -231,7 +176,8 @@
                                         <li><a href="../others/tables-jsgrid.html">Jsgrid</a></li>
                                         <li><a href="../others/tables-editable.html">Editable</a></li>
                                     </ul>
-                                </li><!--end has-submenu-->
+                                </li>
+                                <!--end has-submenu-->
                                 <li class="has-submenu">
                                     <a href="#"><i class="dripicons-headset"></i>Icons</a>
                                     <ul class="submenu">
@@ -243,21 +189,24 @@
                                         <li><a href="../others/icons-emoji.html">Emoji</a></li>
                                         <li><a href="../others/icons-svg.html">SVG</a></li>
                                     </ul>
-                                </li> <!--end has-submenu-->
+                                </li>
+                                <!--end has-submenu-->
                                 <li class="has-submenu">
                                     <a href="#"><i class="dripicons-map"></i>Maps</a>
                                     <ul class="submenu">
                                         <li><a href="../others/maps-google.html">Google Maps</a></li>
                                         <li><a href="../others/maps-vector.html">Vector Maps</a></li>
                                     </ul>
-                                </li> <!--end has-submenu-->
+                                </li>
+                                <!--end has-submenu-->
                                 <li class="has-submenu">
                                     <a href="#"><i class="dripicons-mail"></i>Email</a>
                                     <ul class="submenu">
                                         <li><a href="../others/email-inbox.html">Inbox</a></li>
                                         <li><a href="../others/email-read.html">Read Email</a></li>
                                     </ul>
-                                </li> <!--end has-submenu-->
+                                </li>
+                                <!--end has-submenu-->
                                 <li class="has-submenu">
                                     <a href="#"><i class="dripicons-article"></i>Email Templates</a>
                                     <ul class="submenu">
@@ -265,9 +214,12 @@
                                         <li><a href="../others/email-templates-alert.html">Alert Email</a></li>
                                         <li><a href="../others/email-templates-billing.html">Billing Email</a></li>
                                     </ul>
-                                </li><!--end has-submenu-->
-                            </ul><!--end submenu-->
-                        </li><!--end has-submenu-->
+                                </li>
+                                <!--end has-submenu-->
+                            </ul>
+                            <!--end submenu-->
+                        </li>
+                        <!--end has-submenu-->
 
                         <li class="has-submenu">
                             <a href="#">
@@ -298,24 +250,30 @@
                                 <li><a href="../pages/pages-chat.html"><i class="dripicons-conversation"></i>Chat</a>
                                 </li>
                                 <li><a href="../pages/pages-contact-list.html"><i
-                                            class="dripicons-user-id"></i>Contact List</a></li>
+                                            class="dripicons-user-id"></i>Contact
+                                        List</a></li>
                                 <li><a href="../pages/pages-tour.html"><i class="dripicons-rocket"></i>Tour</a></li>
                                 <li><a href="../pages/pages-timeline.html"><i class="dripicons-clock"></i>Timeline</a>
                                 </li>
                                 <li><a href="../pages/pages-invoice.html"><i
-                                            class="dripicons-document"></i>Invoice</a></li>
+                                            class="dripicons-document"></i>Invoice</a>
+                                </li>
                                 <li><a href="../pages/pages-treeview.html"><i
-                                            class="dripicons-network-3"></i>Treeview</a></li>
+                                            class="dripicons-network-3"></i>Treeview</a>
+                                </li>
                                 <li><a href="../pages/pages-starter.html"><i
-                                            class="dripicons-clipboard"></i>Starter</a></li>
+                                            class="dripicons-clipboard"></i>Starter</a>
+                                </li>
                                 <li><a href="../pages/pages-pricing.html"><i class="dripicons-article"></i>Pricing</a>
                                 </li>
                                 <li><a href="../pages/pages-blogs.html"><i class="dripicons-blog"></i>Blogs</a></li>
                                 <li><a href="../pages/pages-faq.html"><i class="dripicons-question"></i>FAQ</a></li>
                                 <li><a href="../pages/pages-gallery.html"><i
-                                            class="dripicons-photo-group"></i>Gallery</a></li>
+                                            class="dripicons-photo-group"></i>Gallery</a>
+                                </li>
                             </ul>
-                        </li><!--end has-submenu-->
+                        </li>
+                        <!--end has-submenu-->
 
                         <li class="has-submenu">
                             <a href="#">
@@ -341,13 +299,15 @@
                                 <li><a href="../authentication/auth-recover-pw.html"><i
                                             class="dripicons-clockwise"></i>Recover Password</a></li>
                                 <li><a href="../authentication/auth-lock-screen.html"><i
-                                            class="dripicons-lock"></i>Lock Screen</a></li>
+                                            class="dripicons-lock"></i>Lock
+                                        Screen</a></li>
                                 <li><a href="../authentication/auth-404.html"><i class="dripicons-warning"></i>Error
                                         404</a></li>
                                 <li><a href="../authentication/auth-500.html"><i class="dripicons-wrong"></i>Error
                                         500</a></li>
                             </ul>
-                        </li><!--end has-submenu-->
+                        </li>
+                        <!--end has-submenu-->
                     </ul><!-- End navigation menu -->
                 </div> <!-- end navigation -->
             </div> <!-- end container-fluid -->

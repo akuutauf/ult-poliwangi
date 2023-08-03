@@ -17,6 +17,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home_page'])->name('home.page');
 Route::get('/logout', [AuthController::class, 'doLogout'])->name('do.logout');
+Route::get('/dosen', function () {
+    return view('pages.admin.document.teacher.index');
+});
+Route::get('/mahasiswa', function () {
+    return view('pages.admin.document.student.index');
+});
+Route::get('/masyarakat', function () {
+    return view('pages.admin.document.public.index');
+});
 
 Route::middleware(['guest'])->group(function () {
     // authenticate for login

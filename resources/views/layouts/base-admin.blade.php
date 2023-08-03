@@ -70,6 +70,7 @@
     <script src="{{ asset('template/assets/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('template/assets/pages/jquery.hospital_dashboard.init.js') }}"></script>
 
+
     @yield('script')
 
     <!-- App js -->
