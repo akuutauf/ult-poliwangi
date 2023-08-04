@@ -23,7 +23,7 @@
     @yield('css')
 </head>
 
-<body>
+<body id="bodyHome">
     {{-- navbar --}}
     @include('layouts.partials.client.navbar-client')
 

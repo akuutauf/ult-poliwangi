@@ -1,7 +1,7 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title>Unit Layanan Terpadu | Poliwangi</title>
+    <title>Unit Layanan Terpadu | ULT Poliwangi</title>
 @endsection
 
 @section('content')
@@ -9,7 +9,6 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="page-title-box">
-
                 <h4 class="page-title">Dashboard</h4>
             </div><!--end page-title-box-->
         </div><!--end col-->

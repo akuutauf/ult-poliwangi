@@ -7,6 +7,9 @@
 body {
     font-family: "Poppins", sans-serif !important;
     overflow-x: hidden;
+}
+
+#bodyHome {
     background-color: #e5f2fe !important;
 }
 
@@ -47,14 +50,14 @@ body {
 .btn-theme-two {
     background-color: #005fb1 !important;
     color: white !important;
-    border-radius: 25px !important;
+    border-radius: 20px !important;
     border: 2px solid #005fb1 !important;
 }
 
 .btn-theme-two:hover {
     background-color: white !important;
     color: #005fb1 !important;
-    border-radius: 25px !important;
+    border-radius: 20px !important;
     border: 2px solid #005fb1 !important;
 }
 
@@ -83,6 +86,15 @@ body {
     text-decoration: none !important;
 }
 
+.tag-menu:hover {
+    text-decoration: underline !important;
+}
+
 .footer-text {
     font-size: 12px !important;
+}
+
+.navbar-hover:hover {
+    color: #005fb1 !important;
+    font-weight: medium !important;
 }
