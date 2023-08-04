@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\FormMahasiswaController;
 use App\Http\Controllers\FormDosenController;
+use App\Http\Controllers\FormUmumController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,8 +39,8 @@ Route::middleware(['guest'])->group(function () {
 
     // route formulir
     Route::get('/formulir-pengajuan/mahasiswa', [FormMahasiswaController::class, 'create'])->name('pengajuan.mahasiswa.page');
-
     Route::get('/formulir-pengajuan/dosen', [FormDosenController::class, 'create'])->name('pengajuan.dosen.page');
+    Route::get('/formulir-pengajuan/umum', [FormUmumController::class, 'create'])->name('pengajuan.umum.page');
 });
 
 Route::middleware(['auth'])->group(function () {
