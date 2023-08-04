@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProgressPengajuan extends Model
 {
     use HasFactory;
-        protected $fillable =[
+    protected $fillable = [
         'pesan',
         'file',
         'tanggal',
@@ -18,6 +18,6 @@ class ProgressPengajuan extends Model
     // Relasi dari progress pengajuan ke pengajuan (many to one)
     public function layanan()
     {
-        return $this->belongsTo(Layanan::class, 'id_pengajuan','id');
+        return $this->belongsTo(Layanan::class, 'id_pengajuan', 'id');
     }
 }

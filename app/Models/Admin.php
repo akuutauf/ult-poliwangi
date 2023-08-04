@@ -19,6 +19,7 @@ class Admin extends Model
     {
         return $this->belongsTo(User::class, 'id_user', 'id');
     }
+
     public function divisi()
     {
         return $this->belongsTo(Divisi::class, 'id_divisi', 'id');

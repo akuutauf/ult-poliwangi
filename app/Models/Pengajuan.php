@@ -24,7 +24,7 @@ class Pengajuan extends Model
         return $this->belongsTo(Layanan::class, 'id_layanan', 'id');
     }
 
-    public function progresspengajuan()
+    public function progress_pengajuan()
     {
         return $this->hasMany(ProgressPengajuan::class);
     }
