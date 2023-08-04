@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="row">
                                     <center>
-                                        <small><a href="#" class="tag-menu text-black fw-medium">Dosen</a></small>
+                                        <small><a href="{{ route('pengajuan.dosen.page') }}" class="tag-menu text-black fw-medium">Dosen</a></small>
                                     </center>
                                 </div>
                             </div>
