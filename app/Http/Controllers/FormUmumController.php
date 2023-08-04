@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class FormMahasiswaController extends Controller
+class FormUmumController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class FormMahasiswaController extends Controller
      */
     public function create()
     {
-        return view('pages.client.formulir.mahasiswa.form-mahasiswa');
+        return view('pages.client.formulir.umum.form-umum');
     }
 
     /**

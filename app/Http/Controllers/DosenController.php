@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dosen;
+
 use Illuminate\Http\Request;
 
-class FormMahasiswaController extends Controller
+class DosenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,11 @@ class FormMahasiswaController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'dosen' => Dosen::all(),
+        ];
+        // dd($dosen);
+        return view('pages.admin.document.dosen.index', $data);
     }
 
     /**
@@ -23,7 +29,7 @@ class FormMahasiswaController extends Controller
      */
     public function create()
     {
-        return view('pages.client.formulir.mahasiswa.form-mahasiswa');
+        //
     }
 
     /**

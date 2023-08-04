@@ -83,7 +83,7 @@
                                 <li class="has-submenu">
                                     <a href="#"><i class="dripicons-user-group"></i>Kategori</a>
                                     <ul class="submenu">
-                                        <li><a href="/dosen">Dosen</a></li>
+                                        <li><a href="{{route('dosen.index')}}">Dosen</a></li>
                                         <li><a href="/mahasiswa">Mahasiswa</a></li>
                                         <li><a href="/masyarakat">Masyarakat/Umum</a></li>
                                     </ul>
