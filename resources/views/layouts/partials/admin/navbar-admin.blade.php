@@ -55,7 +55,7 @@
                     <!-- Navigation Menu-->
                     <ul class="navigation-menu">
                         <li class="has-submenu">
-                            <a href="{{ route('admin.home.page') }}">
+                            <a href="{{ route('admin.dashboard.page') }}">
                                 <svg class="nav-svg mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 92">
                                     <path class="svg-primary" id="XMLID_1197_"
                                         d="M90.8,22.9C90.1,22.2,89.1,22,88,22H67V10c0-2.2-2-4-4.2-4H29.2C27,6,25,7.8,25,10v12H4
