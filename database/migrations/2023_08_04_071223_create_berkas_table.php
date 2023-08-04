@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama')->nullable(false);
             $table->string('jenis')->nullable(true);
-            $table->unsignedBigInteger('id_layanan');
+
+            $table->unsignedBigInteger('id_layanan')->nullable(false);
             $table->foreign('id_layanan')->references('id')->on('layanans')->onDelete('cascade');
             $table->timestamps();
         });
