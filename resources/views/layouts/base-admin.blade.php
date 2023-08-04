@@ -18,8 +18,6 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link href="{{ asset('template/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.css') }}" rel="stylesheet"
-        type="text/css" />
     <!-- DataTables -->
     <link href="{{ asset('template/assets/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet"
         type="text/css" />
@@ -27,6 +25,9 @@
         type="text/css" />
     <!-- Responsive datatable examples -->
     <link href="{{ asset('template/assets/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet"
+        type="text/css" />
+
+    <link href="{{ asset('template/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.css') }}" rel="stylesheet"
         type="text/css" />
 
     <!-- App css -->
@@ -66,10 +67,17 @@
 
     <script src="{{ asset('template/assets/plugins/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('template/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+
+    {{-- Datatable --}}
     <script src="{{ asset('template/assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('template/assets/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('template/assets/pages/jquery.hospital_dashboard.init.js') }}"></script>
 
+    <!-- Responsive examples -->
+    <script src="{{ asset('template/assets/plugins/datatables/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('template/assets/plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('template/assets/pages/jquery.datatable.init.js') }}"></script>
+
+    <script src="{{ asset('template/assets/pages/jquery.hospital_dashboard.init.js') }}"></script>
 
     @yield('script')
 
