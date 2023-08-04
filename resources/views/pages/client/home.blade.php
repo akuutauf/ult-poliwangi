@@ -36,8 +36,78 @@
     </div>
 </section>
 
-<section id="formulir" class="container-fluid section-bg-two py-5">
-    <div class="container py-5">
+    <section id="formulir" class="container-fluid section-bg-two py-5">
+        <div class="container py-5">
+            <div class="row d-flex pt-5">
+                <h3 class="fw-bold mt-3 text-center">Kategori Pemohon</h3>
+            </div>
+
+        <div class="row py-5 d-flex justify-content-around">
+            <div class="col-12 col-sm-12 col-md-5 col-lg-3 mb-4 card card-hover card-rounded">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="card-body">
+                            <div>
+                                <div class="card-body d-flex">
+                                    <img src="{{ asset('images/pemohon-dosen.png') }}" class="img-fluid mx-auto" alt="">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <center>
+                                    <small><a href="{{ route('pengajuan.dosen.page') }}" class="tag-menu text-black fw-medium">Dosen</a></small>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div class="col-12 col-sm-12 col-md-5 col-lg-3 mb-4 card card-hover card-rounded">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="card-body">
+                                <div>
+                                    <div class="card-body d-flex">
+                                        <img src="{{ asset('images/pemohon-mahasiswa.png') }}" class="img-fluid mx-auto"
+                                            alt="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <center>
+                                        <small><a href="{{ route('pengajuan.mahasiswa.page') }}"
+                                                class="tag-menu text-black fw-medium">Mahasiswa</a></small>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-12 col-md-5 col-lg-3 mb-4 card card-hover card-rounded">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="card-body">
+                                <div>
+                                    <div class="card-body d-flex">
+                                        <img src="{{ asset('images/pemohon-umum.png') }}" class="img-fluid mx-auto"
+                                            alt="">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <center>
+                                        <small><a href="#" class="tag-menu text-black fw-medium">Umum</a></small>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="lacak_dokumen" class="container-fluid section-bg-one py-5">
         <div class="row d-flex pt-5">
             <h3 class="fw-bold mt-3 text-center">Kategori Pemohon</h3>
         </div>
