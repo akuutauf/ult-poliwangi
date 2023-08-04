@@ -21,7 +21,7 @@
                         eaque maiores. Nobis quas eum quisquam enim ea omnis nostrum.</p>
 
                     <div class="mt-5">
-                        <a href="#" class="btn btn-theme-two px-5 py-3">
+                        <a href="{{ route('home.page') }}#formulir" class="btn btn-theme-two px-5 py-3">
                             Ajukan Sekarang
                         </a>
                     </div>

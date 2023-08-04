@@ -33,7 +33,7 @@
                             href="{{ route('home.page') }}#tentang_kami">Tentang Kami</a>
                     </li>
                     <li class="nav-item my-auto px-2">
-                        <a href="" class="btn btn-theme px-3 py-2">
+                        <a href="{{ route('home.page') }}#formulir" class="btn btn-theme px-3 py-2">
                             Ajukan Sekarang
                         </a>
                     </li>
