@@ -32,40 +32,48 @@
 
                     <h4 class="mt-0 header-title">Default Datatable</h4>
 
-                    @php
-                        $no = 1;
-                    @endphp
                     <table id="datatable" class="table table-bordered dt-responsive nowrap"
                         style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                             <tr>
                                 <th>No</th>
                                 <th>Kode Tiket</th>
-                                <th>Name</th>
+                                <th>Nama</th>
                                 <th>NIP/NIK</th>
                                 <th>Prodi</th>
                                 <th>Tanggal pengajuan</th>
                                 <th>Unit Yang Dituju</th>
                                 <th>Dokumen</th>
                                 <th>Status</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>{{ $no }}</td>
-                                <td>MDA2165165</td>
-                                <td>Moh. Dimyati Ayatullah, S.Kom</td>
-                                <td>2002155146168421</td>
-                                <td>TRPL</td>
-                                <td>27/01/2024</td>
-                                <td>Sekretaris</td>
-                                <td>Surat Pengantar Prodi</td>
-                                <td>Proses</td>
-                            </tr>
-                        </tbody>
+                            @php
+                                $no = 1;
+                            @endphp
+
+                            @foreach ($dosen as $dos)
+                                <tr>
+                                    <td>{{ $no }}</td>
+                                    <td>{{ $dos->kode_tiket }}</td>
+                                    <td>{{ $dos->nama }}</td>
+                                    <td>{{ $dos->nip_nik }}</td>
+                                    <td>{{ $dos->prodi }}</td>
+                                    <td>{{ $dos->tanggal_pengajuan }}</td>
+                                    <td>{{ $dos->unit }}</td>
+                                    <td>{{ $dos->dokumen }}</td>
+                                    <td>{{ $dos->status }}</td>
+                                    <td class="text-right">
+                                        <a href="#" class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                        <a href="#"><i class="fas fa-trash-alt text-danger font-16"></i></a>
+                                    </td>
+                                </tr>
                         @php
                             $no++;
                         @endphp
+                            @endforeach
+                        </tbody>
                     </table>
 
                 </div>

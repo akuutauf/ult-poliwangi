@@ -18,29 +18,29 @@
             <!--end topbar-nav-->
             <ul class="list-unstyled topbar-nav float-right mb-0">
                 @auth
-                    <li class="dropdown ">
-                        <a class="nav-link dropdown-toggle waves-effect waves-light nav-user pr-0" data-toggle="dropdown"
-                            href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <img src="{{ asset('template/assets/images/users/user-4.jpg') }}" alt="profile-user"
-                                class="rounded-circle" />
-                            <span class="ml-1 nav-user-name hidden-sm"> {{ auth()->user()->name }}&nbsp; <i
-                                    class="mdi mdi-chevron-down"></i>
-                            </span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#"><i class="dripicons-user text-muted mr-2"></i>
-                                Profile</a>
-                            <a class="dropdown-item" href="#"><i class="dripicons-wallet text-muted mr-2"></i> My
-                                Wallet</a>
-                            <a class="dropdown-item" href="#"><i class="dripicons-gear text-muted mr-2"></i>
-                                Settings</a>
-                            <a class="dropdown-item" href="#"><i class="dripicons-lock text-muted mr-2"></i> Lock
-                                screen</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('do.logout') }}"><i
-                                    class="dripicons-exit text-muted mr-2"></i> Logout</a>
-                        </div>
-                    </li>
+                <li class="dropdown ">
+                    <a class="nav-link dropdown-toggle waves-effect waves-light nav-user pr-0" data-toggle="dropdown"
+                        href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                        <img src="{{ asset('template/assets/images/users/user-4.jpg') }}" alt="profile-user"
+                            class="rounded-circle" />
+                        <span class="ml-1 nav-user-name hidden-sm"> {{ auth()->user()->name }}&nbsp; <i
+                                class="mdi mdi-chevron-down"></i>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#"><i class="dripicons-user text-muted mr-2"></i>
+                            Profile</a>
+                        <a class="dropdown-item" href="#"><i class="dripicons-wallet text-muted mr-2"></i> My
+                            Wallet</a>
+                        <a class="dropdown-item" href="#"><i class="dripicons-gear text-muted mr-2"></i>
+                            Settings</a>
+                        <a class="dropdown-item" href="#"><i class="dripicons-lock text-muted mr-2"></i> Lock
+                            screen</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ route('do.logout') }}"><i
+                                class="dripicons-exit text-muted mr-2"></i> Logout</a>
+                    </div>
+                </li>
                 @endauth
             </ul>
         </nav>
@@ -57,8 +57,7 @@
                         <li class="has-submenu">
                             <a href="{{ route('admin.dashboard.page') }}">
                                 <svg class="nav-svg mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 92">
-                                    <path class="svg-primary" id="XMLID_1197_"
-                                        d="M90.8,22.9C90.1,22.2,89.1,22,88,22H67V10c0-2.2-2-4-4.2-4H29.2C27,6,25,7.8,25,10v12H4
+                                    <path class="svg-primary" id="XMLID_1197_" d="M90.8,22.9C90.1,22.2,89.1,22,88,22H67V10c0-2.2-2-4-4.2-4H29.2C27,6,25,7.8,25,10v12H4
                                         c-2.2,0-4,1.3-4,3.5V82c0,2.2,1.8,4,4,4h84c2.2,0,4-1.8,4-4l0-56.3C92,24.6,91.6,23.7,90.8,22.9z M33,14h26v8H33V14z M84,78H8V30h76
                                         L84,78z">
                                     </path>
@@ -84,7 +83,7 @@
                                 <li class="has-submenu">
                                     <a href="#"><i class="dripicons-user-group"></i>Kategori</a>
                                     <ul class="submenu">
-                                        <li><a href="/dosen">Dosen</a></li>
+                                        <li><a href="{{route('dosen.index')}}">Dosen</a></li>
                                         <li><a href="/mahasiswa">Mahasiswa</a></li>
                                         <li><a href="/masyarakat">Masyarakat/Umum</a></li>
                                     </ul>
@@ -223,21 +222,18 @@
 
                         <li class="has-submenu">
                             <a href="#">
-                                <svg class="nav-svg" version="1.1" id="Layer_4"
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    x="0px" y="0px" viewBox="0 0 512 512"
+                                <svg class="nav-svg" version="1.1" id="Layer_4" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
                                     style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                     <g>
-                                        <path
-                                            d="M462.5,352.3c-1.9-5.5-5.6-11.5-11.4-18.3c-10.2-12-30.8-29.3-54.8-47.2c-2.6-2-6.4-0.8-7.5,2.3l-4.7,13.4
+                                        <path d="M462.5,352.3c-1.9-5.5-5.6-11.5-11.4-18.3c-10.2-12-30.8-29.3-54.8-47.2c-2.6-2-6.4-0.8-7.5,2.3l-4.7,13.4
                                             c-0.7,2,0,4.3,1.7,5.5c15.9,11.6,35.9,27.9,41.8,35.9c2,2.8-0.5,6.6-3.9,5.8c-10-2.3-29-7.3-44.2-12.8c-8.6-3.1-17.7-6.7-27.2-10.6
                                             c16-20.8,24.7-46.3,24.7-72.6c0-32.8-13.2-63.6-37.1-86.4c-22.9-21.9-53.8-34.1-85.7-33.7c-25.7,0.3-50.1,8.4-70.7,23.5
                                             c-18.3,13.4-32.2,31.3-40.6,52c-8.3-6-16.1-11.9-23.2-17.6c-13.7-10.9-28.4-22-38.7-34.7c-2.2-2.8,0.9-6.7,4.4-5.9
                                             c11.3,2.6,35.4,10.9,56.4,18.9c1.5,0.6,3.2,0.3,4.5-0.8l11.1-10.1c2.4-2.1,1.7-6-1.3-7.2C121,137.4,89.2,128,73.2,128
                                             c-11.5,0-19.3,3.5-23.3,10.4c-7.6,13.3,7.1,35.2,45.1,66.8c34.1,28.5,82.6,61.8,136.5,92c87.5,49.1,171.1,81,208,81
                                             c11.2,0,18.7-3.1,22.1-9.1C464.4,364.4,464.7,358.7,462.5,352.3z" />
-                                        <path class="svg-primary"
-                                            d="M312,354c-29.1-12.8-59.3-26-92.6-44.8c-30.1-16.9-59.4-36.5-84.4-53.6c-1-0.7-2.2-1.1-3.4-1.1c-0.9,0-1.9,0.2-2.8,0.7
+                                        <path class="svg-primary" d="M312,354c-29.1-12.8-59.3-26-92.6-44.8c-30.1-16.9-59.4-36.5-84.4-53.6c-1-0.7-2.2-1.1-3.4-1.1c-0.9,0-1.9,0.2-2.8,0.7
                                             c-2,1-3.3,3-3.3,5.2c0,1.2-0.1,2.4-0.1,3.5c0,32.1,12.6,62.3,35.5,84.9c22.9,22.7,53.4,35.2,85.8,35.2c23.6,0,46.5-6.7,66.2-19.5
                                             c1.9-1.2,2.9-3.3,2.7-5.5C315.5,356.8,314.1,354.9,312,354z" />
                                     </g>
@@ -249,20 +245,17 @@
                                 </li>
                                 <li><a href="../pages/pages-chat.html"><i class="dripicons-conversation"></i>Chat</a>
                                 </li>
-                                <li><a href="../pages/pages-contact-list.html"><i
-                                            class="dripicons-user-id"></i>Contact
+                                <li><a href="../pages/pages-contact-list.html"><i class="dripicons-user-id"></i>Contact
                                         List</a></li>
                                 <li><a href="../pages/pages-tour.html"><i class="dripicons-rocket"></i>Tour</a></li>
                                 <li><a href="../pages/pages-timeline.html"><i class="dripicons-clock"></i>Timeline</a>
                                 </li>
-                                <li><a href="../pages/pages-invoice.html"><i
-                                            class="dripicons-document"></i>Invoice</a>
+                                <li><a href="../pages/pages-invoice.html"><i class="dripicons-document"></i>Invoice</a>
                                 </li>
                                 <li><a href="../pages/pages-treeview.html"><i
                                             class="dripicons-network-3"></i>Treeview</a>
                                 </li>
-                                <li><a href="../pages/pages-starter.html"><i
-                                            class="dripicons-clipboard"></i>Starter</a>
+                                <li><a href="../pages/pages-starter.html"><i class="dripicons-clipboard"></i>Starter</a>
                                 </li>
                                 <li><a href="../pages/pages-pricing.html"><i class="dripicons-article"></i>Pricing</a>
                                 </li>
@@ -277,9 +270,8 @@
 
                         <li class="has-submenu">
                             <a href="#">
-                                <svg class="nav-svg" version="1.1" id="Layer_5"
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    x="0px" y="0px" viewBox="0 0 512 512"
+                                <svg class="nav-svg" version="1.1" id="Layer_5" xmlns="http://www.w3.org/2000/svg"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
                                     style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                     <g>
                                         <path class="svg-primary"
@@ -298,8 +290,7 @@
                                             class="dripicons-pencil"></i>Register</a></li>
                                 <li><a href="../authentication/auth-recover-pw.html"><i
                                             class="dripicons-clockwise"></i>Recover Password</a></li>
-                                <li><a href="../authentication/auth-lock-screen.html"><i
-                                            class="dripicons-lock"></i>Lock
+                                <li><a href="../authentication/auth-lock-screen.html"><i class="dripicons-lock"></i>Lock
                                         Screen</a></li>
                                 <li><a href="../authentication/auth-404.html"><i class="dripicons-warning"></i>Error
                                         404</a></li>
