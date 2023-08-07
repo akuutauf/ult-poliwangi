@@ -129,20 +129,16 @@
 
                             <form accept="#" method="POST" class="p-3">
                                 @csrf
-                                <label class="form-label fw-bold mb-3">Lacak Dokumen Sekarang !</label>
 
+                                <label for="kode_tiket" class="form-label fw-bold mb-3">Lacak Dokumen Sekarang !</label>
                                 <div class="mb-3">
-                                    <input type="email" class="form-control" name="email" id="email"
-                                        placeholder="Masukkan Email Akun">
-                                </div>
-
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" name="ticket_code" id="ticket_code"
-                                        placeholder="Masukkan ID Pelaporan">
+                                    <input type="text" class="form-control" name="kode_tiket" id="kode_tiket"
+                                        placeholder="Masukkan Kode Tiket">
                                 </div>
 
                                 <div class="d-grid gap-2 mt-4">
-                                    <button type="submit" class="btn btn-theme" type="button">Lacak Status</button>
+                                    <button type="submit" class="btn btn-theme" type="button">Lacak Status
+                                        Dokumen</button>
                                 </div>
                             </form>
 
