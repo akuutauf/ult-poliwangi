@@ -22,14 +22,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'home_page'])->name('home.page');
 Route::get('/logout', [AuthController::class, 'doLogout'])->name('do.logout');
 
-Route::get('/dosen', function () {
-    return view('pages.admin.document.dosen.index');
+Route::get('/divisi', function () {
+    return view('pages.admin.divisi.index');
 });
-Route::get('/mahasiswa', function () {
-    return view('pages.admin.document.mahasiswa.index');
+Route::get('/admin', function () {
+    return view('pages.admin.admin.index');
 });
-Route::get('/masyarakat', function () {
-    return view('pages.admin.document.umum.index');
+Route::get('/layanan', function () {
+    return view('pages.admin.layanan.index');
+});
+Route::get('/berkas', function () {
+    return view('pages.admin.berkas.index');
+});
+
+Route::get('/pengajuan', function () {
+    return view('pages.admin.pengajuan.index');
+});
+
+Route::get('/progress-pengajuan', function () {
+    return view('pages.admin.progress-pengajuan.index');
 });
 
 Route::middleware(['guest'])->group(function () {
