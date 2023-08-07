@@ -34,7 +34,7 @@
                     </li>
                     <li class="nav-item my-auto px-2">
                         <a href="{{ route('home.page') }}#formulir" class="btn btn-theme px-3 py-2">
-                            Ajukan Sekarang
+                            Ajukan Permohonan
                         </a>
                     </li>
                 </ul>

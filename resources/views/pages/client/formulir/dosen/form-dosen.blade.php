@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="d-grid gap-2 mt-3">
-                            <button type="submit" class="btn btn-theme" type="button">Submit Dokumen</button>
+                            <button type="submit" class="btn btn-theme" type="button">Submit Pengajuan</button>
                         </div>
                     </form>
                 </div>

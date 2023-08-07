@@ -10,7 +10,7 @@ body {
 }
 
 #bodyHome {
-    background-color: #e5f2fe !important;
+    background-color: white !important;
 }
 
 .fw-light {
@@ -31,6 +31,49 @@ body {
 
 .bg-theme {
     background-color: #005fb1 !important;
+}
+
+.text-theme {
+    color: #005fb1 !important;
+}
+
+.card-hover {
+    cursor: pointer;
+}
+
+/* star rating */
+.star-rating {
+    color: #ccc;
+    font-size: 35px;
+}
+
+.star-rating.checked {
+    color: #ffd700;
+    font-size: 35px;
+}
+
+.rating-input {
+    display: none;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.product-rating i {
+    color: #ffd700;
+    font-size: 18px;
+}
+
+.rating-number {
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+.hidden {
+    visibility: hidden !important;
 }
 
 .btn-theme {
