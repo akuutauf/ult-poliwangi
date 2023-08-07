@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('jenis_permohonan', 255)->nullable(false);
             $table->date('tanggal_permohonan', 255)->nullable(false);
             $table->string('status')->nullable(false);
-            $table->string('kode_tiket', 255)->nullable(false);
+            $table->string('kode_tiket', 7)->nullable(false);
             $table->unsignedBigInteger('id_layanan')->nullable(false);
             $table->foreign('id_layanan')->references('id')->on('layanans')->onDelete('cascade');
             $table->timestamps();

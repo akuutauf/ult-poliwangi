@@ -39,7 +39,7 @@
     <section id="formulir" class="container-fluid section-bg-two py-5">
         <div class="container py-5">
             <div class="row d-flex pt-5">
-                <h3 class="fw-bold mt-3 text-center">Kategori Pemohon</h3>
+                <h3 class="fw-bold mt-3 text-center">Kategori Permohonan Formulir</h3>
             </div>
 
             <div class="row py-5 d-flex justify-content-around">
