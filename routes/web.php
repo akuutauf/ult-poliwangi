@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\FormMahasiswaController;
 use App\Http\Controllers\FormDosenController;
@@ -39,9 +40,12 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [PageController::class, 'admin_page'])->name('admin.dashboard.page');
-    Route::get('/divisi', function () {
-        return view('pages.admin.divisi.index');
-    });
+
+    Route::get('/divisi', [DivisiController::class, 'index'])->name('admin.divisi');
+    Route::post('/divisi/create', [DivisiController::class, 'store'])->name('admin.divisi.create');
+    Route::get('/divisi/delete/{id}', [DivisiController::class, 'destroy'])->name('admin.divisi.destroy');
+    Route::put('/divisi/{id}/update', [DivisiController::class, 'update'])->name('admin.divisi.update');
+
     Route::get('/admin', function () {
         return view('pages.admin.admin.index');
     });

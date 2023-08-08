@@ -40,6 +40,10 @@
 
 <body>
 
+    {{-- alert --}}
+    @include('sweetalert::alert')
+
+
     @include('layouts.partials.admin.navbar-admin')
 
     <div class="page-wrapper">

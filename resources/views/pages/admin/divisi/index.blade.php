@@ -51,22 +51,61 @@
                                         </thead>
 
                                         <tbody>
-                                            <tr>
-                                                <td>{{ $no }}</td>
-                                                <td>Keuangan</td>
-                                                <td class="text-right">
-                                                    <a href="#" class="mr-2" data-toggle="modal"
-                                                        data-animation="bounce" data-target=".modalUpdate"><i
-                                                            class="fas fa-edit text-info font-16"></i></a>
-                                                    <a href="#"><i
-                                                            class="fas fa-trash-alt text-danger font-16"></i></a>
-                                                </td>
-                                            </tr>
-                                            <!--end tr-->
+                                            @foreach ($divisi as $item)
+                                                <tr>
+                                                    <td>{{ $no }}</td>
+                                                    <td>{{ $item->name }}</td>
+                                                    <td class="text-right">
+                                                        <a href="{{ route('admin.divisi.update', $item->id) }}"
+                                                            class="mr-2" data-toggle="modal" data-animation="bounce"
+                                                            data-target=".modalUpdate"><i
+                                                                class="fas fa-edit text-info font-16"></i></a>
+                                                        <a href="{{ route('admin.divisi.destroy', $item->id) }}"><i
+                                                                class="fas fa-trash-alt text-danger font-16"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <!--end tr-->
+                                                @php
+                                                    $no++;
+                                                @endphp
+                                                <div class="modal fade modalUpdate" tabindex="-1" role="dialog"
+                                                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title mt-0" id="myLargeModalLabel">Update
+                                                                    Divisi</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-hidden="true">×</button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="{{ route('admin.divisi.update', $item->id) }}"
+                                                                    method="POST">
+                                                                    @method('put')
+                                                                    @csrf
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label for="name">Nama Divisi</label>
+                                                                                <input type="text" class="form-control"
+                                                                                    id="name" name="name"
+                                                                                    required=""
+                                                                                    value="{{ $item->name }}">
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <button type="submit"
+                                                                        class="btn btn-sm btn-primary">Update</button>
+                                                                    <button type="button"
+                                                                        class="btn btn-sm btn-danger">Cancel</button>
+                                                                </form>
+                                                            </div>
+                                                        </div><!-- /.modal-content -->
+                                                    </div><!-- /.modal-dialog -->
+                                                </div><!-- /.modal -->
+                                            @endforeach
                                         </tbody>
-                                        @php
-                                            $no++;
-                                        @endphp
                                     </table>
                                 </div>
                             </div>
@@ -82,32 +121,7 @@
     <!--end row-->
 
     <!--  Modal Update content for the above example -->
-    <div class="modal fade modalUpdate" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Update Divisi</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="Item">Nama Divisi</label>
-                                    <input type="text" class="form-control" id="Item" required="">
-                                </div>
-                            </div>
 
-                        </div>
-                        <button type="button" class="btn btn-sm btn-primary">Update</button>
-                        <button type="button" class="btn btn-sm btn-danger">Cancel</button>
-                    </form>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 
     <!--  Modal Add new content for the above example -->
     <div class="modal fade modalCreate" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
@@ -119,18 +133,24 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="{{ route('admin.divisi.create') }}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="Item">Nama Divisi</label>
-                                    <input type="text" class="form-control" id="Item" required="">
+                                    <label for="name">Nama Divisi</label>
+                                    <input type="text" class="form-control" id="name" name="name" required=""
+                                        value="">
+
+                                    @if ($errors->has('name'))
+                                        <span class="text-danger text-left">{{ $errors->first('name') }}</span>
+                                    @endif
                                 </div>
                             </div>
 
                         </div>
 
-                        <button type="button" class="btn btn-sm btn-primary">Save</button>
+                        <button type="submit" class="btn btn-sm btn-primary" id="sa-success">Save</button>
                         <button type="button" class="btn btn-sm btn-danger">Cancel</button>
                     </form>
                 </div>

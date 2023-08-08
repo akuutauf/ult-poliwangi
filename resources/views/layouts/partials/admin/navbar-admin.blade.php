@@ -79,7 +79,7 @@
                                 <li class="has-submenu">
                                     <a href="#"><i class="dripicons-user-group"></i>Kategori</a>
                                     <ul class="submenu">
-                                        <li><a href="/divisi">Divisi</a></li>
+                                        <li><a href="{{ route('admin.divisi') }}">Divisi</a></li>
                                         <li><a href="/admin">Admin</a></li>
                                         <li><a href="/layanan">Layanan</a></li>
                                         <li><a href="/berkas">Berkas</a></li>
