@@ -4,6 +4,10 @@
     <title>Formulir Pengajuan Mahasiswa | ULT Poliwangi</title>
 @endsection
 
+@section('css')
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+@endsection
+
 @section('content')
     <section class="container-fluid section-bg-one">
         <div class="container py-5">
@@ -57,6 +61,31 @@
                                 </div>
                             </div>
 
+                            {{-- <div class="col-md-6 mb-1">
+                                <label class="form-label" for="layanan_two">Permohonan</label>
+                                <div class="input-group">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Select Item
+                                        </button>
+                                        <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton"
+                                            style="width: 300px;">
+                                            <input class="form-control mb-2" type="text" id="searchInput"
+                                                placeholder="Search" name="layanan_two">
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#" data-value="Item 1">Item 1</a>
+                                            <a class="dropdown-item" href="#" data-value="Item 2">Item 2</a>
+                                            <a class="dropdown-item" href="#" data-value="Item 3">Item 3</a>
+                                            <a class="dropdown-item" href="#" data-value="Item 4">Item 4</a>
+                                            <a class="dropdown-item" href="#" data-value="Item 5">Item 5</a>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" id="selectedOption" readonly>
+                                </div>
+                            </div> --}}
+
                         </div>
 
                         <div class="d-grid gap-2 mt-3">
@@ -67,4 +96,34 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('script')
+    <script>
+        // Script to capture selected option from dropdown
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownItems = document.querySelectorAll('.dropdown-item');
+            const selectedOptionInput = document.getElementById('selectedOption');
+            const searchInput = document.getElementById('searchInput');
+
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const selectedValue = item.getAttribute('data-value');
+                    selectedOptionInput.value = selectedValue;
+                });
+            });
+
+            searchInput.addEventListener('input', function() {
+                const searchValue = searchInput.value.toLowerCase();
+                dropdownItems.forEach(item => {
+                    const itemText = item.textContent.trim().toLowerCase();
+                    if (itemText.includes(searchValue)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
