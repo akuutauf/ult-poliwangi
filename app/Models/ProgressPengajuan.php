@@ -11,8 +11,9 @@ class ProgressPengajuan extends Model
 
     protected $fillable = [
         'pesan',
-        'file',
+        'file_dokumen',
         'tanggal',
+        'status',
         'id_pengajuan'
     ];
 

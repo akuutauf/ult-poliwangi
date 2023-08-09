@@ -10,11 +10,15 @@ class Pengajuan extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
+        'kode_tiket',
         'nama_pemohon',
+        'nomor_identitas',
+        'email',
         'jenis_permohonan',
         'tanggal_permohonan',
-        'status',
-        'kode_tiket',
+        'nomor_telepon',
+        'id_prodi',
         'id_layanan',
     ];
 
@@ -23,8 +27,18 @@ class Pengajuan extends Model
         return $this->belongsTo(Layanan::class, 'id_layanan', 'id');
     }
 
+    public function prodi()
+    {
+        return $this->belongsTo(Prodi::class, 'id_prodi', 'id');
+    }
+
     public function progress_pengajuan()
     {
         return $this->hasMany(ProgressPengajuan::class);
+    }
+
+    public function survei()
+    {
+        return $this->hasOne(Survei::class);
     }
 }
