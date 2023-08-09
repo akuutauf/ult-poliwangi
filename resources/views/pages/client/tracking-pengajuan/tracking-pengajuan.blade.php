@@ -93,7 +93,7 @@
                                     <div class="time-item">
                                         <div class="item-info">
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <h6 class="m-0 fw-bold">Dokumen Terkirim</h6>
+                                                <h6 class="m-0 fw-bold">Formulir Pengajuan Berhasil Terkirim</h6>
                                             </div>
                                             <h6 class="text-muted mt-3">
                                                 Dokumen Berhasil Diunggah.
