@@ -46,6 +46,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/divisi/delete/{id}', [DivisiController::class, 'destroy'])->name('admin.divisi.destroy');
     Route::put('/divisi/{id}/update', [DivisiController::class, 'update'])->name('admin.divisi.update');
 
+    Route::get('/prodi', function () {
+        return view('pages.admin.prodi.index');
+    });
     Route::get('/admin', function () {
         return view('pages.admin.admin.index');
     });
