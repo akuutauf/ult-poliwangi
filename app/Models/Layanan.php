@@ -10,6 +10,7 @@ class Layanan extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'nama_layanan',
         'id_divisi'
     ];
@@ -18,12 +19,6 @@ class Layanan extends Model
     public function divisi()
     {
         return $this->belongsTo(Divisi::class, 'id_divisi', 'id');
-    }
-
-    // Relasi dari layanan ke berkas(one to many)
-    public function berkas()
-    {
-        return $this->hasMany(Berkas::class);
     }
 
     public function pengajuan()

@@ -10,6 +10,7 @@ class BerkasLayanan extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'id_berkas',
         'id_layanan',
     ];

@@ -10,16 +10,10 @@ class Berkas extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nama',
-        'jenis',
-        'id_layanan',
+        'id',
+        'nama_berkas',
+        'jenis_berkas',
     ];
-
-    // relasi dari berkas ke layanan (many to one)
-    public function layanan()
-    {
-        return $this->belongsTo(Layanan::class, 'id_layanan', 'id');
-    }
 
     // relasi dari berkas ke berkas layanan (one to many)
     public function berkas_layanan()

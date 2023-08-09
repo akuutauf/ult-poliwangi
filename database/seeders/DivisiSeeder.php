@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Divisi;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class UserSeeder extends Seeder
+class DivisiSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,11 +15,9 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
+        Divisi::create([
             'id' => 1,
-            'name' => 'admin',
-            'email' => 'ultpoliwangi@gmail.com',
-            'password' => bcrypt('admin123')
+            'nama_divisi' => 'Akademik',
         ]);
     }
 }

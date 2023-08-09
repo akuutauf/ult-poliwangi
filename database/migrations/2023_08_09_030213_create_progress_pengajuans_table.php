@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('progress_pengajuans', function (Blueprint $table) {
             $table->id();
             $table->text('pesan')->nullable(false);
-            $table->string('file')->nullable(true);
+            $table->string('file_dokumen')->nullable(true);
             $table->date('tanggal')->nullable(false);
+            $table->string('status')->nullable(true);
             $table->unsignedBigInteger('id_pengajuan')->nullable(false);
             $table->foreign('id_pengajuan')->references('id')->on('pengajuans')->onDelete('cascade');
             $table->timestamps();

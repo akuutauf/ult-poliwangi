@@ -5,22 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Divisi extends Model
+class Survei extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'id',
-        'nama_divisi'
+        'nama',
+        'email',
+        'saran',
+        'id_pengajuan',
     ];
 
-    public function admin()
+    public function pengajuan()
     {
-        return $this->hasMany(Admin::class);
-    }
-
-    public function layanan()
-    {
-        return $this->hasMany(Layanan::class);
+        return $this->belongsTo(Pengajuan::class, 'id_pengajuan', 'id');
     }
 }

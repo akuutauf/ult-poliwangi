@@ -15,12 +15,16 @@ return new class extends Migration
     {
         Schema::create('pengajuans', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_tiket', 7)->unique()->nullable(false);
             $table->string('nama_pemohon', 255)->nullable(false);
-            $table->string('jenis_permohonan', 255)->nullable(false);
-            $table->date('tanggal_permohonan', 255)->nullable(false);
-            $table->string('status')->nullable(false);
-            $table->string('kode_tiket', 7)->nullable(false);
+            $table->string('nomor_identitas', 16)->nullable(false);
+            $table->string('email', 255)->nullable(false);
+            $table->string('jenis_permohonan', 100)->nullable(false);
+            $table->date('tanggal_permohonan')->nullable(false);
+            $table->string('nomor_telepon', 15)->nullable(false);
+            $table->unsignedBigInteger('id_prodi')->nullable(false);
             $table->unsignedBigInteger('id_layanan')->nullable(false);
+            $table->foreign('id_prodi')->references('id')->on('prodis')->onDelete('cascade');
             $table->foreign('id_layanan')->references('id')->on('layanans')->onDelete('cascade');
             $table->timestamps();
         });

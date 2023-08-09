@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('berkas', function (Blueprint $table) {
+        Schema::create('surveis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_berkas')->nullable(false);
-            $table->string('jenis_berkas')->nullable(true);
+            $table->string('nama', 255)->nullable(false);
+            $table->string('email', 255)->nullable(false);
+            $table->text('saran', 255)->nullable(true);
+            $table->unsignedBigInteger('id_pengajuan')->nullable(false);
+            $table->foreign('id_pengajuan')->references('id')->on('pengajuans')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('berkas');
+        Schema::dropIfExists('surveis');
     }
 };
