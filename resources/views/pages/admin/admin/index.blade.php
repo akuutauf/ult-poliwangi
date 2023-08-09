@@ -40,6 +40,9 @@
                                     data-animation="bounce" data-target=".modalCreate"><i
                                         class="mdi mdi-plus-circle-outline mr-2"></i>Add New Admin</button>
                                 <div class="table-responsive">
+                                    @php
+                                        $no = 1;
+                                    @endphp
                                     <table id="datatable" class="table">
                                         <thead class="thead-light">
                                             <tr>
@@ -52,19 +55,25 @@
                                         </thead>
 
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Keuangan</td>
-                                                <td>Admin</td>
-                                                <td class="text-right">
-                                                    <a href="#" class="mr-2" data-toggle="modal"
-                                                        data-animation="bounce" data-target=".modalUpdate"><i
-                                                            class="fas fa-edit text-info font-16"></i></a>
-                                                    <a href="#"><i
-                                                            class="fas fa-trash-alt text-danger font-16"></i></a>
-                                                </td>
-                                            </tr>
-                                            <!--end tr-->
+                                            @foreach ($admin as $item)
+                                                <tr>
+                                                    <td>{{ $no }}</td>
+                                                    <td>{{ $item->divisi->nama_divisi }}</td>
+                                                    <td>{{ $item->user->name }}</td>
+                                                    <td class="text-right">
+                                                        <a href="#" class="mr-2" data-toggle="modal"
+                                                            data-animation="bounce" data-target=".modalUpdate"><i
+                                                                class="fas fa-edit text-info font-16"></i></a>
+                                                        <a href="#"><i
+                                                                class="fas fa-trash-alt text-danger font-16"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <!--end tr-->
+
+                                                @php
+                                                    $no++;
+                                                @endphp
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

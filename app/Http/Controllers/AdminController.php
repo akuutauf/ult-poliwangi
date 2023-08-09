@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
+use App\Models\Divisi;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,7 +16,12 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'divisi' => Divisi::all(),
+            'user' => User::all(),
+            'admin' => Admin::all(),
+        ];
+        return view('pages.admin.admin.index', $data);
     }
 
     /**

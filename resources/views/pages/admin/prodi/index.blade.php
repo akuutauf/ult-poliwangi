@@ -43,55 +43,60 @@
 
                                         <tbody>
 
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Teknologi Rekayasa Perangkat Lunak</td>
-                                                <td class="text-right">
-                                                    <a href="#" class="mr-2" data-toggle="modal"
-                                                        data-animation="bounce" data-target=".modalUpdate"><i
-                                                            class="fas fa-edit text-info font-16"></i></a>
-                                                    <a href="#"><i
-                                                            class="fas fa-trash-alt text-danger font-16"></i></a>
-                                                </td>
-                                            </tr>
-                                            <!--end tr-->
-                                            @php
-                                                $no++;
-                                            @endphp
-                                            <div class="modal fade modalUpdate" tabindex="-1" role="dialog"
-                                                aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-lg">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title mt-0" id="myLargeModalLabel">Update
-                                                                Prodi</h5>
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                aria-hidden="true">×</button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form action="">
-
-                                                                <div class="row">
-                                                                    <div class="col-md-12">
-                                                                        <div class="form-group">
-                                                                            <label for="Prodi">Nama Prodi</label>
-                                                                            <input type="text" class="form-control"
-                                                                                id="nama_prodi" name="nama_prodi"
-                                                                                required="" value="">
+                                            @foreach ($prodi as $item)
+                                                <tr>
+                                                    <td>{{ $no }}</td>
+                                                    <td>{{ $item->nama_prodi }}</td>
+                                                    <td class="text-right">
+                                                        <a href="{{ route('admin.prodi.update', $item->id) }}"
+                                                            class="mr-2" data-toggle="modal" data-animation="bounce"
+                                                            data-target=".modalUpdate{{ $item->id }}"><i
+                                                                class="fas fa-edit text-info font-16"></i></a>
+                                                        <a href="{{ route('admin.prodi.destroy', $item->id) }}"><i
+                                                                class="fas fa-trash-alt text-danger font-16"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <!--end tr-->
+                                                @php
+                                                    $no++;
+                                                @endphp
+                                                <div class="modal fade modalUpdate{{ $item->id }}" tabindex="-1"
+                                                    role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title mt-0" id="myLargeModalLabel">Update
+                                                                    Prodi</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-hidden="true">×</button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="{{ route('admin.prodi.update', $item->id) }}"
+                                                                    method="POST">
+                                                                    @method('put')
+                                                                    @csrf
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label for="Prodi">Nama Prodi</label>
+                                                                                <input type="text" class="form-control"
+                                                                                    id="nama_prodi" name="nama_prodi"
+                                                                                    required=""
+                                                                                    value="{{ $item->nama_prodi }}">
+                                                                            </div>
                                                                         </div>
+
                                                                     </div>
-
-                                                                </div>
-                                                                <button type="submit"
-                                                                    class="btn btn-sm btn-primary">Update</button>
-                                                                <button type="button"
-                                                                    class="btn btn-sm btn-danger">Cancel</button>
-                                                            </form>
-                                                        </div>
-                                                    </div><!-- /.modal-content -->
-                                                </div><!-- /.modal-dialog -->
-                                            </div><!-- /.modal -->
-
+                                                                    <button type="submit"
+                                                                        class="btn btn-sm btn-primary">Update</button>
+                                                                    <button type="button"
+                                                                        class="btn btn-sm btn-danger">Cancel</button>
+                                                                </form>
+                                                            </div>
+                                                        </div><!-- /.modal-content -->
+                                                    </div><!-- /.modal-dialog -->
+                                                </div><!-- /.modal -->
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -120,18 +125,18 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="POST">
-
+                    <form action="{{ route('admin.prodi.create') }}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="name">Nama Prodi</label>
-                                    <input type="text" class="form-control" id="name" name="name" required=""
-                                        value="">
+                                    <input type="text" class="form-control" id="nama_prodi" name="nama_prodi"
+                                        required="" value="">
 
-                                    {{-- @if ($errors->has('name'))
-                                        <span class="text-danger text-left">{{ $errors->first('name') }}</span>
-                                    @endif --}}
+                                    @if ($errors->has('nama_prodi'))
+                                        <span class="text-danger text-left">{{ $errors->first('nama_prodi') }}</span>
+                                    @endif
                                 </div>
                             </div>
 

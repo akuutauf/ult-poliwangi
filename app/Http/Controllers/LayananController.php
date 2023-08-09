@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Divisi;
+use App\Models\Layanan;
 use Illuminate\Http\Request;
 
 class LayananController extends Controller
@@ -13,7 +15,12 @@ class LayananController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'layanan' => Layanan::all(),
+            'divisi' => Divisi::all(),
+        ];
+
+        return view('pages.admin.layanan.index', $data);
     }
 
     /**

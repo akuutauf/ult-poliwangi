@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Berkas;
+use App\Models\Prodi;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
-class BerkasController extends Controller
+class ProdiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +16,11 @@ class BerkasController extends Controller
     public function index()
     {
         $data = [
-            'berkas' => Berkas::all(),
+            'prodi' => Prodi::all(),
         ];
 
-        return view('pages.admin.berkas.index', $data);
+
+        return view('pages.admin.prodi.index', $data);
     }
 
     /**
@@ -39,7 +41,18 @@ class BerkasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama_prodi' => ['required', 'string', 'max:100']
+        ]);
+
+
+        $prodi = new Prodi;
+        $prodi->nama_prodi = $validated['nama_prodi'];
+        $prodi->save();
+
+        Alert::success('Success', 'Prodi berhasil ditambahkan');
+
+        return redirect()->route('admin.prodi.index');
     }
 
     /**
@@ -73,7 +86,9 @@ class BerkasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Prodi::where('id', $request->id)->update($request->only(['nama_prodi']));
+        Alert::success('Success', 'Prodi berhasil diupdate');
+        return redirect()->route('admin.prodi.index');
     }
 
     /**
@@ -84,6 +99,11 @@ class BerkasController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $prodi = Prodi::findOrFail($id);
+        $prodi->delete();
+        Alert::success('Success', 'Prodi berhasil dihapus');
+
+        return redirect()->route('admin.prodi.index');
     }
 }
