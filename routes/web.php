@@ -35,7 +35,9 @@ Route::middleware(['guest'])->group(function () {
 
     // route formulir
     Route::get('/tracking-pengajuan/{kode_tiket}', [TrackingPengajuan::class, 'show'])->name('tracking.pengajuan.page');
+
     Route::get('/formulir-survei/kepuasan-pengguna/{kode_tiket}', [SurveiKepuasanPenggunaController::class, 'create'])->name('survei.kepuasan.pengguna.page');
+    Route::post('/formulir-survei/kepuasan-pengguna/{kode_tiket}/create',[SurveiKepuasanPenggunaController::class, 'store'])->name('survei.kepuasan.pengguna.create');
 
     Route::get('/formulir-pengajuan/dosen', [FormDosenController::class, 'create'])->name('pengajuan.dosen.page');
     Route::post('/formulir-pengajuan/dosen/create', [FormDosenController::class, 'store'])->name('pengajuan.dosen.store');
@@ -45,6 +47,7 @@ Route::middleware(['guest'])->group(function () {
 
     Route::get('/formulir-pengajuan/umum', [FormUmumController::class, 'create'])->name('pengajuan.umum.page');
     Route::post('/formulir-pengajuan/umum/create', [FormUmumController::class, 'store'])->name('pengajuan.umum.store');
+
 });
 
 Route::middleware(['auth'])->group(function () {
