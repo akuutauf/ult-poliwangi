@@ -24,6 +24,9 @@
 </head>
 
 <body id="bodyHome">
+    {{-- sweet alert pop up --}}
+    @include('sweetalert::alert')
+
     {{-- navbar --}}
     @include('layouts.partials.client.navbar-client')
 

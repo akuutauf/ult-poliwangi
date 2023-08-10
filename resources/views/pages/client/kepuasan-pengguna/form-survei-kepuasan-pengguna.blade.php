@@ -18,7 +18,7 @@
 
             <div class="row d-flex justify-content-center">
                 <div class="col-12 d-flex mb-4">
-                    <button class="btn btn-theme mx-auto" onclick="copyToClipboard()">#JD923JC <i
+                    <button class="btn btn-theme mx-auto" onclick="copyToClipboard()">#{{ $data_pengajuan->kode_tiket }} <i
                             class="far fa-copy"></i></button>
                 </div>
                 <div class="col-12">
@@ -93,13 +93,13 @@
                         <div class="mb-3">
                             <label for="email" class="form-label fw-bold mb-3">Email</label>
                             <input type="text" class="form-control" name="email" id="email"
-                                placeholder="Masukkan Email Anda">
+                                placeholder="Masukkan Email Anda" value="{{ $data_pengajuan->email }}">
                         </div>
 
                         <div class="mb-3">
                             <label for="name" class="form-label fw-bold mb-3">Nama</label>
                             <input type="text" class="form-control" name="name" id="name"
-                                placeholder="Nama Lengkap Anda">
+                                placeholder="Nama Lengkap Anda" value="{{ $data_pengajuan->nama_pemohon }}">
                         </div>
 
                         <div class="mb-3">
@@ -142,15 +142,11 @@
         });
     </script>
 
-    @php
-        $data = 'JD923JC';
-    @endphp
-
     {{-- Copy Clipboard --}}
     <script>
         function copyToClipboard() {
             /* Teks yang ingin Anda salin */
-            var textToCopy = @json($data);
+            var textToCopy = @json($data_pengajuan->kode_tiket);
 
             /* Buat elemen textarea sementara untuk menyalin teks */
             var tempTextArea = document.createElement("textarea");

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengajuan;
 use Illuminate\Http\Request;
 
 class SurveiKepuasanPenggunaController extends Controller
@@ -21,9 +22,14 @@ class SurveiKepuasanPenggunaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return view('pages.client.kepuasan-pengguna.form-survei-kepuasan-pengguna');
+
+        $data = [
+            'data_pengajuan' => Pengajuan::findOrFail($id),
+        ];
+
+        return view('pages.client.kepuasan-pengguna.form-survei-kepuasan-pengguna', $data);
     }
 
     /**

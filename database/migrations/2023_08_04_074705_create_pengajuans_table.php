@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('pengajuans', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary();
             $table->string('kode_tiket', 7)->unique()->nullable(false);
             $table->string('nama_pemohon', 255)->nullable(false);
             $table->string('nomor_identitas', 16)->nullable(false);

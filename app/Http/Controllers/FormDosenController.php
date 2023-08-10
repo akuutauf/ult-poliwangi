@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengajuan;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Str;
 
 class FormDosenController extends Controller
 {
@@ -34,7 +37,33 @@ class FormDosenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama_pemohon' => 'required|string',
+            'nomor_identitas' => 'required|numeric',
+            'email' => 'required|email',
+            'nomor_telepon' => 'required|numeric',
+            'id_prodi' => 'required',
+            'id_layanan' => 'required',
+            'tanggal_permohonan' => 'required|date',
+        ]);
+
+        $newPengajuan = Pengajuan::create([
+            'nama_pemohon' => $validated['nama_pemohon'],
+            'nomor_identitas' => $validated['nomor_identitas'],
+            'email' => $validated['email'],
+            'nomor_telepon' => $validated['nomor_telepon'],
+            'id_prodi' => $validated['id_prodi'],
+            'id_layanan' => $validated['id_layanan'],
+            'tanggal_permohonan' => $validated['tanggal_permohonan'],
+
+            // generate kode tiker dan jenis permohonan
+            'kode_tiket' => Str::random(7),
+            'jenis_permohonan' => 'Dosen',
+        ]);
+
+        Alert::success('Pengajuan Berhasil Dikirim', 'Jangan Lupa Salin Kode Tiket');
+
+        return redirect()->route('survei.kepuasan.pengguna.page', $newPengajuan->id);
     }
 
     /**
