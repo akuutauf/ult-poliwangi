@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengajuan;
+use App\Models\Survei;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SurveiKepuasanPenggunaController extends Controller
 {
@@ -24,12 +26,19 @@ class SurveiKepuasanPenggunaController extends Controller
      */
     public function create($id)
     {
+        $survei = Survei::where('id_pengajuan', $id)->first();
+
+        if ($survei) {
+            // Data ID pengajuan ditemukan di tabel Survei
+            return redirect()->route('home.page');
+        }
 
         $data = [
             'data_pengajuan' => Pengajuan::findOrFail($id),
         ];
 
         return view('pages.client.kepuasan-pengguna.form-survei-kepuasan-pengguna', $data);
+
     }
 
     /**
@@ -38,9 +47,28 @@ class SurveiKepuasanPenggunaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id_pengajuan)
     {
-        //
+        $pengajuan = Pengajuan::findOrFail($id_pengajuan);
+        // dd($id_pengajuan);
+        $validated = $request->validate([
+            'rating'=> 'required|numeric',
+            'nama' => 'required|string',
+            'email' => 'required|email',
+
+        ]);
+
+        $newSurvei = Survei::create([
+            'rating' => $validated['rating'],
+            'nama' => $validated['nama'],
+            'email' => $validated['email'],
+            'saran' =>$request->saran,
+            'id_pengajuan' => $pengajuan->id,
+        ]);
+
+        Alert::success('Terima Kasih', 'Saran Telah Kami Tanggapi');
+
+        return redirect()->route('home.page');
     }
 
     /**
@@ -87,4 +115,4 @@ class SurveiKepuasanPenggunaController extends Controller
     {
         //
     }
-}
+};

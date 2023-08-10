@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('surveis', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger('rating')->nullable(false)->default(1);
             $table->string('nama', 255)->nullable(false);
             $table->string('email', 255)->nullable(false);
             $table->text('saran', 255)->nullable(true);

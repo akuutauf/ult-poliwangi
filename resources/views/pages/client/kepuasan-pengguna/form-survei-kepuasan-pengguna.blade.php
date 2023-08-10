@@ -30,7 +30,7 @@
 
             <div class="row py-5 d-flex justify-content-around">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-5 mb-5 order-2 order-md-1">
-                    <form accept="#" method="POST" class="p-3">
+                    <form action="{{route('survei.kepuasan.pengguna.create', $data_pengajuan->id)}}" method="POST" class="p-3">
                         @csrf
 
                         <div class="mb-2">
@@ -92,15 +92,21 @@
 
                         <div class="mb-3">
                             <label for="email" class="form-label fw-bold mb-3">Email</label>
-                            <input type="text" class="form-control" name="email" id="email"
+                            <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" id="email"
                                 placeholder="Masukkan Email Anda" value="{{ $data_pengajuan->email }}">
                         </div>
+                            @error('email')
+                        <div id="email" class="form-text pb-1">{{ $message }}</div>
+                            @enderror
 
                         <div class="mb-3">
-                            <label for="name" class="form-label fw-bold mb-3">Nama</label>
-                            <input type="text" class="form-control" name="name" id="name"
+                            <label for="nama" class="form-label fw-bold mb-3">Nama</label>
+                            <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama"
                                 placeholder="Nama Lengkap Anda" value="{{ $data_pengajuan->nama_pemohon }}">
                         </div>
+                            @error('nama')
+                        <div id="nama" class="form-text pb-1">{{ $message }}</div>
+                            @enderror
 
                         <div class="mb-3">
                             <label for="suggest" class="form-label fw-bold mb-3">Saran</label>
