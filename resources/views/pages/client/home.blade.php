@@ -127,7 +127,7 @@
                     <div class="card card-rounded card-hover shadow">
                         <div class="card-body">
 
-                            <form accept="#" method="POST" class="p-3">
+                            <form action="{{ route('tracking.pengajuan.search') }}" method="GET" class="p-3">
                                 @csrf
 
                                 <label for="kode_tiket" class="form-label fw-bold mb-3">Lacak Dokumen Sekarang !</label>

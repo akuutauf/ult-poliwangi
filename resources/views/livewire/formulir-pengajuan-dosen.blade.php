@@ -89,7 +89,7 @@
                 <label for="tanggal_permohonan" class="form-label">Tanggal</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fa-solid fa-calendar"></i></span>
-                    <input type="date" data-dd-opt-custom-class="dd-theme-bootstrap"
+                    <input type="text" data-dd-opt-custom-class="dd-theme-bootstrap"
                         class="form-control date-input @error('tanggal_permohonan') is-invalid @enderror"
                         id="tanggal_permohonan" name="tanggal_permohonan" placeholder="Tanggal Pengajuan">
                 </div>

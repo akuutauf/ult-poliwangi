@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengajuan;
+use App\Models\ProgressPengajuan;
 use Illuminate\Http\Request;
 
-class TrackingPengajuan extends Controller
+class TrackingPengajuanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -43,9 +45,20 @@ class TrackingPengajuan extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($kode_ticket)
+    public function show($pengajuan_id)
     {
-        return view('pages.client.tracking-pengajuan.tracking-pengajuan');
+        $pengajuan = Pengajuan::findOrFail($pengajuan_id);
+
+        $data = [
+            'pengajuan' => $pengajuan,
+            'document_submitted' => ProgressPengajuan::select('id', 'pesan', 'file_dokumen', 'tanggal', 'status')->where('id_pengajuan', $pengajuan->id)->whereIn('status', ['Formulir Pengajuan Berhasil Terkirim'])->get(),
+            'document_on_progress' => ProgressPengajuan::select('id', 'pesan', 'file_dokumen', 'tanggal', 'status')->where('id_pengajuan', $pengajuan->id)->whereIn('status', ['Dokumen Diproses'])->get(),
+            'document_done' => ProgressPengajuan::select('id', 'pesan', 'file_dokumen', 'tanggal', 'status')->where('id_pengajuan', $pengajuan->id)->whereIn('status', ['Dokumen Selesai'])->get(),
+        ];
+
+        // dd($data['document_submitted']);
+
+        return view('pages.client.tracking-pengajuan.tracking-pengajuan', $data);
     }
 
     /**
