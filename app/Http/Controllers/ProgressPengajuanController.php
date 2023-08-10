@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProgressPengajuan;
 use Illuminate\Http\Request;
 
 class ProgressPengajuanController extends Controller
@@ -14,6 +15,7 @@ class ProgressPengajuanController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
@@ -43,9 +45,13 @@ class ProgressPengajuanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($progress_pengajuan_id)
     {
+        $data = [
+            'progress_pengajuans'=> ProgressPengajuan::where('id_pengajuan',$progress_pengajuan_id)->get(),
+        ];
         //
+        return view('pages.admin.progress-pengajuan.index', $data);
     }
 
     /**

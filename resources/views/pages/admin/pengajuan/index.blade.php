@@ -69,7 +69,7 @@
                                                     <td>{{$data->nomor_telepon}}</td>
                                                     <td>{{$data->kode_tiket}}</td>
                                                     <td class="text-right">
-                                                        <a href="/progress-pengajuan"><i
+                                                        <a href="{{route('admin.progress.pengajuan.index',$data->id)}}"><i
                                                                 class="fas fa-file-shield text-info font-16"></i></a>
                                                         <a href="#"><i
                                                                 class="fas fa-trash-alt text-danger font-16"></i></a>

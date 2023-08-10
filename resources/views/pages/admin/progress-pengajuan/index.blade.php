@@ -3,6 +3,15 @@
     <title> Unit Layanan Terpadu ULT POLIWANGI| </title>
 @endsection
 
+@php
+    function dateConversion($date)
+    {
+        $month = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        $slug = explode('-', $date);
+        return $slug[2] . ' ' . $month[(int) $slug[1]] . ' ' . $slug[0];
+    }
+@endphp
+
 @section('content')
     <div class="page-wrapper">
 
@@ -54,12 +63,17 @@
                                         </thead>
 
                                         <tbody>
+                                            @foreach ($progress_pengajuans as $data )
                                             <tr>
                                                 <td>{{ $no }}</td>
-                                                <td>Nanda</td>
-                                                <td>Penurun UKT Semester 7</td>
-                                                <td>-</td>
-                                                <td>08/07/2023</td>
+                                                <td>{{$data->pengajuan->nama_pemohon}}</td>
+                                                <td>{{$data->pesan}}</td>
+                                                <td>
+                                                    @if ($data->file_dokumen==null || $data->file_dokumen=='')
+                                                    Tidak Ada File
+                                                    @endif
+                                                </td>
+                                                <td>{{dateConversion($data->tanggal)}}</td>
                                                 <td class="text-right">
                                                     <a href="#" class="mr-2" data-toggle="modal"
                                                         data-animation="bounce" data-target=".modalUpdate"><i
@@ -69,6 +83,7 @@
                                                 </td>
                                             </tr>
                                             <!--end tr-->
+                                            @endforeach
                                         </tbody>
                                         @php
                                             $no++;
