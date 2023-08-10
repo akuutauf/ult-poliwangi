@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengajuan;
+use App\Models\ProgressPengajuan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Str;
@@ -56,9 +58,16 @@ class FormDosenController extends Controller
             'id_layanan' => $validated['id_layanan'],
             'tanggal_permohonan' => $validated['tanggal_permohonan'],
 
-            // generate kode tiker dan jenis permohonan
+            // generate kode tiket dan jenis permohonan
             'kode_tiket' => Str::random(7),
             'jenis_permohonan' => 'Dosen',
+        ]);
+
+        ProgressPengajuan::create([
+            'pesan' => 'Dokumen Berhasil Diunggah',
+            'tanggal' => Carbon::now(),
+            'status' => 'Formulir Pengajuan Berhasil Terkirim',
+            'id_pengajuan' => $newPengajuan->id,
         ]);
 
         Alert::success('Pengajuan Berhasil Dikirim', 'Jangan Lupa Salin Kode Tiket');
