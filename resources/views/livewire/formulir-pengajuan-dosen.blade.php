@@ -52,21 +52,6 @@
                 </div>
             </div>
 
-            {{-- Livewire select input --}}
-            {{-- <div class="col-md-6 mb-1">
-                <label class="form-label" for="id_layanan">Layanan</label>
-                <div class="input-group mb-3">
-                    <span class="input-group-text"><i class="fa-solid fa-hands-holding"></i></span>
-                    <select wire:model="byLayanans" class="form-control" id="id_layanan" name="id_layanan">
-                        <option value="">Pilih Layanan</option>
-                        @foreach ($layanans as $data)
-                            <option value="{{ $data->id }}">{{ $data->divisi->nama_divisi }} -
-                                {{ $data->nama_layanan }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div> --}}
-
             <div class="col-md-6 mb-1">
                 <label class="form-label" for="id_layanan">Layanan</label>
                 <div class="input-group mb-3">
@@ -86,7 +71,8 @@
                 <label for="tanggal_permohonan" class="form-label">Tanggal</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fa-solid fa-calendar"></i></span>
-                    <input type="date" class="form-control" id="tanggal_permohonan" name="tanggal_permohonan">
+                    <input type="date" data-dd-opt-custom-class="dd-theme-bootstrap" class="form-control date-input"
+                        id="tanggal_permohonan" name="tanggal_permohonan" placeholder="Tanggal Pengajuan">
                 </div>
             </div>
         </div>
@@ -107,6 +93,8 @@
                                 <li>{{ $persyaratan->berkas->nama_berkas }}</li>
                             @endforeach
                         </ol>
+                    @else
+                        <span>Belum ada persyaratan pada Layanan Ini.</span>
                     @endif
                 @else
                     <p>Pilih layanan untuk melihat persyaratan.</p>
