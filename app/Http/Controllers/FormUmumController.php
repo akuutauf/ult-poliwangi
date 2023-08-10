@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Berkas;
+use App\Models\Layanan;
+use App\Models\Prodi;
 
 class FormUmumController extends Controller
 {
@@ -23,7 +26,12 @@ class FormUmumController extends Controller
      */
     public function create()
     {
-        return view('pages.client.formulir.umum.form-umum');
+        $data = [
+            'prodis' => Prodi::all(),
+            'layanans' => Layanan::with('divisi')->orderBy('id_divisi', 'asc')->get(),
+            'berkas_layanans' => Berkas::all(),
+        ];
+        return view('pages.client.formulir.umum.form-umum', $data);
     }
 
     /**

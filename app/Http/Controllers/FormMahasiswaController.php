@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Berkas;
+use App\Models\Layanan;
+use App\Models\Prodi;
 use Illuminate\Http\Request;
 
 class FormMahasiswaController extends Controller
@@ -23,7 +27,13 @@ class FormMahasiswaController extends Controller
      */
     public function create()
     {
-        return view('pages.client.formulir.mahasiswa.form-mahasiswa');
+        $data = [
+            'prodis' => Prodi::all(),
+            'layanans' => Layanan::with('divisi')->orderBy('id_divisi', 'asc')->get(),
+            'berkas_layanans' => Berkas::all(),
+        ];
+
+        return view('pages.client.formulir.mahasiswa.form-mahasiswa', $data);
     }
 
     /**
