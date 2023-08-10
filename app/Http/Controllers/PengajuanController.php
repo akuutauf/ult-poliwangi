@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengajuan;
 use Illuminate\Http\Request;
 
 class PengajuanController extends Controller
@@ -13,7 +14,11 @@ class PengajuanController extends Controller
      */
     public function index()
     {
+        $data = [
+            'pengajuans' => Pengajuan::all(),
+        ];
         //
+        return view('pages.admin.pengajuan.index', $data);
     }
 
     /**

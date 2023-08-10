@@ -55,25 +55,28 @@
                                         </thead>
 
                                         <tbody>
-                                            <tr>
-                                                <td>{{ $no }}</td>
-                                                <td>Nanda</td>
-                                                <td>362055401024</td>
-                                                <td>S1 Teknologi Rekayasa Perangkat Lunak</td>
-                                                <td>nanda@gmail.com</td>
-                                                <td>Mahasiswa</td>
-                                                <td>Keuangan</td>
-                                                <td>08/07/2023</td>
-                                                <td>08976543213</td>
-                                                <td>Hf2529ks</td>
-                                                <td class="text-right">
-                                                    <a href="/progress-pengajuan"><i
-                                                            class="fas fa-file-shield text-info font-16"></i></a>
-                                                    <a href="#"><i
-                                                            class="fas fa-trash-alt text-danger font-16"></i></a>
-                                                </td>
-                                            </tr>
-                                            <!--end tr-->
+
+                                            @foreach ($pengajuans as $data)
+                                                <tr>
+                                                    <td>{{ $no }}</td>
+                                                    <td>{{$data->nama_pemohon}}</td>
+                                                    <td>{{$data->nomor_identitas}}</td>
+                                                    <td>{{$data->prodi->nama_prodi}}</td>
+                                                    <td>{{$data->email}}</td>
+                                                    <td>{{$data->jenis_permohonan}}</td>
+                                                    <td>{{$data->layanan->nama_layanan}}</td>
+                                                    <td>{{$data->tanggal_permohonan}}</td>
+                                                    <td>{{$data->nomor_telepon}}</td>
+                                                    <td>{{$data->kode_tiket}}</td>
+                                                    <td class="text-right">
+                                                        <a href="/progress-pengajuan"><i
+                                                                class="fas fa-file-shield text-info font-16"></i></a>
+                                                        <a href="#"><i
+                                                                class="fas fa-trash-alt text-danger font-16"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <!--end tr-->
+                                            @endforeach
                                         </tbody>
                                         @php
                                             $no++;

@@ -4,7 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerkasController;
 use App\Http\Controllers\DivisiController;
-use App\Http\Controllers\DosenController;
+use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\FormMahasiswaController;
 use App\Http\Controllers\FormDosenController;
 use App\Http\Controllers\FormUmumController;
@@ -69,6 +69,9 @@ Route::middleware(['auth'])->group(function () {
     //berkas
     Route::get('/ult/berkas', [BerkasController::class, 'index'])->name('admin.berkas.index');
 
+    //pengajuan
+    Route::get('/ult/pengajuan', [PengajuanController::class, 'index'])->name('admin.pengajuan.index');
+
     Route::get('/prodi', function () {
         return view('pages.admin.prodi.index');
     });
@@ -76,9 +79,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/berkas', function () {
         return view('pages.admin.berkas.index');
     });
-    Route::get('/pengajuan', function () {
-        return view('pages.admin.pengajuan.index');
-    });
+
     Route::get('/progress-pengajuan', function () {
         return view('pages.admin.progress-pengajuan.index');
     });
