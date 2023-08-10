@@ -1,11 +1,14 @@
 @extends('layouts.base-client')
 
 @section('title')
-    <title>Formulir Pengajuan Mahasiswa | ULT Poliwangi</title>
+    <title>Formulir Pengajuan Dosen | ULT Poliwangi</title>
 @endsection
 
 @section('css')
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    {{-- Datedroppper JS --}}
+    <script src="{{ asset('js-datedropper/datedropper-javascript.js') }}"></script>
 
     {{-- Start Style LiveWire --}}
     @livewireStyles
@@ -30,6 +33,18 @@
 @section('script')
     {{-- Start Livewire Script --}}
     @livewireScripts
+
+    {{-- Inisiasi datedroppper --}}
+    <script>
+        dateDropper({
+            selector: '.date-input',
+            expandedDefault: true,
+            expandable: true,
+            overlay: true,
+            showArrowsOnHover: true,
+            autoFill: false
+        });
+    </script>
 
     <script>
         // Script to capture selected option from dropdown
