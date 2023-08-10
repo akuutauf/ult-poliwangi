@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama', 255)->nullable(false);
             $table->string('email', 255)->nullable(false);
             $table->text('saran', 255)->nullable(true);
-            $table->unsignedBigInteger('id_pengajuan')->nullable(false);
+            $table->string('id_pengajuan')->nullable(false);
             $table->foreign('id_pengajuan')->references('id')->on('pengajuans')->onDelete('cascade');
             $table->timestamps();
         });

@@ -43,12 +43,12 @@ class DivisiController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => ['required', 'string', 'max:100']
+            'nama_divisi' => ['required', 'string', 'max:100']
         ]);
 
 
         $divisi = new Divisi;
-        $divisi->name = $validated['name'];
+        $divisi->nama_divisi = $validated['nama_divisi'];
         $divisi->save();
 
         Alert::success('Success', 'Divisi berhasil ditambahkan');
@@ -90,7 +90,7 @@ class DivisiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Divisi::where('id', $request->id)->update($request->only(['name']));
+        Divisi::where('id', $request->id)->update($request->only(['nama_divisi']));
         Alert::success('Success', 'Divisi berhasil diupdate');
         return redirect()->route('admin.divisi');
     }

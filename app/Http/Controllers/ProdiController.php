@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pengajuan;
+use App\Models\Prodi;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Support\Str;
 
-class FormDosenController extends Controller
+class ProdiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,12 @@ class FormDosenController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'prodi' => Prodi::all(),
+        ];
+
+
+        return view('pages.admin.prodi.index', $data);
     }
 
     /**
@@ -26,7 +30,7 @@ class FormDosenController extends Controller
      */
     public function create()
     {
-        return view('pages.client.formulir.dosen.form-dosen');
+        //
     }
 
     /**
@@ -38,32 +42,17 @@ class FormDosenController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama_pemohon' => 'required|string',
-            'nomor_identitas' => 'required|numeric',
-            'email' => 'required|email',
-            'nomor_telepon' => 'required|numeric',
-            'id_prodi' => 'required',
-            'id_layanan' => 'required',
-            'tanggal_permohonan' => 'required|date',
+            'nama_prodi' => ['required', 'string', 'max:100']
         ]);
 
-        $newPengajuan = Pengajuan::create([
-            'nama_pemohon' => $validated['nama_pemohon'],
-            'nomor_identitas' => $validated['nomor_identitas'],
-            'email' => $validated['email'],
-            'nomor_telepon' => $validated['nomor_telepon'],
-            'id_prodi' => $validated['id_prodi'],
-            'id_layanan' => $validated['id_layanan'],
-            'tanggal_permohonan' => $validated['tanggal_permohonan'],
 
-            // generate kode tiker dan jenis permohonan
-            'kode_tiket' => Str::random(7),
-            'jenis_permohonan' => 'Dosen',
-        ]);
+        $prodi = new Prodi;
+        $prodi->nama_prodi = $validated['nama_prodi'];
+        $prodi->save();
 
-        Alert::success('Pengajuan Berhasil Dikirim', 'Jangan Lupa Salin Kode Tiket');
+        Alert::success('Success', 'Prodi berhasil ditambahkan');
 
-        return redirect()->route('survei.kepuasan.pengguna.page', $newPengajuan->id);
+        return redirect()->route('admin.prodi.index');
     }
 
     /**
@@ -97,7 +86,9 @@ class FormDosenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Prodi::where('id', $request->id)->update($request->only(['nama_prodi']));
+        Alert::success('Success', 'Prodi berhasil diupdate');
+        return redirect()->route('admin.prodi.index');
     }
 
     /**
@@ -108,6 +99,11 @@ class FormDosenController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $prodi = Prodi::findOrFail($id);
+        $prodi->delete();
+        Alert::success('Success', 'Prodi berhasil dihapus');
+
+        return redirect()->route('admin.prodi.index');
     }
 }

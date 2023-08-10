@@ -54,11 +54,11 @@
                                             @foreach ($divisi as $item)
                                                 <tr>
                                                     <td>{{ $no }}</td>
-                                                    <td>{{ $item->name }}</td>
+                                                    <td>{{ $item->nama_divisi }}</td>
                                                     <td class="text-right">
                                                         <a href="{{ route('admin.divisi.update', $item->id) }}"
                                                             class="mr-2" data-toggle="modal" data-animation="bounce"
-                                                            data-target=".modalUpdate"><i
+                                                            data-target=".modalUpdate{{ $item->id }}"><i
                                                                 class="fas fa-edit text-info font-16"></i></a>
                                                         <a href="{{ route('admin.divisi.destroy', $item->id) }}"><i
                                                                 class="fas fa-trash-alt text-danger font-16"></i></a>
@@ -68,8 +68,8 @@
                                                 @php
                                                     $no++;
                                                 @endphp
-                                                <div class="modal fade modalUpdate" tabindex="-1" role="dialog"
-                                                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                <div class="modal fade modalUpdate{{ $item->id }}" tabindex="-1"
+                                                    role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -88,9 +88,9 @@
                                                                             <div class="form-group">
                                                                                 <label for="name">Nama Divisi</label>
                                                                                 <input type="text" class="form-control"
-                                                                                    id="name" name="name"
+                                                                                    id="nama_divisi" name="nama_divisi"
                                                                                     required=""
-                                                                                    value="{{ $item->name }}">
+                                                                                    value="{{ $item->nama_divisi }}">
                                                                             </div>
                                                                         </div>
 
@@ -139,11 +139,11 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="name">Nama Divisi</label>
-                                    <input type="text" class="form-control" id="name" name="name" required=""
-                                        value="">
+                                    <input type="text" class="form-control" id="nama_divisi" name="nama_divisi"
+                                        required="" value="">
 
-                                    @if ($errors->has('name'))
-                                        <span class="text-danger text-left">{{ $errors->first('name') }}</span>
+                                    @if ($errors->has('nama_divisi'))
+                                        <span class="text-danger text-left">{{ $errors->first('nama_divisi') }}</span>
                                     @endif
                                 </div>
                             </div>

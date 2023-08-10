@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('file_dokumen')->nullable(true);
             $table->date('tanggal')->nullable(false);
             $table->string('status')->nullable(true);
-            $table->unsignedBigInteger('id_pengajuan')->nullable(false);
+            $table->string('id_pengajuan')->nullable(false);
             $table->foreign('id_pengajuan')->references('id')->on('pengajuans')->onDelete('cascade');
             $table->timestamps();
         });

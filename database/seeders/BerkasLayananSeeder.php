@@ -35,5 +35,14 @@ class BerkasLayananSeeder extends Seeder
             'id_berkas' => 5,
             'id_layanan' => 1,
         ]);
+
+        BerkasLayanan::create([
+            'id_berkas' => 4,
+            'id_layanan' => 2,
+        ]);
+        BerkasLayanan::create([
+            'id_berkas' => 5,
+            'id_layanan' => 2,
+        ]);
     }
 }

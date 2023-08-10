@@ -12,6 +12,14 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
+                            <div class="float-right">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.page') }}">ULT
+                                            Poliwangi</a></li>
+                                    <li class="breadcrumb-item"><a href="/pengajuan">Pengajuan</a></li>
+                                </ol>
+                                <!--end breadcrumb-->
+                            </div>
                             <!--end /div-->
                             <h4 class="page-title">Pengajuan</h4>
                         </div>
@@ -33,10 +41,13 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Pemohon</th>
+                                                <th>NIM/NIK</th>
+                                                <th>Prodi</th>
+                                                <th>Email</th>
                                                 <th>Jenis Permohon</th>
-                                                <th>Tanggal</th>
                                                 <th>Nama Layanan</th>
-                                                <th>Status</th>
+                                                <th>Tanggal</th>
+                                                <th>No.Telepon</th>
                                                 <th>Kodetiket</th>
                                                 <th class="text-right">Action</th>
                                             </tr>
@@ -47,15 +58,17 @@
                                             <tr>
                                                 <td>{{ $no }}</td>
                                                 <td>Nanda</td>
+                                                <td>362055401024</td>
+                                                <td>S1 Teknologi Rekayasa Perangkat Lunak</td>
+                                                <td>nanda@gmail.com</td>
                                                 <td>Mahasiswa</td>
-                                                <td>08/07/2023</td>
                                                 <td>Keuangan</td>
-                                                <td>Terkirim</td>
+                                                <td>08/07/2023</td>
+                                                <td>08976543213</td>
                                                 <td>Hf2529ks</td>
                                                 <td class="text-right">
-                                                    <a href="#" class="mr-2" data-toggle="modal"
-                                                        data-animation="bounce" data-target=".modalUpdate"><i
-                                                            class="fas fa-edit text-info font-16"></i></a>
+                                                    <a href="/progress-pengajuan"><i
+                                                            class="fas fa-file-shield text-info font-16"></i></a>
                                                     <a href="#"><i
                                                             class="fas fa-trash-alt text-danger font-16"></i></a>
                                                 </td>

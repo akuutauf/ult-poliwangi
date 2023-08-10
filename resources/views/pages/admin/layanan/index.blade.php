@@ -52,23 +52,25 @@
                                         </thead>
 
                                         <tbody>
-                                            <tr>
-                                                <td>{{ $no }}</td>
-                                                <td>Keuangan</td>
-                                                <td>UKT</td>
-                                                <td class="text-right">
-                                                    <a href="#" class="mr-2" data-toggle="modal"
-                                                        data-animation="bounce" data-target=".modalUpdate"><i
-                                                            class="fas fa-edit text-info font-16"></i></a>
-                                                    <a href="#"><i
-                                                            class="fas fa-trash-alt text-danger font-16"></i></a>
-                                                </td>
-                                            </tr>
-                                            <!--end tr-->
+                                            @foreach ($layanan as $item)
+                                                <tr>
+                                                    <td>{{ $no }}</td>
+                                                    <td>{{ $item->divisi->nama_divisi }}</td>
+                                                    <td>{{ $item->nama_layanan }}</td>
+                                                    <td class="text-right">
+                                                        <a href="#" class="mr-2" data-toggle="modal"
+                                                            data-animation="bounce" data-target=".modalUpdate"><i
+                                                                class="fas fa-edit text-info font-16"></i></a>
+                                                        <a href="#"><i
+                                                                class="fas fa-trash-alt text-danger font-16"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <!--end tr-->
                                         </tbody>
                                         @php
                                             $no++;
                                         @endphp
+                                        @endforeach
                                     </table>
                                 </div>
                             </div>

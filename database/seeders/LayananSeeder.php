@@ -20,5 +20,10 @@ class LayananSeeder extends Seeder
             'nama_layanan' => 'Rancang Mutu Perkuliahan',
             'id_divisi' => 1,
         ]);
+        Layanan::create([
+            'id' => 2,
+            'nama_layanan' => 'Tes Layanan Kedua',
+            'id_divisi' => 1,
+        ]);
     }
 }

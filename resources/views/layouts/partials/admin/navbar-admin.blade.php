@@ -66,7 +66,7 @@
                             </a>
                         </li>
                         <li class="has-submenu">
-                            <a href="/prodi ">
+                            <a href="{{ route('admin.prodi.index') }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
                                     <style>
                                         svg {
@@ -90,14 +90,13 @@
                                 <span>Manajemen Pengajuan</span>
                             </a>
                             <ul class="submenu">
-                                <li class="has-submenu">
-                                    <a href="#"><i class="dripicons-user-group"></i>Kategori</a>
-                                    <ul class="submenu">
-                                        <li><a href="{{ route('admin.divisi') }}">Divisi</a></li>
-                                        <li><a href="/admin">Admin</a></li>
-                                        <li><a href="/layanan">Layanan</a></li>
-                                        <li><a href="/berkas">Berkas</a></li>
-                                    </ul>
+                                <li><a href="{{ route('admin.divisi') }}"> <i class="fa fa-layer-group"></i>Divisi</a>
+                                </li>
+                                <li><a href="{{ route('admin.admin.index') }}"> <i
+                                            class="fa fa-user-group"></i>Admin</a></li>
+                                <li><a href="{{ route('admin.layanan.index') }}"><i class="fa fa-cogs"></i>Layanan</a>
+                                </li>
+                                <li><a href="{{ route('admin.berkas.index') }}"><i class="fa fa-folder"></i>Berkas</a>
                                 </li>
                             </ul>
                             <!--end submenu-->
@@ -120,7 +119,7 @@
                             </a>
                             <!--end submenu-->
                         </li>
-                        <li class="has-submenu">
+                        {{-- <li class="has-submenu">
                             <a href="/progress-pengajuan">
                                 <svg class="nav-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                     <path
@@ -133,7 +132,7 @@
                                 <span>Progres Pengajuan</span>
                             </a>
                             <!--end submenu-->
-                        </li>
+                        </li> --}}
                         <!--end has-submenu-->
 
                         <!--end has-submenu-->

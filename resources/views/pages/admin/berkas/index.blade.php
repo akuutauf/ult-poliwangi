@@ -44,33 +44,33 @@
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama</th>
-                                                <th>Layanan</th>
-                                                <th>File</th>
+                                                <th>Nama Berkas</th>
+                                                <th>Jenis</th>
                                                 <th class="text-right">Action</th>
                                             </tr>
                                             <!--end tr-->
                                         </thead>
 
                                         <tbody>
-                                            <tr>
-                                                <td>{{ $no }}</td>
-                                                <td>Proposal</td>
-                                                <td>Akademik</td>
-                                                <td>-</td>
-                                                <td class="text-right">
-                                                    <a href="#" class="mr-2" data-toggle="modal"
-                                                        data-animation="bounce" data-target=".modalUpdate"><i
-                                                            class="fas fa-edit text-info font-16"></i></a>
-                                                    <a href="#"><i
-                                                            class="fas fa-trash-alt text-danger font-16"></i></a>
-                                                </td>
-                                            </tr>
-                                            <!--end tr-->
+                                            @foreach ($berkas as $item)
+                                                <tr>
+                                                    <td>{{ $no }}</td>
+                                                    <td>{{ $item->nama_berkas }}</td>
+                                                    <td>{{ $item->jenis_berkas }}</td>
+                                                    <td class="text-right">
+                                                        <a href="#" class="mr-2" data-toggle="modal"
+                                                            data-animation="bounce" data-target=".modalUpdate"><i
+                                                                class="fas fa-edit text-info font-16"></i></a>
+                                                        <a href="#"><i
+                                                                class="fas fa-trash-alt text-danger font-16"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <!--end tr-->
                                         </tbody>
                                         @php
                                             $no++;
                                         @endphp
+                                        @endforeach
                                     </table>
                                 </div>
                             </div>
@@ -106,25 +106,14 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="user">Layanan</label>
+                                    <label for="user">Jenis</label>
                                     <select class="form-control">
-                                        <option>Pilih Layanan</option>
-                                        <option>Large select</option>
-                                        <option>Small select</option>
+                                        <option>Pilih Jenis</option>
+                                        <option>Wajib</option>
+                                        <option>Tidak Wajib</option>
                                     </select>
                                 </div>
                             </div>
-
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="file">File</label>
-                                    <div class="custom-file mb-3">
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
-                                        <input type="file" class="custom-file-input" id="customFile">
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
 
                         <button type="button" class="btn btn-sm btn-primary">Save</button>
@@ -156,24 +145,15 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="user">Layanan</label>
+                                    <label for="user">Jenis</label>
                                     <select class="form-control">
-                                        <option>Pilih Layanan</option>
-                                        <option>Large select</option>
-                                        <option>Small select</option>
+                                        <option>Pilih Jenis</option>
+                                        <option>Wajib</option>
+                                        <option>Tidak Wajib</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="file">File</label>
-                                    <div class="custom-file mb-3">
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
-                                        <input type="file" class="custom-file-input" id="customFile">
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
 

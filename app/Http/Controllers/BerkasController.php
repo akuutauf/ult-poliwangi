@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berkas;
 use Illuminate\Http\Request;
 
 class BerkasController extends Controller
@@ -13,7 +14,11 @@ class BerkasController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'berkas' => Berkas::all(),
+        ];
+
+        return view('pages.admin.berkas.index', $data);
     }
 
     /**
