@@ -7,7 +7,7 @@
 @section('content')
     <section class="container-fluid section-bg-one">
         <div class="container py-5">
-            <div class="row py-3">
+            <div class="row py-3" data-aos="fade-down" data-aos-delay="300">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <center>
                         <h2 class="fw-bold"><i class="fa-regular fa-face-smile-beam"></i>&ensp; SURVEI KEPUASAN PENGGUNA</h2>
@@ -16,7 +16,7 @@
                 </div>
             </div>
 
-            <div class="row d-flex justify-content-center">
+            <div class="row d-flex justify-content-center" data-aos="fade-down" data-aos-delay="300">
                 <div class="col-12 d-flex mb-4">
                     <button class="btn btn-theme mx-auto" onclick="copyToClipboard()">#{{ $data_pengajuan->kode_tiket }} <i
                             class="far fa-copy"></i></button>
@@ -29,8 +29,10 @@
             </div>
 
             <div class="row py-5 d-flex justify-content-around">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-5 mb-5 order-2 order-md-1">
-                    <form action="{{route('survei.kepuasan.pengguna.create', $data_pengajuan->id)}}" method="POST" class="p-3">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-5 mb-5 order-2 order-md-1" data-aos="fade-up"
+                    data-aos-delay="600">
+                    <form action="{{ route('survei.kepuasan.pengguna.create', $data_pengajuan->id) }}" method="POST"
+                        class="p-3">
                         @csrf
 
                         <div class="mb-2">
@@ -92,21 +94,21 @@
 
                         <div class="mb-3">
                             <label for="email" class="form-label fw-bold mb-3">Email</label>
-                            <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" id="email"
-                                placeholder="Masukkan Email Anda" value="{{ $data_pengajuan->email }}">
+                            <input type="text" class="form-control @error('email') is-invalid @enderror" name="email"
+                                id="email" placeholder="Masukkan Email Anda" value="{{ $data_pengajuan->email }}">
                         </div>
-                            @error('email')
-                        <div id="email" class="form-text pb-1">{{ $message }}</div>
-                            @enderror
+                        @error('email')
+                            <div id="email" class="form-text pb-1">{{ $message }}</div>
+                        @enderror
 
                         <div class="mb-3">
                             <label for="nama" class="form-label fw-bold mb-3">Nama</label>
-                            <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama"
-                                placeholder="Nama Lengkap Anda" value="{{ $data_pengajuan->nama_pemohon }}">
+                            <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"
+                                id="nama" placeholder="Nama Lengkap Anda" value="{{ $data_pengajuan->nama_pemohon }}">
                         </div>
-                            @error('nama')
-                        <div id="nama" class="form-text pb-1">{{ $message }}</div>
-                            @enderror
+                        @error('nama')
+                            <div id="nama" class="form-text pb-1">{{ $message }}</div>
+                        @enderror
 
                         <div class="mb-3">
                             <label for="suggest" class="form-label fw-bold mb-3">Saran</label>
@@ -117,7 +119,8 @@
                     </form>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-6 col-lg-5 mb-5 order-1 order-md-2 d-flex">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-5 mb-5 order-1 order-md-2 d-flex" data-aos="zoom-in"
+                    data-aos-delay="900">
                     <img src="{{ asset('images/survey-ilustration.svg') }}" class="img-fluid mx-auto my-auto p-4"
                         alt="">
                 </div>
@@ -128,6 +131,11 @@
 @endsection
 
 @section('script')
+    {{-- AOS initiate --}}
+    <script>
+        AOS.init();
+    </script>
+
     {{-- Star Rating Script --}}
     <script>
         const ratingInputs = document.querySelectorAll('.rating-input');

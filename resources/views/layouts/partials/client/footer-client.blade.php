@@ -4,28 +4,7 @@
     <section class="">
         <div class="container text-center text-md-start pt-4 pb-4">
             <!-- Grid row -->
-            <div class="row mt-3">
-                <!-- Grid column -->
-                <div class="col-12 col-lg-4 col-sm-12 mb-4">
-                    <!-- Content -->
-                    <div class="row d-flex justify-content-around">
-                        <div class="col">
-                            <img src="{{ asset('images/logo-title-poliwangi.png') }}" class="img-fluid" width="40"
-                                alt="">
-                            &ensp;
-                            <span class="text-white fw-bold">Poliwangi</span>
-                        </div>
-                    </div>
-
-                    <h1 class="text-justify text-white fw-medium mt-3 footer-text">
-                        <center>
-                            Copyright © {{ now()->year }}
-                            All Rights Reserved.
-                        </center>
-                    </h1>
-                </div>
-                <!-- Grid column -->
-
+            <div class="row mt-3 d-flex justify-content-around">
                 <!-- Grid column -->
                 <div class="col-6 col-sm-4 col-lg-2">
                     <!-- Links -->

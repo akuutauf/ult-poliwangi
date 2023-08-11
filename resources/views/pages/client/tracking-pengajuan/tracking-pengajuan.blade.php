@@ -18,7 +18,7 @@
 @section('content')
     <section class="container-fluid section-bg-one">
         <div class="container py-5">
-            <div class="row pt-5 pb-4">
+            <div class="row pt-5 pb-4" data-aos="fade-down" data-aos-delay="300">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <h2 class="fw-bold"><i class="fa-solid fa-file-shield"></i>&ensp; DETAIL PELACAKAN DOKUMEN PENGAJUAN
                     </h2>
@@ -27,7 +27,7 @@
             </div>
 
             <div class="row d-flex justify-content-around">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-4">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="600">
                     <div class="card">
                         <div class="card-header fw-medium text-center">
                             Detail Informasi Dokumen Pengajuan
@@ -94,7 +94,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-4">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-4" data-aos="zoom-in" data-aos-delay="900">
                     <div class="card p-4 d-flex">
                         <div class="card-body">
                             <div class="slimscroll hospital-dash-activity">
@@ -209,4 +209,11 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('script')
+    {{-- AOS initiate --}}
+    <script>
+        AOS.init();
+    </script>
 @endsection
