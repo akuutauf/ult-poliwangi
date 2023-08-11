@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('layanans', function (Blueprint $table) {
             $table->id();
             $table->string('nama_layanan')->nullable(false);
+            $table->tinyInteger('estimasi_layanan')->nullable(false)->default(1);
             $table->unsignedBigInteger('id_divisi');
             $table->foreign('id_divisi')->references('id')->on('divisis')->onDelete('cascade');
             $table->timestamps();

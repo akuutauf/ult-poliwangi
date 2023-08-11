@@ -115,6 +115,7 @@
                                 <li>{{ $persyaratan->berkas->nama_berkas }}</li>
                             @endforeach
                         </ol>
+                        <span>Waktu Tunggu : {{ $persyaratan->layanan->estimasi_layanan }} Hari Kerja</span>
                     @else
                         <span>Belum ada persyaratan pada Layanan Ini.</span>
                     @endif

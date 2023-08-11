@@ -12,6 +12,22 @@
             $slug = explode('-', $date);
             return $slug[2] . ' ' . $month[(int) $slug[1]] . ' ' . $slug[0];
         }
+
+        function tambahEstimasiHariKerja($tanggal, $estimasiHari)
+        {
+            $tanggalObj = new DateTime($tanggal);
+
+            for ($i = 1; $i <= $estimasiHari; $i++) {
+                $tanggalObj->modify('+1 day');
+
+                // Loop untuk mengabaikan hari Sabtu dan Minggu
+                while ($tanggalObj->format('N') >= 6) {
+                    $tanggalObj->modify('+1 day');
+                }
+            }
+
+            return $tanggalObj->format('Y-m-d');
+        }
     @endphp
 @endsection
 
@@ -83,8 +99,16 @@
                                             <h5 class="card-title">Layanan</h5>
                                             <p class="card-text">{{ $pengajuan->layanan->nama_layanan }}</p>
 
+                                            <h5 class="card-title">Divisi Penanggungjawab</h5>
+                                            <p class="card-text">{{ $pengajuan->layanan->divisi->nama_divisi }}</p>
+
                                             <h5 class="card-title">Tanggal Permohonan</h5>
                                             <p class="card-text">{{ dateConversion($pengajuan->tanggal_permohonan) }}</p>
+
+                                            <h5 class="card-title">Pengambilan Dokumen</h5>
+                                            <p class="card-text">
+                                                {{ dateConversion(tambahEstimasiHariKerja($pengajuan->tanggal_permohonan, $pengajuan->layanan->estimasi_layanan)) }}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +125,7 @@
                                 <div class="activity">
 
                                     @if ($document_submitted->isNotEmpty())
-                                        <i class="fa-solid fa-file-lines icon-purple"></i>
+                                        <i class="mdi-set fa-solid fa-file-lines icon-purple"></i>
                                         <div class="time-item">
                                             <div class="item-info">
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -127,8 +151,30 @@
                                         </div>
                                     @endif
 
+                                    @if ($pengajuan->konfirmasi_pengajuan == 'Not Yet Confirmed')
+                                        <i class="mdi-set fa-solid fa-spinner icon-info"></i>
+                                        <div class="time-item">
+                                            <div class="item-info">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h6 class="m-0 fw-bold">Dokumen Masih Dalam Tahap Persetujuan</h6>
+                                                </div>
+                                                <br>
+                                            </div>
+                                        </div>
+                                    @else
+                                        <i class="mdi-set fa-solid fa-thumbs-up icon-success"></i>
+                                        <div class="time-item">
+                                            <div class="item-info">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h6 class="m-0 fw-bold">Dokumen Telah Disetujui</h6>
+                                                </div>
+                                                <br>
+                                            </div>
+                                        </div>
+                                    @endif
+
                                     @if ($document_on_progress->isNotEmpty())
-                                        <i class="fa-solid fa-file-arrow-up icon-warning"></i>
+                                        <i class="mdi-set fa-solid fa-file-arrow-up icon-warning"></i>
                                         <div class="time-item">
                                             <div class="item-info">
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -155,7 +201,7 @@
                                     @endif
 
                                     @if ($document_done->isNotEmpty())
-                                        <i class="fa-solid fa-file-circle-check icon-success"></i>
+                                        <i class="mdi-set fa-solid fa-file-circle-check icon-success"></i>
                                         <div class="time-item">
                                             <div class="item-info">
                                                 <div class="d-flex justify-content-between align-items-center">
@@ -182,20 +228,20 @@
                                     @endif
 
                                     @if ($document_done->isNotEmpty())
-                                        <i class="fa-solid fa-square-check icon-primary"></i>
+                                        <i class="mdi-set fa-solid fa-square-check icon-primary"></i>
                                         <div class="time-item">
                                             <div class="item-info">
                                                 <div class="d-flex justify-content-between align-items-center">
-                                                    <h6 class="m-0">Dokumen Siap Diambil</h6>
+                                                    <h6 class="m-0 fw-bold">Dokumen Siap Diambil</h6>
                                                 </div>
                                             </div>
                                         </div>
                                     @else
-                                        <i class="fa-solid fa-square-xmark icon-info"></i>
+                                        <i class="mdi-set fa-solid fa-square-xmark icon-info"></i>
                                         <div class="time-item">
                                             <div class="item-info">
                                                 <div class="d-flex justify-content-between align-items-center">
-                                                    <h6 class="m-0">Dokumen Belum Siap Diambil</h6>
+                                                    <h6 class="m-0 fw-bold">Dokumen Belum Siap Diambil</h6>
                                                 </div>
                                             </div>
                                         </div>

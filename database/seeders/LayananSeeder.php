@@ -18,11 +18,13 @@ class LayananSeeder extends Seeder
         Layanan::create([
             'id' => 1,
             'nama_layanan' => 'Rancang Mutu Perkuliahan',
+            'estimasi_layanan' => 3,
             'id_divisi' => 1,
         ]);
         Layanan::create([
             'id' => 2,
             'nama_layanan' => 'Tes Layanan Kedua',
+            'estimasi_layanan' => 2,
             'id_divisi' => 1,
         ]);
     }

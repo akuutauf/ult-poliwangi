@@ -12,6 +12,7 @@ class Layanan extends Model
     protected $fillable = [
         'id',
         'nama_layanan',
+        'estimasi_layanan',
         'id_divisi'
     ];
 
