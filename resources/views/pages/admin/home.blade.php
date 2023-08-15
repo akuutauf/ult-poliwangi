@@ -103,7 +103,7 @@
                     {{-- for divisi ult --}}
                     @if (Auth()->user()->divisi->nama_divisi == 'Unit Layanan Terpadu')
                         <div class="col-lg-12 mb-2">
-                            <h4>Kelola Unit Layanan</h4>
+                            <h4>Kelola Unit & Layanan</h4>
                         </div>
 
                         <div class="col-lg-4">
