@@ -43,8 +43,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // public function admin()
+    // {
+    //     return $this->hasMany(Admin::class);
+    // }
+
     public function admin()
     {
-        return $this->hasMany(Admin::class);
+        return $this->hasOne(Admin::class, 'id_user');
+    }
+
+    public function divisi()
+    {
+        return $this->hasOneThrough(Divisi::class, Admin::class, 'id_user', 'id', 'id', 'id_divisi');
     }
 }

@@ -62,9 +62,17 @@
                         <!--end has-submenu-->
 
                         <li class="has-submenu">
-                            <a href="#">
+                            <a href="{{ route('admin.pengajuan.index') }}">
                                 <i class="fa-solid fa-file-lines"></i>
-                                <span>Manajemen Pengajuan</span>
+                                <span>Pengajuan</span>
+                            </a>
+                            <!--end submenu-->
+                        </li>
+
+                        <li class="has-submenu">
+                            <a href="#">
+                                <i class="fas fa-clipboard rounded-circle"></i>
+                                <span>Kelola Layanan</span>
                             </a>
                             <ul class="submenu">
                                 <li><a href="{{ route('admin.admin.index') }}"> <i
@@ -81,16 +89,6 @@
                             <!--end submenu-->
                         </li>
                         <!--end has-submenu-->
-
-
-
-                        <li class="has-submenu">
-                            <a href="{{ route('admin.pengajuan.index') }}">
-                                <i class="fas fa-clipboard rounded-circle"></i>
-                                <span>Pengajuan</span>
-                            </a>
-                            <!--end submenu-->
-                        </li>
 
                         <!--end has-submenu-->
                     </ul><!-- End navigation menu -->

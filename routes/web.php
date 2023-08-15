@@ -15,7 +15,7 @@ use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\SurveiKepuasanPenggunaController;
 use App\Http\Controllers\TrackingPengajuanController;
 use App\Http\Controllers\TrackingSearch;
-use App\Models\Divisi;
+use App\Http\Middleware\FilterDivisi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,7 +56,13 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+
     Route::get('/dashboard', [PageController::class, 'admin_page'])->name('admin.dashboard.page');
+
+    // divisi unit layanan terpadu
+    Route::middleware([FilterDivisi::class . ':Unit Layanan Terpadu'])->group(function () {
+        // route ult
+    });
 
     //divisi
     Route::get('/ult/divisi', [DivisiController::class, 'index'])->name('admin.divisi.index');
