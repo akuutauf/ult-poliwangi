@@ -12,15 +12,6 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
-                            <div class="float-right">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="javascript:void(0);">ULT Poliwangi</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Manajemen Pengajuan</a></li>
-                                    <li class="breadcrumb-item active">Layanan</li>
-                                </ol>
-                                <!--end breadcrumb-->
-                            </div>
-                            <!--end /div-->
                             <h4 class="page-title">Layanan</h4>
                         </div>
                         <!--end page-title-box-->

@@ -12,15 +12,6 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
-                            <div class="float-right">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.page') }}">ULT
-                                            Poliwangi</a></li>
-                                    <li class="breadcrumb-item"><a href="/pengajuan">Pengajuan</a></li>
-                                </ol>
-                                <!--end breadcrumb-->
-                            </div>
-                            <!--end /div-->
                             <h4 class="page-title">Pengajuan</h4>
                         </div>
                         <!--end page-title-box-->
@@ -59,17 +50,17 @@
                                             @foreach ($pengajuans as $data)
                                                 <tr>
                                                     <td>{{ $no }}</td>
-                                                    <td>{{$data->nama_pemohon}}</td>
-                                                    <td>{{$data->nomor_identitas}}</td>
-                                                    <td>{{$data->prodi->nama_prodi}}</td>
-                                                    <td>{{$data->email}}</td>
-                                                    <td>{{$data->jenis_permohonan}}</td>
-                                                    <td>{{$data->layanan->nama_layanan}}</td>
-                                                    <td>{{$data->tanggal_permohonan}}</td>
-                                                    <td>{{$data->nomor_telepon}}</td>
-                                                    <td>{{$data->kode_tiket}}</td>
+                                                    <td>{{ $data->nama_pemohon }}</td>
+                                                    <td>{{ $data->nomor_identitas }}</td>
+                                                    <td>{{ $data->prodi->nama_prodi }}</td>
+                                                    <td>{{ $data->email }}</td>
+                                                    <td>{{ $data->jenis_permohonan }}</td>
+                                                    <td>{{ $data->layanan->nama_layanan }}</td>
+                                                    <td>{{ $data->tanggal_permohonan }}</td>
+                                                    <td>{{ $data->nomor_telepon }}</td>
+                                                    <td>{{ $data->kode_tiket }}</td>
                                                     <td class="text-right">
-                                                        <a href="{{route('admin.progress.pengajuan.index',$data->id)}}"><i
+                                                        <a href="{{ route('admin.progress.pengajuan.index', $data->id) }}"><i
                                                                 class="fas fa-file-shield text-info font-16"></i></a>
                                                         <a href="#"><i
                                                                 class="fas fa-trash-alt text-danger font-16"></i></a>

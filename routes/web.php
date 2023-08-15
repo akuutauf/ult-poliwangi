@@ -15,6 +15,7 @@ use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\SurveiKepuasanPenggunaController;
 use App\Http\Controllers\TrackingPengajuanController;
 use App\Http\Controllers\TrackingSearch;
+use App\Models\Divisi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,10 +59,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [PageController::class, 'admin_page'])->name('admin.dashboard.page');
 
     //divisi
-    Route::get('/divisi', [DivisiController::class, 'index'])->name('admin.divisi');
-    Route::post('/divisi/create', [DivisiController::class, 'store'])->name('admin.divisi.create');
-    Route::get('/divisi/delete/{id}', [DivisiController::class, 'destroy'])->name('admin.divisi.destroy');
-    Route::put('/divisi/{id}/update', [DivisiController::class, 'update'])->name('admin.divisi.update');
+    Route::get('/ult/divisi', [DivisiController::class, 'index'])->name('admin.divisi.index');
+    Route::post('/ult/divisi/create', [DivisiController::class, 'store'])->name('admin.divisi.create');
+    Route::get('/ult/divisi/delete/{id}', [DivisiController::class, 'destroy'])->name('admin.divisi.destroy');
+    Route::put('/ult/divisi/{id}/update', [DivisiController::class, 'update'])->name('admin.divisi.update');
 
     //prodi
     Route::get('/ult/prodi', [ProdiController::class, 'index'])->name('admin.prodi.index');
@@ -81,12 +82,4 @@ Route::middleware(['auth'])->group(function () {
     //pengajuan
     Route::get('/ult/pengajuan', [PengajuanController::class, 'index'])->name('admin.pengajuan.index');
     Route::get('/ult/pengajuan/progress-pengajuan/{progress_pengajuan_id}', [ProgressPengajuanController::class, 'show'])->name('admin.progress.pengajuan.index');
-
-    Route::get('/prodi', function () {
-        return view('pages.admin.prodi.index');
-    });
-
-    Route::get('/berkas', function () {
-        return view('pages.admin.berkas.index');
-    });
 });
