@@ -53,42 +53,236 @@
                                 <span>Dashboard</span>
                             </a>
                         </li>
-                        <li class="has-submenu">
-                            <a href="{{ route('admin.prodi.index') }}">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                                <span>Prodi</span>
-                            </a>
-                        </li>
-                        <!--end has-submenu-->
 
-                        <li class="has-submenu">
-                            <a href="{{ route('admin.pengajuan.index') }}">
-                                <i class="fa-solid fa-file-lines"></i>
-                                <span>Pengajuan</span>
-                            </a>
-                            <!--end submenu-->
-                        </li>
+                        {{-- navbar menu divisi ult --}}
+                        @if (Auth()->user()->divisi->nama_divisi == 'Unit Layanan Terpadu')
+                            <li class="has-submenu">
+                                <a href="{{ route('admin.pengajuan.index') }}">
+                                    <i class="fa-solid fa-file-pen"></i>
+                                    <span>Pengajuan</span>
+                                </a>
+                            </li>
 
-                        <li class="has-submenu">
-                            <a href="#">
-                                <i class="fas fa-clipboard rounded-circle"></i>
-                                <span>Kelola Layanan</span>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="{{ route('admin.admin.index') }}"> <i
-                                            class="fa fa-user-group"></i>Admin</a></li>
-                                <li><a href="{{ route('admin.berkas.index') }}"><i class="fa fa-folder"></i>Berkas</a>
-                                </li>
-                                <li><a href="{{ route('admin.divisi.index') }}"> <i
-                                            class="fa-solid fa-users-rectangle"></i></i>Divisi</a>
-                                </li>
-                                <li><a href="{{ route('admin.layanan.index') }}"><i
-                                            class="fa-solid fa-hands-holding"></i></i>Layanan</a>
-                                </li>
-                            </ul>
-                            <!--end submenu-->
-                        </li>
-                        <!--end has-submenu-->
+                            <li class="has-submenu">
+                                <a href="#">
+                                    <i class="fa-solid fa-building"></i>
+                                    <span>Kelola Unit</span>
+                                </a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="{{ route('admin.prodi.index') }}">
+                                            <i class="fa-solid fa-graduation-cap"></i>Prodi
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.divisi.index') }}">
+                                            <i class="fa-solid fa-users-rectangle"></i>Divisi
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-user-plus"></i>User
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.admin.index') }}">
+                                            <i class="fa fa-user-group"></i>Admin
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!--end submenu-->
+                            </li>
+                            <!--end has-submenu-->
+
+                            <li class="has-submenu">
+                                <a href="#">
+                                    <i class="fa-solid fa-briefcase"></i>
+                                    <span>Kelola Layanan</span>
+                                </a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="{{ route('admin.layanan.index') }}">
+                                            <i class="fa-solid fa-hands-holding"></i>Layanan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('admin.berkas.index') }}">
+                                            <i class="fa fa-folder"></i>Berkas
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!--end submenu-->
+                            </li>
+                            <!--end has-submenu-->
+                        @endif
+
+                        {{-- navbar menu divisi Sekretaris --}}
+                        @if (Auth()->user()->divisi->nama_divisi == 'Sekretaris')
+                            <li class="has-submenu">
+                                <a href="#">
+                                    <i class="fa-solid fa-file"></i>
+                                    <span>Kelola Pengajuan</span>
+                                </a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-pen"></i>Manajemen Pengajuan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-circle-check"></i>Daftar Pengajuan Selesai
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!--end submenu-->
+                            </li>
+                            <!--end has-submenu-->
+                        @endif
+
+                        {{-- navbar menu divisi Keuangan --}}
+                        @if (Auth()->user()->divisi->nama_divisi == 'Keuangan')
+                            <li class="has-submenu">
+                                <a href="#">
+                                    <i class="fa-solid fa-file"></i>
+                                    <span>Kelola Pengajuan</span>
+                                </a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-pen"></i>Manajemen Pengajuan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-circle-check"></i>Daftar Pengajuan Selesai
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!--end submenu-->
+                            </li>
+                            <!--end has-submenu-->
+                        @endif
+
+                        {{-- navbar menu divisi Akademik dan Kemahasiswaan --}}
+                        @if (Auth()->user()->divisi->nama_divisi == 'Akademik dan Kemahasiswaan')
+                            <li class="has-submenu">
+                                <a href="#">
+                                    <i class="fa-solid fa-file"></i>
+                                    <span>Kelola Pengajuan</span>
+                                </a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-pen"></i>Manajemen Pengajuan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-circle-check"></i>Daftar Pengajuan Selesai
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!--end submenu-->
+                            </li>
+                            <!--end has-submenu-->
+                        @endif
+
+                        {{-- navbar menu divisi Umum dan Kepegawaian --}}
+                        @if (Auth()->user()->divisi->nama_divisi == 'Umum dan Kepegawaian')
+                            <li class="has-submenu">
+                                <a href="#">
+                                    <i class="fa-solid fa-file"></i>
+                                    <span>Kelola Pengajuan</span>
+                                </a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-pen"></i>Manajemen Pengajuan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-circle-check"></i>Daftar Pengajuan Selesai
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!--end submenu-->
+                            </li>
+                            <!--end has-submenu-->
+                        @endif
+
+                        {{-- navbar menu divisi Pengadaan --}}
+                        @if (Auth()->user()->divisi->nama_divisi == 'Pengadaan')
+                            <li class="has-submenu">
+                                <a href="#">
+                                    <i class="fa-solid fa-file"></i>
+                                    <span>Kelola Pengajuan</span>
+                                </a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-pen"></i>Manajemen Pengajuan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-circle-check"></i>Daftar Pengajuan Selesai
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!--end submenu-->
+                            </li>
+                            <!--end has-submenu-->
+                        @endif
+
+                        {{-- navbar menu divisi Barang Milik Negara --}}
+                        @if (Auth()->user()->divisi->nama_divisi == 'Barang Milik Negara')
+                            <li class="has-submenu">
+                                <a href="#">
+                                    <i class="fa-solid fa-file"></i>
+                                    <span>Kelola Pengajuan</span>
+                                </a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-pen"></i>Manajemen Pengajuan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-circle-check"></i>Daftar Pengajuan Selesai
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!--end submenu-->
+                            </li>
+                            <!--end has-submenu-->
+                        @endif
+
+                        {{-- navbar menu divisi Konsultasi --}}
+                        @if (Auth()->user()->divisi->nama_divisi == 'Konsultasi')
+                            <li class="has-submenu">
+                                <a href="#">
+                                    <i class="fa-solid fa-file"></i>
+                                    <span>Kelola Pengajuan</span>
+                                </a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-pen"></i>Manajemen Pengajuan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-circle-check"></i>Daftar Pengajuan Selesai
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!--end submenu-->
+                            </li>
+                            <!--end has-submenu-->
+                        @endif
 
                         <!--end has-submenu-->
                     </ul><!-- End navigation menu -->

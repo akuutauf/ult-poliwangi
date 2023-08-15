@@ -57,35 +57,34 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
 
+    // route all divisi
     Route::get('/dashboard', [PageController::class, 'admin_page'])->name('admin.dashboard.page');
 
     // divisi unit layanan terpadu
     Route::middleware([FilterDivisi::class . ':Unit Layanan Terpadu'])->group(function () {
-        // route ult
+        //divisi
+        Route::get('/ult/divisi', [DivisiController::class, 'index'])->name('admin.divisi.index');
+        Route::post('/ult/divisi/create', [DivisiController::class, 'store'])->name('admin.divisi.create');
+        Route::get('/ult/divisi/delete/{id}', [DivisiController::class, 'destroy'])->name('admin.divisi.destroy');
+        Route::put('/ult/divisi/{id}/update', [DivisiController::class, 'update'])->name('admin.divisi.update');
+
+        //prodi
+        Route::get('/ult/prodi', [ProdiController::class, 'index'])->name('admin.prodi.index');
+        Route::post('/ult/prodi/create', [ProdiController::class, 'store'])->name('admin.prodi.create');
+        Route::get('/ult/prodi/delete/{id}', [ProdiController::class, 'destroy'])->name('admin.prodi.destroy');
+        Route::post('/ult/prodi/{id}/update', [ProdiController::class, 'update'])->name('admin.prodi.update');
+
+        //admin
+        Route::get('/ult/admin', [AdminController::class, 'index'])->name('admin.admin.index');
+
+        //layanan
+        Route::get('/ult/layanan', [LayananController::class, 'index'])->name('admin.layanan.index');
+
+        //berkas
+        Route::get('/ult/berkas', [BerkasController::class, 'index'])->name('admin.berkas.index');
+
+        //pengajuan
+        Route::get('/ult/pengajuan', [PengajuanController::class, 'index'])->name('admin.pengajuan.index');
+        Route::get('/ult/pengajuan/progress-pengajuan/{progress_pengajuan_id}', [ProgressPengajuanController::class, 'show'])->name('admin.progress.pengajuan.index');
     });
-
-    //divisi
-    Route::get('/ult/divisi', [DivisiController::class, 'index'])->name('admin.divisi.index');
-    Route::post('/ult/divisi/create', [DivisiController::class, 'store'])->name('admin.divisi.create');
-    Route::get('/ult/divisi/delete/{id}', [DivisiController::class, 'destroy'])->name('admin.divisi.destroy');
-    Route::put('/ult/divisi/{id}/update', [DivisiController::class, 'update'])->name('admin.divisi.update');
-
-    //prodi
-    Route::get('/ult/prodi', [ProdiController::class, 'index'])->name('admin.prodi.index');
-    Route::post('/ult/prodi/create', [ProdiController::class, 'store'])->name('admin.prodi.create');
-    Route::get('/ult/prodi/delete/{id}', [ProdiController::class, 'destroy'])->name('admin.prodi.destroy');
-    Route::post('/ult/prodi/{id}/update', [ProdiController::class, 'update'])->name('admin.prodi.update');
-
-    //admin
-    Route::get('/ult/admin', [AdminController::class, 'index'])->name('admin.admin.index');
-
-    //layanan
-    Route::get('/ult/layanan', [LayananController::class, 'index'])->name('admin.layanan.index');
-
-    //berkas
-    Route::get('/ult/berkas', [BerkasController::class, 'index'])->name('admin.berkas.index');
-
-    //pengajuan
-    Route::get('/ult/pengajuan', [PengajuanController::class, 'index'])->name('admin.pengajuan.index');
-    Route::get('/ult/pengajuan/progress-pengajuan/{progress_pengajuan_id}', [ProgressPengajuanController::class, 'show'])->name('admin.progress.pengajuan.index');
 });
