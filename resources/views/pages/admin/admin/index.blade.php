@@ -122,7 +122,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-sm btn-primary">Save</button>
-                        <a href="/admin" class="btn btn-sm btn-danger">Cancel</a>
+                        <a href="{{route('admin.admin.index')}}" class="btn btn-sm btn-danger">Cancel</a>
                     </form>
                 </div>
             </div><!-- /.modal-content -->
@@ -166,7 +166,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-sm btn-primary">Save</button>
-                        <a href="/admin" class="btn btn-sm btn-danger">Cancel</a>
+                        <a href="{{route('admin.admin.index')}}" class="btn btn-sm btn-danger">Cancel</a>
                     </form>
                 </div>
             </div><!-- /.modal-content -->

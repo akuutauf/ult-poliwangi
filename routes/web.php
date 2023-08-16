@@ -15,6 +15,7 @@ use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\SurveiKepuasanPenggunaController;
 use App\Http\Controllers\TrackingPengajuanController;
 use App\Http\Controllers\TrackingSearch;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\FilterDivisi;
 use Illuminate\Support\Facades\Route;
 
@@ -68,11 +69,17 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/ult/divisi/delete/{id}', [DivisiController::class, 'destroy'])->name('admin.divisi.destroy');
         Route::put('/ult/divisi/{id}/update', [DivisiController::class, 'update'])->name('admin.divisi.update');
 
+        //user
+        Route::get('/ult/user', [UserController::class, 'index'])->name('admin.user.index');
+        Route::post('/ult/user/create', [UserController::class, 'store'])->name('admin.user.create');
+        Route::get('/ult/user/delete/{id}', [UserController::class, 'destroy'])->name('admin.user.destroy');
+        Route::put('/ult/user/{id}/update', [UserController::class, 'update'])->name('admin.user.update');
+
         //prodi
         Route::get('/ult/prodi', [ProdiController::class, 'index'])->name('admin.prodi.index');
         Route::post('/ult/prodi/create', [ProdiController::class, 'store'])->name('admin.prodi.create');
         Route::get('/ult/prodi/delete/{id}', [ProdiController::class, 'destroy'])->name('admin.prodi.destroy');
-        Route::post('/ult/prodi/{id}/update', [ProdiController::class, 'update'])->name('admin.prodi.update');
+        Route::put('/ult/prodi/{id}/update', [ProdiController::class, 'update'])->name('admin.prodi.update');
 
         //admin
         Route::get('/ult/admin', [AdminController::class, 'index'])->name('admin.admin.index');

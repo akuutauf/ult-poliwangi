@@ -106,7 +106,7 @@
                                     <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Sekretaris</h4>
+                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan</h4>
                                                 <div class="media">
                                                         <div class="data-icon align-self-center">
                                                             <i class="fa-solid fa-file-pen text-pink"></i>
@@ -129,7 +129,7 @@
                                         <a href="#">
                                             <div class="card hospital-info card-hover card-rounded">
                                                 <div class="card-body">
-                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
+                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan Selesai</h4>
                                                     <div class="media">
                                                         <div class="data-icon align-self-center">
                                                             <i class="fa-solid fa-file-circle-check text-success"></i>
@@ -155,7 +155,7 @@
                                     <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Keuangan</h4>
+                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan</h4>
                                                 <div class="media">
                                                         <div class="data-icon align-self-center">
                                                             <i class="fa-solid fa-file-pen text-pink"></i>
@@ -178,7 +178,7 @@
                                         <a href="#">
                                             <div class="card hospital-info card-hover card-rounded">
                                                 <div class="card-body">
-                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
+                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan Selesai</h4>
                                                     <div class="media">
                                                         <div class="data-icon align-self-center">
                                                             <i class="fa-solid fa-file-circle-check text-success"></i>
@@ -205,7 +205,7 @@
                                     <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Akademik dan Kemahasiswaan</h4>
+                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan</h4>
                                                 <div class="media">
                                                         <div class="data-icon align-self-center">
                                                             <i class="fa-solid fa-file-pen text-pink"></i>
@@ -228,7 +228,7 @@
                                         <a href="#">
                                             <div class="card hospital-info card-hover card-rounded">
                                                 <div class="card-body">
-                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
+                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan Selesai</h4>
                                                     <div class="media">
                                                         <div class="data-icon align-self-center">
                                                             <i class="fa-solid fa-file-circle-check text-success"></i>
@@ -254,7 +254,7 @@
                                     <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Umum dan Kepegawaian</h4>
+                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan</h4>
                                                 <div class="media">
                                                         <div class="data-icon align-self-center">
                                                             <i class="fa-solid fa-file-pen text-pink"></i>
@@ -277,7 +277,7 @@
                                         <a href="#">
                                             <div class="card hospital-info card-hover card-rounded">
                                                 <div class="card-body">
-                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
+                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan Selesai</h4>
                                                     <div class="media">
                                                         <div class="data-icon align-self-center">
                                                             <i class="fa-solid fa-file-circle-check text-success"></i>
@@ -303,7 +303,7 @@
                                     <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Pengadaan</h4>
+                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan</h4>
                                                 <div class="media">
                                                         <div class="data-icon align-self-center">
                                                             <i class="fa-solid fa-file-pen text-pink"></i>
@@ -326,7 +326,7 @@
                                     <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
+                                                <h4 class="header-title mt-0 mb-3">Daftar Pengajuan Selesai</h4>
                                                 <div class="media">
                                                     <div class="data-icon align-self-center">
                                                             <i class="fa-solid fa-file-circle-check text-success"></i>
@@ -352,7 +352,7 @@
                                     <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Barang Milik Negara</h4>
+                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan</h4>
                                                 <div class="media">
                                                         <div class="data-icon align-self-center">
                                                             <i class="fa-solid fa-file-pen text-pink"></i>
@@ -375,7 +375,7 @@
                                     <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
+                                                <h4 class="header-title mt-0 mb-3">Daftar Pengajuan Selesai</h4>
                                                 <div class="media">
                                                     <div class="data-icon align-self-center">
                                                             <i class="fa-solid fa-file-circle-check text-success"></i>
@@ -401,7 +401,7 @@
                                     <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Konsultasi</h4>
+                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan</h4>
                                                 <div class="media">
                                                         <div class="data-icon align-self-center">
                                                             <i class="fa-solid fa-file-pen text-pink"></i>
@@ -424,7 +424,7 @@
                                     <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
+                                                <h4 class="header-title mt-0 mb-3">Daftar Pengajuan Selesai</h4>
                                                 <div class="media">
                                                     <div class="data-icon align-self-center">
                                                             <i class="fa-solid fa-file-circle-check text-success"></i>
