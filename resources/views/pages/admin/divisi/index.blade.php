@@ -1,7 +1,7 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title>Unit Layanan Terpadu | ULT Poliwangi</title>
+    <title>Manajemen Divisi | ULT Poliwangi</title>
 @endsection
 
 @section('content')
@@ -26,8 +26,7 @@
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary px-4 mt-0 mb-3" data-toggle="modal"
                                     data-animation="bounce" data-target=".modalCreate"><i
-                                        class="mdi mdi-plus-circle-outline mr-2"></i>Add New
-                                    Divisi</button>
+                                        class="mdi mdi-plus-circle-outline mr-2"></i>Tambah Divisi Baru</button>
                                 <div class="table-responsive">
                                     @php
                                         $no = 1;
@@ -36,7 +35,7 @@
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama</th>
+                                                <th>Nama Divisi</th>
                                                 <th class="text-right">Action</th>
                                             </tr>
                                             <!--end tr-->
@@ -60,12 +59,14 @@
                                                 @php
                                                     $no++;
                                                 @endphp
+
+                                                {{-- Modal Update --}}
                                                 <div class="modal fade modalUpdate{{ $item->id }}" tabindex="-1"
                                                     role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title mt-0" id="myLargeModalLabel">Update
+                                                                <h5 class="modal-title mt-0" id="myLargeModalLabel">Ubah
                                                                     Divisi</h5>
                                                                 <button type="button" class="close" data-dismiss="modal"
                                                                     aria-hidden="true">×</button>
@@ -75,22 +76,31 @@
                                                                     method="POST">
                                                                     @method('put')
                                                                     @csrf
+
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <label for="name">Nama Divisi</label>
-                                                                                <input type="text" class="form-control"
-                                                                                    id="nama_divisi" name="nama_divisi"
-                                                                                    required=""
-                                                                                    value="{{ $item->nama_divisi }}">
+                                                                                <label for="nama_divisi_update">Nama
+                                                                                    Divisi</label>
+                                                                                <input type="text"
+                                                                                    class="form-control @error('nama_divisi_update') is-invalid @enderror"
+                                                                                    id="nama_divisi_update"
+                                                                                    name="nama_divisi_update"
+                                                                                    value="{{ $item->nama_divisi }}"
+                                                                                    placeholder="Masukkan Nama Divisi">
+                                                                                @error('nama_divisi_update')
+                                                                                    <div id="nama_divisi_update"
+                                                                                        class="form-text pb-1">
+                                                                                        {{ $message }}</div>
+                                                                                @enderror
                                                                             </div>
                                                                         </div>
 
                                                                     </div>
                                                                     <button type="submit"
-                                                                        class="btn btn-sm btn-primary">Update</button>
-                                                                    <button type="button"
-                                                                        class="btn btn-sm btn-danger">Cancel</button>
+                                                                        class="btn btn-sm btn-primary">Simpan</button>
+                                                                    <button type="button" class="btn btn-sm btn-danger"
+                                                                        data-dismiss="modal">Batal</button>
                                                                 </form>
                                                             </div>
                                                         </div><!-- /.modal-content -->
@@ -121,29 +131,32 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Add New Divisi</h5>
+                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Tambah Divisi Baru</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('admin.divisi.create') }}" method="POST">
                         @csrf
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="name">Nama Divisi</label>
-                                    <input type="text" class="form-control" id="nama_divisi" name="nama_divisi"
-                                        required="" value="">
-
-                                    @if ($errors->has('nama_divisi'))
-                                        <span class="text-danger text-left">{{ $errors->first('nama_divisi') }}</span>
-                                    @endif
+                                    <label for="nama_divisi_create">Nama Divisi</label>
+                                    <input type="text"
+                                        class="form-control @error('nama_divisi_create') is-invalid @enderror"
+                                        id="nama_divisi_create" name="nama_divisi_create"
+                                        placeholder="Masukkan Nama Divisi">
+                                    @error('nama_divisi_create')
+                                        <div id="nama_divisi_create" class="form-text pb-1">
+                                            {{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
                         </div>
 
-                        <button type="submit" class="btn btn-sm btn-primary" id="sa-success">Save</button>
-                        <a href="{{ route('admin.divisi.index') }}" class="btn btn-sm btn-danger">Cancel</a>
+                        <button type="submit" class="btn btn-sm btn-primary" id="sa-success">Tambah</button>
+                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Batal</button>
                     </form>
                 </div>
             </div><!-- /.modal-content -->

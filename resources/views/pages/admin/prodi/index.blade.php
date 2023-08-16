@@ -1,7 +1,7 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title>Unit Layanan Terpadu | ULT Poliwangi</title>
+    <title>Manajemen Prodi | ULT Poliwangi</title>
 @endsection
 
 @section('content')
@@ -25,8 +25,7 @@
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary px-4 mt-0 mb-3" data-toggle="modal"
                                     data-animation="bounce" data-target=".modalCreate"><i
-                                        class="mdi mdi-plus-circle-outline mr-2"></i>Add New
-                                    Prodi</button>
+                                        class="mdi mdi-plus-circle-outline mr-2"></i>Tambah Prodi Baru</button>
                                 <div class="table-responsive">
                                     @php
                                         $no = 1;
@@ -35,7 +34,7 @@
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>No</th>
-                                                <th>Prodi</th>
+                                                <th>Nama Prodi</th>
                                                 <th class="text-right">Action</th>
                                             </tr>
                                             <!--end tr-->
@@ -65,7 +64,7 @@
                                                     <div class="modal-dialog modal-lg">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title mt-0" id="myLargeModalLabel">Update
+                                                                <h5 class="modal-title mt-0" id="myLargeModalLabel">Ubah
                                                                     Prodi</h5>
                                                                 <button type="button" class="close" data-dismiss="modal"
                                                                     aria-hidden="true">×</button>
@@ -73,24 +72,33 @@
                                                             <div class="modal-body">
                                                                 <form action="{{ route('admin.prodi.update', $item->id) }}"
                                                                     method="POST">
+
                                                                     @method('put')
                                                                     @csrf
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <label for="Prodi">Nama Prodi</label>
-                                                                                <input type="text" class="form-control"
-                                                                                    id="nama_prodi" name="nama_prodi"
-                                                                                    required=""
+                                                                                <label for="nama_prodi_update">Nama
+                                                                                    Prodi</label>
+                                                                                <input type="text"
+                                                                                    class="form-control @error('nama_prodi_update') is-invalid @enderror"
+                                                                                    id="nama_prodi_update"
+                                                                                    name="nama_prodi_update"
+                                                                                    placeholder="Masukkan Nama Prodi"
                                                                                     value="{{ $item->nama_prodi }}">
+                                                                                @error('nama_prodi_update')
+                                                                                    <div id="nama_prodi_update"
+                                                                                        class="form-text pb-1">
+                                                                                        {{ $message }}</div>
+                                                                                @enderror
                                                                             </div>
                                                                         </div>
-
                                                                     </div>
+
                                                                     <button type="submit"
-                                                                        class="btn btn-sm btn-primary">Update</button>
-                                                                    <button type="button"
-                                                                        class="btn btn-sm btn-danger">Cancel</button>
+                                                                        class="btn btn-sm btn-primary">Simpan</button>
+                                                                    <button type="button" class="btn btn-sm btn-danger"
+                                                                        data-dismiss="modal">Batal</button>
                                                                 </form>
                                                             </div>
                                                         </div><!-- /.modal-content -->
@@ -121,7 +129,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Add New Prodi</h5>
+                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Tambah Prodi Baru</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
@@ -130,19 +138,20 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="name">Nama Prodi</label>
-                                    <input type="text" class="form-control" id="nama_prodi" name="nama_prodi"
-                                        required="" value="">
-
-                                    @if ($errors->has('nama_prodi'))
-                                        <span class="text-danger text-left">{{ $errors->first('nama_prodi') }}</span>
-                                    @endif
+                                    <label for="nama_prodi_create">Nama Prodi</label>
+                                    <input type="text"
+                                        class="form-control @error('nama_prodi_create') is-invalid @enderror"
+                                        id="nama_prodi_create" name="nama_prodi_create" placeholder="Masukkan Nama Prodi">
+                                    @error('nama_prodi_create')
+                                        <div id="nama_prodi_create" class="form-text pb-1">
+                                            {{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-sm btn-primary" id="sa-success">Save</button>
-                        <a href="{{ route('admin.prodi.index') }}" class="btn btn-sm btn-danger">Cancel</a>
+                        <button type="submit" class="btn btn-sm btn-primary" id="sa-success">Tambah</button>
+                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Batal</button>
                     </form>
                 </div>
             </div><!-- /.modal-content -->

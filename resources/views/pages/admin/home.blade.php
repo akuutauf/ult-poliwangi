@@ -1,7 +1,7 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title>Unit Layanan Terpadu | ULT Poliwangi</title>
+    <title>Dashboard Admin | ULT Poliwangi</title>
 @endsection
 
 @section('content')
@@ -29,73 +29,73 @@
                     </div><!-- end col-->
 
                     @if (Auth()->user()->divisi->nama_divisi == 'Unit Layanan Terpadu')
-                    <div class="col-lg-4">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <a href="#">
-                                    <div class="card hospital-info card-hover card-rounded">
-                                        <div class="card-body">
-                                            <h4 class="header-title mt-0 mb-3">Daftar Permohonan</h4>
-                                            <div class="media">
-                                                <div class="data-icon align-self-center">
-                                                    <i class="fa-solid fa-file-circle-plus text-danger"></i>
+                        <div class="col-lg-4">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="#">
+                                        <div class="card hospital-info card-hover card-rounded">
+                                            <div class="card-body">
+                                                <h4 class="header-title mt-0 mb-3">Daftar Permohonan</h4>
+                                                <div class="media">
+                                                    <div class="data-icon align-self-center">
+                                                        <i class="fa-solid fa-file-circle-plus text-danger"></i>
+                                                    </div>
+                                                    <div class="media-body ml-3 align-self-center text-right">
+                                                        <h3 class="mt-0">{{ $pengajuan_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap">Unit Layanan
+                                                            Terpadu</span>
+                                                    </div><!--end media body-->
                                                 </div>
-                                                <div class="media-body ml-3 align-self-center text-right">
-                                                    <h3 class="mt-0">{{ $pengajuan_count }}</h3>
-                                                    <span class="text-muted mb-0 text-nowrap">Unit Layanan
-                                                        Terpadu</span>
-                                                </div><!--end media body-->
-                                            </div>
-                                        </div><!--end card-body-->
-                                    </div><!--end card-->
-                                </a>
+                                            </div><!--end card-body-->
+                                        </div><!--end card-->
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <a href="{{ route('admin.pengajuan.index') }}">
-                                    <div class="card hospital-info card-hover card-rounded">
-                                        <div class="card-body">
-                                            <h4 class="header-title mt-0 mb-3">Manajemen Data Pengajuan</h4>
-                                            <div class="media">
-                                                <div class="data-icon align-self-center">
-                                                    <i class="fa-solid fa-file-pen text-pink"></i>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="{{ route('admin.pengajuan.index') }}">
+                                        <div class="card hospital-info card-hover card-rounded">
+                                            <div class="card-body">
+                                                <h4 class="header-title mt-0 mb-3">Manajemen Data Pengajuan</h4>
+                                                <div class="media">
+                                                    <div class="data-icon align-self-center">
+                                                        <i class="fa-solid fa-file-pen text-pink"></i>
+                                                    </div>
+                                                    <div class="media-body ml-3 align-self-center text-right">
+                                                        <h3 class="mt-0">{{ $pengajuan_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap">Unit Layanan
+                                                            Terpadu</span>
+                                                    </div><!--end media body-->
                                                 </div>
-                                                <div class="media-body ml-3 align-self-center text-right">
-                                                    <h3 class="mt-0">{{ $pengajuan_count }}</h3>
-                                                    <span class="text-muted mb-0 text-nowrap">Unit Layanan
-                                                        Terpadu</span>
-                                                </div><!--end media body-->
-                                            </div>
-                                        </div><!--end card-body-->
-                                    </div><!--end card-->
-                                </a>
-                            </div><!-- end col-->
-                        </div>
+                                            </div><!--end card-body-->
+                                        </div><!--end card-->
+                                    </a>
+                                </div><!-- end col-->
+                            </div>
 
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <a href="#">
-                                    <div class="card hospital-info card-hover card-rounded">
-                                        <div class="card-body">
-                                            <h4 class="header-title mt-0 mb-3">Daftar Pengajuan Selesai</h4>
-                                            <div class="media">
-                                                <div class="data-icon align-self-center">
-                                                    <i class="fa-solid fa-file-circle-check text-success"></i>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="#">
+                                        <div class="card hospital-info card-hover card-rounded">
+                                            <div class="card-body">
+                                                <h4 class="header-title mt-0 mb-3">Daftar Pengajuan Selesai</h4>
+                                                <div class="media">
+                                                    <div class="data-icon align-self-center">
+                                                        <i class="fa-solid fa-file-circle-check text-success"></i>
+                                                    </div>
+                                                    <div class="media-body ml-3 align-self-center text-right">
+                                                        <h3 class="mt-0">{{ $pengajuan_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap">Unit Layanan
+                                                            Terpadu</span>
+                                                    </div><!--end media body-->
                                                 </div>
-                                                <div class="media-body ml-3 align-self-center text-right">
-                                                    <h3 class="mt-0">{{ $pengajuan_count }}</h3>
-                                                    <span class="text-muted mb-0 text-nowrap">Unit Layanan
-                                                        Terpadu</span>
-                                                </div><!--end media body-->
-                                            </div>
-                                        </div><!--end card-body-->
-                                    </div><!--end card-->
-                                </a>
-                            </div><!-- end col-->
-                        </div>
-                    </div><!-- end col-->
+                                            </div><!--end card-body-->
+                                        </div><!--end card-->
+                                    </a>
+                                </div><!-- end col-->
+                            </div>
+                        </div><!-- end col-->
                     @endif
 
                     {{-- for divisi sekretaris --}}
@@ -108,211 +108,13 @@
                                             <div class="card-body">
                                                 <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Sekretaris</h4>
                                                 <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-pen text-pink"></i>
-                                                        </div>
-                                                <div class="media-body ml-3 align-self-center text-right">
-                                                    <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                    <span
-                                                     class="text-muted mb-0 text-nowrap">Sekretaris</span>
-                                                </div><!--end media body-->
-                                                </div>
-                                            </div><!--end card-body-->
-                                        </div><!--end card-->
-                                    </a>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col-lg-12">
-                                        <a href="#">
-                                            <div class="card hospital-info card-hover card-rounded">
-                                                <div class="card-body">
-                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
-                                                    <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-circle-check text-success"></i>
-                                                        </div>
-                                                        <div class="media-body ml-3 align-self-center text-right">
-                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                            <span class="text-muted mb-0 text-nowrap ">Sekretaris</span>
-                                                        </div><!--end media body-->
+                                                    <div class="data-icon align-self-center">
+                                                        <i class="fa-solid fa-file-pen text-pink"></i>
                                                     </div>
-                                                </div><!--end card-body-->
-                                            </div><!--end card-->
-                                        </a>
-                                </div>
-                            </div>
-                        </div><!-- end col-->
-                    @endif
-
-                    {{-- for divisi Keuangan --}}
-                    @if (Auth()->user()->divisi->nama_divisi == 'Keuangan')
-                        <div class="col-lg-4">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <a href="#">
-                                        <div class="card hospital-info card-hover card-rounded">
-                                            <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Keuangan</h4>
-                                                <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-pen text-pink"></i>
-                                                        </div>
-                                                <div class="media-body ml-3 align-self-center text-right">
-                                                    <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                    <span
-                                                     class="text-muted mb-0 text-nowrap">Keuangan</span>
-                                                </div><!--end media body-->
-                                                </div>
-                                            </div><!--end card-body-->
-                                        </div><!--end card-->
-                                    </a>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col-lg-12">
-                                        <a href="#">
-                                            <div class="card hospital-info card-hover card-rounded">
-                                                <div class="card-body">
-                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
-                                                    <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-circle-check text-success"></i>
-                                                        </div>
-                                                        <div class="media-body ml-3 align-self-center text-right">
-                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                            <span class="text-muted mb-0 text-nowrap ">Keuangan</span>
-                                                        </div><!--end media body-->
-                                                    </div>
-                                                </div><!--end card-body-->
-                                            </div><!--end card-->
-                                        </a>
-                                </div>
-                            </div>
-                        </div><!-- end col-->
-
-                    @endif
-
-                    {{-- for divisi Akademik dan Kemahasiswaan --}}
-                    @if (Auth()->user()->divisi->nama_divisi == 'Akademik dan Kemahasiswaan')
-                        <div class="col-lg-4">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <a href="#">
-                                        <div class="card hospital-info card-hover card-rounded">
-                                            <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Akademik dan Kemahasiswaan</h4>
-                                                <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-pen text-pink"></i>
-                                                        </div>
-                                                <div class="media-body ml-3 align-self-center text-right">
-                                                    <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                    <span
-                                                     class="text-muted mb-0 text-nowrap">Akademik dan Kemahasiswaan</span>
-                                                </div><!--end media body-->
-                                                </div>
-                                            </div><!--end card-body-->
-                                        </div><!--end card-->
-                                    </a>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col-lg-12">
-                                        <a href="#">
-                                            <div class="card hospital-info card-hover card-rounded">
-                                                <div class="card-body">
-                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
-                                                    <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-circle-check text-success"></i>
-                                                        </div>
-                                                        <div class="media-body ml-3 align-self-center text-right">
-                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                            <span class="text-muted mb-0 text-nowrap ">Akademik dan Kemahasiswaan</span>
-                                                        </div><!--end media body-->
-                                                    </div>
-                                                </div><!--end card-body-->
-                                            </div><!--end card-->
-                                        </a>
-                                </div>
-                            </div>
-                        </div><!-- end col-->
-                    @endif
-
-                    {{-- for divisi Umum dan Kepegawaian --}}
-                    @if (Auth()->user()->divisi->nama_divisi == 'Umum dan Kepegawaian')
-                        <div class="col-lg-4">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <a href="#">
-                                        <div class="card hospital-info card-hover card-rounded">
-                                            <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Umum dan Kepegawaian</h4>
-                                                <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-pen text-pink"></i>
-                                                        </div>
-                                                <div class="media-body ml-3 align-self-center text-right">
-                                                    <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                    <span
-                                                     class="text-muted mb-0 text-nowrap">Umum dan Kepegawaian</span>
-                                                </div><!--end media body-->
-                                                </div>
-                                            </div><!--end card-body-->
-                                        </div><!--end card-->
-                                    </a>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col-lg-12">
-                                        <a href="#">
-                                            <div class="card hospital-info card-hover card-rounded">
-                                                <div class="card-body">
-                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
-                                                    <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-circle-check text-success"></i>
-                                                        </div>
-                                                        <div class="media-body ml-3 align-self-center text-right">
-                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                            <span class="text-muted mb-0 text-nowrap ">Umum dan Kepegawaian</span>
-                                                        </div><!--end media body-->
-                                                    </div>
-                                                </div><!--end card-body-->
-                                            </div><!--end card-->
-                                        </a>
-                                </div>
-                            </div>
-                        </div><!-- end col-->
-                    @endif
-
-                    {{-- for divisi Pengadaan --}}
-                    @if (Auth()->user()->divisi->nama_divisi == 'Pengadaan')
-                        <div class="col-lg-4">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <a href="#">
-                                        <div class="card hospital-info card-hover card-rounded">
-                                            <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Pengadaan</h4>
-                                                <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-pen text-pink"></i>
-                                                        </div>
-                                                <div class="media-body ml-3 align-self-center text-right">
-                                                    <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                    <span
-                                                     class="text-muted mb-0 text-nowrap">Pengadaan</span>
-                                                </div><!--end media body-->
+                                                    <div class="media-body ml-3 align-self-center text-right">
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap">Sekretaris</span>
+                                                    </div><!--end media body-->
                                                 </div>
                                             </div><!--end card-body-->
                                         </div><!--end card-->
@@ -329,11 +131,209 @@
                                                 <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
                                                 <div class="media">
                                                     <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-circle-check text-success"></i>
+                                                        <i class="fa-solid fa-file-circle-check text-success"></i>
                                                     </div>
                                                     <div class="media-body ml-3 align-self-center text-right">
-                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                            <span class="text-muted mb-0 text-nowrap ">Pengadaan</span>
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap ">Sekretaris</span>
+                                                    </div><!--end media body-->
+                                                </div>
+                                            </div><!--end card-body-->
+                                        </div><!--end card-->
+                                    </a>
+                                </div>
+                            </div>
+                        </div><!-- end col-->
+                    @endif
+
+                    {{-- for divisi Keuangan --}}
+                    @if (Auth()->user()->divisi->nama_divisi == 'Keuangan')
+                        <div class="col-lg-4">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="#">
+                                        <div class="card hospital-info card-hover card-rounded">
+                                            <div class="card-body">
+                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Keuangan</h4>
+                                                <div class="media">
+                                                    <div class="data-icon align-self-center">
+                                                        <i class="fa-solid fa-file-pen text-pink"></i>
+                                                    </div>
+                                                    <div class="media-body ml-3 align-self-center text-right">
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap">Keuangan</span>
+                                                    </div><!--end media body-->
+                                                </div>
+                                            </div><!--end card-body-->
+                                        </div><!--end card-->
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="#">
+                                        <div class="card hospital-info card-hover card-rounded">
+                                            <div class="card-body">
+                                                <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
+                                                <div class="media">
+                                                    <div class="data-icon align-self-center">
+                                                        <i class="fa-solid fa-file-circle-check text-success"></i>
+                                                    </div>
+                                                    <div class="media-body ml-3 align-self-center text-right">
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap ">Keuangan</span>
+                                                    </div><!--end media body-->
+                                                </div>
+                                            </div><!--end card-body-->
+                                        </div><!--end card-->
+                                    </a>
+                                </div>
+                            </div>
+                        </div><!-- end col-->
+                    @endif
+
+                    {{-- for divisi Akademik dan Kemahasiswaan --}}
+                    @if (Auth()->user()->divisi->nama_divisi == 'Akademik dan Kemahasiswaan')
+                        <div class="col-lg-4">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="#">
+                                        <div class="card hospital-info card-hover card-rounded">
+                                            <div class="card-body">
+                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Akademik dan
+                                                    Kemahasiswaan</h4>
+                                                <div class="media">
+                                                    <div class="data-icon align-self-center">
+                                                        <i class="fa-solid fa-file-pen text-pink"></i>
+                                                    </div>
+                                                    <div class="media-body ml-3 align-self-center text-right">
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap">Akademik dan
+                                                            Kemahasiswaan</span>
+                                                    </div><!--end media body-->
+                                                </div>
+                                            </div><!--end card-body-->
+                                        </div><!--end card-->
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="#">
+                                        <div class="card hospital-info card-hover card-rounded">
+                                            <div class="card-body">
+                                                <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
+                                                <div class="media">
+                                                    <div class="data-icon align-self-center">
+                                                        <i class="fa-solid fa-file-circle-check text-success"></i>
+                                                    </div>
+                                                    <div class="media-body ml-3 align-self-center text-right">
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap ">Akademik dan
+                                                            Kemahasiswaan</span>
+                                                    </div><!--end media body-->
+                                                </div>
+                                            </div><!--end card-body-->
+                                        </div><!--end card-->
+                                    </a>
+                                </div>
+                            </div>
+                        </div><!-- end col-->
+                    @endif
+
+                    {{-- for divisi Umum dan Kepegawaian --}}
+                    @if (Auth()->user()->divisi->nama_divisi == 'Umum dan Kepegawaian')
+                        <div class="col-lg-4">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="#">
+                                        <div class="card hospital-info card-hover card-rounded">
+                                            <div class="card-body">
+                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Umum dan Kepegawaian
+                                                </h4>
+                                                <div class="media">
+                                                    <div class="data-icon align-self-center">
+                                                        <i class="fa-solid fa-file-pen text-pink"></i>
+                                                    </div>
+                                                    <div class="media-body ml-3 align-self-center text-right">
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap">Umum dan
+                                                            Kepegawaian</span>
+                                                    </div><!--end media body-->
+                                                </div>
+                                            </div><!--end card-body-->
+                                        </div><!--end card-->
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="#">
+                                        <div class="card hospital-info card-hover card-rounded">
+                                            <div class="card-body">
+                                                <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
+                                                <div class="media">
+                                                    <div class="data-icon align-self-center">
+                                                        <i class="fa-solid fa-file-circle-check text-success"></i>
+                                                    </div>
+                                                    <div class="media-body ml-3 align-self-center text-right">
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap ">Umum dan
+                                                            Kepegawaian</span>
+                                                    </div><!--end media body-->
+                                                </div>
+                                            </div><!--end card-body-->
+                                        </div><!--end card-->
+                                    </a>
+                                </div>
+                            </div>
+                        </div><!-- end col-->
+                    @endif
+
+                    {{-- for divisi Pengadaan --}}
+                    @if (Auth()->user()->divisi->nama_divisi == 'Pengadaan')
+                        <div class="col-lg-4">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="#">
+                                        <div class="card hospital-info card-hover card-rounded">
+                                            <div class="card-body">
+                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Pengadaan</h4>
+                                                <div class="media">
+                                                    <div class="data-icon align-self-center">
+                                                        <i class="fa-solid fa-file-pen text-pink"></i>
+                                                    </div>
+                                                    <div class="media-body ml-3 align-self-center text-right">
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap">Pengadaan</span>
+                                                    </div><!--end media body-->
+                                                </div>
+                                            </div><!--end card-body-->
+                                        </div><!--end card-->
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <a href="#">
+                                        <div class="card hospital-info card-hover card-rounded">
+                                            <div class="card-body">
+                                                <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
+                                                <div class="media">
+                                                    <div class="data-icon align-self-center">
+                                                        <i class="fa-solid fa-file-circle-check text-success"></i>
+                                                    </div>
+                                                    <div class="media-body ml-3 align-self-center text-right">
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap ">Pengadaan</span>
                                                     </div><!--end media body-->
                                                 </div>
                                             </div><!--end card-body-->
@@ -352,16 +352,17 @@
                                     <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Barang Milik Negara</h4>
+                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Barang Milik Negara
+                                                </h4>
                                                 <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-pen text-pink"></i>
-                                                        </div>
-                                                <div class="media-body ml-3 align-self-center text-right">
-                                                    <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                    <span
-                                                     class="text-muted mb-0 text-nowrap">Barang Milik Negara</span>
-                                                </div><!--end media body-->
+                                                    <div class="data-icon align-self-center">
+                                                        <i class="fa-solid fa-file-pen text-pink"></i>
+                                                    </div>
+                                                    <div class="media-body ml-3 align-self-center text-right">
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap">Barang Milik
+                                                            Negara</span>
+                                                    </div><!--end media body-->
                                                 </div>
                                             </div><!--end card-body-->
                                         </div><!--end card-->
@@ -378,11 +379,12 @@
                                                 <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
                                                 <div class="media">
                                                     <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-circle-check text-success"></i>
+                                                        <i class="fa-solid fa-file-circle-check text-success"></i>
                                                     </div>
                                                     <div class="media-body ml-3 align-self-center text-right">
-                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                            <span class="text-muted mb-0 text-nowrap ">Barang Milik Negara</span>
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap ">Barang Milik
+                                                            Negara</span>
                                                     </div><!--end media body-->
                                                 </div>
                                             </div><!--end card-body-->
@@ -403,14 +405,13 @@
                                             <div class="card-body">
                                                 <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Konsultasi</h4>
                                                 <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-pen text-pink"></i>
-                                                        </div>
-                                                <div class="media-body ml-3 align-self-center text-right">
-                                                    <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                    <span
-                                                     class="text-muted mb-0 text-nowrap">Konsultasi</span>
-                                                </div><!--end media body-->
+                                                    <div class="data-icon align-self-center">
+                                                        <i class="fa-solid fa-file-pen text-pink"></i>
+                                                    </div>
+                                                    <div class="media-body ml-3 align-self-center text-right">
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap">Konsultasi</span>
+                                                    </div><!--end media body-->
                                                 </div>
                                             </div><!--end card-body-->
                                         </div><!--end card-->
@@ -427,11 +428,11 @@
                                                 <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
                                                 <div class="media">
                                                     <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-circle-check text-success"></i>
+                                                        <i class="fa-solid fa-file-circle-check text-success"></i>
                                                     </div>
                                                     <div class="media-body ml-3 align-self-center text-right">
-                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                            <span class="text-muted mb-0 text-nowrap ">Konsultasi</span>
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap ">Konsultasi</span>
                                                     </div><!--end media body-->
                                                 </div>
                                             </div><!--end card-body-->

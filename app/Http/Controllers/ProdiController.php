@@ -19,7 +19,6 @@ class ProdiController extends Controller
             'prodi' => Prodi::all(),
         ];
 
-
         return view('pages.admin.prodi.index', $data);
     }
 
@@ -42,15 +41,14 @@ class ProdiController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama_prodi' => ['required', 'string', 'max:100']
+            'nama_prodi_create' => ['required', 'string']
         ]);
 
-
         $prodi = new Prodi;
-        $prodi->nama_prodi = $validated['nama_prodi'];
+        $prodi->nama_prodi = $validated['nama_prodi_create'];
         $prodi->save();
 
-        Alert::success('Success', 'Prodi berhasil ditambahkan');
+        Alert::success('Success', 'Prodi Berhasil Ditambahkan');
 
         return redirect()->route('admin.prodi.index');
     }
@@ -86,8 +84,16 @@ class ProdiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Prodi::where('id', $request->id)->update($request->only(['nama_prodi']));
-        Alert::success('Success', 'Prodi berhasil diupdate');
+        $validated = $request->validate([
+            'nama_prodi_update' => ['required', 'string']
+        ]);
+
+        Prodi::where('id', $id)->update([
+            'nama_prodi' => $validated['nama_prodi_update'],
+        ]);
+
+        Alert::success('Success', 'Prodi Berhasil Diupdate');
+
         return redirect()->route('admin.prodi.index');
     }
 
@@ -99,10 +105,10 @@ class ProdiController extends Controller
      */
     public function destroy($id)
     {
-
         $prodi = Prodi::findOrFail($id);
         $prodi->delete();
-        Alert::success('Success', 'Prodi berhasil dihapus');
+
+        Alert::success('Success', 'Prodi Berhasil Dihapus');
 
         return redirect()->route('admin.prodi.index');
     }

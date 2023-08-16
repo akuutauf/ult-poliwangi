@@ -18,7 +18,6 @@ class DivisiController extends Controller
 
         $data = [
             'divisi' => Divisi::all(),
-
         ];
 
         return view('pages.admin.divisi.index', $data);
@@ -43,15 +42,14 @@ class DivisiController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama_divisi' => ['required', 'string', 'max:100']
+            'nama_divisi_create' => ['required', 'string']
         ]);
 
-
         $divisi = new Divisi;
-        $divisi->nama_divisi = $validated['nama_divisi'];
+        $divisi->nama_divisi = $validated['nama_divisi_create'];
         $divisi->save();
 
-        Alert::success('Success', 'Divisi berhasil ditambahkan');
+        Alert::success('Success', 'Divisi Berhasil Ditambahkan');
 
         return redirect()->route('admin.divisi.index');
     }
@@ -90,8 +88,16 @@ class DivisiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Divisi::where('id', $request->id)->update($request->only(['nama_divisi']));
-        Alert::success('Success', 'Divisi berhasil diupdate');
+        $validated = $request->validate([
+            'nama_divisi_update' => ['required', 'string']
+        ]);
+
+        Divisi::where('id', $id)->update([
+            'nama_divisi' => $validated['nama_divisi_update'],
+        ]);
+
+        Alert::success('Success', 'Divisi Berhasil Diupdate');
+
         return redirect()->route('admin.divisi.index');
     }
 
@@ -103,10 +109,10 @@ class DivisiController extends Controller
      */
     public function destroy($id)
     {
-        //
         $divisi = Divisi::findOrFail($id);
         $divisi->delete();
-        Alert::success('Success', 'Divisi berhasil dihapus');
+
+        Alert::success('Success', 'Divisi Berhasil Dihapus');
 
         return redirect()->route('admin.divisi.index');
     }
