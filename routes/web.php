@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerkasController;
 use App\Http\Controllers\DivisiController;
+use App\Http\Controllers\ErrorController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\ProgressPengajuanController;
 use App\Http\Controllers\FormMahasiswaController;
@@ -32,6 +33,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home_page'])->name('home.page');
 Route::get('/logout', [AuthController::class, 'doLogout'])->name('do.logout');
+
+// route not found and not have access
+Route::fallback(function () {
+    return view('pages.error.not-found-404');
+});
+
+Route::get('/error/403', [ErrorController::class, 'accessDenied'])->name('error.403');
 
 Route::middleware(['guest'])->group(function () {
     // authenticate for login
@@ -83,6 +91,9 @@ Route::middleware(['auth'])->group(function () {
 
         //admin
         Route::get('/ult/admin', [AdminController::class, 'index'])->name('admin.admin.index');
+        Route::post('/ult/admin/create', [AdminController::class, 'store'])->name('admin.admin.create');
+        Route::put('/ult/admin/{id}/update', [AdminController::class, 'update'])->name('admin.admin.update');
+        Route::get('/ult/admin/delete/{id}', [AdminController::class, 'destroy'])->name('admin.admin.destroy');
 
         //layanan
         Route::get('/ult/layanan', [LayananController::class, 'index'])->name('admin.layanan.index');

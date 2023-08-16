@@ -6,6 +6,7 @@ use App\Models\Admin;
 use App\Models\Divisi;
 use App\Models\User;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminController extends Controller
 {
@@ -32,7 +33,6 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -43,7 +43,17 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'id_user' => 'required',
+            'id_divisi' => 'required'
+        ]);
+        $admin = new Admin();
+        $admin->id_user = $validated['id_user'];
+        $admin->id_divisi = $validated['id_divisi'];
+        $admin->save();
+
+        Alert::success('Success', 'Admin berhasil ditambahkan');
+        return redirect()->route('admin.admin.index');
     }
 
     /**
@@ -77,7 +87,9 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Admin::where('id', $request->id)->update($request->only(['id_user', 'id_divisi']));
+        Alert::success('Success', 'Admin berhasil diupdate');
+        return redirect()->route('admin.admin.index');
     }
 
     /**
@@ -88,6 +100,10 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $admin = Admin::findOrFail($id);
+        $admin->delete();
+        Alert::success('Success', 'User Admin berhasil dihapus');
+
+        return redirect()->route('admin.admin.index');
     }
 }

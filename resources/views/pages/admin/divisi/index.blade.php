@@ -143,7 +143,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-sm btn-primary" id="sa-success">Save</button>
-                        <a href="{{route('admin.divisi.index')}}" class="btn btn-sm btn-danger">Cancel</a>
+                        <button type="button" class="btn btn-sm btn-danger">Cancel</button>
                     </form>
                 </div>
             </div><!-- /.modal-content -->

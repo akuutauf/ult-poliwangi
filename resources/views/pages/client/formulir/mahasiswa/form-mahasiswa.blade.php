@@ -21,7 +21,7 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <h2 class="fw-bold"><i class="fa-solid fa-file-circle-plus"></i>&ensp; FORMULIR PENGAJUAN MAHASISWA</h2>
 
-                     {{-- Livewire Pengajuan Mahasiswa --}}
+                    {{-- Livewire Pengajuan Mahasiswa --}}
                     <livewire:formulir-pengajuan-mahasiswa></livewire:formulir-pengajuan-mahasiswa>
 
                 </div>
@@ -32,8 +32,7 @@
 
 
 @section('script')
-
-@livewireScripts
+    @livewireScripts
 
     {{-- Inisiasi datedroppper --}}
     <script>
