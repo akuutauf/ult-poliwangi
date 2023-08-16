@@ -44,16 +44,17 @@ class LayananController extends Controller
     {
         $validated = $request->validate([
             'id_divisi' => 'required',
-            'nama_layanan' => ['required', 'string', 'max:100']
+            'estimasi_layanan' => ['required', 'number'],
+            'nama_layanan' => ['required', 'string']
         ]);
-
 
         $layanan = new Layanan;
         $layanan->id_divisi = $validated['id_divisi'];
         $layanan->nama_layanan = $validated['nama_layanan'];
+        $layanan->estimasi_layanan = $validated['estimasi_layanan'];
         $layanan->save();
 
-        Alert::success('Success', 'Layanan berhasil ditambahkan');
+        Alert::success('Success', 'Layanan Berhasil Ditambahkan');
 
         return redirect()->route('admin.layanan.index');
     }
@@ -89,8 +90,20 @@ class LayananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Layanan::where('id', $request->id)->update($request->only(['nama_layanan']));
-        Alert::success('Success', 'Layanan berhasil diupdate');
+        $validated = $request->validate([
+            'id_divisi' => ['required', 'string'],
+            'estimasi_layanan' => ['required', 'string'],
+            'nama_layanan' => ['required', 'string'],
+        ]);
+
+        Layanan::where('id', $id)->update([
+            'id_divisi' => $validated['id_divisi'],
+            'estimasi_layanan' => $validated['estimasi_layanan'],
+            'nama_layanan' => $validated['nama_layanan'],
+        ]);
+
+        Alert::success('Success', 'Layanan Berhasil Diupdate');
+
         return redirect()->route('admin.layanan.index');
     }
 
@@ -104,7 +117,7 @@ class LayananController extends Controller
     {
         $layanan = Layanan::findOrFail($id);
         $layanan->delete();
-        Alert::success('Success', 'Layanan berhasil dihapus');
+        Alert::success('Success', 'Layanan Berhasil Dihapus');
 
         return redirect()->route('admin.layanan.index');
     }

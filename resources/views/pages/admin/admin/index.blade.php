@@ -1,7 +1,7 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title>Unit Layanan Terpadu | ULT Poliwangi</title>
+    <title>Manajemen Admin | ULT Poliwangi</title>
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title>Unit Layanan Terpadu | ULT Poliwangi</title>
+    <title>Manajemen Layanan | ULT Poliwangi</title>
 @endsection
 
 @section('content')
@@ -25,8 +25,7 @@
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary px-4 mt-0 mb-3" data-toggle="modal"
                                     data-animation="bounce" data-target=".modalCreate"><i
-                                        class="mdi mdi-plus-circle-outline mr-2"></i>Add New
-                                    Layanan</button>
+                                        class="mdi mdi-plus-circle-outline mr-2"></i>Tambah Layanan Baru</button>
                                 <div class="table-responsive">
                                     @php
                                         $no = 1;
@@ -62,6 +61,7 @@
                                         @php
                                             $no++;
                                         @endphp
+
                                         <!--  Modal Update content for the above example -->
                                         <div class="modal fade modalUpdate" tabindex="-1" role="dialog"
                                             aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -105,19 +105,42 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
+                                                                        <label for="estimasi_layanan">Estimasi
+                                                                            Layanan</label>
+                                                                        <input type="number"
+                                                                            class="form-control @error('estimasi_layanan') is-invalid @enderror"
+                                                                            id="estimasi_layanan" name="estimasi_layanan"
+                                                                            placeholder="Jumlah Maksimal Hari Kerja Pelayanan"
+                                                                            value="{{ $item->estimasi_layanan }}">
+                                                                        @error('estimasi_layanan')
+                                                                            <div id="estimasi_layanan" class="form-text pb-1">
+                                                                                {{ $message }}</div>
+                                                                        @enderror
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
                                                                         <label for="Item">Nama Layanan</label>
-                                                                        <input type="text" class="form-control"
+                                                                        <input type="text"
+                                                                            class="form-control @error('nama_layanan') is-invalid @enderror"
                                                                             id="nama_layanan" name="nama_layanan"
-                                                                            required=""
-                                                                            value="{{ $item->nama_layanan }}">
+                                                                            value="{{ $item->nama_layanan }}"
+                                                                            placeholder="Masukkan Nama Layanan">
+                                                                        @error('nama_layanan')
+                                                                            <div id="nama_layanan" class="form-text pb-1">
+                                                                                {{ $message }}</div>
+                                                                        @enderror
                                                                     </div>
                                                                 </div>
                                                             </div>
 
                                                             <button type="submit"
-                                                                class="btn btn-sm btn-primary">Update</button>
-                                                            <button type="button"
-                                                                class="btn btn-sm btn-danger">Cancel</button>
+                                                                class="btn btn-sm btn-primary">Simpan</button>
+                                                            <button type="button" class="btn btn-sm btn-danger"
+                                                                data-dismiss="modal">Batal</button>
                                                         </form>
                                                     </div>
                                                 </div><!-- /.modal-content -->
@@ -144,36 +167,61 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Add New Layanan</h5>
+                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Tambah Layanan Baru</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('admin.layanan.create') }}" method="POST">
                         @csrf
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="Item">Divisi</label>
-                                    <select class="form-control" id="id_divisi" name="id_divisi">
+                                    <label for="nama_divisi">Nama Divisi</label>
+                                    <select class="form-control @error('id_divisi') is-invalid @enderror" id="id_divisi"
+                                        name="id_divisi">
                                         <option value="">Pilih Divisi</option>
                                         @foreach ($divisi as $dataDivisi)
                                             <option value="{{ $dataDivisi->id }}">{{ $dataDivisi->nama_divisi }}</option>
                                         @endforeach
                                     </select>
+                                    @error('id_divisi')
+                                        <div id="id_divisi" class="form-text pb-1">
+                                            {{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
+
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="Item">Nama Layanan</label>
-                                    <input type="text" class="form-control" id="nama_layanan" name="nama_layanan"
-                                        required="">
+                                    <label for="estimasi_layanan">Estimasi Layanan</label>
+                                    <input type="number"
+                                        class="form-control @error('estimasi_layanan') is-invalid @enderror"
+                                        id="estimasi_layanan" name="estimasi_layanan"
+                                        placeholder="Jumlah Maksimal Hari Kerja Pelayanan">
+                                    @error('estimasi_layanan')
+                                        <div id="estimasi_layanan" class="form-text pb-1">
+                                            {{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="nama_layanan">Nama Layanan</label>
+                                    <input type="text" class="form-control @error('nama_layanan') is-invalid @enderror"
+                                        id="nama_layanan" name="nama_layanan" placeholder="Masukkan Nama Layanan">
+                                    @error('nama_layanan')
+                                        <div id="nama_layanan" class="form-text pb-1">
+                                            {{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
                         </div>
 
-                        <button type="submit" class="btn btn-sm btn-primary" id="sa-success">Save</button>
-                        <button type="button" class="btn btn-sm btn-danger">Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-primary" id="sa-success">Tambah</button>
+                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Batal</button>
                     </form>
                 </div>
             </div><!-- /.modal-content -->

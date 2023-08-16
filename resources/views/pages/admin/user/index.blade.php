@@ -91,7 +91,8 @@
                                                                                 <input type="text"
                                                                                     class="form-control @error('name') is-invalid @enderror"
                                                                                     id="name" name="name"
-                                                                                    value="{{ $item->name }}">
+                                                                                    value="{{ $item->name }}"
+                                                                                    placeholder="Nama User">
                                                                                 @error('name')
                                                                                     <div id="name" class="form-text pb-1">
                                                                                         {{ $message }}</div>
@@ -106,7 +107,8 @@
                                                                                 <input type="email"
                                                                                     class="form-control @error('email') is-invalid @enderror"
                                                                                     id="email" name="email"
-                                                                                    value="{{ $item->email }}">
+                                                                                    value="{{ $item->email }}"
+                                                                                    placeholder="Alamat Email">
                                                                                 @error('email')
                                                                                     <div id="email" class="form-text pb-1">
                                                                                         {{ $message }}</div>
@@ -121,7 +123,8 @@
                                                                                 <input type="password"
                                                                                     class="form-control @error('password') is-invalid @enderror"
                                                                                     id="password" name="password"
-                                                                                    value="">
+                                                                                    value=""
+                                                                                    placeholder="Password Baru">
                                                                                 @error('password')
                                                                                     <div id="password" class="form-text pb-1">
                                                                                         {{ $message }}</div>
@@ -138,7 +141,8 @@
                                                                                     class="form-control @error('password_confirmation') is-invalid @enderror"
                                                                                     id="password_confirmation"
                                                                                     name="password_confirmation"
-                                                                                    value="">
+                                                                                    value=""
+                                                                                    placeholder="Konfirmasi Password">
                                                                                 @error('password_confirmation')
                                                                                     <div id="password_confirmation"
                                                                                         class="form-text pb-1">
@@ -196,7 +200,7 @@
                                 <div class="form-group">
                                     <label for="name">Nama</label>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                        id="name" name="name" value="">
+                                        id="name" name="name" value="" placeholder="Nama User">
                                     @error('name')
                                         <div id="name" class="form-text pb-1">
                                             {{ $message }}</div>
@@ -209,7 +213,7 @@
                                 <div class="form-group">
                                     <label for="email">Email</label>
                                     <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                        id="email" name="email" value="">
+                                        id="email" name="email" value="" placeholder="Alamat Email">
                                     @error('email')
                                         <div id="email" class="form-text pb-1">
                                             {{ $message }}</div>
@@ -223,7 +227,7 @@
                                 <div class="form-group">
                                     <label for="password">Password</label>
                                     <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                        id="password" name="password" value="">
+                                        id="password" name="password" value="" placeholder="Password Baru">
                                     @error('password')
                                         <div id="password" class="form-text pb-1">
                                             {{ $message }}</div>
@@ -238,7 +242,8 @@
                                     <label for="password_confirmation">Password Confirmation</label>
                                     <input type="password"
                                         class="form-control @error('password_confirmation') is-invalid @enderror"
-                                        id="password_confirmation" name="password_confirmation" value="">
+                                        id="password_confirmation" name="password_confirmation" value=""
+                                        placeholder="Konfirmasi Password">
                                     @error('password_confirmation')
                                         <div id="password_confirmation" class="form-text pb-1">
                                             {{ $message }}</div>

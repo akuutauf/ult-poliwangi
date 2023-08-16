@@ -1,7 +1,7 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title>Unit Layanan Terpadu | ULT Poliwangi</title>
+    <title>Manajemen Persyaratan Berkas | ULT Poliwangi</title>
 @endsection
 
 @section('content')
@@ -26,8 +26,7 @@
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary px-4 mt-0 mb-3" data-toggle="modal"
                                     data-animation="bounce" data-target=".modalCreate"><i
-                                        class="mdi mdi-plus-circle-outline mr-2"></i>Add New
-                                    Berkas</button>
+                                        class="mdi mdi-plus-circle-outline mr-2"></i>Tambah Persyaratan Baru</button>
                                 <div class="table-responsive">
                                     @php
                                         $no = 1;
@@ -36,8 +35,8 @@
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama Berkas</th>
-                                                <th>Jenis</th>
+                                                <th>Nama Persyaratan</th>
+                                                <th>Jenis Syarat</th>
                                                 <th class="text-right">Action</th>
                                             </tr>
                                             <!--end tr-->
@@ -63,13 +62,14 @@
                                         @php
                                             $no++;
                                         @endphp
+
                                         <!--  Modal Update content for the above example -->
                                         <div class="modal fade modalUpdate{{ $item->id }}" tabindex="-1" role="dialog"
                                             aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title mt-0" id="myLargeModalLabel">Update Berkas
+                                                        <h5 class="modal-title mt-0" id="myLargeModalLabel">Ubah Persyaratan
                                                         </h5>
                                                         <button type="button" class="close" data-dismiss="modal"
                                                             aria-hidden="true">×</button>
@@ -79,13 +79,15 @@
                                                             method="POST">
                                                             @method('put')
                                                             @csrf
+
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <label for="Item">Nama Berkas</label>
+                                                                        <label for="Item">Nama Persyaratan</label>
                                                                         <input type="text" class="form-control"
                                                                             id="nama_berkas" name="nama_berkas"
-                                                                            required="" value="{{ $item->nama_berkas }}">
+                                                                            required="" value="{{ $item->nama_berkas }}"
+                                                                            placeholder="Masukkan Nama Persyaratan">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -93,7 +95,7 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <label for="jenis_berkas">Jenis Berkas</label>
+                                                                        <label for="jenis_berkas">Jenis Syarat</label>
                                                                         <select
                                                                             class="form-control @error('jenis_berkas') is-invalid @enderror"
                                                                             id="jenis_berkas" name="jenis_berkas">
@@ -116,11 +118,10 @@
                                                                 </div>
                                                             </div>
 
-
                                                             <button type="submit"
-                                                                class="btn btn-sm btn-primary">Update</button>
-                                                            <button type="button"
-                                                                class="btn btn-sm btn-danger">Cancel</button>
+                                                                class="btn btn-sm btn-primary">Simpan</button>
+                                                            <button type="button" class="btn btn-sm btn-danger"
+                                                                data-dismiss="modal">Batal</button>
                                                         </form>
                                                     </div>
                                                 </div><!-- /.modal-content -->
@@ -147,21 +148,19 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Add New berkas</h5>
+                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Tambah Persyaratan Baru</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('admin.berkas.create') }}" method="POST">
                         @csrf
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="Item">Nama Berkas</label>
-                                    <input type="text"
-                                        class="form-control @error('nama_berkas')
-                                    is-invalid
-                                    @enderror"
-                                        id="nama_berkas" name="nama_berkas" required="">
+                                    <label for="Item">Nama Persyaratan</label>
+                                    <input type="text" class="form-control @error('nama_berkas') is-invalid @enderror"
+                                        id="nama_berkas" name="nama_berkas" placeholder="Masukkan Nama Persyaratan">
                                     @error('nama_berkas')
                                         <div id="nama_berkas" class="form-text pb-1">
                                             {{ $message }}</div>
@@ -171,11 +170,8 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="user">Jenis</label>
-                                    <select
-                                        class="form-control @error('jenis_berkas')
-                                        is-invalid
-                                    @enderror"
+                                    <label for="user">Jenis Syarat</label>
+                                    <select class="form-control @error('jenis_berkas') is-invalid @enderror"
                                         id="jenis_berkas" name="jenis_berkas">
                                         <option value="">Pilih Jenis Berkas</option>
                                         <option value="Wajib">Wajib</option>
@@ -189,8 +185,8 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-sm btn-primary" id="sa-success">Save</button>
-                        <button type="button" class="btn btn-sm btn-danger">Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-primary" id="sa-success">Tambah</button>
+                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Batal</button>
                     </form>
                 </div>
             </div><!-- /.modal-content -->

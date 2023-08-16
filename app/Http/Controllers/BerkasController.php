@@ -45,13 +45,12 @@ class BerkasController extends Controller
             'jenis_berkas' => ['required', 'string', 'max:100']
         ]);
 
-
         $berkas = new Berkas;
         $berkas->nama_berkas = $validated['nama_berkas'];
         $berkas->jenis_berkas = $validated['jenis_berkas'];
         $berkas->save();
 
-        Alert::success('Success', 'Berkas berhasil ditambahkan');
+        Alert::success('Success', 'Berkas Berhasil Ditambahkan');
 
         return redirect()->route('admin.berkas.index');
     }
@@ -87,8 +86,8 @@ class BerkasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Berkas::where('id', $request->id)->update($request->only(['nama_berkas','jenis_berkas']));
-        Alert::success('Success', 'Berkas berhasil diupdate');
+        Berkas::where('id', $request->id)->update($request->only(['nama_berkas', 'jenis_berkas']));
+        Alert::success('Success', 'Berkas Berhasil Diupdate');
         return redirect()->route('admin.berkas.index');
     }
 
@@ -102,7 +101,7 @@ class BerkasController extends Controller
     {
         $berkas = Berkas::findOrFail($id);
         $berkas->delete();
-        Alert::success('Success', 'Berkas berhasil dihapus');
+        Alert::success('Success', 'Berkas Berhasil Dihapus');
 
         return redirect()->route('admin.berkas.index');
     }
