@@ -53,7 +53,7 @@ class DivisiController extends Controller
 
         Alert::success('Success', 'Divisi berhasil ditambahkan');
 
-        return redirect()->route('admin.divisi');
+        return redirect()->route('admin.divisi.index');
     }
 
     /**
@@ -92,7 +92,7 @@ class DivisiController extends Controller
     {
         Divisi::where('id', $request->id)->update($request->only(['nama_divisi']));
         Alert::success('Success', 'Divisi berhasil diupdate');
-        return redirect()->route('admin.divisi');
+        return redirect()->route('admin.divisi.index');
     }
 
     /**
@@ -108,6 +108,6 @@ class DivisiController extends Controller
         $divisi->delete();
         Alert::success('Success', 'Divisi berhasil dihapus');
 
-        return redirect()->route('admin.divisi');
+        return redirect()->route('admin.divisi.index');
     }
 }

@@ -284,6 +284,30 @@
                             <!--end has-submenu-->
                         @endif
 
+                        {{-- navbar menu divisi Other --}}
+                        @if (Auth()->user()->divisi->nama_divisi == 'Other')
+                            <li class="has-submenu">
+                                <a href="#">
+                                    <i class="fa-solid fa-file"></i>
+                                    <span>Kelola Pengajuan</span>
+                                </a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-pen"></i>Manajemen Pengajuan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-circle-check"></i>Daftar Pengajuan Selesai
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!--end submenu-->
+                            </li>
+                            <!--end has-submenu-->
+                        @endif
+
                         <!--end has-submenu-->
                     </ul><!-- End navigation menu -->
                 </div> <!-- end navigation -->

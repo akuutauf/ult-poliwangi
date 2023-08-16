@@ -21,11 +21,12 @@ class LayananSeeder extends Seeder
             'estimasi_layanan' => 3,
             'id_divisi' => 1,
         ]);
+
         Layanan::create([
             'id' => 2,
-            'nama_layanan' => 'Tes Layanan Kedua',
-            'estimasi_layanan' => 2,
-            'id_divisi' => 1,
+            'nama_layanan' => 'Permohonan Rekomendasi MBKM (MSIB)',
+            'estimasi_layanan' => 4,
+            'id_divisi' => 4,
         ]);
     }
 }

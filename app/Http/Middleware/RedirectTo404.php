@@ -4,9 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class FilterDivisi
+class RedirectTo404
 {
     /**
      * Handle an incoming request.
@@ -15,14 +14,18 @@ class FilterDivisi
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle($request, Closure $next, $divisiName)
+    public function handle($request, Closure $next)
     {
-        $user = Auth::user();
-
-        if ($user->admin->divisi->nama_divisi !== $divisiName) {
-            return redirect()->route('error.403');
+        // Lakukan pengecekan route dan redirect jika tidak terdaftar
+        if (!$this->isValidRoute($request)) {
+            return response()->view('errors.404', [], 404);
         }
 
         return $next($request);
+    }
+
+    protected function isValidRoute($request)
+    {
+        return $request->route() !== null;
     }
 }
