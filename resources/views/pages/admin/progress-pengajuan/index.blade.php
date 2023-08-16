@@ -57,32 +57,34 @@
                                                 <th>Pesan</th>
                                                 <th>File</th>
                                                 <th>Tanggal</th>
+                                                <th>Status</th>
                                                 <th class="text-right">Action</th>
                                             </tr>
                                             <!--end tr-->
                                         </thead>
 
                                         <tbody>
-                                            @foreach ($progress_pengajuans as $data )
-                                            <tr>
-                                                <td>{{ $no }}</td>
-                                                <td>{{$data->pengajuan->nama_pemohon}}</td>
-                                                <td>{{$data->pesan}}</td>
-                                                <td>
-                                                    @if ($data->file_dokumen==null || $data->file_dokumen=='')
-                                                    Tidak Ada File
-                                                    @endif
-                                                </td>
-                                                <td>{{dateConversion($data->tanggal)}}</td>
-                                                <td class="text-right">
-                                                    <a href="#" class="mr-2" data-toggle="modal"
-                                                        data-animation="bounce" data-target=".modalUpdate"><i
-                                                            class="fas fa-edit text-info font-16"></i></a>
-                                                    <a href="#"><i
-                                                            class="fas fa-trash-alt text-danger font-16"></i></a>
-                                                </td>
-                                            </tr>
-                                            <!--end tr-->
+                                            @foreach ($progress_pengajuans as $data)
+                                                <tr>
+                                                    <td>{{ $no }}</td>
+                                                    <td>{{ $data->pengajuan->nama_pemohon }}</td>
+                                                    <td>{{ $data->pesan }}</td>
+                                                    <td>
+                                                        @if ($data->file_dokumen == null || $data->file_dokumen == '')
+                                                            Tidak Ada File
+                                                        @endif
+                                                    </td>
+                                                    <td>{{ dateConversion($data->tanggal) }}</td>
+                                                    <td>{{ $data->status }}</td>
+                                                    <td class="text-right">
+                                                        <a href="#" class="mr-2" data-toggle="modal"
+                                                            data-animation="bounce" data-target=".modalUpdate"><i
+                                                                class="fas fa-edit text-info font-16"></i></a>
+                                                        <a href="#"><i
+                                                                class="fas fa-trash-alt text-danger font-16"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <!--end tr-->
                                             @endforeach
                                         </tbody>
                                         @php
@@ -146,6 +148,17 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="Item">Status</label>
+                                    <select class="form-control">
+                                        <option>Pilih Statusr</option>
+                                        <option>Terkirim</option>
+                                        <option>DiProsess</option>
+                                        <option>Selesai</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
 
                         <button type="button" class="btn btn-sm btn-primary">Save</button>
@@ -198,6 +211,17 @@
                                     <label for="tanggal">Tanggal</label>
                                     <input class="form-control" type="date" value=""
                                         id="example-date-local-input">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="Item">Status</label>
+                                    <select class="form-control">
+                                        <option>Pilih Statusr</option>
+                                        <option>Terkirim</option>
+                                        <option>DiProsess</option>
+                                        <option>Selesai</option>
+                                    </select>
                                 </div>
                             </div>
 
