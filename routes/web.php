@@ -72,10 +72,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/ult/prodi', [ProdiController::class, 'index'])->name('admin.prodi.index');
         Route::post('/ult/prodi/create', [ProdiController::class, 'store'])->name('admin.prodi.create');
         Route::get('/ult/prodi/delete/{id}', [ProdiController::class, 'destroy'])->name('admin.prodi.destroy');
-        Route::post('/ult/prodi/{id}/update', [ProdiController::class, 'update'])->name('admin.prodi.update');
+        Route::put('/ult/prodi/{id}/update', [ProdiController::class, 'update'])->name('admin.prodi.update');
 
         //admin
         Route::get('/ult/admin', [AdminController::class, 'index'])->name('admin.admin.index');
+        Route::post('/ult/admin/create', [AdminController::class, 'store'])->name('admin.admin.create');
+        Route::put('/ult/admin/{id}/update', [AdminController::class, 'update'])->name('admin.admin.update');
+        Route::get('/ult/admin/delete/{id}', [AdminController::class, 'destroy'])->name('admin.admin.destroy');
 
         //layanan
         Route::get('/ult/layanan', [LayananController::class, 'index'])->name('admin.layanan.index');

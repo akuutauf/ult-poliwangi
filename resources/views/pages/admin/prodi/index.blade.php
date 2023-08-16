@@ -139,11 +139,10 @@
                                     @endif
                                 </div>
                             </div>
-
                         </div>
 
                         <button type="submit" class="btn btn-sm btn-primary" id="sa-success">Save</button>
-                        <button type="button" class="btn btn-sm btn-danger">Cancel</button>
+                        <a href="{{ route('admin.prodi.index') }}" class="btn btn-sm btn-danger">Cancel</a>
                     </form>
                 </div>
             </div><!-- /.modal-content -->
