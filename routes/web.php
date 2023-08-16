@@ -74,14 +74,23 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/ult/prodi/delete/{id}', [ProdiController::class, 'destroy'])->name('admin.prodi.destroy');
         Route::post('/ult/prodi/{id}/update', [ProdiController::class, 'update'])->name('admin.prodi.update');
 
-        //admin
-        Route::get('/ult/admin', [AdminController::class, 'index'])->name('admin.admin.index');
-
         //layanan
         Route::get('/ult/layanan', [LayananController::class, 'index'])->name('admin.layanan.index');
+        Route::post('/ult/layanan/create', [LayananController::class, 'store'])->name('admin.layanan.create');
+        Route::get('/ult/layanan/delete/{id}', [LayananController::class, 'destroy'])->name('admin.layanan.destroy');
+        Route::put('/ult/layanan/{id}/update', [LayananController::class, 'update'])->name('admin.layanan.update');
 
         //berkas
         Route::get('/ult/berkas', [BerkasController::class, 'index'])->name('admin.berkas.index');
+        Route::post('/ult/berkas/create', [BerkasController::class, 'store'])->name('admin.berkas.create');
+        Route::get('/ult/berkas/delete/{id}', [BerkasController::class, 'destroy'])->name('admin.berkas.destroy');
+        Route::put('/ult/berkas/{id}/update', [BerkasController::class, 'update'])->name('admin.berkas.update');
+
+
+        //admin
+        Route::get('/ult/admin', [AdminController::class, 'index'])->name('admin.admin.index');
+
+
 
         //pengajuan
         Route::get('/ult/pengajuan', [PengajuanController::class, 'index'])->name('admin.pengajuan.index');

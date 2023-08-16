@@ -50,10 +50,11 @@
                                                     <td>{{ $item->nama_berkas }}</td>
                                                     <td>{{ $item->jenis_berkas }}</td>
                                                     <td class="text-right">
-                                                        <a href="#" class="mr-2" data-toggle="modal"
-                                                            data-animation="bounce" data-target=".modalUpdate"><i
+                                                        <a href="{{ route('admin.berkas.update', $item->id) }}"
+                                                            class="mr-2" data-toggle="modal" data-animation="bounce"
+                                                            data-target=".modalUpdate{{ $item->id }}"><i
                                                                 class="fas fa-edit text-info font-16"></i></a>
-                                                        <a href="#"><i
+                                                        <a href="{{ route('admin.berkas.destroy', $item->id) }}"><i
                                                                 class="fas fa-trash-alt text-danger font-16"></i></a>
                                                     </td>
                                                 </tr>
@@ -62,6 +63,69 @@
                                         @php
                                             $no++;
                                         @endphp
+                                        <!--  Modal Update content for the above example -->
+                                        <div class="modal fade modalUpdate{{ $item->id }}" tabindex="-1" role="dialog"
+                                            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title mt-0" id="myLargeModalLabel">Update Berkas
+                                                        </h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-hidden="true">×</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="{{ route('admin.berkas.update', $item->id) }}"
+                                                            method="POST">
+                                                            @method('put')
+                                                            @csrf
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label for="Item">Nama Berkas</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="nama_berkas" name="nama_berkas"
+                                                                            required="" value="{{ $item->nama_berkas }}">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label for="jenis_berkas">Jenis Berkas</label>
+                                                                        <select
+                                                                            class="form-control @error('jenis_berkas') is-invalid @enderror"
+                                                                            id="jenis_berkas" name="jenis_berkas">
+                                                                            <option value="">Pilih Jenis Berkas
+                                                                            </option>
+                                                                            <option value="Wajib"
+                                                                                {{ $item->jenis_berkas == 'Wajib' ? 'selected' : '' }}>
+                                                                                Wajib
+                                                                            </option>
+                                                                            <option value="Tidak Wajib"
+                                                                                {{ $item->jenis_berkas == 'Tidak Wajib' ? 'selected' : '' }}>
+                                                                                Tidak Wajib
+                                                                            </option>
+                                                                        </select>
+                                                                        @error('jenis_berkas')
+                                                                            <div id="jenis_berkas" class="form-text pb-1">
+                                                                                {{ $message }}</div>
+                                                                        @enderror
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <button type="submit"
+                                                                class="btn btn-sm btn-primary">Update</button>
+                                                            <button type="button"
+                                                                class="btn btn-sm btn-danger">Cancel</button>
+                                                        </form>
+                                                    </div>
+                                                </div><!-- /.modal-content -->
+                                            </div><!-- /.modal-dialog -->
+                                        </div><!-- /.modal -->
                                         @endforeach
                                     </table>
                                 </div>
@@ -83,73 +147,49 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Add New Divisi</h5>
+                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Add New berkas</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="{{ route('admin.berkas.create') }}" method="POST">
+                        @csrf
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="Item">Nama Berkas</label>
-                                    <input type="text" class="form-control" id="Item" required="">
+                                    <input type="text"
+                                        class="form-control @error('nama_berkas')
+                                    is-invalid
+                                    @enderror"
+                                        id="nama_berkas" name="nama_berkas" required="">
+                                    @error('nama_berkas')
+                                        <div id="nama_berkas" class="form-text pb-1">
+                                            {{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="user">Jenis</label>
-                                    <select class="form-control">
-                                        <option>Pilih Jenis</option>
-                                        <option>Wajib</option>
-                                        <option>Tidak Wajib</option>
+                                    <select
+                                        class="form-control @error('jenis_berkas')
+                                        is-invalid
+                                    @enderror"
+                                        id="jenis_berkas" name="jenis_berkas">
+                                        <option value="">Pilih Jenis Berkas</option>
+                                        <option value="Wajib">Wajib</option>
+                                        <option value="Tidak Wajib">Tidak Wajib</option>
                                     </select>
+                                    @error('jenis_berkas')
+                                        <div id="jenis_berkas" class="form-text pb-1">
+                                            {{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
 
-                        <button type="button" class="btn btn-sm btn-primary">Save</button>
-                        <button type="button" class="btn btn-sm btn-danger">Cancel</button>
-                    </form>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
-    <!--  Modal Update content for the above example -->
-    <div class="modal fade modalUpdate" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Update Berkas</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="Item">Nama Berkas</label>
-                                    <input type="text" class="form-control" id="Item" required="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="user">Jenis</label>
-                                    <select class="form-control">
-                                        <option>Pilih Jenis</option>
-                                        <option>Wajib</option>
-                                        <option>Tidak Wajib</option>
-                                    </select>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                        <button type="button" class="btn btn-sm btn-primary">Save</button>
+                        <button type="submit" class="btn btn-sm btn-primary" id="sa-success">Save</button>
                         <button type="button" class="btn btn-sm btn-danger">Cancel</button>
                     </form>
                 </div>
