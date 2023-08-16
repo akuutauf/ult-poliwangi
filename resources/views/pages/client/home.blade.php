@@ -8,26 +8,25 @@
     <section class="container-fluid section-bg-one py-5">
         <div class="container py-5">
             <div class="row py-5">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5 order-2 order-md-1">
-                    <h2 class="fw-bold">ULT POLIWANGI</h2>
-                    <p class="fw-medium text-justify mt-3">Lorem ipsum dolor sit amet consectetur, adipisicing elit. A
-                        voluptates
-                        quos
-                        corporis,
-                        minus blanditiis
-                        eum omnis pariatur? Inventore nihil temporibus dolore distinctio quas odit neque ratione deserunt,
-                        ea
-                        aspernatur quisquam accusamus illo sint quae necessitatibus voluptate repellat omnis autem, aliquam,
-                        eaque maiores. Nobis quas eum quisquam enim ea omnis nostrum.</p>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5 order-2 order-md-1" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <h1 class="fw-bold">ULT POLIWANGI</h1>
+                    <p class="fw-medium text-justify mt-4">
+                        Selamat datang di Aplikasi Unit Layanan Terpadu!
+
+                        Aplikasi ini dirancang untuk memberikan Anda pengalaman yang lebih baik dalam mengajukan dokumen dan
+                        melacak kemajuan pengajuan Anda. Kami mengerti bahwa mengajukan dokumen bisa menjadi proses yang
+                        kompleks, oleh karena itu kami hadir untuk membantu Anda melalui setiap langkahnya.
+                    </p>
 
                     <div class="mt-5">
                         <a href="#lacak_dokumen" class="btn btn-theme-two px-5 py-3">
-                            Lacak Dokumen
+                            Lacak Dokumen Saya
                         </a>
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 order-1 order-md-2">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 order-1 order-md-2" data-aos="zoom-in" data-aos-delay="600">
                     <center>
                         <img src="{{ asset('images/landing-page.svg') }}" width="450" class="img-fluid" alt="">
                     </center>
@@ -43,7 +42,8 @@
             </div>
 
             <div class="row py-5 d-flex justify-content-around">
-                <div class="col-12 col-sm-12 col-md-5 col-lg-3 mb-4 card card-hover card-rounded">
+                <div class="col-12 col-sm-12 col-md-5 col-lg-3 mb-4 card card-hover card-rounded" data-aos="fade-up"
+                    data-aos-delay="300">
                     <div class="row d-flex justify-content-center">
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                             <div class="card-body">
@@ -64,7 +64,8 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-5 col-lg-3 mb-4 card card-hover card-rounded">
+                <div class="col-12 col-sm-12 col-md-5 col-lg-3 mb-4 card card-hover card-rounded" data-aos="fade-up"
+                    data-aos-delay="600">
                     <div class="row d-flex justify-content-center">
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                             <div class="card-body">
@@ -85,7 +86,8 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-5 col-lg-3 mb-4 card card-hover card-rounded">
+                <div class="col-12 col-sm-12 col-md-5 col-lg-3 mb-4 card card-hover card-rounded" data-aos="fade-up"
+                    data-aos-delay="900">
                     <div class="row d-flex justify-content-center">
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                             <div class="card-body">
@@ -117,13 +119,13 @@
 
         <div class="container py-5">
             <div class="row py-5 d-flex justify-content-around">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-5 mb-5">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-5 mb-5" data-aos="zoom-in" data-aos-delay="600">
                     <div class="d-flex">
                         <img src="{{ asset('images/tracking-ilustrator.svg') }}" class="img-fluid mx-auto my-auto"
                             width="300" alt="">
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-5 mb-5">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-5 mb-5" data-aos="fade-up" data-aos-delay="300">
                     <div class="card card-rounded card-hover shadow">
                         <div class="card-body">
 
@@ -152,11 +154,11 @@
     <section id="tentang_kami" class="container-fluid section-bg-two py-5">
         <div class="container py-5">
             <div class="row py-5 d-flex justify-content-around">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-5 d-flex">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 mb-5 d-flex" data-aos="zoom-in" data-aos-delay="600">
                     <img src="{{ asset('images/logo-title-poliwangi.png') }}" class="img-fluid mx-auto my-auto"
                         width="300" alt="">
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="300">
                     <div>
                         <h2 class="fw-bold">Tentang Kami</h2>
 
@@ -172,7 +174,7 @@
                         </p>
 
                         <div class="mt-4">
-                            <a href="#" class="btn btn-theme px-3 py-2">
+                            <a href="https://poliwangi.ac.id/" target="_blank" class="btn btn-theme px-3 py-2">
                                 Lihat Selengkapnya
                             </a>
                         </div>
@@ -181,4 +183,11 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('script')
+    {{-- AOS initiate --}}
+    <script>
+        AOS.init();
+    </script>
 @endsection

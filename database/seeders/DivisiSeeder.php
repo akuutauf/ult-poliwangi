@@ -17,35 +17,35 @@ class DivisiSeeder extends Seeder
     {
         Divisi::create([
             'id' => 1,
-            'nama_divisi' => 'Sekretaris',
+            'nama_divisi' => 'Unit Layanan Terpadu',
         ]);
         Divisi::create([
             'id' => 2,
-            'nama_divisi' => 'Keuangan',
+            'nama_divisi' => 'Sekretaris',
         ]);
         Divisi::create([
             'id' => 3,
-            'nama_divisi' => 'Akademik dan Kemahasiswaan',
+            'nama_divisi' => 'Keuangan',
         ]);
         Divisi::create([
             'id' => 4,
-            'nama_divisi' => 'Umum dan Kepegawaian',
+            'nama_divisi' => 'Akademik dan Kemahasiswaan',
         ]);
         Divisi::create([
             'id' => 5,
-            'nama_divisi' => 'Pengadaan',
+            'nama_divisi' => 'Umum dan Kepegawaian',
         ]);
         Divisi::create([
             'id' => 6,
-            'nama_divisi' => 'Barang Milik Negara',
+            'nama_divisi' => 'Pengadaan',
         ]);
         Divisi::create([
             'id' => 7,
-            'nama_divisi' => 'Konsultasi',
+            'nama_divisi' => 'Barang Milik Negara',
         ]);
         Divisi::create([
             'id' => 8,
-            'nama_divisi' => 'Unit Layanan Terpadu',
+            'nama_divisi' => 'Konsultasi',
         ]);
     }
 }

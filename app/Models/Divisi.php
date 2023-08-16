@@ -16,7 +16,7 @@ class Divisi extends Model
 
     public function admin()
     {
-        return $this->hasMany(Admin::class);
+        return $this->hasMany(Admin::class, 'id_divisi');
     }
 
     public function layanan()

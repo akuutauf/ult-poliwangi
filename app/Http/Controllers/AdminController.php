@@ -21,6 +21,7 @@ class AdminController extends Controller
             'user' => User::all(),
             'admin' => Admin::all(),
         ];
+
         return view('pages.admin.admin.index', $data);
     }
 
