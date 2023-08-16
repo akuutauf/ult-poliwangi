@@ -36,7 +36,7 @@ class Pengajuan extends Model
         'jenis_permohonan',
         'tanggal_permohonan',
         'nomor_telepon',
-        'konfirmasi_pengajuan',
+        'submission_confirmed',
         'id_prodi',
         'id_layanan',
     ];

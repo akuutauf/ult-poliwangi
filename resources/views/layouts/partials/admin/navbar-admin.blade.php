@@ -80,7 +80,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="{{route('admin.user.index')}}">
                                             <i class="fa-solid fa-user-plus"></i>User
                                         </a>
                                     </li>
@@ -262,6 +262,30 @@
 
                         {{-- navbar menu divisi Konsultasi --}}
                         @if (Auth()->user()->divisi->nama_divisi == 'Konsultasi')
+                            <li class="has-submenu">
+                                <a href="#">
+                                    <i class="fa-solid fa-file"></i>
+                                    <span>Kelola Pengajuan</span>
+                                </a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-pen"></i>Manajemen Pengajuan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-file-circle-check"></i>Daftar Pengajuan Selesai
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!--end submenu-->
+                            </li>
+                            <!--end has-submenu-->
+                        @endif
+
+                        {{-- navbar menu divisi Other --}}
+                        @if (Auth()->user()->divisi->nama_divisi == 'Other')
                             <li class="has-submenu">
                                 <a href="#">
                                     <i class="fa-solid fa-file"></i>

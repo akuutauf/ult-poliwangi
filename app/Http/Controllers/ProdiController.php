@@ -50,7 +50,7 @@ class ProdiController extends Controller
         $prodi->nama_prodi = $validated['nama_prodi'];
         $prodi->save();
 
-        Alert::success('Success', 'Prodi berhasil ditambahkan');
+        Alert::success('Success', 'Prodi Berhasil Ditambahkan');
 
         return redirect()->route('admin.prodi.index');
     }
@@ -86,8 +86,17 @@ class ProdiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Prodi::where('id', $request->id)->update($request->only(['nama_prodi']));
-        Alert::success('Success', 'Prodi berhasil diupdate');
+        $validated = $request->validate([
+            'nama_prodi' => ['required', 'string', 'max:100']
+        ]);
+
+
+        $prodi =Prodi::find($id);
+        $prodi->nama_prodi = $validated['nama_prodi'];
+        $prodi->save();
+
+        Alert::success('Success', 'Prodi Berhasil Diubah');
+
         return redirect()->route('admin.prodi.index');
     }
 

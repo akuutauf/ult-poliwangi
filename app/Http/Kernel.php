@@ -66,5 +66,8 @@ class Kernel extends HttpKernel
 
         // route filtering
         'filter.divisi' => \App\Http\Middleware\FilterDivisi::class,
+
+        // route not found
+        'redirect.to.404' => \App\Http\Middleware\RedirectTo404::class,
     ];
 }

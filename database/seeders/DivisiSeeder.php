@@ -47,5 +47,9 @@ class DivisiSeeder extends Seeder
             'id' => 8,
             'nama_divisi' => 'Konsultasi',
         ]);
+        Divisi::create([
+            'id' => 9,
+            'nama_divisi' => 'Other',
+        ]);
     }
 }
