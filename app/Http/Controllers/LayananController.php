@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Divisi;
 use App\Models\Layanan;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LayananController extends Controller
 {
@@ -41,7 +42,20 @@ class LayananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'id_divisi' => 'required',
+            'nama_layanan' => ['required', 'string', 'max:100']
+        ]);
+
+
+        $layanan = new Layanan;
+        $layanan->id_divisi = $validated['id_divisi'];
+        $layanan->nama_layanan = $validated['nama_layanan'];
+        $layanan->save();
+
+        Alert::success('Success', 'Layanan berhasil ditambahkan');
+
+        return redirect()->route('admin.layanan.index');
     }
 
     /**
@@ -75,7 +89,9 @@ class LayananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Layanan::where('id', $request->id)->update($request->only(['nama_layanan']));
+        Alert::success('Success', 'Layanan berhasil diupdate');
+        return redirect()->route('admin.layanan.index');
     }
 
     /**
@@ -86,6 +102,10 @@ class LayananController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $layanan = Layanan::findOrFail($id);
+        $layanan->delete();
+        Alert::success('Success', 'Layanan berhasil dihapus');
+
+        return redirect()->route('admin.layanan.index');
     }
 }

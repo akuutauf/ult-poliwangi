@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Berkas;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BerkasController extends Controller
 {
@@ -39,7 +40,20 @@ class BerkasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nama_berkas' => 'required',
+            'jenis_berkas' => ['required', 'string', 'max:100']
+        ]);
+
+
+        $berkas = new Berkas;
+        $berkas->nama_berkas = $validated['nama_berkas'];
+        $berkas->jenis_berkas = $validated['jenis_berkas'];
+        $berkas->save();
+
+        Alert::success('Success', 'Berkas berhasil ditambahkan');
+
+        return redirect()->route('admin.berkas.index');
     }
 
     /**
@@ -73,7 +87,9 @@ class BerkasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Berkas::where('id', $request->id)->update($request->only(['nama_berkas','jenis_berkas']));
+        Alert::success('Success', 'Berkas berhasil diupdate');
+        return redirect()->route('admin.berkas.index');
     }
 
     /**
@@ -84,6 +100,10 @@ class BerkasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $berkas = Berkas::findOrFail($id);
+        $berkas->delete();
+        Alert::success('Success', 'Berkas berhasil dihapus');
+
+        return redirect()->route('admin.berkas.index');
     }
 }

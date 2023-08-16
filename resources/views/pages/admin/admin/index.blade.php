@@ -196,14 +196,22 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="id_divisi">Divisi</label>
-                                    <select class="form-control @error('id_divisi') is-invalid @enderror" id="id_divisi"
-                                        name="id_divisi">
-                                        <option value=""> Pilih Divisi</option>
-                                        @foreach ($divisi as $item)
-                                            <option value="{{ $item->id }}">{{ $item->nama_divisi }}
-                                        @endforeach
-
+                                    <label for="user">User</label>
+                                    <select class="form-control">
+                                        <option>Pilih User</option>
+                                        <option>Large select</option>
+                                        <option>Small select</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-sm btn-primary">Save</button>
+                        <a href="/admin" class="btn btn-sm btn-danger">Cancel</a>
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
                                     </select>
                                     @error('id_divisi')
@@ -215,7 +223,7 @@
 
 
                         <button type="submit" class="btn btn-sm btn-primary">Save</button>
-                        <a href="{{ route('admin.admin.index') }}" class="btn btn-sm btn-danger">Cancel</a>
+                        <a href="/admin" class="btn btn-sm btn-danger">Cancel</a>
                     </form>
                 </div>
             </div><!-- /.modal-content -->

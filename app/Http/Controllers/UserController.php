@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Prodi;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Validation\Rules;
 
-class ProdiController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +18,11 @@ class ProdiController extends Controller
     public function index()
     {
         $data = [
-            'prodi' => Prodi::all(),
+            'user' => User::all(),
+
         ];
 
-        return view('pages.admin.prodi.index', $data);
+        return view('pages.admin.user.index', $data);
     }
 
     /**
@@ -41,16 +44,22 @@ class ProdiController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama_prodi_create' => ['required', 'string']
+            'name' => ['required', 'string', 'max:100'],
+            'email' => ['required', 'string', 'max:100'],
+            'password' => ['required', 'confirmed', 'min:8'],
+            'password_confirmation' => ['required', Rules\Password::defaults(), 'min:8'],
         ]);
 
-        $prodi = new Prodi;
-        $prodi->nama_prodi = $validated['nama_prodi_create'];
-        $prodi->save();
+         $user = new User;
+            $user->name = $validated['name'];
+            $user->email = $validated['email'];
+            $user->password = hash::make($request->password);
+            $user->save();
 
-        Alert::success('Success', 'Prodi berhasil ditambahkan');
 
-        return redirect()->route('admin.prodi.index');
+        Alert::success('Success', 'User berhasil ditambahkan');
+
+        return redirect()->route('admin.user.index');
     }
 
     /**
@@ -85,16 +94,23 @@ class ProdiController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nama_prodi_update' => ['required', 'string']
+            'name' => ['required', 'string', 'max:100'],
+            'email' => ['required', 'string', 'max:100'],
+            'password' => ['nullable', 'confirmed', 'min:8'],
+            'password_confirmation' => ['nullable', Rules\Password::defaults(), 'min:8'],
         ]);
 
-        Prodi::where('id', $id)->update([
-            'nama_prodi' => $validated['nama_prodi_update'],
-        ]);
+         $user = User::find($id);
+            $user->name = $validated['name'];
+            $user->email = $validated['email'];
+            $user->password = hash::make($request->password);
+            $user->save();
 
-        Alert::success('Success', 'Prodi Berhasil Diupdate');
 
-        return redirect()->route('admin.prodi.index');
+
+        Alert::success('Success', 'User berhasil Diubah');
+
+        return redirect()->route('admin.user.index');
     }
 
     /**
@@ -105,11 +121,10 @@ class ProdiController extends Controller
      */
     public function destroy($id)
     {
-        $prodi = Prodi::findOrFail($id);
-        $prodi->delete();
+        $user= User::findOrFail($id);
+        $user->delete();
+        Alert::success('Success', 'User Berhasil Dihapus');
 
-        Alert::success('Success', 'Prodi Berhasil Dihapus');
-
-        return redirect()->route('admin.prodi.index');
+        return redirect()->route('admin.user.index');
     }
 }

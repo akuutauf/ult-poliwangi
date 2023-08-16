@@ -80,7 +80,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="{{route('admin.user.index')}}">
                                             <i class="fa-solid fa-user-plus"></i>User
                                         </a>
                                     </li>

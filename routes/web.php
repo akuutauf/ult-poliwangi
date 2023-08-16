@@ -16,6 +16,7 @@ use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\SurveiKepuasanPenggunaController;
 use App\Http\Controllers\TrackingPengajuanController;
 use App\Http\Controllers\TrackingSearch;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\FilterDivisi;
 use Illuminate\Support\Facades\Route;
 
@@ -76,6 +77,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/ult/divisi/delete/{id}', [DivisiController::class, 'destroy'])->name('admin.divisi.destroy');
         Route::put('/ult/divisi/{id}/update', [DivisiController::class, 'update'])->name('admin.divisi.update');
 
+        //user
+        Route::get('/ult/user', [UserController::class, 'index'])->name('admin.user.index');
+        Route::post('/ult/user/create', [UserController::class, 'store'])->name('admin.user.create');
+        Route::get('/ult/user/delete/{id}', [UserController::class, 'destroy'])->name('admin.user.destroy');
+        Route::put('/ult/user/{id}/update', [UserController::class, 'update'])->name('admin.user.update');
+
         //prodi
         Route::get('/ult/prodi', [ProdiController::class, 'index'])->name('admin.prodi.index');
         Route::post('/ult/prodi/create', [ProdiController::class, 'store'])->name('admin.prodi.create');
@@ -90,9 +97,15 @@ Route::middleware(['auth'])->group(function () {
 
         //layanan
         Route::get('/ult/layanan', [LayananController::class, 'index'])->name('admin.layanan.index');
+        Route::post('/ult/layanan/create', [LayananController::class, 'store'])->name('admin.layanan.create');
+        Route::get('/ult/layanan/delete/{id}', [LayananController::class, 'destroy'])->name('admin.layanan.destroy');
+        Route::put('/ult/layanan/{id}/update', [LayananController::class, 'update'])->name('admin.layanan.update');
 
         //berkas
         Route::get('/ult/berkas', [BerkasController::class, 'index'])->name('admin.berkas.index');
+        Route::post('/ult/berkas/create', [BerkasController::class, 'store'])->name('admin.berkas.create');
+        Route::get('/ult/berkas/delete/{id}', [BerkasController::class, 'destroy'])->name('admin.berkas.destroy');
+        Route::put('/ult/berkas/{id}/update', [BerkasController::class, 'update'])->name('admin.berkas.update');
 
         //pengajuan
         Route::get('/ult/pengajuan', [PengajuanController::class, 'index'])->name('admin.pengajuan.index');
