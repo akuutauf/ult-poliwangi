@@ -19,7 +19,6 @@ class UserController extends Controller
     {
         $data = [
             'user' => User::all(),
-
         ];
 
         return view('pages.admin.user.index', $data);
@@ -50,14 +49,13 @@ class UserController extends Controller
             'password_confirmation' => ['required', Rules\Password::defaults(), 'min:8'],
         ]);
 
-         $user = new User;
-            $user->name = $validated['name'];
-            $user->email = $validated['email'];
-            $user->password = hash::make($request->password);
-            $user->save();
+        $user = new User;
+        $user->name = $validated['name'];
+        $user->email = $validated['email'];
+        $user->password = hash::make($request->password);
+        $user->save();
 
-
-        Alert::success('Success', 'User berhasil ditambahkan');
+        Alert::success('Success', 'User Berhasil Ditambahkan');
 
         return redirect()->route('admin.user.index');
     }
@@ -100,15 +98,13 @@ class UserController extends Controller
             'password_confirmation' => ['nullable', Rules\Password::defaults(), 'min:8'],
         ]);
 
-         $user = User::find($id);
-            $user->name = $validated['name'];
-            $user->email = $validated['email'];
-            $user->password = hash::make($request->password);
-            $user->save();
+        $user = User::find($id);
+        $user->name = $validated['name'];
+        $user->email = $validated['email'];
+        $user->password = hash::make($request->password);
+        $user->save();
 
-
-
-        Alert::success('Success', 'User berhasil Diubah');
+        Alert::success('Success', 'User Berhasil Diubah');
 
         return redirect()->route('admin.user.index');
     }
@@ -121,7 +117,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user= User::findOrFail($id);
+        $user = User::findOrFail($id);
         $user->delete();
         Alert::success('Success', 'User Berhasil Dihapus');
 

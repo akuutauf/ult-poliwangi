@@ -30,7 +30,7 @@
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary px-4 mt-0 mb-3" data-toggle="modal"
                                     data-animation="bounce" data-target=".modalCreate"><i
-                                        class="mdi mdi-plus-circle-outline mr-2"></i>Add New Admin</button>
+                                        class="mdi mdi-plus-circle-outline mr-2"></i>Tambah User Admin Baru</button>
                                 <div class="table-responsive">
                                     @php
                                         $no = 1;
@@ -39,7 +39,7 @@
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>No</th>
-                                                <th>Divisi</th>
+                                                <th>Nama Divisi</th>
                                                 <th>User Admin</th>
                                                 <th class="text-right">Action</th>
                                             </tr>
@@ -134,9 +134,9 @@
                                                                     </div>
 
                                                                     <button type="submit"
-                                                                        class="btn btn-sm btn-primary">Save</button>
-                                                                    <a href="{{ route('admin.admin.index') }}"
-                                                                        class="btn btn-sm btn-danger">Cancel</a>
+                                                                        class="btn btn-sm btn-primary">Simpan</button>
+                                                                    <button type="button" class="btn btn-sm btn-danger"
+                                                                        data-dismiss="modal">Batal</button>
                                                                 </form>
                                                             </div>
                                                         </div><!-- /.modal-content -->
@@ -168,7 +168,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Add New Admin</h5>
+                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Tambah User Admin Baru</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
@@ -184,7 +184,6 @@
                                         @foreach ($user as $itemuser)
                                             <option value="{{ $itemuser->id }}">{{ $itemuser->name }}
                                         @endforeach
-
                                     </select>
                                     @error('id_user')
                                         <div id="id_user" class="form-text pb-1">{{ $message }}</div>
@@ -196,23 +195,13 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="user">User</label>
-                                    <select class="form-control">
-                                        <option>Pilih User</option>
-                                        <option>Large select</option>
-                                        <option>Small select</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-sm btn-primary">Save</button>
-                        <a href="/admin" class="btn btn-sm btn-danger">Cancel</a>
-                    </form>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-
+                                    <label for="id_divisi">Divisi</label>
+                                    <select class="form-control @error('id_divisi') is-invalid @enderror" id="id_divisi"
+                                        name="id_divisi">
+                                        <option value=""> Pilih Divisi</option>
+                                        @foreach ($divisi as $item)
+                                            <option value="{{ $item->id }}">{{ $item->nama_divisi }}
+                                        @endforeach
                                     </select>
                                     @error('id_divisi')
                                         <div id="id_divisi" class="form-text pb-1">{{ $message }}</div>
@@ -221,9 +210,8 @@
                             </div>
                         </div>
 
-
-                        <button type="submit" class="btn btn-sm btn-primary">Save</button>
-                        <a href="/admin" class="btn btn-sm btn-danger">Cancel</a>
+                        <button type="submit" class="btn btn-sm btn-primary">Tambah</button>
+                        <button type="submit" class="btn btn-sm btn-danger" data-dismiss="modal">Batal</button>
                     </form>
                 </div>
             </div><!-- /.modal-content -->

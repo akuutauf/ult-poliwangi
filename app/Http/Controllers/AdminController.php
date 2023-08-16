@@ -33,6 +33,7 @@ class AdminController extends Controller
      */
     public function create()
     {
+        //
     }
 
     /**
@@ -47,12 +48,13 @@ class AdminController extends Controller
             'id_user' => 'required',
             'id_divisi' => 'required'
         ]);
+
         $admin = new Admin();
         $admin->id_user = $validated['id_user'];
         $admin->id_divisi = $validated['id_divisi'];
         $admin->save();
 
-        Alert::success('Success', 'Admin berhasil ditambahkan');
+        Alert::success('Success', 'User Admin Berhasil Ditambahkan');
         return redirect()->route('admin.admin.index');
     }
 
@@ -88,7 +90,7 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         Admin::where('id', $request->id)->update($request->only(['id_user', 'id_divisi']));
-        Alert::success('Success', 'Admin berhasil diupdate');
+        Alert::success('Success', 'User Admin Berhasil Diupdate');
         return redirect()->route('admin.admin.index');
     }
 
@@ -102,7 +104,7 @@ class AdminController extends Controller
     {
         $admin = Admin::findOrFail($id);
         $admin->delete();
-        Alert::success('Success', 'User Admin berhasil dihapus');
+        Alert::success('Success', 'User Admin Berhasil Dihapus');
 
         return redirect()->route('admin.admin.index');
     }

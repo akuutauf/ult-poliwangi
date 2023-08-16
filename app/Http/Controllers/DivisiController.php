@@ -15,7 +15,6 @@ class DivisiController extends Controller
      */
     public function index()
     {
-
         $data = [
             'divisi' => Divisi::all(),
         ];
@@ -72,11 +71,7 @@ class DivisiController extends Controller
      */
     public function edit($id)
     {
-        // $data = [
-        //     'divisi' => Divisi::find($id),
-        // ];
-
-        // return view('pages.admin.divisi.index', $data);
+        //
     }
 
     /**
