@@ -83,11 +83,18 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <label for="Item">Nama Persyaratan</label>
-                                                                        <input type="text" class="form-control"
-                                                                            id="nama_berkas" name="nama_berkas"
-                                                                            required="" value="{{ $item->nama_berkas }}"
+                                                                        <label for="update_nama_berkas">Nama
+                                                                            Persyaratan</label>
+                                                                        <input type="text"
+                                                                            class="form-control @error('update_nama_berkas') is-invalid @enderror"
+                                                                            id="update_nama_berkas"
+                                                                            name="update_nama_berkas"
+                                                                            value="{{ $item->nama_berkas }}"
                                                                             placeholder="Masukkan Nama Persyaratan">
+                                                                        @error('update_nama_berkas')
+                                                                            <div id="update_nama_berkas" class="form-text pb-1">
+                                                                                {{ $message }}</div>
+                                                                        @enderror
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -95,10 +102,12 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <label for="jenis_berkas">Jenis Syarat</label>
+                                                                        <label for="update_jenis_berkas">Jenis
+                                                                            Syarat</label>
                                                                         <select
-                                                                            class="form-control @error('jenis_berkas') is-invalid @enderror"
-                                                                            id="jenis_berkas" name="jenis_berkas">
+                                                                            class="form-control @error('update_jenis_berkas') is-invalid @enderror"
+                                                                            id="update_jenis_berkas"
+                                                                            name="update_jenis_berkas">
                                                                             <option value="">Pilih Jenis Berkas
                                                                             </option>
                                                                             <option value="Wajib"
@@ -110,8 +119,9 @@
                                                                                 Tidak Wajib
                                                                             </option>
                                                                         </select>
-                                                                        @error('jenis_berkas')
-                                                                            <div id="jenis_berkas" class="form-text pb-1">
+                                                                        @error('update_jenis_berkas')
+                                                                            <div id="update_jenis_berkas"
+                                                                                class="form-text pb-1">
                                                                                 {{ $message }}</div>
                                                                         @enderror
                                                                     </div>
@@ -158,11 +168,13 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="Item">Nama Persyaratan</label>
-                                    <input type="text" class="form-control @error('nama_berkas') is-invalid @enderror"
-                                        id="nama_berkas" name="nama_berkas" placeholder="Masukkan Nama Persyaratan">
-                                    @error('nama_berkas')
-                                        <div id="nama_berkas" class="form-text pb-1">
+                                    <label for="create_nama_berkas">Nama Persyaratan</label>
+                                    <input type="text"
+                                        class="form-control @error('create_nama_berkas') is-invalid @enderror"
+                                        id="create_nama_berkas" name="create_nama_berkas"
+                                        placeholder="Masukkan Nama Persyaratan">
+                                    @error('create_nama_berkas')
+                                        <div id="create_nama_berkas" class="form-text pb-1">
                                             {{ $message }}</div>
                                     @enderror
                                 </div>
@@ -170,15 +182,15 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="user">Jenis Syarat</label>
-                                    <select class="form-control @error('jenis_berkas') is-invalid @enderror"
-                                        id="jenis_berkas" name="jenis_berkas">
+                                    <label for="create_jenis_berkas">Jenis Syarat</label>
+                                    <select class="form-control @error('create_jenis_berkas') is-invalid @enderror"
+                                        id="create_jenis_berkas" name="create_jenis_berkas">
                                         <option value="">Pilih Jenis Berkas</option>
                                         <option value="Wajib">Wajib</option>
                                         <option value="Tidak Wajib">Tidak Wajib</option>
                                     </select>
-                                    @error('jenis_berkas')
-                                        <div id="jenis_berkas" class="form-text pb-1">
+                                    @error('create_jenis_berkas')
+                                        <div id="create_jenis_berkas" class="form-text pb-1">
                                             {{ $message }}</div>
                                     @enderror
                                 </div>

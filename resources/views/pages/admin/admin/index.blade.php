@@ -85,11 +85,13 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <label for="id_user">User Admin</label>
+                                                                                <label for="update_id_user">User
+                                                                                    Admin</label>
                                                                                 <select
-                                                                                    class="form-control @error('id_user') is-invalid @enderror"
-                                                                                    id="id_user" name="id_user" disabled>
-                                                                                    <option>
+                                                                                    class="form-control @error('update_id_user') is-invalid @enderror"
+                                                                                    id="update_id_user"
+                                                                                    name="update_id_user" disabled>
+                                                                                    <option value="">
                                                                                         Pilih User
                                                                                     </option>
                                                                                     @foreach ($user as $itemuser)
@@ -100,8 +102,9 @@
                                                                                     @endforeach
 
                                                                                 </select>
-                                                                                @error('id_user')
-                                                                                    <div id="id_user" class="form-text pb-1">
+                                                                                @error('update_id_user')
+                                                                                    <div id="update_id_user"
+                                                                                        class="form-text pb-1">
                                                                                         {{ $message }}</div>
                                                                                 @enderror
                                                                             </div>
@@ -110,11 +113,12 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <label for="id_divisi">Divisi</label>
+                                                                                <label for="update_id_divisi">Divisi</label>
                                                                                 <select
-                                                                                    class="form-control @error('id_divisi') is-invalid @enderror"
-                                                                                    id="id_divisi" name="id_divisi">
-                                                                                    <option>
+                                                                                    class="form-control @error('update_id_divisi') is-invalid @enderror"
+                                                                                    id="update_id_divisi"
+                                                                                    name="update_id_divisi">
+                                                                                    <option value="">
                                                                                         Pilih Divisi
                                                                                     </option>
                                                                                     @foreach ($divisi as $data)
@@ -125,8 +129,9 @@
                                                                                     @endforeach
 
                                                                                 </select>
-                                                                                @error('id_divisi')
-                                                                                    <div id="id_divisi" class="form-text pb-1">
+                                                                                @error('update_id_divisi')
+                                                                                    <div id="update_id_divisi"
+                                                                                        class="form-text pb-1">
                                                                                         {{ $message }}</div>
                                                                                 @enderror
                                                                             </div>
@@ -177,16 +182,16 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="id_user">User Admin</label>
-                                    <select class="form-control @error('id_user') is-invalid @enderror" id="id_user"
-                                        name="id_user">
+                                    <label for="create_id_user">User Admin</label>
+                                    <select class="form-control @error('create_id_user') is-invalid @enderror"
+                                        id="create_id_user" name="create_id_user">
                                         <option value="">Pilih User</option>
-                                        @foreach ($user as $itemuser)
+                                        @foreach ($user_option as $itemuser)
                                             <option value="{{ $itemuser->id }}">{{ $itemuser->name }}
                                         @endforeach
                                     </select>
-                                    @error('id_user')
-                                        <div id="id_user" class="form-text pb-1">{{ $message }}</div>
+                                    @error('create_id_user')
+                                        <div id="create_id_user" class="form-text pb-1">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -195,16 +200,16 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="id_divisi">Divisi</label>
-                                    <select class="form-control @error('id_divisi') is-invalid @enderror" id="id_divisi"
-                                        name="id_divisi">
+                                    <label for="create_id_divisi">Divisi</label>
+                                    <select class="form-control @error('create_id_divisi') is-invalid @enderror"
+                                        id="create_id_divisi" name="create_id_divisi">
                                         <option value=""> Pilih Divisi</option>
                                         @foreach ($divisi as $item)
                                             <option value="{{ $item->id }}">{{ $item->nama_divisi }}
                                         @endforeach
                                     </select>
-                                    @error('id_divisi')
-                                        <div id="id_divisi" class="form-text pb-1">{{ $message }}</div>
+                                    @error('create_id_divisi')
+                                        <div id="create_id_divisi" class="form-text pb-1">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>

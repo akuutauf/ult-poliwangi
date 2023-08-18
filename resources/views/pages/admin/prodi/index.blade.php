@@ -78,16 +78,16 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <label for="nama_prodi_update">Nama
+                                                                                <label for="update_nama_prodi">Nama
                                                                                     Prodi</label>
                                                                                 <input type="text"
-                                                                                    class="form-control @error('nama_prodi_update') is-invalid @enderror"
-                                                                                    id="nama_prodi_update"
-                                                                                    name="nama_prodi_update"
+                                                                                    class="form-control @error('update_nama_prodi') is-invalid @enderror"
+                                                                                    id="update_nama_prodi"
+                                                                                    name="update_nama_prodi"
                                                                                     placeholder="Masukkan Nama Prodi"
                                                                                     value="{{ $item->nama_prodi }}">
-                                                                                @error('nama_prodi_update')
-                                                                                    <div id="nama_prodi_update"
+                                                                                @error('update_nama_prodi')
+                                                                                    <div id="update_nama_prodi"
                                                                                         class="form-text pb-1">
                                                                                         {{ $message }}</div>
                                                                                 @enderror
@@ -138,12 +138,12 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="nama_prodi_create">Nama Prodi</label>
+                                    <label for="create_nama_prodi">Nama Prodi</label>
                                     <input type="text"
-                                        class="form-control @error('nama_prodi_create') is-invalid @enderror"
-                                        id="nama_prodi_create" name="nama_prodi_create" placeholder="Masukkan Nama Prodi">
-                                    @error('nama_prodi_create')
-                                        <div id="nama_prodi_create" class="form-text pb-1">
+                                        class="form-control @error('create_nama_prodi') is-invalid @enderror"
+                                        id="create_nama_prodi" name="create_nama_prodi" placeholder="Masukkan Nama Prodi">
+                                    @error('create_nama_prodi')
+                                        <div id="create_nama_prodi" class="form-text pb-1">
                                             {{ $message }}</div>
                                     @enderror
                                 </div>

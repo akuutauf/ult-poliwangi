@@ -6,6 +6,7 @@ use App\Models\Divisi;
 use App\Models\Layanan;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Validation\Rule;
 
 class LayananController extends Controller
 {
@@ -43,15 +44,15 @@ class LayananController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'id_divisi' => 'required',
-            'estimasi_layanan' => ['required', 'number'],
-            'nama_layanan' => ['required', 'string']
+            'create_id_divisi' => 'required',
+            'create_nama_layanan' => ['required', 'string', Rule::unique('layanans', 'nama_layanan')],
+            'create_estimasi_layanan' => ['required'],
         ]);
 
         $layanan = new Layanan;
-        $layanan->id_divisi = $validated['id_divisi'];
-        $layanan->nama_layanan = $validated['nama_layanan'];
-        $layanan->estimasi_layanan = $validated['estimasi_layanan'];
+        $layanan->id_divisi = $validated['create_id_divisi'];
+        $layanan->nama_layanan = $validated['create_nama_layanan'];
+        $layanan->estimasi_layanan = $validated['create_estimasi_layanan'];
         $layanan->save();
 
         Alert::success('Success', 'Layanan Berhasil Ditambahkan');
@@ -90,16 +91,18 @@ class LayananController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $layanan = Layanan::findOrFail($id);
+
         $validated = $request->validate([
-            'id_divisi' => ['required', 'string'],
-            'estimasi_layanan' => ['required', 'string'],
-            'nama_layanan' => ['required', 'string'],
+            'update_id_divisi' => ['required', 'string'],
+            'update_nama_layanan' => ['required', 'string', Rule::unique('layanans', 'nama_layanan')->ignore($layanan->id, 'id')],
+            'update_estimasi_layanan' => ['required', 'string'],
         ]);
 
         Layanan::where('id', $id)->update([
-            'id_divisi' => $validated['id_divisi'],
-            'estimasi_layanan' => $validated['estimasi_layanan'],
-            'nama_layanan' => $validated['nama_layanan'],
+            'id_divisi' => $validated['update_id_divisi'],
+            'estimasi_layanan' => $validated['update_estimasi_layanan'],
+            'nama_layanan' => $validated['update_nama_layanan'],
         ]);
 
         Alert::success('Success', 'Layanan Berhasil Diupdate');

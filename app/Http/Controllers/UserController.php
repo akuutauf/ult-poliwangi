@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Validation\Rules;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -43,16 +45,18 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => ['required', 'string', 'max:100'],
-            'email' => ['required', 'string', 'max:100'],
-            'password' => ['required', 'confirmed', 'min:8'],
-            'password_confirmation' => ['required', Rules\Password::defaults(), 'min:8'],
+            'create_name' => ['required', 'string', Rule::unique('users', 'name')],
+            'create_email' => ['required', 'string', 'email', Rule::unique('users', 'email')],
+            'create_password' => ['required', 'confirmed', 'min:8'],
+            'create_password_confirmation' => ['required', 'min:8', Rules\Password::defaults()],
         ]);
 
+        $slug = Str::slug($validated['create_name'], '');
+
         $user = new User;
-        $user->name = $validated['name'];
-        $user->email = $validated['email'];
-        $user->password = hash::make($request->password);
+        $user->name = $slug;
+        $user->email = $validated['create_email'];
+        $user->password = hash::make($request->create_password);
         $user->save();
 
         Alert::success('Success', 'User Berhasil Ditambahkan');
@@ -91,17 +95,21 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = User::findOrFail($id);
+
         $validated = $request->validate([
-            'name' => ['required', 'string', 'max:100'],
-            'email' => ['required', 'string', 'max:100'],
-            'password' => ['nullable', 'confirmed', 'min:8'],
-            'password_confirmation' => ['nullable', Rules\Password::defaults(), 'min:8'],
+            'update_name' => ['required', 'string', Rule::unique('users', 'name')->ignore($user->id, 'id')],
+            'update_email' => ['required', 'string', 'email', Rule::unique('users', 'email')->ignore($user->id, 'id')],
+            'update_password' => ['nullable', 'confirmed', 'min:8'],
+            'update_password_confirmation' => ['nullable', Rules\Password::defaults(), 'min:8'],
         ]);
 
+        $slug = Str::slug($validated['update_name'], '');
+
         $user = User::find($id);
-        $user->name = $validated['name'];
-        $user->email = $validated['email'];
-        $user->password = hash::make($request->password);
+        $user->name = $slug;
+        $user->email = $validated['update_email'];
+        $user->password = hash::make($request->update_password);
         $user->save();
 
         Alert::success('Success', 'User Berhasil Diubah');

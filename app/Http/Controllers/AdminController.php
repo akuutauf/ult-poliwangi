@@ -17,8 +17,13 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $usersWithoutAdmin = User::whereDoesntHave('admin', function ($query) {
+            $query->whereNotNull('id_divisi');
+        })->get();
+
         $data = [
             'divisi' => Divisi::all(),
+            'user_option' => $usersWithoutAdmin,
             'user' => User::all(),
             'admin' => Admin::all(),
         ];
@@ -45,13 +50,13 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'id_user' => 'required',
-            'id_divisi' => 'required'
+            'create_id_user' => 'required',
+            'create_id_divisi' => 'required'
         ]);
 
         $admin = new Admin();
-        $admin->id_user = $validated['id_user'];
-        $admin->id_divisi = $validated['id_divisi'];
+        $admin->id_user = $validated['create_id_user'];
+        $admin->id_divisi = $validated['create_id_divisi'];
         $admin->save();
 
         Alert::success('Success', 'User Admin Berhasil Ditambahkan');
@@ -89,8 +94,18 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Admin::where('id', $request->id)->update($request->only(['id_user', 'id_divisi']));
+        $validated = $request->validate([
+            'update_id_user' => 'nullable',
+            'update_id_divisi' => 'required'
+        ]);
+
+        Admin::where('id', $id)->update([
+            'id_user' => $validated['update_id_user'],
+            'id_divisi' => $validated['update_id_divisi'],
+        ]);
+
         Alert::success('Success', 'User Admin Berhasil Diupdate');
+
         return redirect()->route('admin.admin.index');
     }
 

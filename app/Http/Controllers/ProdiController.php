@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Prodi;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Validation\Rule;
 
 class ProdiController extends Controller
 {
@@ -41,14 +42,14 @@ class ProdiController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama_prodi_create' => ['required', 'string']
+            'create_nama_prodi' => ['required', 'string', Rule::unique('prodis', 'nama_prodi')]
         ]);
 
         $prodi = new Prodi;
-        $prodi->nama_prodi = $validated['nama_prodi_create'];
+        $prodi->nama_prodi = $validated['create_nama_prodi'];
         $prodi->save();
 
-        Alert::success('Success', 'Prodi berhasil ditambahkan');
+        Alert::success('Success', 'Prodi Berhasil Ditambahkan');
 
         return redirect()->route('admin.prodi.index');
     }
@@ -84,12 +85,16 @@ class ProdiController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $prodi = Prodi::findOrFail($id);
+
         $validated = $request->validate([
-            'nama_prodi_update' => ['required', 'string']
+            'update_nama_prodi' => [
+                'required', 'string', Rule::unique('prodis', 'nama_prodi')->ignore($prodi->id, 'id')
+            ]
         ]);
 
         Prodi::where('id', $id)->update([
-            'nama_prodi' => $validated['nama_prodi_update'],
+            'nama_prodi' => $validated['update_nama_prodi'],
         ]);
 
         Alert::success('Success', 'Prodi Berhasil Diupdate');

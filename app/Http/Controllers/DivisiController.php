@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Divisi;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class DivisiController extends Controller
 {
@@ -41,11 +42,11 @@ class DivisiController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama_divisi_create' => ['required', 'string']
+            'create_nama_divisi' => ['required', 'string', Rule::unique('divisis', 'nama_divisi')]
         ]);
 
         $divisi = new Divisi;
-        $divisi->nama_divisi = $validated['nama_divisi_create'];
+        $divisi->nama_divisi = $validated['create_nama_divisi'];
         $divisi->save();
 
         Alert::success('Success', 'Divisi Berhasil Ditambahkan');
@@ -83,12 +84,14 @@ class DivisiController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $divisi = Divisi::findOrFail($id);
+
         $validated = $request->validate([
-            'nama_divisi_update' => ['required', 'string']
+            'update_nama_divisi' => ['required', 'string', Rule::unique('divisis', 'nama_divisi')->ignore($divisi->id, 'id')]
         ]);
 
         Divisi::where('id', $id)->update([
-            'nama_divisi' => $validated['nama_divisi_update'],
+            'nama_divisi' => $validated['update_nama_divisi'],
         ]);
 
         Alert::success('Success', 'Divisi Berhasil Diupdate');

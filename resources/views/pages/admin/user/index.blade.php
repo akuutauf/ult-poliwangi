@@ -87,14 +87,15 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <label for="name">Nama</label>
+                                                                                <label for="update_name">Nama</label>
                                                                                 <input type="text"
-                                                                                    class="form-control @error('name') is-invalid @enderror"
-                                                                                    id="name" name="name"
+                                                                                    class="form-control @error('update_name') is-invalid @enderror"
+                                                                                    id="update_name" name="update_name"
                                                                                     value="{{ $item->name }}"
                                                                                     placeholder="Nama User">
-                                                                                @error('name')
-                                                                                    <div id="name" class="form-text pb-1">
+                                                                                @error('update_name')
+                                                                                    <div id="update_name"
+                                                                                        class="form-text pb-1">
                                                                                         {{ $message }}</div>
                                                                                 @enderror
                                                                             </div>
@@ -103,14 +104,15 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <label for="email">Email</label>
+                                                                                <label for="update_email">Email</label>
                                                                                 <input type="email"
-                                                                                    class="form-control @error('email') is-invalid @enderror"
-                                                                                    id="email" name="email"
+                                                                                    class="form-control @error('update_email') is-invalid @enderror"
+                                                                                    id="update_email" name="update_email"
                                                                                     value="{{ $item->email }}"
                                                                                     placeholder="Alamat Email">
-                                                                                @error('email')
-                                                                                    <div id="email" class="form-text pb-1">
+                                                                                @error('update_email')
+                                                                                    <div id="update_email"
+                                                                                        class="form-text pb-1">
                                                                                         {{ $message }}</div>
                                                                                 @enderror
                                                                             </div>
@@ -119,14 +121,16 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <label for="password">Password</label>
+                                                                                <label
+                                                                                    for="update_password">Password</label>
                                                                                 <input type="password"
-                                                                                    class="form-control @error('password') is-invalid @enderror"
-                                                                                    id="password" name="password"
-                                                                                    value=""
+                                                                                    class="form-control @error('update_password') is-invalid @enderror"
+                                                                                    id="update_password"
+                                                                                    name="update_password" value=""
                                                                                     placeholder="Password Baru">
-                                                                                @error('password')
-                                                                                    <div id="password" class="form-text pb-1">
+                                                                                @error('update_password')
+                                                                                    <div id="update_password"
+                                                                                        class="form-text pb-1">
                                                                                         {{ $message }}</div>
                                                                                 @enderror
                                                                             </div>
@@ -135,16 +139,17 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <label for="password_confirmation">Password
+                                                                                <label
+                                                                                    for="update_password_confirmation">Password
                                                                                     Confirmation</label>
                                                                                 <input type="password"
-                                                                                    class="form-control @error('password_confirmation') is-invalid @enderror"
-                                                                                    id="password_confirmation"
-                                                                                    name="password_confirmation"
+                                                                                    class="form-control @error('update_password_confirmation') is-invalid @enderror"
+                                                                                    id="update_password_confirmation"
+                                                                                    name="update_password_confirmation"
                                                                                     value=""
-                                                                                    placeholder="Konfirmasi Password">
-                                                                                @error('password_confirmation')
-                                                                                    <div id="password_confirmation"
+                                                                                    placeholder="Konfirmasi Password Baru">
+                                                                                @error('update_password_confirmation')
+                                                                                    <div id="update_password_confirmation"
                                                                                         class="form-text pb-1">
                                                                                         {{ $message }}</div>
                                                                                 @enderror
@@ -198,11 +203,11 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="name">Nama</label>
-                                    <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                        id="name" name="name" value="" placeholder="Nama User">
-                                    @error('name')
-                                        <div id="name" class="form-text pb-1">
+                                    <label for="create_name">Nama</label>
+                                    <input type="text" class="form-control @error('create_name') is-invalid @enderror"
+                                        id="create_name" name="create_name" value="" placeholder="Nama User">
+                                    @error('create_name')
+                                        <div id="create_name" class="form-text pb-1">
                                             {{ $message }}</div>
                                     @enderror
                                 </div>
@@ -211,25 +216,11 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                        id="email" name="email" value="" placeholder="Alamat Email">
-                                    @error('email')
-                                        <div id="email" class="form-text pb-1">
-                                            {{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                        id="password" name="password" value="" placeholder="Password Baru">
-                                    @error('password')
-                                        <div id="password" class="form-text pb-1">
+                                    <label for="create_email">Email</label>
+                                    <input type="email" class="form-control @error('create_email') is-invalid @enderror"
+                                        id="create_email" name="create_email" value="" placeholder="Alamat Email">
+                                    @error('create_email')
+                                        <div id="create_email" class="form-text pb-1">
                                             {{ $message }}</div>
                                     @enderror
                                 </div>
@@ -239,13 +230,29 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="password_confirmation">Password Confirmation</label>
+                                    <label for="create_password">Password</label>
                                     <input type="password"
-                                        class="form-control @error('password_confirmation') is-invalid @enderror"
-                                        id="password_confirmation" name="password_confirmation" value=""
-                                        placeholder="Konfirmasi Password">
-                                    @error('password_confirmation')
-                                        <div id="password_confirmation" class="form-text pb-1">
+                                        class="form-control @error('create_password') is-invalid @enderror"
+                                        id="create_password" name="create_password" value=""
+                                        placeholder="Password Baru">
+                                    @error('create_password')
+                                        <div id="create_password" class="form-text pb-1">
+                                            {{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="create_password_confirmation">Password Confirmation</label>
+                                    <input type="password"
+                                        class="form-control @error('create_password_confirmation') is-invalid @enderror"
+                                        id="create_password_confirmation" name="create_password_confirmation"
+                                        value="" placeholder="Konfirmasi Password">
+                                    @error('create_password_confirmation')
+                                        <div id="create_password_confirmation" class="form-text pb-1">
                                             {{ $message }}</div>
                                     @enderror
                                 </div>

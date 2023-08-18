@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\Berkas;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Validation\Rule;
 
 class BerkasController extends Controller
 {
@@ -41,14 +43,14 @@ class BerkasController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama_berkas' => 'required',
-            'jenis_berkas' => ['required', 'string', 'max:100']
+            'create_nama_berkas' => ['required', Rule::unique('berkas', 'nama_berkas')],
+            'create_jenis_berkas' => ['required', 'string']
         ]);
 
-        $berkas = new Berkas;
-        $berkas->nama_berkas = $validated['nama_berkas'];
-        $berkas->jenis_berkas = $validated['jenis_berkas'];
-        $berkas->save();
+        Berkas::create([
+            'nama_berkas' => $validated['create_nama_berkas'],
+            'jenis_berkas' => $validated['create_jenis_berkas'],
+        ]);
 
         Alert::success('Success', 'Berkas Berhasil Ditambahkan');
 
@@ -86,8 +88,20 @@ class BerkasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Berkas::where('id', $request->id)->update($request->only(['nama_berkas', 'jenis_berkas']));
+        $berkas = Berkas::findOrFail($id);
+
+        $validated = $request->validate([
+            'update_nama_berkas' => ['required', 'string', Rule::unique('berkas', 'nama_berkas')->ignore($berkas->id, 'id')],
+            'update_jenis_berkas' => ['required', 'string']
+        ]);
+
+        Berkas::where('id', $id)->update([
+            'nama_berkas' => $validated['update_nama_berkas'],
+            'jenis_berkas' => $validated['update_jenis_berkas'],
+        ]);
+
         Alert::success('Success', 'Berkas Berhasil Diupdate');
+
         return redirect()->route('admin.berkas.index');
     }
 

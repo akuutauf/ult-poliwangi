@@ -50,7 +50,7 @@
                                                     <td class="text-right">
                                                         <a href="{{ route('admin.layanan.update', $item->id) }}"
                                                             class="mr-2" data-toggle="modal" data-animation="bounce"
-                                                            data-target=".modalUpdate"{{ $item->id }}><i
+                                                            data-target=".modalUpdate{{ $item->id }}"><i
                                                                 class="fas fa-edit text-info font-16"></i></a>
                                                         <a href="{{ route('admin.layanan.destroy', $item->id) }}"><i
                                                                 class="fas fa-trash-alt text-danger font-16"></i></a>
@@ -63,7 +63,7 @@
                                         @endphp
 
                                         <!--  Modal Update content for the above example -->
-                                        <div class="modal fade modalUpdate" tabindex="-1" role="dialog"
+                                        <div class="modal fade modalUpdate{{ $item->id }}" tabindex="-1" role="dialog"
                                             aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
@@ -78,13 +78,14 @@
                                                             method="POST">
                                                             @method('put')
                                                             @csrf
+
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <label for="id_divisi">Nama Divisi</label>
+                                                                        <label for="update_id_divisi">Nama Divisi</label>
                                                                         <select
-                                                                            class="form-control @error('id_divisi') is-invalid @enderror"
-                                                                            id="id_divisi" name="id_divisi" disabled>
+                                                                            class="form-control @error('update_id_divisi') is-invalid @enderror"
+                                                                            id="update_id_divisi" name="update_id_divisi">
                                                                             <option value="">Pilih Divisi
                                                                             </option>
                                                                             @foreach ($divisi as $data)
@@ -94,8 +95,8 @@
                                                                                 </option>
                                                                             @endforeach
                                                                         </select>
-                                                                        @error('id_divisi')
-                                                                            <div id="id_divisi" class="form-text pb-1">
+                                                                        @error('update_id_divisi')
+                                                                            <div id="update_id_divisi" class="form-text pb-1">
                                                                                 {{ $message }}</div>
                                                                         @enderror
                                                                     </div>
@@ -105,32 +106,37 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <label for="estimasi_layanan">Estimasi
+                                                                        <label for="update_nama_layanan">Nama
                                                                             Layanan</label>
-                                                                        <input type="number"
-                                                                            class="form-control @error('estimasi_layanan') is-invalid @enderror"
-                                                                            id="estimasi_layanan" name="estimasi_layanan"
-                                                                            placeholder="Jumlah Maksimal Hari Kerja Pelayanan"
-                                                                            value="{{ $item->estimasi_layanan }}">
-                                                                        @error('estimasi_layanan')
-                                                                            <div id="estimasi_layanan" class="form-text pb-1">
-                                                                                {{ $message }}</div>
-                                                                        @enderror
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <div class="form-group">
-                                                                        <label for="Item">Nama Layanan</label>
                                                                         <input type="text"
-                                                                            class="form-control @error('nama_layanan') is-invalid @enderror"
-                                                                            id="nama_layanan" name="nama_layanan"
+                                                                            class="form-control @error('update_nama_layanan') is-invalid @enderror"
+                                                                            id="update_nama_layanan"
+                                                                            name="update_nama_layanan"
                                                                             value="{{ $item->nama_layanan }}"
                                                                             placeholder="Masukkan Nama Layanan">
-                                                                        @error('nama_layanan')
-                                                                            <div id="nama_layanan" class="form-text pb-1">
+                                                                        @error('update_nama_layanan')
+                                                                            <div id="update_nama_layanan"
+                                                                                class="form-text pb-1">
+                                                                                {{ $message }}</div>
+                                                                        @enderror
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label for="update_estimasi_layanan">Estimasi
+                                                                            Layanan</label>
+                                                                        <input type="number"
+                                                                            class="form-control @error('update_estimasi_layanan') is-invalid @enderror"
+                                                                            id="update_estimasi_layanan"
+                                                                            name="update_estimasi_layanan"
+                                                                            placeholder="Jumlah Maksimal Hari Kerja Pelayanan"
+                                                                            value="{{ $item->estimasi_layanan }}">
+                                                                        @error('update_estimasi_layanan')
+                                                                            <div id="update_estimasi_layanan"
+                                                                                class="form-text pb-1">
                                                                                 {{ $message }}</div>
                                                                         @enderror
                                                                     </div>
@@ -177,16 +183,16 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="nama_divisi">Nama Divisi</label>
-                                    <select class="form-control @error('id_divisi') is-invalid @enderror" id="id_divisi"
-                                        name="id_divisi">
+                                    <label for="create_id_divisi">Nama Divisi</label>
+                                    <select class="form-control @error('create_id_divisi') is-invalid @enderror"
+                                        id="create_id_divisi" name="create_id_divisi">
                                         <option value="">Pilih Divisi</option>
                                         @foreach ($divisi as $dataDivisi)
                                             <option value="{{ $dataDivisi->id }}">{{ $dataDivisi->nama_divisi }}</option>
                                         @endforeach
                                     </select>
-                                    @error('id_divisi')
-                                        <div id="id_divisi" class="form-text pb-1">
+                                    @error('create_id_divisi')
+                                        <div id="create_id_divisi" class="form-text pb-1">
                                             {{ $message }}</div>
                                     @enderror
                                 </div>
@@ -194,25 +200,27 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="estimasi_layanan">Estimasi Layanan</label>
+                                    <label for="create_nama_layanan">Nama Layanan</label>
+                                    <input type="text"
+                                        class="form-control @error('create_nama_layanan') is-invalid @enderror"
+                                        id="create_nama_layanan" name="create_nama_layanan"
+                                        placeholder="Masukkan Nama Layanan">
+                                    @error('create_nama_layanan')
+                                        <div id="create_nama_layanan" class="form-text pb-1">
+                                            {{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="create_estimasi_layanan">Estimasi Layanan</label>
                                     <input type="number"
-                                        class="form-control @error('estimasi_layanan') is-invalid @enderror"
-                                        id="estimasi_layanan" name="estimasi_layanan"
+                                        class="form-control @error('create_estimasi_layanan') is-invalid @enderror"
+                                        id="create_estimasi_layanan" name="create_estimasi_layanan"
                                         placeholder="Jumlah Maksimal Hari Kerja Pelayanan">
-                                    @error('estimasi_layanan')
-                                        <div id="estimasi_layanan" class="form-text pb-1">
-                                            {{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="nama_layanan">Nama Layanan</label>
-                                    <input type="text" class="form-control @error('nama_layanan') is-invalid @enderror"
-                                        id="nama_layanan" name="nama_layanan" placeholder="Masukkan Nama Layanan">
-                                    @error('nama_layanan')
-                                        <div id="nama_layanan" class="form-text pb-1">
+                                    @error('create_estimasi_layanan')
+                                        <div id="create_estimasi_layanan" class="form-text pb-1">
                                             {{ $message }}</div>
                                     @enderror
                                 </div>

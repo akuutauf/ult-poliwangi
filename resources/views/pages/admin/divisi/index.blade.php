@@ -80,16 +80,16 @@
                                                                     <div class="row">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group">
-                                                                                <label for="nama_divisi_update">Nama
+                                                                                <label for="update_nama_divisi">Nama
                                                                                     Divisi</label>
                                                                                 <input type="text"
-                                                                                    class="form-control @error('nama_divisi_update') is-invalid @enderror"
-                                                                                    id="nama_divisi_update"
-                                                                                    name="nama_divisi_update"
+                                                                                    class="form-control @error('update_nama_divisi') is-invalid @enderror"
+                                                                                    id="update_nama_divisi"
+                                                                                    name="update_nama_divisi"
                                                                                     value="{{ $item->nama_divisi }}"
                                                                                     placeholder="Masukkan Nama Divisi">
-                                                                                @error('nama_divisi_update')
-                                                                                    <div id="nama_divisi_update"
+                                                                                @error('update_nama_divisi')
+                                                                                    <div id="update_nama_divisi"
                                                                                         class="form-text pb-1">
                                                                                         {{ $message }}</div>
                                                                                 @enderror
@@ -141,13 +141,13 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="nama_divisi_create">Nama Divisi</label>
+                                    <label for="create_nama_divisi">Nama Divisi</label>
                                     <input type="text"
-                                        class="form-control @error('nama_divisi_create') is-invalid @enderror"
-                                        id="nama_divisi_create" name="nama_divisi_create"
+                                        class="form-control @error('create_nama_divisi') is-invalid @enderror"
+                                        id="create_nama_divisi" name="create_nama_divisi"
                                         placeholder="Masukkan Nama Divisi">
-                                    @error('nama_divisi_create')
-                                        <div id="nama_divisi_create" class="form-text pb-1">
+                                    @error('create_nama_divisi')
+                                        <div id="create_nama_divisi" class="form-text pb-1">
                                             {{ $message }}</div>
                                     @enderror
                                 </div>
