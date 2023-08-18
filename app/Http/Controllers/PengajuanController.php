@@ -15,9 +15,15 @@ class PengajuanController extends Controller
     public function index()
     {
         $data = [
-            'pengajuans' => Pengajuan::all(),
+            'pengajuans' => Pengajuan::where('submission_confirmed', 'Accept')
+                ->whereHas('progress_pengajuan', function ($query) {
+                    $query->where('status', '!===', 'Dokumen Selesai')
+                        ->latest('created_at')
+                        ->take(1);
+                })
+                ->get(),
         ];
-        //
+
         return view('pages.admin.pengajuan.index', $data);
     }
 

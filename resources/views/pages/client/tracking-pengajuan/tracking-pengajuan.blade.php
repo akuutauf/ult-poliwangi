@@ -12,20 +12,20 @@
             $slug = explode('-', $date);
             return $slug[2] . ' ' . $month[(int) $slug[1]] . ' ' . $slug[0];
         }
-
+        
         function tambahEstimasiHariKerja($tanggal, $estimasiHari)
         {
             $tanggalObj = new DateTime($tanggal);
-
+        
             for ($i = 1; $i <= $estimasiHari; $i++) {
                 $tanggalObj->modify('+1 day');
-
+        
                 // Loop untuk mengabaikan hari Sabtu dan Minggu
                 while ($tanggalObj->format('N') >= 6) {
                     $tanggalObj->modify('+1 day');
                 }
             }
-
+        
             return $tanggalObj->format('Y-m-d');
         }
     @endphp
@@ -151,7 +151,7 @@
                                         </div>
                                     @endif
 
-                                    @if ($pengajuan->konfirmasi_pengajuan == 'Not Yet Confirmed')
+                                    @if ($pengajuan->submission_confirmed == 'No')
                                         <i class="mdi-set fa-solid fa-spinner icon-info"></i>
                                         <div class="time-item">
                                             <div class="item-info">

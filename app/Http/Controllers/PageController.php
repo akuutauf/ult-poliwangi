@@ -22,10 +22,11 @@ class PageController extends Controller
             // jumlah data
             'prodi_count' => Prodi::count(),
             'divisi_count' => Divisi::count(),
-            'admin_count' => Admin::count(),    
+            'admin_count' => Admin::count(),
             'layanan_count' => Layanan::count(),
             'berkas_count' => Berkas::count(),
-            'pengajuan_count' => Pengajuan::count(),
+            'pengajuan_count' => Pengajuan::where('submission_confirmed',  ['Accept'])->count(),
+            'daftar_permohonan_count' => Pengajuan::where('submission_confirmed',  ['No'])->count(),
         ];
 
         return view('pages.admin.home', $data);

@@ -1,6 +1,10 @@
 @extends('layouts.base-admin')
+
 @section('title')
-    <title> Unit Layanan Terpadu ULT POLIWANGI| </title>
+    <title> Manajemen Progres Pengajuan | ULT POLIWANGI</title>
+
+    {{-- Datedroppper JS --}}
+    <script src="{{ asset('js-datedropper/datedropper-javascript.js') }}"></script>
 @endsection
 
 @php
@@ -20,15 +24,6 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
-                            <div class="float-right">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.page') }}">ULT
-                                            Poliwangi</a></li>
-                                    <li class="breadcrumb-item"><a href="/pengajuan">Pengajuan</a></li>
-                                    <li class="breadcrumb-item active">Progress Pengajuan</li>
-                                </ol>
-                                <!--end breadcrumb-->
-                            </div>
                             <!--end /div-->
                             <h4 class="page-title">Progress Pengajuan</h4>
                         </div>
@@ -41,10 +36,12 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <button type="button" class="btn btn-primary px-4 mt-0 mb-3" data-toggle="modal"
-                                    data-animation="bounce" data-target=".modalCreate"><i
-                                        class="mdi mdi-plus-circle-outline mr-2"></i>Tambah
-                                    Progress Pengajuan</button>
+                                @if (!$last_progress_pengajuan->status == 'Dokumen Selesai')
+                                    <button type="button" class="btn btn-primary px-4 mt-0 mb-3" data-toggle="modal"
+                                        data-animation="bounce" data-target=".modalCreate"><i
+                                            class="mdi mdi-plus-circle-outline mr-2"></i>Tambah
+                                        Progress Pengajuan</button>
+                                @endif
 
                                 <div class="table-responsive">
                                     @php
@@ -56,7 +53,7 @@
                                                 <th>No</th>
                                                 <th>Nama Pemohon</th>
                                                 <th>Pesan</th>
-                                                <th>File</th>
+                                                <th>File Berkas</th>
                                                 <th>Tanggal</th>
                                                 <th>Status</th>
                                                 <th class="text-right">Action</th>
@@ -104,8 +101,6 @@
     </div>
     <!--end row-->
 
-
-
     <!--  Modal content for the above example -->
     <div class="modal fade modalCreate" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
@@ -119,64 +114,65 @@
                 <div class="modal-body">
                     <form action="{{ route('admin.progress.pengajuan.create', $pengajuan->id) }}" method="POST">
                         @csrf
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="Item">Pesan</label>
-                                    <input type="text"
-                                        class="form-control @error('create_pesan')
-                                        is_invalid
-                                    @enderror"
-                                        id="create_pesan" name="create_pesan" required="">
+                                    <label for="create_pesan">Pesan</label>
+                                    <input type="text" class="form-control @error('create_pesan') is-invalid @enderror"
+                                        id="create_pesan" name="create_pesan" placeholder="Masukkan Deskripsi Pesan">
                                     @error('create_pesan')
                                         <div id="create_pesan" class="form-text pb-1">
                                             {{ $message }}</div>
                                     @enderror
                                 </div>
-
                             </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="file">File</label>
+                                    <label class="form-label" for="create_file_dokumen">File Berkas (Opsional)</label>
                                     <div class="custom-file mb-3">
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
-                                        <input type="file" class="custom-file-input" id="create_file_dokumen"
-                                            name="create_file_dokumen">
+                                        <label class="custom-file-label" for="create_file_dokumen">Choose file</label>
+                                        <input type="file"
+                                            class="custom-file-input form-control @error('create_file_dokumen') is_invalid @enderror"
+                                            id="create_file_dokumen" name="create_file_dokumen">
+                                        @error('create_file_dokumen')
+                                            <div id="create_file_dokumen" class="form-text pb-1">
+                                                {{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="date">Tanggal</label>
-                                    <input data-dd-opt-custom-class="dd-theme-bootstrap"
-                                        class="form-control date-input @error('create_tanggal')
-                                        is_invalid
-                                    @enderror"
-                                        type="date" value="" id="create_tanggal" name="create_tanggal">
+                                <label for="create_tanggal" class="form-label">Tanggal</label>
+                                <div class="form-group mb-3">
+                                    <input type="text" data-dd-opt-custom-class="dd-theme-bootstrap"
+                                        class="form-control date-input @error('create_tanggal') is-invalid @enderror"
+                                        id="create_tanggal" name="create_tanggal" placeholder="Tanggal Pengajuan">
                                     @error('create_tanggal')
-                                        <div id="create_tanggal" class="form-text pb-1">
-                                            {{ $message }}</div>
+                                        <div id="create_tanggal" class="form-text pb-1">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
+                        </div>
 
+                        <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="status">Status</label>
-                                    <select
-                                        class="form-control @error('create_status')
-                                        is_invalid
-                                    @enderror"
+                                <label class="form-label" for="create_status">Status</label>
+                                <div class="form-group mb-3">
+                                    <select class="form-control @error('create_status') is-invalid @enderror"
                                         id="create_status" name="create_status">
                                         <option value="">Pilih Status</option>
-                                        <option value="Formulir Pengajuan Berhasil Terkirim'">Formulir Pengajuan Berhasil
-                                            Terkirim</option>
                                         <option value="Dokumen Diproses">Dokumen Diproses</option>
                                         <option value="Dokumen Selesai">Dokumen Selesai</option>
                                     </select>
                                     @error('create_status')
-                                        <div id="create_status" class="form-text pb-1">
-                                            {{ $message }}</div>
+                                        <div id="create_status" class="form-text pb-1">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
@@ -189,70 +185,18 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+@endsection
 
-    <!--  Modal Update content for the above example -->
-    <div class="modal fade modalUpdate" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title mt-0" id="myLargeModalLabel">Add New Progress Pengajuan</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="Item">Pengajuan</label>
-                                    <select class="form-control">
-                                        <option>Pilih User</option>
-                                        <option>Large select</option>
-                                        <option>Small select</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="Item">Pesan</label>
-                                    <input type="text" class="form-control" id="Item" required="">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="file">File</label>
-                                    <div class="custom-file mb-3">
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
-                                        <input type="file" class="custom-file-input" id="customFile">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="tanggal">Tanggal</label>
-                                    <input class="form-control" type="date" value=""
-                                        id="example-date-local-input">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="Item">Status</label>
-                                    <select class="form-control">
-                                        <option>Pilih Statusr</option>
-                                        <option>Terkirim</option>
-                                        <option>DiProsess</option>
-                                        <option>Selesai</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <button type="button" class="btn btn-sm btn-primary">Save</button>
-                        <button type="button" class="btn btn-sm btn-danger">Cancel</button>
-                    </form>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+@section('script')
+    {{-- Inisiasi datedroppper --}}
+    <script>
+        dateDropper({
+            selector: '.date-input',
+            expandedDefault: true,
+            expandable: true,
+            overlay: true,
+            showArrowsOnHover: true,
+            autoFill: false
+        });
+    </script>
 @endsection

@@ -38,27 +38,23 @@ class ProgressPengajuanController extends Controller
      */
     public function store(Request $request, $id_pengajuan)
     {
-        // dd($request);
         $pengajuan = Pengajuan::findOrFail($id_pengajuan);
-        $validated = $request->validate(
-            [
-                'create_pesan' => 'required|string',
-                'create_file_dokumen' => 'nullable',
-                'create_tanggal' => 'required|date',
-                'create_status' => 'required',
-            ]
-        );
 
-        ProgressPengajuan::create(
-            [
-                'pesan' => $validated['create_pesan'],
-                'file_dokumen' => $validated['create_file_dokumen'],
-                'tanggal' => $validated['create_tanggal'],
-                'status' => $validated['create_status'],
-                'id_pengajuan' => $pengajuan->id
+        $validated = $request->validate([
+            'create_pesan' => ['required', 'string'],
+            'create_file_dokumen' => ['nullable'],
+            'create_tanggal' => ['required', 'date'],
+            'create_status' => ['required'],
+        ]);
 
-            ]
-        );
+        ProgressPengajuan::create([
+            'pesan' => $validated['create_pesan'],
+            'file_dokumen' => $validated['create_file_dokumen'],
+            'tanggal' => $validated['create_tanggal'],
+            'status' => $validated['create_status'],
+            'id_pengajuan' => $pengajuan->id
+        ]);
+
         Alert::success('Success', 'Progres Pengajuan Berhasil Ditambahkan');
 
         return redirect()->route('admin.progress.pengajuan.index', $pengajuan->id);
@@ -74,7 +70,8 @@ class ProgressPengajuanController extends Controller
     {
         $data = [
             'progress_pengajuans' => ProgressPengajuan::where('id_pengajuan', $progress_pengajuan_id)->get(),
-            'pengajuan' => Pengajuan::findOrFail($progress_pengajuan_id)
+            'pengajuan' => Pengajuan::findOrFail($progress_pengajuan_id),
+            'last_progress_pengajuan' => ProgressPengajuan::where('id_pengajuan', $progress_pengajuan_id)->latest()->first(),
         ];
 
         //

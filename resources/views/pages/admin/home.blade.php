@@ -41,7 +41,7 @@
                                                         <i class="fa-solid fa-file-circle-plus text-danger"></i>
                                                     </div>
                                                     <div class="media-body ml-3 align-self-center text-right">
-                                                        <h3 class="mt-0">{{ $pengajuan_count }}</h3>
+                                                        <h3 class="mt-0">{{ $daftar_permohonan_count }}</h3>
                                                         <span class="text-muted mb-0 text-nowrap">Unit Layanan
                                                             Terpadu</span>
                                                     </div><!--end media body-->
@@ -125,40 +125,45 @@
 
                             <div class="row">
                                 <div class="col-lg-12">
-<<<<<<< HEAD
-                                    <a href="#">
+                                    <<<<<<< HEAD <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
                                                 <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
                                                 <div class="media">
                                                     <div class="data-icon align-self-center">
                                                         <i class="fa-solid fa-file-circle-check text-success"></i>
-=======
-                                        <a href="#">
-                                            <div class="card hospital-info card-hover card-rounded">
-                                                <div class="card-body">
-                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan Selesai</h4>
-                                                    <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-circle-check text-success"></i>
-                                                        </div>
-                                                        <div class="media-body ml-3 align-self-center text-right">
-                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                            <span class="text-muted mb-0 text-nowrap ">Sekretaris</span>
-                                                        </div><!--end media body-->
->>>>>>> 2806f4d8aa2afc678ebca9e87d2f0e231c861460
-                                                    </div>
-                                                    <div class="media-body ml-3 align-self-center text-right">
-                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                        <span class="text-muted mb-0 text-nowrap ">Sekretaris</span>
-                                                    </div><!--end media body-->
+                                                        =======
+                                                        <a href="#">
+                                                            <div class="card hospital-info card-hover card-rounded">
+                                                                <div class="card-body">
+                                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan
+                                                                        Selesai</h4>
+                                                                    <div class="media">
+                                                                        <div class="data-icon align-self-center">
+                                                                            <i
+                                                                                class="fa-solid fa-file-circle-check text-success"></i>
+                                                                        </div>
+                                                                        <div
+                                                                            class="media-body ml-3 align-self-center text-right">
+                                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                                            <span
+                                                                                class="text-muted mb-0 text-nowrap ">Sekretaris</span>
+                                                                        </div><!--end media body-->
+                                                                        >>>>>>> 2806f4d8aa2afc678ebca9e87d2f0e231c861460
+                                                                    </div>
+                                                                    <div
+                                                                        class="media-body ml-3 align-self-center text-right">
+                                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                                        <span
+                                                                            class="text-muted mb-0 text-nowrap ">Sekretaris</span>
+                                                                    </div><!--end media body-->
+                                                                </div>
+                                                            </div><!--end card-body-->
+                                                    </div><!--end card-->
+                                                    </a>
                                                 </div>
-                                            </div><!--end card-body-->
-                                        </div><!--end card-->
-                                    </a>
-                                </div>
-                            </div>
-                        </div><!-- end col-->
+                                            </div>
+                                        </div><!-- end col-->
                     @endif
 
                     {{-- for divisi Keuangan --}}
@@ -188,40 +193,45 @@
 
                             <div class="row">
                                 <div class="col-lg-12">
-<<<<<<< HEAD
-                                    <a href="#">
+                                    <<<<<<< HEAD <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
                                                 <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
                                                 <div class="media">
                                                     <div class="data-icon align-self-center">
                                                         <i class="fa-solid fa-file-circle-check text-success"></i>
-=======
-                                        <a href="#">
-                                            <div class="card hospital-info card-hover card-rounded">
-                                                <div class="card-body">
-                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan Selesai</h4>
-                                                    <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-circle-check text-success"></i>
-                                                        </div>
-                                                        <div class="media-body ml-3 align-self-center text-right">
-                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                            <span class="text-muted mb-0 text-nowrap ">Keuangan</span>
-                                                        </div><!--end media body-->
->>>>>>> 2806f4d8aa2afc678ebca9e87d2f0e231c861460
-                                                    </div>
-                                                    <div class="media-body ml-3 align-self-center text-right">
-                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                        <span class="text-muted mb-0 text-nowrap ">Keuangan</span>
-                                                    </div><!--end media body-->
+                                                        =======
+                                                        <a href="#">
+                                                            <div class="card hospital-info card-hover card-rounded">
+                                                                <div class="card-body">
+                                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan
+                                                                        Selesai</h4>
+                                                                    <div class="media">
+                                                                        <div class="data-icon align-self-center">
+                                                                            <i
+                                                                                class="fa-solid fa-file-circle-check text-success"></i>
+                                                                        </div>
+                                                                        <div
+                                                                            class="media-body ml-3 align-self-center text-right">
+                                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                                            <span
+                                                                                class="text-muted mb-0 text-nowrap ">Keuangan</span>
+                                                                        </div><!--end media body-->
+                                                                        >>>>>>> 2806f4d8aa2afc678ebca9e87d2f0e231c861460
+                                                                    </div>
+                                                                    <div
+                                                                        class="media-body ml-3 align-self-center text-right">
+                                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                                        <span
+                                                                            class="text-muted mb-0 text-nowrap ">Keuangan</span>
+                                                                    </div><!--end media body-->
+                                                                </div>
+                                                            </div><!--end card-body-->
+                                                    </div><!--end card-->
+                                                    </a>
                                                 </div>
-                                            </div><!--end card-body-->
-                                        </div><!--end card-->
-                                    </a>
-                                </div>
-                            </div>
-                        </div><!-- end col-->
+                                            </div>
+                                        </div><!-- end col-->
                     @endif
 
                     {{-- for divisi Akademik dan Kemahasiswaan --}}
@@ -232,22 +242,22 @@
                                     <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
-<<<<<<< HEAD
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Akademik dan
+                                                <<<<<<< HEAD <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan
+                                                    Akademik dan
                                                     Kemahasiswaan</h4>
-=======
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan</h4>
->>>>>>> 2806f4d8aa2afc678ebca9e87d2f0e231c861460
-                                                <div class="media">
-                                                    <div class="data-icon align-self-center">
-                                                        <i class="fa-solid fa-file-pen text-pink"></i>
+                                                    =======
+                                                    <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan</h4>
+                                                    >>>>>>> 2806f4d8aa2afc678ebca9e87d2f0e231c861460
+                                                    <div class="media">
+                                                        <div class="data-icon align-self-center">
+                                                            <i class="fa-solid fa-file-pen text-pink"></i>
+                                                        </div>
+                                                        <div class="media-body ml-3 align-self-center text-right">
+                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                            <span class="text-muted mb-0 text-nowrap">Akademik dan
+                                                                Kemahasiswaan</span>
+                                                        </div><!--end media body-->
                                                     </div>
-                                                    <div class="media-body ml-3 align-self-center text-right">
-                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                        <span class="text-muted mb-0 text-nowrap">Akademik dan
-                                                            Kemahasiswaan</span>
-                                                    </div><!--end media body-->
-                                                </div>
                                             </div><!--end card-body-->
                                         </div><!--end card-->
                                     </a>
@@ -257,41 +267,47 @@
 
                             <div class="row">
                                 <div class="col-lg-12">
-<<<<<<< HEAD
-                                    <a href="#">
+                                    <<<<<<< HEAD <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
                                                 <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
                                                 <div class="media">
                                                     <div class="data-icon align-self-center">
                                                         <i class="fa-solid fa-file-circle-check text-success"></i>
-=======
-                                        <a href="#">
-                                            <div class="card hospital-info card-hover card-rounded">
-                                                <div class="card-body">
-                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan Selesai</h4>
-                                                    <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-circle-check text-success"></i>
-                                                        </div>
-                                                        <div class="media-body ml-3 align-self-center text-right">
-                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                            <span class="text-muted mb-0 text-nowrap ">Akademik dan Kemahasiswaan</span>
-                                                        </div><!--end media body-->
->>>>>>> 2806f4d8aa2afc678ebca9e87d2f0e231c861460
-                                                    </div>
-                                                    <div class="media-body ml-3 align-self-center text-right">
-                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                        <span class="text-muted mb-0 text-nowrap ">Akademik dan
-                                                            Kemahasiswaan</span>
-                                                    </div><!--end media body-->
+                                                        =======
+                                                        <a href="#">
+                                                            <div class="card hospital-info card-hover card-rounded">
+                                                                <div class="card-body">
+                                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan
+                                                                        Selesai</h4>
+                                                                    <div class="media">
+                                                                        <div class="data-icon align-self-center">
+                                                                            <i
+                                                                                class="fa-solid fa-file-circle-check text-success"></i>
+                                                                        </div>
+                                                                        <div
+                                                                            class="media-body ml-3 align-self-center text-right">
+                                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                                            <span
+                                                                                class="text-muted mb-0 text-nowrap ">Akademik
+                                                                                dan Kemahasiswaan</span>
+                                                                        </div><!--end media body-->
+                                                                        >>>>>>> 2806f4d8aa2afc678ebca9e87d2f0e231c861460
+                                                                    </div>
+                                                                    <div
+                                                                        class="media-body ml-3 align-self-center text-right">
+                                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                                        <span class="text-muted mb-0 text-nowrap ">Akademik
+                                                                            dan
+                                                                            Kemahasiswaan</span>
+                                                                    </div><!--end media body-->
+                                                                </div>
+                                                            </div><!--end card-body-->
+                                                    </div><!--end card-->
+                                                    </a>
                                                 </div>
-                                            </div><!--end card-body-->
-                                        </div><!--end card-->
-                                    </a>
-                                </div>
-                            </div>
-                        </div><!-- end col-->
+                                            </div>
+                                        </div><!-- end col-->
                     @endif
 
                     {{-- for divisi Umum dan Kepegawaian --}}
@@ -302,22 +318,22 @@
                                     <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
-<<<<<<< HEAD
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Umum dan Kepegawaian
-                                                </h4>
-=======
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan</h4>
->>>>>>> 2806f4d8aa2afc678ebca9e87d2f0e231c861460
-                                                <div class="media">
-                                                    <div class="data-icon align-self-center">
-                                                        <i class="fa-solid fa-file-pen text-pink"></i>
+                                                <<<<<<< HEAD <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Umum
+                                                    dan Kepegawaian
+                                                    </h4>
+                                                    =======
+                                                    <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan</h4>
+                                                    >>>>>>> 2806f4d8aa2afc678ebca9e87d2f0e231c861460
+                                                    <div class="media">
+                                                        <div class="data-icon align-self-center">
+                                                            <i class="fa-solid fa-file-pen text-pink"></i>
+                                                        </div>
+                                                        <div class="media-body ml-3 align-self-center text-right">
+                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                            <span class="text-muted mb-0 text-nowrap">Umum dan
+                                                                Kepegawaian</span>
+                                                        </div><!--end media body-->
                                                     </div>
-                                                    <div class="media-body ml-3 align-self-center text-right">
-                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                        <span class="text-muted mb-0 text-nowrap">Umum dan
-                                                            Kepegawaian</span>
-                                                    </div><!--end media body-->
-                                                </div>
                                             </div><!--end card-body-->
                                         </div><!--end card-->
                                     </a>
@@ -327,41 +343,45 @@
 
                             <div class="row">
                                 <div class="col-lg-12">
-<<<<<<< HEAD
-                                    <a href="#">
+                                    <<<<<<< HEAD <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
                                                 <h4 class="header-title mt-0 mb-3">Daftar Pengajuan</h4>
                                                 <div class="media">
                                                     <div class="data-icon align-self-center">
                                                         <i class="fa-solid fa-file-circle-check text-success"></i>
-=======
-                                        <a href="#">
-                                            <div class="card hospital-info card-hover card-rounded">
-                                                <div class="card-body">
-                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan Selesai</h4>
-                                                    <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-circle-check text-success"></i>
-                                                        </div>
-                                                        <div class="media-body ml-3 align-self-center text-right">
-                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                            <span class="text-muted mb-0 text-nowrap ">Umum dan Kepegawaian</span>
-                                                        </div><!--end media body-->
->>>>>>> 2806f4d8aa2afc678ebca9e87d2f0e231c861460
-                                                    </div>
-                                                    <div class="media-body ml-3 align-self-center text-right">
-                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                        <span class="text-muted mb-0 text-nowrap ">Umum dan
-                                                            Kepegawaian</span>
-                                                    </div><!--end media body-->
+                                                        =======
+                                                        <a href="#">
+                                                            <div class="card hospital-info card-hover card-rounded">
+                                                                <div class="card-body">
+                                                                    <h4 class="header-title mt-0 mb-3">Daftar Pengajuan
+                                                                        Selesai</h4>
+                                                                    <div class="media">
+                                                                        <div class="data-icon align-self-center">
+                                                                            <i
+                                                                                class="fa-solid fa-file-circle-check text-success"></i>
+                                                                        </div>
+                                                                        <div
+                                                                            class="media-body ml-3 align-self-center text-right">
+                                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                                            <span class="text-muted mb-0 text-nowrap ">Umum
+                                                                                dan Kepegawaian</span>
+                                                                        </div><!--end media body-->
+                                                                        >>>>>>> 2806f4d8aa2afc678ebca9e87d2f0e231c861460
+                                                                    </div>
+                                                                    <div
+                                                                        class="media-body ml-3 align-self-center text-right">
+                                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                                        <span class="text-muted mb-0 text-nowrap ">Umum dan
+                                                                            Kepegawaian</span>
+                                                                    </div><!--end media body-->
+                                                                </div>
+                                                            </div><!--end card-body-->
+                                                    </div><!--end card-->
+                                                    </a>
                                                 </div>
-                                            </div><!--end card-body-->
-                                        </div><!--end card-->
-                                    </a>
-                                </div>
-                            </div>
-                        </div><!-- end col-->
+                                            </div>
+                                        </div><!-- end col-->
                     @endif
 
                     {{-- for divisi Pengadaan --}}
@@ -420,22 +440,22 @@
                                     <a href="#">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
-<<<<<<< HEAD
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Barang Milik Negara
-                                                </h4>
-=======
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan</h4>
->>>>>>> 2806f4d8aa2afc678ebca9e87d2f0e231c861460
-                                                <div class="media">
-                                                    <div class="data-icon align-self-center">
-                                                        <i class="fa-solid fa-file-pen text-pink"></i>
+                                                <<<<<<< HEAD <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan Barang
+                                                    Milik Negara
+                                                    </h4>
+                                                    =======
+                                                    <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan</h4>
+                                                    >>>>>>> 2806f4d8aa2afc678ebca9e87d2f0e231c861460
+                                                    <div class="media">
+                                                        <div class="data-icon align-self-center">
+                                                            <i class="fa-solid fa-file-pen text-pink"></i>
+                                                        </div>
+                                                        <div class="media-body ml-3 align-self-center text-right">
+                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                            <span class="text-muted mb-0 text-nowrap">Barang Milik
+                                                                Negara</span>
+                                                        </div><!--end media body-->
                                                     </div>
-                                                    <div class="media-body ml-3 align-self-center text-right">
-                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                        <span class="text-muted mb-0 text-nowrap">Barang Milik
-                                                            Negara</span>
-                                                    </div><!--end media body-->
-                                                </div>
                                             </div><!--end card-body-->
                                         </div><!--end card-->
                                     </a>
@@ -525,14 +545,13 @@
                                             <div class="card-body">
                                                 <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan</h4>
                                                 <div class="media">
-                                                        <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-pen text-pink"></i>
-                                                        </div>
-                                                <div class="media-body ml-3 align-self-center text-right">
-                                                    <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                    <span
-                                                     class="text-muted mb-0 text-nowrap">Other</span>
-                                                </div><!--end media body-->
+                                                    <div class="data-icon align-self-center">
+                                                        <i class="fa-solid fa-file-pen text-pink"></i>
+                                                    </div>
+                                                    <div class="media-body ml-3 align-self-center text-right">
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap">Other</span>
+                                                    </div><!--end media body-->
                                                 </div>
                                             </div><!--end card-body-->
                                         </div><!--end card-->
@@ -549,11 +568,11 @@
                                                 <h4 class="header-title mt-0 mb-3">Daftar Pengajuan Selesai</h4>
                                                 <div class="media">
                                                     <div class="data-icon align-self-center">
-                                                            <i class="fa-solid fa-file-circle-check text-success"></i>
+                                                        <i class="fa-solid fa-file-circle-check text-success"></i>
                                                     </div>
                                                     <div class="media-body ml-3 align-self-center text-right">
-                                                            <h3 class="mt-0">{{ $prodi_count }}</h3>
-                                                            <span class="text-muted mb-0 text-nowrap ">Other</span>
+                                                        <h3 class="mt-0">{{ $prodi_count }}</h3>
+                                                        <span class="text-muted mb-0 text-nowrap ">Other</span>
                                                     </div><!--end media body-->
                                                 </div>
                                             </div><!--end card-body-->
@@ -593,7 +612,7 @@
                         </div><!-- end col-->
 
                         <div class="col-lg-4">
-                            <a href="#">
+                            <a href="{{ route('admin.user.index') }}">
                                 <div class="card hospital-info card-hover card-rounded">
                                     <div class="card-body">
                                         <h4 class="header-title mt-0 mb-3">Manajemen User</h4>

@@ -53,7 +53,7 @@ class Pengajuan extends Model
 
     public function progress_pengajuan()
     {
-        return $this->hasMany(ProgressPengajuan::class);
+        return $this->hasMany(ProgressPengajuan::class, 'id_pengajuan');
     }
 
     public function survei()
