@@ -110,5 +110,7 @@ Route::middleware(['auth'])->group(function () {
         //pengajuan
         Route::get('/ult/pengajuan', [PengajuanController::class, 'index'])->name('admin.pengajuan.index');
         Route::get('/ult/pengajuan/progress-pengajuan/{progress_pengajuan_id}', [ProgressPengajuanController::class, 'show'])->name('admin.progress.pengajuan.index');
+        Route::post('/ult/pengajuan/progress-pengajuan/{id_pengajuan}/create', [ProgressPengajuanController::class, 'store'])->name('admin.progress.pengajuan.create');
+        Route::get('/ult/pengajuan/progress-pengajuan/{id}/delete', [ProgressPengajuanController::class, 'destroy'])->name('admin.progress.pengajuan.delete');
     });
 });

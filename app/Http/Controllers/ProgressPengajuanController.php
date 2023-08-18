@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengajuan;
 use App\Models\ProgressPengajuan;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProgressPengajuanController extends Controller
 {
@@ -34,9 +36,32 @@ class ProgressPengajuanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id_pengajuan)
     {
-        //
+        // dd($request);
+        $pengajuan = Pengajuan::findOrFail($id_pengajuan);
+        $validated = $request->validate(
+            [
+                'create_pesan' => 'required|string',
+                'create_file_dokumen' => 'nullable',
+                'create_tanggal' => 'required|date',
+                'create_status' => 'required',
+            ]
+        );
+
+        ProgressPengajuan::create(
+            [
+                'pesan' => $validated['create_pesan'],
+                'file_dokumen' => $validated['create_file_dokumen'],
+                'tanggal' => $validated['create_tanggal'],
+                'status' => $validated['create_status'],
+                'id_pengajuan' => $pengajuan->id
+
+            ]
+        );
+        Alert::success('Success', 'Progres Pengajuan Berhasil Ditambahkan');
+
+        return redirect()->route('admin.progress.pengajuan.index', $pengajuan->id);
     }
 
     /**
@@ -48,8 +73,10 @@ class ProgressPengajuanController extends Controller
     public function show($progress_pengajuan_id)
     {
         $data = [
-            'progress_pengajuans'=> ProgressPengajuan::where('id_pengajuan',$progress_pengajuan_id)->get(),
+            'progress_pengajuans' => ProgressPengajuan::where('id_pengajuan', $progress_pengajuan_id)->get(),
+            'pengajuan' => Pengajuan::findOrFail($progress_pengajuan_id)
         ];
+
         //
         return view('pages.admin.progress-pengajuan.index', $data);
     }
@@ -85,6 +112,11 @@ class ProgressPengajuanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $progresspengajuan = ProgressPengajuan::findOrFail($id);
+        $progresspengajuan->delete();
+
+        Alert::success('Success', 'Progress Pengajuan Berhasil Dihapus');
+
+        return redirect()->route('admin.progress.pengajuan.index', $progresspengajuan->id);
     }
 }
