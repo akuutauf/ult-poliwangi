@@ -13,6 +13,7 @@ use App\Http\Controllers\FormDosenController;
 use App\Http\Controllers\FormUmumController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PengajuanSelesai;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\SurveiKepuasanPenggunaController;
 use App\Http\Controllers\TrackingPengajuanController;
@@ -36,9 +37,9 @@ Route::get('/', [PageController::class, 'home_page'])->name('home.page');
 Route::get('/logout', [AuthController::class, 'doLogout'])->name('do.logout');
 
 // route not found and not have access
-// Route::fallback(function () {
-//     return view('pages.error.not-found-404');
-// });
+Route::fallback(function () {
+    return view('pages.error.not-found-404');
+});
 
 Route::get('/error/403', [ErrorController::class, 'accessDenied'])->name('error.403');
 
@@ -120,5 +121,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/ult/pengajuan/progress-pengajuan/{progress_pengajuan_id}', [ProgressPengajuanController::class, 'show'])->name('admin.progress.pengajuan.index');
         Route::post('/ult/pengajuan/progress-pengajuan/{id_pengajuan}/create', [ProgressPengajuanController::class, 'store'])->name('admin.progress.pengajuan.create');
         Route::get('/ult/pengajuan/progress-pengajuan/{id}/delete', [ProgressPengajuanController::class, 'destroy'])->name('admin.progress.pengajuan.delete');
+
+        //daftar pengajuan selesai
+        Route::get('/ult/pengajuan/daftar-pengajuan-selesai', [PengajuanSelesai::class, 'index'])->name('admin.pengajuan.selesai.index');
     });
 });

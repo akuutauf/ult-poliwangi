@@ -1,7 +1,7 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title> Daftar Pengajuan Permohonan | ULT POLIWANGI</title>
+    <title> Daftar Permohonan | ULT POLIWANGI</title>
 @endsection
 
 @section('css')
@@ -51,7 +51,7 @@
                                                 <th>Tanggal</th>
                                                 <th>No.Telepon</th>
                                                 <th>Kodetiket</th>
-                                                <th class="text-right">Action</th>
+                                                <th>Action</th>
                                             </tr>
                                             <!--end tr-->
                                         </thead>

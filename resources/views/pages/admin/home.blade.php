@@ -57,7 +57,7 @@
                                     <a href="{{ route('admin.pengajuan.index') }}">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
-                                                <h4 class="header-title mt-0 mb-3">Manajemen Data Pengajuan</h4>
+                                                <h4 class="header-title mt-0 mb-3">Manajemen Pengajuan</h4>
                                                 <div class="media">
                                                     <div class="data-icon align-self-center">
                                                         <i class="fa-solid fa-file-pen text-pink"></i>
@@ -76,7 +76,7 @@
 
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <a href="#">
+                                    <a href="{{ route('admin.pengajuan.selesai.index') }}">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
                                                 <h4 class="header-title mt-0 mb-3">Daftar Pengajuan Selesai</h4>

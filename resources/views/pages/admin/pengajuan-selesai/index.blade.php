@@ -1,7 +1,18 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title> Manajemen Pengajuan | ULT POLIWANGI</title>
+    <title> Daftar Pengajuan Selesai | ULT POLIWANGI</title>
+@endsection
+
+@section('css')
+    @php
+        function dateConversion($date)
+        {
+            $month = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+            $slug = explode('-', $date);
+            return $slug[2] . ' ' . $month[(int) $slug[1]] . ' ' . $slug[0];
+        }
+    @endphp
 @endsection
 
 @section('content')
@@ -12,7 +23,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">Pengajuan</h4>
+                            <h4 class="page-title">Daftar Pengajuan Selesai</h4>
                         </div>
                         <!--end page-title-box-->
                     </div>
@@ -40,7 +51,6 @@
                                                 <th>Tanggal</th>
                                                 <th>No.Telepon</th>
                                                 <th>Kodetiket</th>
-                                                <th>Action</th>
                                             </tr>
                                             <!--end tr-->
                                         </thead>
@@ -56,19 +66,14 @@
                                                     <td>{{ $data->email }}</td>
                                                     <td>{{ $data->jenis_permohonan }}</td>
                                                     <td>{{ $data->layanan->nama_layanan }}</td>
-                                                    <td>{{ $data->tanggal_permohonan }}</td>
+                                                    <td>{{ dateConversion($data->tanggal_permohonan) }}</td>
                                                     <td>{{ $data->nomor_telepon }}</td>
                                                     <td>{{ $data->kode_tiket }}</td>
-                                                    <td class="text-right">
-                                                        <a href="{{ route('admin.progress.pengajuan.index', $data->id) }}"><i
-                                                                class="fas fa-file-shield text-info font-16"></i></a>
-                                                        <a href="#"><i
-                                                                class="fas fa-trash-alt text-danger font-16"></i></a>
-                                                    </td>
                                                 </tr>
                                                 <!--end tr-->
                                             @endforeach
                                         </tbody>
+
                                         @php
                                             $no++;
                                         @endphp

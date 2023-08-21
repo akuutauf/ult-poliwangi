@@ -34,10 +34,10 @@
                                     <table id="datatable" class="table">
                                         <thead class="thead-light">
                                             <tr class="text-center">
-                                                <th>No</th>
+                                                <th width="10%">No</th>
                                                 <th>Nama Persyaratan</th>
                                                 <th>Jenis Syarat</th>
-                                                <th class="text-right">Action</th>
+                                                <th width="10%">Action</th>
                                             </tr>
                                             <!--end tr-->
                                         </thead>
@@ -48,7 +48,7 @@
                                                     <td>{{ $no }}</td>
                                                     <td>{{ $item->nama_berkas }}</td>
                                                     <td>{{ $item->jenis_berkas }}</td>
-                                                    <td class="text-right">
+                                                    <td>
                                                         <a href="{{ route('admin.berkas.update', $item->id) }}"
                                                             class="mr-2" data-toggle="modal" data-animation="bounce"
                                                             data-target=".modalUpdate{{ $item->id }}"><i
