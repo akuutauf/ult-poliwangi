@@ -4,6 +4,15 @@
     <title> Manajemen Pengajuan | ULT POLIWANGI</title>
 @endsection
 
+@php
+    function dateConversion($date)
+    {
+        $month = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        $slug = explode('-', $date);
+        return $slug[2] . ' ' . $month[(int) $slug[1]] . ' ' . $slug[0];
+    }
+@endphp
+
 @section('content')
     <div class="page-wrapper">
 
@@ -56,14 +65,23 @@
                                                     <td>{{ $data->email }}</td>
                                                     <td>{{ $data->jenis_permohonan }}</td>
                                                     <td>{{ $data->layanan->nama_layanan }}</td>
-                                                    <td>{{ $data->tanggal_permohonan }}</td>
+                                                    <td>{{ dateConversion($data->tanggal_permohonan) }}</td>
                                                     <td>{{ $data->nomor_telepon }}</td>
                                                     <td>{{ $data->kode_tiket }}</td>
-                                                    <td class="text-right">
-                                                        <a href="{{ route('admin.progress.pengajuan.index', $data->id) }}"><i
-                                                                class="fas fa-file-shield text-info font-16"></i></a>
-                                                        <a href="#"><i
-                                                                class="fas fa-trash-alt text-danger font-16"></i></a>
+                                                    <td>
+                                                        <div class="mb-1">
+                                                            <a href="{{ route('admin.progress.pengajuan.index', $data->id) }}"
+                                                                title="Track Pengajuan">
+                                                                <i class="fas fa-magnifying-glass text-info font-16"></i>
+                                                            </a>
+                                                        </div>
+                                                        <br>
+                                                        <div class="mb-1">
+                                                            <a href="{{ route('admin.pengajuan.destroy', $data->id) }}"
+                                                                title="Hapus Pengajuan">
+                                                                <i class="fas fa-trash-alt text-danger font-16"></i>
+                                                            </a>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                                 <!--end tr-->

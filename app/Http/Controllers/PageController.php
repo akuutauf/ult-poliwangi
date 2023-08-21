@@ -8,6 +8,7 @@ use App\Models\Divisi;
 use App\Models\Layanan;
 use App\Models\Pengajuan;
 use App\Models\Prodi;
+use App\Models\ProgressPengajuan;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -25,8 +26,11 @@ class PageController extends Controller
             'admin_count' => Admin::count(),
             'layanan_count' => Layanan::count(),
             'berkas_count' => Berkas::count(),
-            'pengajuan_count' => Pengajuan::where('submission_confirmed',  ['Accept'])->count(),
             'daftar_permohonan_count' => Pengajuan::where('submission_confirmed',  ['No'])->count(),
+
+            // belum fiks
+            'pengajuan_count' => Pengajuan::where('submission_confirmed',  ['Accept'])->count(),
+            'daftar_permohonan_selesai_count' => ProgressPengajuan::where('status', 'Dokumen Selesai')->count(),
         ];
 
         return view('pages.admin.home', $data);

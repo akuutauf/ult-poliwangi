@@ -2,7 +2,9 @@
 
 @section('title')
     <title> Manajemen Progres Pengajuan | ULT POLIWANGI</title>
+@endsection
 
+@section('css')
     {{-- Datedroppper JS --}}
     <script src="{{ asset('js-datedropper/datedropper-javascript.js') }}"></script>
 @endsection
@@ -36,7 +38,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                @if (!$last_progress_pengajuan->status == 'Dokumen Selesai')
+                                @if ($last_progress_pengajuan->status !== 'Dokumen Selesai')
                                     <button type="button" class="btn btn-primary px-4 mt-0 mb-3" data-toggle="modal"
                                         data-animation="bounce" data-target=".modalCreate"><i
                                             class="mdi mdi-plus-circle-outline mr-2"></i>Tambah
@@ -49,32 +51,36 @@
                                     @endphp
                                     <table id="datatable" class="table">
                                         <thead class="thead-light">
-                                            <tr>
-                                                <th>No</th>
+                                            <tr class="text-center">
+                                                <th width="10%">No</th>
                                                 <th>Nama Pemohon</th>
                                                 <th>Pesan</th>
                                                 <th>File Berkas</th>
                                                 <th>Tanggal</th>
                                                 <th>Status</th>
-                                                <th class="text-right">Action</th>
+                                                <th width="10%">Action</th>
                                             </tr>
                                             <!--end tr-->
                                         </thead>
 
                                         <tbody>
                                             @foreach ($progress_pengajuans as $data)
-                                                <tr>
+                                                <tr class="text-center">
                                                     <td>{{ $no }}</td>
                                                     <td>{{ $data->pengajuan->nama_pemohon }}</td>
                                                     <td>{{ $data->pesan }}</td>
                                                     <td>
                                                         @if ($data->file_dokumen == null || $data->file_dokumen == '')
                                                             Tidak Ada File
+                                                        @else
+                                                            {{-- Jika ada file --}}
+                                                            <a href="{{ Storage::url($data->file_dokumen) }}"
+                                                                target="_blank" class="btn btn-theme">Lihat File</a>
                                                         @endif
                                                     </td>
                                                     <td>{{ dateConversion($data->tanggal) }}</td>
                                                     <td>{{ $data->status }}</td>
-                                                    <td class="text-right">
+                                                    <td>
 
                                                         <a href="{{ route('admin.progress.pengajuan.delete', $data->id) }}"
                                                             class="ml-2"><i
@@ -112,7 +118,8 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('admin.progress.pengajuan.create', $pengajuan->id) }}" method="POST">
+                    <form action="{{ route('admin.progress.pengajuan.create', $pengajuan->id) }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
 
                         <div class="row">
@@ -132,15 +139,15 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="form-label" for="create_file_dokumen">File Berkas (Opsional)</label>
+                                    <label class="form-label" for="file_dokumen">File Berkas (Opsional)</label>
                                     <div class="custom-file mb-3">
-                                        <label class="custom-file-label" for="create_file_dokumen">Choose file</label>
                                         <input type="file"
-                                            class="custom-file-input form-control @error('create_file_dokumen') is_invalid @enderror"
-                                            id="create_file_dokumen" name="create_file_dokumen">
-                                        @error('create_file_dokumen')
-                                            <div id="create_file_dokumen" class="form-text pb-1">
-                                                {{ $message }}</div>
+                                            class="custom-file-input form-control @error('file_dokumen') is-invalid @enderror"
+                                            id="file_dokumen" name="file_dokumen" onchange="displayFileName()">
+                                        <label class="custom-file-label" for="file_dokumen" id="fileLabel">Choose
+                                            file</label>
+                                        @error('file_dokumen')
+                                            <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
                                 </div>
@@ -152,7 +159,7 @@
                                 <label for="create_tanggal" class="form-label">Tanggal</label>
                                 <div class="form-group mb-3">
                                     <input type="text" data-dd-opt-custom-class="dd-theme-bootstrap"
-                                        class="form-control date-input @error('create_tanggal') is-invalid @enderror"
+                                        class="form-control bg-white date-input @error('create_tanggal') is-invalid @enderror"
                                         id="create_tanggal" name="create_tanggal" placeholder="Tanggal Pengajuan">
                                     @error('create_tanggal')
                                         <div id="create_tanggal" class="form-text pb-1">{{ $message }}</div>
@@ -198,5 +205,14 @@
             showArrowsOnHover: true,
             autoFill: false
         });
+    </script>
+
+    <script>
+        function displayFileName() {
+            const input = document.getElementById('file_dokumen');
+            const label = document.getElementById('fileLabel');
+            const fileName = input.files[0].name;
+            label.textContent = fileName;
+        }
     </script>
 @endsection

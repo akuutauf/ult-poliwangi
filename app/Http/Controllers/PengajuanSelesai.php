@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengajuan;
+use App\Models\ProgressPengajuan;
 use Illuminate\Http\Request;
 
 class PengajuanSelesai extends Controller
@@ -14,8 +15,10 @@ class PengajuanSelesai extends Controller
      */
     public function index()
     {
+        // belum fiks
         $data = [
-            'pengajuans' => Pengajuan::where('submission_confirmed', 'No')->get(),
+            'progress_pengajuan' => ProgressPengajuan::all(),
+            'pengajuans' => Pengajuan::where('submission_confirmed', 'Accept')->get(),
         ];
 
         return view('pages.admin.pengajuan-selesai.index', $data);

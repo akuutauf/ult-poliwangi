@@ -118,9 +118,10 @@ Route::middleware(['auth'])->group(function () {
 
         //pengajuan
         Route::get('/ult/pengajuan', [PengajuanController::class, 'index'])->name('admin.pengajuan.index');
-        Route::get('/ult/pengajuan/progress-pengajuan/{progress_pengajuan_id}', [ProgressPengajuanController::class, 'show'])->name('admin.progress.pengajuan.index');
-        Route::post('/ult/pengajuan/progress-pengajuan/{id_pengajuan}/create', [ProgressPengajuanController::class, 'store'])->name('admin.progress.pengajuan.create');
-        Route::get('/ult/pengajuan/progress-pengajuan/{id}/delete', [ProgressPengajuanController::class, 'destroy'])->name('admin.progress.pengajuan.delete');
+        Route::get('/ult/pengajuan/{id_pengajuan}/delete', [PengajuanController::class, 'destroy'])->name('admin.pengajuan.destroy');
+        Route::get('/ult/pengajuan/progress-pengajuan/{id_progress_pengajuan}', [ProgressPengajuanController::class, 'show'])->name('admin.progress.pengajuan.index');
+        Route::post('/ult/pengajuan/progress-pengajuan/{id_progress_pengajuan}/create', [ProgressPengajuanController::class, 'store'])->name('admin.progress.pengajuan.create');
+        Route::get('/ult/pengajuan/progress-pengajuan/{id_progress_pengajuan}/delete', [ProgressPengajuanController::class, 'destroy'])->name('admin.progress.pengajuan.delete');
 
         //daftar pengajuan selesai
         Route::get('/ult/pengajuan/daftar-pengajuan-selesai', [PengajuanSelesai::class, 'index'])->name('admin.pengajuan.selesai.index');

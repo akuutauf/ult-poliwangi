@@ -85,7 +85,7 @@
                                                         <i class="fa-solid fa-file-circle-check text-success"></i>
                                                     </div>
                                                     <div class="media-body ml-3 align-self-center text-right">
-                                                        <h3 class="mt-0">{{ $pengajuan_count }}</h3>
+                                                        <h3 class="mt-0">{{ $daftar_permohonan_selesai_count }}</h3>
                                                         <span class="text-muted mb-0 text-nowrap">Unit Layanan
                                                             Terpadu</span>
                                                     </div><!--end media body-->
