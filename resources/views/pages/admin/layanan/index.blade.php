@@ -32,7 +32,7 @@
                                     @endphp
                                     <table id="datatable" class="table">
                                         <thead class="thead-light">
-                                            <tr>
+                                            <tr class="text-center">
                                                 <th>No</th>
                                                 <th>Nama Divisi</th>
                                                 <th>Nama Layanan</th>
@@ -43,7 +43,7 @@
 
                                         <tbody>
                                             @foreach ($layanan as $item)
-                                                <tr>
+                                                <tr class="text-center">
                                                     <td>{{ $no }}</td>
                                                     <td>{{ $item->divisi->nama_divisi }}</td>
                                                     <td>{{ $item->nama_layanan }}</td>

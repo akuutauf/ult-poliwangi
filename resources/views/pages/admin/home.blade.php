@@ -32,7 +32,7 @@
                         <div class="col-lg-4">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <a href="#">
+                                    <a href="{{ route('admin.permohonan.index') }}">
                                         <div class="card hospital-info card-hover card-rounded">
                                             <div class="card-body">
                                                 <h4 class="header-title mt-0 mb-3">Daftar Permohonan</h4>

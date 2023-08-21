@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerkasController;
+use App\Http\Controllers\DaftarPermohonanController;
 use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\ErrorController;
 use App\Http\Controllers\PengajuanController;
@@ -35,9 +36,9 @@ Route::get('/', [PageController::class, 'home_page'])->name('home.page');
 Route::get('/logout', [AuthController::class, 'doLogout'])->name('do.logout');
 
 // route not found and not have access
-Route::fallback(function () {
-    return view('pages.error.not-found-404');
-});
+// Route::fallback(function () {
+//     return view('pages.error.not-found-404');
+// });
 
 Route::get('/error/403', [ErrorController::class, 'accessDenied'])->name('error.403');
 
@@ -106,6 +107,13 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/ult/berkas/create', [BerkasController::class, 'store'])->name('admin.berkas.create');
         Route::get('/ult/berkas/delete/{id}', [BerkasController::class, 'destroy'])->name('admin.berkas.destroy');
         Route::put('/ult/berkas/{id}/update', [BerkasController::class, 'update'])->name('admin.berkas.update');
+
+        //daftar pengajuan
+        Route::get('/ult/permohonan/daftar-permohonan', [DaftarPermohonanController::class, 'index'])->name('admin.permohonan.index');
+        Route::get('/ult/permohonan/detail-permohonan/{id_pengajuan}', [DaftarPermohonanController::class, 'edit'])->name('admin.permohonan.edit');
+        Route::put('/ult/permohonan/detail-permohonan/{id_pengajuan}', [DaftarPermohonanController::class, 'update'])->name('admin.permohonan.update');
+        Route::put('/ult/permohonan/accept/{id_pengajuan}', [DaftarPermohonanController::class, 'accept_submission'])->name('admin.permohonan.accept');
+        Route::put('/ult/permohonan/decline/{id_pengajuan}', [DaftarPermohonanController::class, 'decline_submission'])->name('admin.permohonan.decline');
 
         //pengajuan
         Route::get('/ult/pengajuan', [PengajuanController::class, 'index'])->name('admin.pengajuan.index');
