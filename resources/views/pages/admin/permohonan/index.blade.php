@@ -1,7 +1,7 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title> Daftar Permohonan | ULT POLIWANGI</title>
+    <title> Daftar Permohonan | ULT Poliwangi</title>
 @endsection
 
 @section('css')
@@ -45,8 +45,9 @@
                                                 <th>Nama Pemohon</th>
                                                 <th>NIM/NIK</th>
                                                 <th>Prodi</th>
-                                                <th>Email</th>
-                                                <th>Jenis Permohon</th>
+                                                {{-- <th>Email</th> --}}
+                                                <th>Jenis Permohonan</th>
+                                                <th>Divisi</th>
                                                 <th>Nama Layanan</th>
                                                 <th>Tanggal</th>
                                                 <th>No.Telepon</th>
@@ -64,8 +65,9 @@
                                                     <td>{{ $data->nama_pemohon }}</td>
                                                     <td>{{ $data->nomor_identitas }}</td>
                                                     <td>{{ $data->prodi->nama_prodi }}</td>
-                                                    <td>{{ $data->email }}</td>
+                                                    {{-- <td>{{ $data->email }}</td> --}}
                                                     <td>{{ $data->jenis_permohonan }}</td>
+                                                    <td>{{ $data->layanan->divisi->nama_divisi }}</td>
                                                     <td>{{ $data->layanan->nama_layanan }}</td>
                                                     <td>{{ dateConversion($data->tanggal_permohonan) }}</td>
                                                     <td>{{ $data->nomor_telepon }}</td>
