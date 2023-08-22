@@ -16,10 +16,14 @@ class PengajuanController extends Controller
      */
     public function index()
     {
-        $all_pengajuan = Pengajuan::all();
         $all_progress_pengajuan = ProgressPengajuan::all();
-
         $pengajuans = [];
+
+        $nama_divisi_user = Auth()->user()->divisi->nama_divisi;
+
+        $all_pengajuan = Pengajuan::where('submission_confirmed', 'Accept')->whereHas('layanan.divisi', function ($query) use ($nama_divisi_user) {
+            $query->where('nama_divisi', $nama_divisi_user);
+        })->get();
 
         foreach ($all_pengajuan as $pengajuan) {
             // Ambil data progress pengajuan terakhir berdasarkan id_pengajuan

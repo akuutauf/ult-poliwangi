@@ -69,61 +69,61 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
 
     // route all divisi
-    Route::get('/dashboard', [PageController::class, 'admin_page'])->name('admin.dashboard.page');
+    Route::get('/admin/dashboard', [PageController::class, 'admin_page'])->name('admin.dashboard.page');
+
+    //pengajuan
+    Route::get('/admin/manage-pengajuan', [PengajuanController::class, 'index'])->name('admin.pengajuan.index');
+    Route::get('/admin/manage-pengajuan/{id_pengajuan}/delete', [PengajuanController::class, 'destroy'])->name('admin.pengajuan.destroy');
+    Route::get('/admin/manage-pengajuan/progress-pengajuan/{id_progress_pengajuan}', [ProgressPengajuanController::class, 'show'])->name('admin.progress.pengajuan.index');
+    Route::post('/admin/manage-pengajuan/progress-pengajuan/{id_progress_pengajuan}/create', [ProgressPengajuanController::class, 'store'])->name('admin.progress.pengajuan.create');
+    Route::get('/admin/manage-pengajuan/progress-pengajuan/{id_progress_pengajuan}/delete', [ProgressPengajuanController::class, 'destroy'])->name('admin.progress.pengajuan.delete');
+
+    //daftar pengajuan selesai
+    Route::get('/admin/manage-pengajuan/daftar-pengajuan-selesai', [PengajuanSelesai::class, 'index'])->name('admin.pengajuan.selesai.index');
 
     // divisi unit layanan terpadu
     Route::middleware([FilterDivisi::class . ':Unit Layanan Terpadu'])->group(function () {
         //divisi
-        Route::get('/ult/divisi', [DivisiController::class, 'index'])->name('admin.divisi.index');
-        Route::post('/ult/divisi/create', [DivisiController::class, 'store'])->name('admin.divisi.create');
-        Route::get('/ult/divisi/delete/{id}', [DivisiController::class, 'destroy'])->name('admin.divisi.destroy');
-        Route::put('/ult/divisi/{id}/update', [DivisiController::class, 'update'])->name('admin.divisi.update');
+        Route::get('/admin/manage-divisi', [DivisiController::class, 'index'])->name('admin.divisi.index');
+        Route::post('/admin/manage-divisi/create', [DivisiController::class, 'store'])->name('admin.divisi.create');
+        Route::get('/admin/manage-divisi/delete/{id}', [DivisiController::class, 'destroy'])->name('admin.divisi.destroy');
+        Route::put('/admin/manage-divisi/{id}/update', [DivisiController::class, 'update'])->name('admin.divisi.update');
 
         //user
-        Route::get('/ult/user', [UserController::class, 'index'])->name('admin.user.index');
-        Route::post('/ult/user/create', [UserController::class, 'store'])->name('admin.user.create');
-        Route::get('/ult/user/delete/{id}', [UserController::class, 'destroy'])->name('admin.user.destroy');
-        Route::put('/ult/user/{id}/update', [UserController::class, 'update'])->name('admin.user.update');
+        Route::get('/admin/manage-user', [UserController::class, 'index'])->name('admin.user.index');
+        Route::post('/admin/manage-user/create', [UserController::class, 'store'])->name('admin.user.create');
+        Route::get('/admin/manage-user/delete/{id}', [UserController::class, 'destroy'])->name('admin.user.destroy');
+        Route::put('/admin/manage-user/{id}/update', [UserController::class, 'update'])->name('admin.user.update');
 
         //prodi
-        Route::get('/ult/prodi', [ProdiController::class, 'index'])->name('admin.prodi.index');
-        Route::post('/ult/prodi/create', [ProdiController::class, 'store'])->name('admin.prodi.create');
-        Route::get('/ult/prodi/delete/{id}', [ProdiController::class, 'destroy'])->name('admin.prodi.destroy');
-        Route::put('/ult/prodi/{id}/update', [ProdiController::class, 'update'])->name('admin.prodi.update');
+        Route::get('/admin/manage-prodi', [ProdiController::class, 'index'])->name('admin.prodi.index');
+        Route::post('/admin/manage-prodi/create', [ProdiController::class, 'store'])->name('admin.prodi.create');
+        Route::get('/admin/manage-prodi/delete/{id}', [ProdiController::class, 'destroy'])->name('admin.prodi.destroy');
+        Route::put('/admin/manage-prodi/{id}/update', [ProdiController::class, 'update'])->name('admin.prodi.update');
 
         //admin
-        Route::get('/ult/admin', [AdminController::class, 'index'])->name('admin.admin.index');
-        Route::post('/ult/admin/create', [AdminController::class, 'store'])->name('admin.admin.create');
-        Route::put('/ult/admin/{id}/update', [AdminController::class, 'update'])->name('admin.admin.update');
-        Route::get('/ult/admin/delete/{id}', [AdminController::class, 'destroy'])->name('admin.admin.destroy');
+        Route::get('/admin/manage-admin', [AdminController::class, 'index'])->name('admin.admin.index');
+        Route::post('/admin/manage-admin/create', [AdminController::class, 'store'])->name('admin.admin.create');
+        Route::put('/admin/manage-admin/{id}/update', [AdminController::class, 'update'])->name('admin.admin.update');
+        Route::get('/admin/manage-admin/delete/{id}', [AdminController::class, 'destroy'])->name('admin.admin.destroy');
 
         //layanan
-        Route::get('/ult/layanan', [LayananController::class, 'index'])->name('admin.layanan.index');
-        Route::post('/ult/layanan/create', [LayananController::class, 'store'])->name('admin.layanan.create');
-        Route::get('/ult/layanan/delete/{id}', [LayananController::class, 'destroy'])->name('admin.layanan.destroy');
-        Route::put('/ult/layanan/{id}/update', [LayananController::class, 'update'])->name('admin.layanan.update');
+        Route::get('/admin/manage-layanan', [LayananController::class, 'index'])->name('admin.layanan.index');
+        Route::post('/admin/manage-layanan/create', [LayananController::class, 'store'])->name('admin.layanan.create');
+        Route::get('/admin/manage-layanan/delete/{id}', [LayananController::class, 'destroy'])->name('admin.layanan.destroy');
+        Route::put('/admin/manage-layanan/{id}/update', [LayananController::class, 'update'])->name('admin.layanan.update');
 
         //berkas
-        Route::get('/ult/berkas', [BerkasController::class, 'index'])->name('admin.berkas.index');
-        Route::post('/ult/berkas/create', [BerkasController::class, 'store'])->name('admin.berkas.create');
-        Route::get('/ult/berkas/delete/{id}', [BerkasController::class, 'destroy'])->name('admin.berkas.destroy');
-        Route::put('/ult/berkas/{id}/update', [BerkasController::class, 'update'])->name('admin.berkas.update');
+        Route::get('/admin/manage-berkas', [BerkasController::class, 'index'])->name('admin.berkas.index');
+        Route::post('/admin/manage-berkas/create', [BerkasController::class, 'store'])->name('admin.berkas.create');
+        Route::get('/admin/manage-berkas/delete/{id}', [BerkasController::class, 'destroy'])->name('admin.berkas.destroy');
+        Route::put('/admin/manage-berkas/{id}/update', [BerkasController::class, 'update'])->name('admin.berkas.update');
 
-        //daftar pengajuan
-        Route::get('/ult/permohonan/daftar-permohonan', [DaftarPermohonanController::class, 'index'])->name('admin.permohonan.index');
-        Route::get('/ult/permohonan/detail-permohonan/{id_pengajuan}', [DaftarPermohonanController::class, 'edit'])->name('admin.permohonan.edit');
-        Route::put('/ult/permohonan/detail-permohonan/{id_pengajuan}', [DaftarPermohonanController::class, 'update'])->name('admin.permohonan.update');
-        Route::put('/ult/permohonan/accept/{id_pengajuan}', [DaftarPermohonanController::class, 'accept_submission'])->name('admin.permohonan.accept');
-        Route::put('/ult/permohonan/decline/{id_pengajuan}', [DaftarPermohonanController::class, 'decline_submission'])->name('admin.permohonan.decline');
-
-        //pengajuan
-        Route::get('/ult/pengajuan', [PengajuanController::class, 'index'])->name('admin.pengajuan.index');
-        Route::get('/ult/pengajuan/{id_pengajuan}/delete', [PengajuanController::class, 'destroy'])->name('admin.pengajuan.destroy');
-        Route::get('/ult/pengajuan/progress-pengajuan/{id_progress_pengajuan}', [ProgressPengajuanController::class, 'show'])->name('admin.progress.pengajuan.index');
-        Route::post('/ult/pengajuan/progress-pengajuan/{id_progress_pengajuan}/create', [ProgressPengajuanController::class, 'store'])->name('admin.progress.pengajuan.create');
-        Route::get('/ult/pengajuan/progress-pengajuan/{id_progress_pengajuan}/delete', [ProgressPengajuanController::class, 'destroy'])->name('admin.progress.pengajuan.delete');
-
-        //daftar pengajuan selesai
-        Route::get('/ult/pengajuan/daftar-pengajuan-selesai', [PengajuanSelesai::class, 'index'])->name('admin.pengajuan.selesai.index');
+        //daftar permohonan
+        Route::get('/admin/manage-permohonan/daftar-permohonan', [DaftarPermohonanController::class, 'index'])->name('admin.permohonan.index');
+        Route::get('/admin/manage-permohonan/detail-permohonan/{id_pengajuan}', [DaftarPermohonanController::class, 'edit'])->name('admin.permohonan.edit');
+        Route::put('/admin/manage-permohonan/detail-permohonan/{id_pengajuan}', [DaftarPermohonanController::class, 'update'])->name('admin.permohonan.update');
+        Route::put('/admin/manage-permohonan/accept/{id_pengajuan}', [DaftarPermohonanController::class, 'accept_submission'])->name('admin.permohonan.accept');
+        Route::put('/admin/manage-permohonan/decline/{id_pengajuan}', [DaftarPermohonanController::class, 'decline_submission'])->name('admin.permohonan.decline');
     });
 });

@@ -1452,27 +1452,6 @@ small {
     }
 }
 
-.footer {
-    border-top: 1px solid #dbe0ec;
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
-}
-
-.footer .boxed-footer {
-    width: 1380px;
-    margin: 0 auto;
-    padding: 20px;
-    color: #7081b9;
-}
-
-@media (max-width: 1024px) {
-    .boxed-footer {
-        width: 100% !important;
-    }
-}
-
 /*!
  * Waves v0.7.6
  * http://fian.my.id/Waves

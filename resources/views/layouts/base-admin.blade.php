@@ -59,8 +59,6 @@
             </div><!-- container -->
         </div>
 
-        @include('layouts.partials.admin.footer-admin')
-
     </div>
     <!-- end page-wrapper -->
 

@@ -27,7 +27,7 @@ class PageController extends Controller
 
         $nama_divisi_user = Auth()->user()->divisi->nama_divisi;
 
-        $all_pengajuan = Pengajuan::whereHas('layanan.divisi', function ($query) use ($nama_divisi_user) {
+        $all_pengajuan = Pengajuan::where('submission_confirmed', 'Accept')->whereHas('layanan.divisi', function ($query) use ($nama_divisi_user) {
             $query->where('nama_divisi', $nama_divisi_user);
         })->get();
 

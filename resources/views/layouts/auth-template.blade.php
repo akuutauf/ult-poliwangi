@@ -29,6 +29,9 @@
 
 <body class="account-body accountbg">
 
+    {{-- alert --}}
+    @include('sweetalert::alert')
+
     @yield('content')
 
     <!-- jQuery  -->

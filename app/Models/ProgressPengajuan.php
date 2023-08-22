@@ -15,6 +15,7 @@ class ProgressPengajuan extends Model
         'tanggal',
         'status',
         'id_pengajuan'
+
     ];
 
     // Relasi dari progress pengajuan ke pengajuan (many to one)
