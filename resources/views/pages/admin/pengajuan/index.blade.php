@@ -1,7 +1,7 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title> Manajemen Pengajuan | ULT POLIWANGI</title>
+    <title> Manajemen Pengajuan | ULT Poliwangi</title>
 @endsection
 
 @php

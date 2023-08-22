@@ -15,10 +15,26 @@ class PengajuanSelesai extends Controller
      */
     public function index()
     {
-        // belum fiks
+        $all_pengajuan = Pengajuan::all();
+        $all_progress_pengajuan = ProgressPengajuan::all();
+
+        $pengajuans = [];
+
+        foreach ($all_pengajuan as $pengajuan) {
+            // Ambil data progress pengajuan terakhir berdasarkan id_pengajuan
+            $last_progress = $all_progress_pengajuan
+                ->where('id_pengajuan', $pengajuan->id)
+                ->sortByDesc('created_at') // Urutkan berdasarkan created_at descending
+                ->first();
+
+            // Jika progress terakhir ditemukan dan status bukan 'Dokumen Selesai'
+            if ($last_progress && $last_progress->status === 'Dokumen Selesai') {
+                $pengajuans[] = $pengajuan; // Simpan data pengajuan ke dalam array
+            }
+        }
+
         $data = [
-            'progress_pengajuan' => ProgressPengajuan::all(),
-            'pengajuans' => Pengajuan::where('submission_confirmed', 'Accept')->get(),
+            'pengajuans' => $pengajuans,
         ];
 
         return view('pages.admin.pengajuan-selesai.index', $data);

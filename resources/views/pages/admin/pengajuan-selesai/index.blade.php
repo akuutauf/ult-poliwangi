@@ -1,7 +1,7 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title> Daftar Pengajuan Selesai | ULT POLIWANGI</title>
+    <title> Daftar Pengajuan Selesai | ULT Poliwangi</title>
 @endsection
 
 @section('css')
