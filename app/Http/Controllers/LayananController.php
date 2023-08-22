@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berkas;
+use App\Models\BerkasLayanan;
 use App\Models\Divisi;
 use App\Models\Layanan;
 use Illuminate\Http\Request;
@@ -20,6 +22,7 @@ class LayananController extends Controller
         $data = [
             'layanan' => Layanan::all(),
             'divisi' => Divisi::all(),
+            'berkas' => Berkas::all()
         ];
 
         return view('pages.admin.layanan.index', $data);
@@ -43,17 +46,42 @@ class LayananController extends Controller
      */
     public function store(Request $request)
     {
+
         $validated = $request->validate([
             'create_id_divisi' => 'required',
             'create_nama_layanan' => ['required', 'string', Rule::unique('layanans', 'nama_layanan')],
             'create_estimasi_layanan' => ['required'],
         ]);
 
-        $layanan = new Layanan;
-        $layanan->id_divisi = $validated['create_id_divisi'];
-        $layanan->nama_layanan = $validated['create_nama_layanan'];
-        $layanan->estimasi_layanan = $validated['create_estimasi_layanan'];
-        $layanan->save();
+        $newlayanan = Layanan::create([
+            'id_divisi' => $validated['create_id_divisi'],
+            'nama_layanan' => $validated['create_nama_layanan'],
+            'estimasi_layanan' => $validated['create_estimasi_layanan'],
+        ]);
+
+
+        $berkas = Berkas::all();
+        $check_berkas = $request->except('_token', 'nama_berkas', 'create_id_divisi', 'create_nama_layanan', 'create_estimasi_layanan');
+
+
+        if ($check_berkas) {
+            foreach ($check_berkas as $berkasId) {
+                if ($berkas->contains('id', $berkasId)) {
+                    BerkasLayanan::create([
+                        'id_berkas' => $berkasId,
+                        'id_layanan' => $newlayanan->id,
+                    ]);
+                }
+            }
+        }
+
+
+
+        // $layanan = new Layanan;
+        // $layanan->id_divisi = $validated['create_id_divisi'];
+        // $layanan->nama_layanan = $validated['create_nama_layanan'];
+        // $layanan->estimasi_layanan = $validated['create_estimasi_layanan'];
+        // $layanan->save();
 
         Alert::success('Success', 'Layanan Berhasil Ditambahkan');
 

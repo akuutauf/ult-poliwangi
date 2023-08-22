@@ -101,9 +101,7 @@
                                                                         @enderror
                                                                     </div>
                                                                 </div>
-                                                            </div>
 
-                                                            <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <label for="update_nama_layanan">Nama
@@ -121,9 +119,7 @@
                                                                         @enderror
                                                                     </div>
                                                                 </div>
-                                                            </div>
 
-                                                            <div class="row">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <label for="update_estimasi_layanan">Estimasi
@@ -226,6 +222,33 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-12">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr class="text-nowrap">
+                                            <th>Berkas</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach ($berkas as $item)
+                                            <tr>
+                                                <td class="d-flex">
+                                                    <div class="form-check my-auto">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            value="{{ $item->id }}" name="{{ $item->id }}"
+                                                            id="{{ $item->id }}" />
+                                                        <label class="form-check-label" for="{{ $item->id }}">
+                                                            {{ $item->nama_berkas }}
+                                                        </label>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                         <button type="submit" class="btn btn-sm btn-primary" id="sa-success">Tambah</button>
