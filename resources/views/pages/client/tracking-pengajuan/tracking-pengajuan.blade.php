@@ -138,13 +138,6 @@
                                                     <div>
                                                         <span
                                                             class="badge badge-soft-secondary">{{ dateConversion($data->tanggal) }}</span>
-
-                                                        @if (!$data->file_dokumen == null || !$data->file_dokumen == '')
-                                                            Kosong
-                                                            <a href="#"
-                                                                class="badge badge-soft-secondary tag-menu">Lihat
-                                                                Dokumen</a>
-                                                        @endif
                                                     </div>
                                                 @endforeach
                                             </div>
@@ -161,7 +154,17 @@
                                                 <br>
                                             </div>
                                         </div>
-                                    @else
+                                    @elseif ($pengajuan->submission_confirmed == 'Decline')
+                                        <i class="mdi-set fa-solid fa-ban text-danger"></i>
+                                        <div class="time-item">
+                                            <div class="item-info">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h6 class="m-0 fw-bold">Dokumen Ditolak oleh Pihak ULT</h6>
+                                                </div>
+                                                <br>
+                                            </div>
+                                        </div>
+                                    @elseif ($pengajuan->submission_confirmed == 'Accept')
                                         <i class="mdi-set fa-solid fa-thumbs-up icon-success"></i>
                                         <div class="time-item">
                                             <div class="item-info">
@@ -189,8 +192,7 @@
                                                             class="badge badge-soft-secondary">{{ dateConversion($data->tanggal) }}</span>
 
                                                         @if (!$data->file_dokumen == null || !$data->file_dokumen == '')
-                                                            Kosong
-                                                            <a href="#"
+                                                            <a href="{{ Storage::url($data->file_dokumen) }}"
                                                                 class="badge badge-soft-secondary tag-menu">Lihat
                                                                 Dokumen</a>
                                                         @endif
@@ -216,8 +218,7 @@
                                                             class="badge badge-soft-secondary">{{ dateConversion($data->tanggal) }}</span>
 
                                                         @if (!$data->file_dokumen == null || !$data->file_dokumen == '')
-                                                            Kosong
-                                                            <a href="#"
+                                                            <a href="{{ Storage::url($data->file_dokumen) }}"
                                                                 class="badge badge-soft-secondary tag-menu">Lihat
                                                                 Dokumen</a>
                                                         @endif
@@ -227,24 +228,35 @@
                                         </div>
                                     @endif
 
-                                    @if ($document_done->isNotEmpty())
-                                        <i class="mdi-set fa-solid fa-square-check icon-primary"></i>
-                                        <div class="time-item">
-                                            <div class="item-info">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <h6 class="m-0 fw-bold">Dokumen Siap Diambil</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @else
+                                    @if ($pengajuan->submission_confirmed == 'Decline')
                                         <i class="mdi-set fa-solid fa-square-xmark icon-info"></i>
                                         <div class="time-item">
                                             <div class="item-info">
                                                 <div class="d-flex justify-content-between align-items-center">
-                                                    <h6 class="m-0 fw-bold">Dokumen Belum Siap Diambil</h6>
+                                                    <h6 class="m-0 fw-bold">Pengajuan Dokumen Dibatalkan</h6>
                                                 </div>
                                             </div>
                                         </div>
+                                    @else
+                                        @if ($document_done->isNotEmpty())
+                                            <i class="mdi-set fa-solid fa-square-check icon-primary"></i>
+                                            <div class="time-item">
+                                                <div class="item-info">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h6 class="m-0 fw-bold">Dokumen Siap Diambil</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <i class="mdi-set fa-solid fa-square-xmark icon-info"></i>
+                                            <div class="time-item">
+                                                <div class="item-info">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h6 class="m-0 fw-bold">Dokumen Belum Siap Diambil</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
                                     @endif
 
                                 </div><!--end activity-->

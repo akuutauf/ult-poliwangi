@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerkasController;
+use App\Http\Controllers\DaftarPermohonanController;
 use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\ErrorController;
 use App\Http\Controllers\PengajuanController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\FormDosenController;
 use App\Http\Controllers\FormUmumController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PengajuanSelesai;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\SurveiKepuasanPenggunaController;
 use App\Http\Controllers\TrackingPengajuanController;
@@ -107,10 +109,21 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/ult/berkas/delete/{id}', [BerkasController::class, 'destroy'])->name('admin.berkas.destroy');
         Route::put('/ult/berkas/{id}/update', [BerkasController::class, 'update'])->name('admin.berkas.update');
 
+        //daftar pengajuan
+        Route::get('/ult/permohonan/daftar-permohonan', [DaftarPermohonanController::class, 'index'])->name('admin.permohonan.index');
+        Route::get('/ult/permohonan/detail-permohonan/{id_pengajuan}', [DaftarPermohonanController::class, 'edit'])->name('admin.permohonan.edit');
+        Route::put('/ult/permohonan/detail-permohonan/{id_pengajuan}', [DaftarPermohonanController::class, 'update'])->name('admin.permohonan.update');
+        Route::put('/ult/permohonan/accept/{id_pengajuan}', [DaftarPermohonanController::class, 'accept_submission'])->name('admin.permohonan.accept');
+        Route::put('/ult/permohonan/decline/{id_pengajuan}', [DaftarPermohonanController::class, 'decline_submission'])->name('admin.permohonan.decline');
+
         //pengajuan
         Route::get('/ult/pengajuan', [PengajuanController::class, 'index'])->name('admin.pengajuan.index');
-        Route::get('/ult/pengajuan/progress-pengajuan/{progress_pengajuan_id}', [ProgressPengajuanController::class, 'show'])->name('admin.progress.pengajuan.index');
-        Route::post('/ult/pengajuan/progress-pengajuan/{id_pengajuan}/create', [ProgressPengajuanController::class, 'store'])->name('admin.progress.pengajuan.create');
-        Route::get('/ult/pengajuan/progress-pengajuan/{id}/delete', [ProgressPengajuanController::class, 'destroy'])->name('admin.progress.pengajuan.delete');
+        Route::get('/ult/pengajuan/{id_pengajuan}/delete', [PengajuanController::class, 'destroy'])->name('admin.pengajuan.destroy');
+        Route::get('/ult/pengajuan/progress-pengajuan/{id_progress_pengajuan}', [ProgressPengajuanController::class, 'show'])->name('admin.progress.pengajuan.index');
+        Route::post('/ult/pengajuan/progress-pengajuan/{id_progress_pengajuan}/create', [ProgressPengajuanController::class, 'store'])->name('admin.progress.pengajuan.create');
+        Route::get('/ult/pengajuan/progress-pengajuan/{id_progress_pengajuan}/delete', [ProgressPengajuanController::class, 'destroy'])->name('admin.progress.pengajuan.delete');
+
+        //daftar pengajuan selesai
+        Route::get('/ult/pengajuan/daftar-pengajuan-selesai', [PengajuanSelesai::class, 'index'])->name('admin.pengajuan.selesai.index');
     });
 });

@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Pengajuan;
 use App\Models\ProgressPengajuan;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 
-class PengajuanController extends Controller
+class PengajuanSelesai extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,20 +16,12 @@ class PengajuanController extends Controller
     public function index()
     {
         // belum fiks
-        $progress_pengajuan = ProgressPengajuan::where('status', '!=', 'Dokumen Selesai')->get();
-        $id_pengajuan_array = [];
-
-        foreach ($progress_pengajuan as $progress) {
-            $id_pengajuan_array[] = $progress->id_pengajuan;
-        }
-
         $data = [
+            'progress_pengajuan' => ProgressPengajuan::all(),
             'pengajuans' => Pengajuan::where('submission_confirmed', 'Accept')->get(),
-            'id_pengajuan_from_progress' => $id_pengajuan_array,
         ];
 
-
-        return view('pages.admin.pengajuan.index', $data);
+        return view('pages.admin.pengajuan-selesai.index', $data);
     }
 
     /**
@@ -94,14 +85,8 @@ class PengajuanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_pengajuan)
+    public function destroy($id)
     {
-        $pengajuan = Pengajuan::findOrFail($id_pengajuan);
-
-        $pengajuan->delete();
-
-        Alert::success('Success', 'Pengajuan Berhasil Dihapus');
-
-        return redirect()->route('admin.pengajuan.index');
+        //
     }
 }

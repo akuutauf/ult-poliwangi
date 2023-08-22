@@ -37,22 +37,22 @@
                                     @endphp
                                     <table id="datatable" class="table">
                                         <thead class="thead-light">
-                                            <tr>
-                                                <th>No</th>
+                                            <tr class="text-center">
+                                                <th width="10%">No</th>
                                                 <th>Nama Divisi</th>
                                                 <th>User Admin</th>
-                                                <th class="text-right">Action</th>
+                                                <th width="10%">Action</th>
                                             </tr>
                                             <!--end tr-->
                                         </thead>
 
                                         <tbody>
                                             @foreach ($admin as $item)
-                                                <tr>
+                                                <tr class="text-center">
                                                     <td>{{ $no }}</td>
                                                     <td>{{ $item->divisi->nama_divisi }}</td>
                                                     <td>{{ $item->user->name }}</td>
-                                                    <td class="text-right">
+                                                    <td>
                                                         <a href="{{ route('admin.admin.update', $item->id) }}"
                                                             class="mr-2" data-toggle="modal" data-animation="bounce"
                                                             data-target=".modalUpdate{{ $item->id }}"><i

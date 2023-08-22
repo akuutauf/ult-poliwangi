@@ -6,6 +6,7 @@ use App\Models\Pengajuan;
 use App\Models\ProgressPengajuan;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Storage;
 
 class ProgressPengajuanController extends Controller
 {
@@ -42,14 +43,21 @@ class ProgressPengajuanController extends Controller
 
         $validated = $request->validate([
             'create_pesan' => ['required', 'string'],
-            'create_file_dokumen' => ['nullable'],
+            'file_dokumen' => 'nullable|mimes:pdf,docx,xlsx|max:10240',
             'create_tanggal' => ['required', 'date'],
             'create_status' => ['required'],
         ]);
 
+        $saveData = [];
+
+        // Mengecek apakah field untuk upload file sudah di-upload atau belum
+        if ($request->hasFile('file_dokumen')) {
+            $saveData['file_dokumen'] = $request->file('file_dokumen')->store('public/pengajuan/progress-pengajuan');
+        }
+
         ProgressPengajuan::create([
             'pesan' => $validated['create_pesan'],
-            'file_dokumen' => $validated['create_file_dokumen'],
+            'file_dokumen' => isset($saveData['file_dokumen']) ? $saveData['file_dokumen'] : null,
             'tanggal' => $validated['create_tanggal'],
             'status' => $validated['create_status'],
             'id_pengajuan' => $pengajuan->id
@@ -74,7 +82,6 @@ class ProgressPengajuanController extends Controller
             'last_progress_pengajuan' => ProgressPengajuan::where('id_pengajuan', $progress_pengajuan_id)->latest()->first(),
         ];
 
-        //
         return view('pages.admin.progress-pengajuan.index', $data);
     }
 
@@ -107,13 +114,20 @@ class ProgressPengajuanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_progress_pengajuan)
     {
-        $progresspengajuan = ProgressPengajuan::findOrFail($id);
+        $progresspengajuan = ProgressPengajuan::findOrFail($id_progress_pengajuan);
+
+        $id_pengajuan = $progresspengajuan->id_pengajuan;
+
+        if ($progresspengajuan->file_dokumen != null) {
+            Storage::delete($progresspengajuan->file_dokumen);
+        }
+
         $progresspengajuan->delete();
 
         Alert::success('Success', 'Progress Pengajuan Berhasil Dihapus');
 
-        return redirect()->route('admin.progress.pengajuan.index', $progresspengajuan->id);
+        return redirect()->route('admin.progress.pengajuan.index', $id_pengajuan);
     }
 }
