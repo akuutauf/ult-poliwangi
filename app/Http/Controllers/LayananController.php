@@ -55,7 +55,7 @@ class LayananController extends Controller
             'create_id_divisi' => 'required',
             'create_nama_layanan' => ['required', 'string', Rule::unique('layanans', 'nama_layanan')],
             'create_estimasi_layanan' => ['required'],
-            'berkas' => ['required', 'array', 'min:1'],
+            'create_berkas' => ['required', 'array', 'min:1'],
         ]);
 
         $newlayanan = Layanan::create([
@@ -64,7 +64,7 @@ class LayananController extends Controller
             'estimasi_layanan' => $validated['create_estimasi_layanan'],
         ]);
 
-        $berkas_convert = collect($validated['berkas']);
+        $berkas_convert = collect($validated['create_berkas']);
 
         $berkas = Berkas::all();
         $check_berkas = $berkas_convert->except('_token', 'nama_berkas', 'create_id_divisi', 'create_nama_layanan', 'create_estimasi_layanan');
@@ -124,7 +124,7 @@ class LayananController extends Controller
             'update_id_divisi' => ['required', 'string'],
             'update_nama_layanan' => ['required', 'string', Rule::unique('layanans', 'nama_layanan')->ignore($layanan->id, 'id')],
             'update_estimasi_layanan' => ['required', 'string'],
-            'berkas' => ['required', 'array', 'min:1'],
+            'update_berkas' => ['required', 'array', 'min:1'],
         ]);
 
         Layanan::where('id', $id)->update([
@@ -132,7 +132,7 @@ class LayananController extends Controller
             'estimasi_layanan' => $validated['update_estimasi_layanan'],
             'nama_layanan' => $validated['update_nama_layanan'],
         ]);
-        $berkas_convert = collect($validated['berkas']);
+        $berkas_convert = collect($validated['update_berkas']);
 
         // Mengambil data berkaslayanan untuk layanan ini
         $berkaslayanan = BerkasLayanan::where('id_layanan', $id)->get();

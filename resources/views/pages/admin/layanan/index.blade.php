@@ -149,7 +149,7 @@
                                                         <thead>
                                                             <tr class="text-nowrap">
                                                                 <th>Berkas
-                                                                    @error('berkas')
+                                                                    @error('update_berkas')
                                                                         <div id="berkas" class="text-danger py-1">
                                                                             *pilih minimal satu berkas
                                                                         </div>
@@ -177,7 +177,8 @@
                                                                             @endforeach
 
                                                                             <input class="form-check-input" type="checkbox"
-                                                                                value="{{ $dataitem->id }}" name="berkas[]"
+                                                                                value="{{ $dataitem->id }}"
+                                                                                name="update_berkas[]"
                                                                                 id="{{ $dataitem->id }}"
                                                                                 @if ($isChecked) checked @endif>
 
@@ -275,7 +276,7 @@
                                         <tr class="text-nowrap">
                                             <th>Berkas
 
-                                                @error('berkas')
+                                                @error('create_berkas')
                                                     <div id="berkas" class="text-danger py-1">
                                                         *pilih minimal satu berkas
                                                     </div>
@@ -291,7 +292,7 @@
                                                 <td class="d-flex">
                                                     <div class="form-check my-auto">
                                                         <input class="form-check-input" type="checkbox"
-                                                            value="{{ $item->id }}" name="berkas[]"
+                                                            value="{{ $item->id }}" name="create_berkas[]"
                                                             id="{{ $item->id }}">
                                                         <label class="form-check-label" for="{{ $item->id }}">
                                                             {{ $item->nama_berkas }}
