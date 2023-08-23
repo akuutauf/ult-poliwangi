@@ -22,8 +22,12 @@ class LayananController extends Controller
         $data = [
             'layanan' => Layanan::all(),
             'divisi' => Divisi::all(),
-            'berkas' => Berkas::all()
+            'berkas' => Berkas::all(),
+            'berkaslayanan' => BerkasLayanan::all()
         ];
+
+        // 'berkaslayanan' => BerkasLayanan::select('id_layanan')->distinct()->with('layanan')->get()
+        // dd($data['berkaslayanan']);
 
         return view('pages.admin.layanan.index', $data);
     }
@@ -51,6 +55,7 @@ class LayananController extends Controller
             'create_id_divisi' => 'required',
             'create_nama_layanan' => ['required', 'string', Rule::unique('layanans', 'nama_layanan')],
             'create_estimasi_layanan' => ['required'],
+            'berkas' => ['required', 'array', 'min:1'],
         ]);
 
         $newlayanan = Layanan::create([
@@ -59,9 +64,10 @@ class LayananController extends Controller
             'estimasi_layanan' => $validated['create_estimasi_layanan'],
         ]);
 
+        $berkas_convert = collect($validated['berkas']);
 
         $berkas = Berkas::all();
-        $check_berkas = $request->except('_token', 'nama_berkas', 'create_id_divisi', 'create_nama_layanan', 'create_estimasi_layanan');
+        $check_berkas = $berkas_convert->except('_token', 'nama_berkas', 'create_id_divisi', 'create_nama_layanan', 'create_estimasi_layanan');
 
 
         if ($check_berkas) {
@@ -74,14 +80,6 @@ class LayananController extends Controller
                 }
             }
         }
-
-
-
-        // $layanan = new Layanan;
-        // $layanan->id_divisi = $validated['create_id_divisi'];
-        // $layanan->nama_layanan = $validated['create_nama_layanan'];
-        // $layanan->estimasi_layanan = $validated['create_estimasi_layanan'];
-        // $layanan->save();
 
         Alert::success('Success', 'Layanan Berhasil Ditambahkan');
 
@@ -121,10 +119,12 @@ class LayananController extends Controller
     {
         $layanan = Layanan::findOrFail($id);
 
+
         $validated = $request->validate([
             'update_id_divisi' => ['required', 'string'],
             'update_nama_layanan' => ['required', 'string', Rule::unique('layanans', 'nama_layanan')->ignore($layanan->id, 'id')],
             'update_estimasi_layanan' => ['required', 'string'],
+            'berkas' => ['required', 'array', 'min:1'],
         ]);
 
         Layanan::where('id', $id)->update([
@@ -132,6 +132,31 @@ class LayananController extends Controller
             'estimasi_layanan' => $validated['update_estimasi_layanan'],
             'nama_layanan' => $validated['update_nama_layanan'],
         ]);
+        $berkas_convert = collect($validated['berkas']);
+
+        // Mengambil data berkaslayanan untuk layanan ini
+        $berkaslayanan = BerkasLayanan::where('id_layanan', $id)->get();
+
+        // Loop melalui data yang dicentang dari form
+        foreach ($berkas_convert as $berkasId) {
+            // Cek apakah berkaslayanan dengan id berkas dan id layanan sudah ada
+            if (!$berkaslayanan->contains(function ($item) use ($berkasId) {
+                return $item->id_berkas == $berkasId;
+            })) {
+                // Jika belum ada, tambahkan data baru ke tabel berkaslayanan
+                BerkasLayanan::create([
+                    'id_berkas' => $berkasId,
+                    'id_layanan' => $id,
+                ]);
+            }
+        }
+
+        // Hapus data berkaslayanan yang tidak dicentang
+        $berkaslayanan->each(function ($item) use ($berkas_convert) {
+            if (!$berkas_convert->contains($item->id_berkas)) {
+                $item->delete();
+            }
+        });
 
         Alert::success('Success', 'Layanan Berhasil Diupdate');
 

@@ -61,93 +61,6 @@
                                         @php
                                             $no++;
                                         @endphp
-
-                                        <!--  Modal Update content for the above example -->
-                                        <div class="modal fade modalUpdate{{ $item->id }}" tabindex="-1" role="dialog"
-                                            aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title mt-0" id="myLargeModalLabel">Update Layanan
-                                                        </h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-hidden="true">×</button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form action="{{ route('admin.layanan.update', $item->id) }}"
-                                                            method="POST">
-                                                            @method('put')
-                                                            @csrf
-
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <div class="form-group">
-                                                                        <label for="update_id_divisi">Nama Divisi</label>
-                                                                        <select
-                                                                            class="form-control @error('update_id_divisi') is-invalid @enderror"
-                                                                            id="update_id_divisi" name="update_id_divisi">
-                                                                            <option value="">Pilih Divisi
-                                                                            </option>
-                                                                            @foreach ($divisi as $data)
-                                                                                <option value="{{ $data->id }}"
-                                                                                    {{ $item->id_divisi == $data->id ? 'selected' : '' }}>
-                                                                                    {{ $data->nama_divisi }}
-                                                                                </option>
-                                                                            @endforeach
-                                                                        </select>
-                                                                        @error('update_id_divisi')
-                                                                            <div id="update_id_divisi" class="form-text pb-1">
-                                                                                {{ $message }}</div>
-                                                                        @enderror
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-md-12">
-                                                                    <div class="form-group">
-                                                                        <label for="update_nama_layanan">Nama
-                                                                            Layanan</label>
-                                                                        <input type="text"
-                                                                            class="form-control @error('update_nama_layanan') is-invalid @enderror"
-                                                                            id="update_nama_layanan"
-                                                                            name="update_nama_layanan"
-                                                                            value="{{ $item->nama_layanan }}"
-                                                                            placeholder="Masukkan Nama Layanan">
-                                                                        @error('update_nama_layanan')
-                                                                            <div id="update_nama_layanan"
-                                                                                class="form-text pb-1">
-                                                                                {{ $message }}</div>
-                                                                        @enderror
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-md-12">
-                                                                    <div class="form-group">
-                                                                        <label for="update_estimasi_layanan">Estimasi
-                                                                            Layanan</label>
-                                                                        <input type="number"
-                                                                            class="form-control @error('update_estimasi_layanan') is-invalid @enderror"
-                                                                            id="update_estimasi_layanan"
-                                                                            name="update_estimasi_layanan"
-                                                                            placeholder="Jumlah Maksimal Hari Kerja Pelayanan"
-                                                                            value="{{ $item->estimasi_layanan }}">
-                                                                        @error('update_estimasi_layanan')
-                                                                            <div id="update_estimasi_layanan"
-                                                                                class="form-text pb-1">
-                                                                                {{ $message }}</div>
-                                                                        @enderror
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <button type="submit"
-                                                                class="btn btn-sm btn-primary">Simpan</button>
-                                                            <button type="button" class="btn btn-sm btn-danger"
-                                                                data-dismiss="modal">Batal</button>
-                                                        </form>
-                                                    </div>
-                                                </div><!-- /.modal-content -->
-                                            </div><!-- /.modal-dialog -->
-                                        </div><!-- /.modal -->
                                         @endforeach
                                     </table>
                                 </div>
@@ -157,6 +70,140 @@
                         <!--end card-->
                     </div>
                     <!--end col-->
+                    @foreach ($layanan as $itemdata)
+                        <!--  Modal Update content for the above example -->
+                        <div class="modal fade modalUpdate{{ $itemdata->id }}" tabindex="-1" role="dialog"
+                            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title mt-0" id="myLargeModalLabel">Update
+                                            Layanan
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-hidden="true">×</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{{ route('admin.layanan.update', $itemdata->id) }}" method="POST">
+                                            @method('put')
+                                            @csrf
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="update_id_divisi">Nama
+                                                            Divisi</label>
+                                                        <select
+                                                            class="form-control @error('update_id_divisi') is-invalid @enderror"
+                                                            id="update_id_divisi" name="update_id_divisi">
+                                                            <option value="">Pilih Divisi
+                                                            </option>
+                                                            @foreach ($divisi as $data)
+                                                                <option value="{{ $data->id }}"
+                                                                    {{ $itemdata->id_divisi == $data->id ? 'selected' : '' }}>
+                                                                    {{ $data->nama_divisi }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error('update_id_divisi')
+                                                            <div id="update_id_divisi" class="form-text pb-1">
+                                                                {{ $message }}</div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="update_nama_layanan">Nama
+                                                            Layanan</label>
+                                                        <input type="text"
+                                                            class="form-control @error('update_nama_layanan') is-invalid @enderror"
+                                                            id="update_nama_layanan" name="update_nama_layanan"
+                                                            value="{{ $itemdata->nama_layanan }}"
+                                                            placeholder="Masukkan Nama Layanan">
+                                                        @error('update_nama_layanan')
+                                                            <div id="update_nama_layanan" class="form-text pb-1">
+                                                                {{ $message }}</div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="update_estimasi_layanan">Estimasi
+                                                            Layanan</label>
+                                                        <input type="number"
+                                                            class="form-control @error('update_estimasi_layanan') is-invalid @enderror"
+                                                            id="update_estimasi_layanan" name="update_estimasi_layanan"
+                                                            placeholder="Jumlah Maksimal Hari Kerja Pelayanan"
+                                                            value="{{ $itemdata->estimasi_layanan }}">
+                                                        @error('update_estimasi_layanan')
+                                                            <div id="update_estimasi_layanan" class="form-text pb-1">
+                                                                {{ $message }}</div>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr class="text-nowrap">
+                                                                <th>Berkas
+                                                                    @error('berkas')
+                                                                        <div id="berkas" class="text-danger py-1">
+                                                                            *pilih minimal satu berkas
+                                                                        </div>
+                                                                    @else
+                                                                        <small>(Mohon Pilih Minimal Satu Berkas)</small>
+                                                                    @enderror
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($berkas as $dataitem)
+                                                                <tr>
+                                                                    <td class="d-flex">
+                                                                        <div class="form-check my-auto">
+                                                                            @php
+                                                                                $isChecked = false;
+                                                                            @endphp
+
+                                                                            @foreach ($berkaslayanan as $item)
+                                                                                @if ($item->id_layanan == $itemdata->id && $item->id_berkas == $dataitem->id)
+                                                                                    @php
+                                                                                        $isChecked = true;
+                                                                                    @endphp
+                                                                                @endif
+                                                                            @endforeach
+
+                                                                            <input class="form-check-input" type="checkbox"
+                                                                                value="{{ $dataitem->id }}" name="berkas[]"
+                                                                                id="{{ $dataitem->id }}"
+                                                                                @if ($isChecked) checked @endif>
+
+                                                                            <label class="form-check-label"
+                                                                                for="{{ $dataitem->id }}">
+                                                                                {{ $dataitem->nama_berkas }}
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
+                                            <button type="button" class="btn btn-sm btn-danger"
+                                                data-dismiss="modal">Batal</button>
+                                        </form>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -226,29 +273,37 @@
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr class="text-nowrap">
-                                            <th>Berkas</th>
+                                            <th>Berkas
+
+                                                @error('berkas')
+                                                    <div id="berkas" class="text-danger py-1">
+                                                        *pilih minimal satu berkas
+                                                    </div>
+                                                @else
+                                                    <small>(Mohon Pilih Minimal Satu Berkas)</small>
+                                                @enderror
+                                            </th>
                                         </tr>
                                     </thead>
-
                                     <tbody>
                                         @foreach ($berkas as $item)
                                             <tr>
                                                 <td class="d-flex">
                                                     <div class="form-check my-auto">
                                                         <input class="form-check-input" type="checkbox"
-                                                            value="{{ $item->id }}" name="{{ $item->id }}"
-                                                            id="{{ $item->id }}" />
+                                                            value="{{ $item->id }}" name="berkas[]"
+                                                            id="{{ $item->id }}">
                                                         <label class="form-check-label" for="{{ $item->id }}">
                                                             {{ $item->nama_berkas }}
                                                         </label>
                                                     </div>
                                                 </td>
-
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
                             </div>
+
                         </div>
 
                         <button type="submit" class="btn btn-sm btn-primary" id="sa-success">Tambah</button>
