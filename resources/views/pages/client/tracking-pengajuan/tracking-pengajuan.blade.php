@@ -193,7 +193,8 @@
 
                                                         @if (!$data->file_dokumen == null || !$data->file_dokumen == '')
                                                             <a href="{{ Storage::url($data->file_dokumen) }}"
-                                                                class="badge badge-soft-secondary tag-menu">Lihat
+                                                                class="badge badge-soft-secondary tag-menu"
+                                                                target="_blank">Lihat
                                                                 Dokumen</a>
                                                         @endif
                                                     </div>
@@ -219,7 +220,8 @@
 
                                                         @if (!$data->file_dokumen == null || !$data->file_dokumen == '')
                                                             <a href="{{ Storage::url($data->file_dokumen) }}"
-                                                                class="badge badge-soft-secondary tag-menu">Lihat
+                                                                class="badge badge-soft-secondary tag-menu"
+                                                                target="_blank">Lihat
                                                                 Dokumen</a>
                                                         @endif
                                                     </div>
