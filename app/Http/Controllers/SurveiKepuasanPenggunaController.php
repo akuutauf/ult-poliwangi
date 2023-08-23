@@ -16,7 +16,11 @@ class SurveiKepuasanPenggunaController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'surveis' => Survei::all(),
+        ];
+
+        return view('pages.admin.survei.index', $data);
     }
 
     /**
@@ -38,7 +42,6 @@ class SurveiKepuasanPenggunaController extends Controller
         ];
 
         return view('pages.client.kepuasan-pengguna.form-survei-kepuasan-pengguna', $data);
-
     }
 
     /**
@@ -50,19 +53,19 @@ class SurveiKepuasanPenggunaController extends Controller
     public function store(Request $request, $id_pengajuan)
     {
         $pengajuan = Pengajuan::findOrFail($id_pengajuan);
-        // dd($id_pengajuan);
+
         $validated = $request->validate([
-            'rating'=> 'required|numeric',
+            'rating' => 'required|numeric',
             'nama' => 'required|string',
             'email' => 'required|email',
-
+            'saran' => 'required|string'
         ]);
 
-        $newSurvei = Survei::create([
+        Survei::create([
             'rating' => $validated['rating'],
             'nama' => $validated['nama'],
             'email' => $validated['email'],
-            'saran' =>$request->saran,
+            'saran' => $validated['saran'],
             'id_pengajuan' => $pengajuan->id,
         ]);
 

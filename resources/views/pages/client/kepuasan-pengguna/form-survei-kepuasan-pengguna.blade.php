@@ -111,8 +111,12 @@
                         @enderror
 
                         <div class="mb-3">
-                            <label for="suggest" class="form-label fw-bold mb-3">Saran</label>
-                            <textarea class="form-control" name="suggest" id="suggest" placeholder="Masukkan Saran Anda" rows="5"></textarea>
+                            <label for="saran" class="form-label fw-bold mb-3">Saran</label>
+                            <textarea class="form-control @error('saran') is-invalid @enderror" name="saran" id="saran"
+                                placeholder="Berikan saran terbaik untuk kami" rows="5"></textarea>
+                            @error('saran')
+                                <div id="saran" class="form-text pb-1">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <button type="submit" class="btn btn-theme mt-3" type="button">Submit Survei</button>

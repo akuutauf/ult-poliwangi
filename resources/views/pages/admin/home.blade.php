@@ -1,7 +1,7 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title>Dashboard Admin | ULT Poliwangi</title>
+    <title>Daftar Review Pengajuan | ULT Poliwangi</title>
 @endsection
 
 @section('content')
@@ -12,8 +12,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">Dashboard</h4>
-                            {{-- <span>{{ Auth()->user()->divisi->nama_divisi }}</span> --}}
+                            <h4 class="page-title">Daftar Ulasan</h4>
                         </div><!--end page-title-box-->
                     </div><!--end col-->
                 </div><!--end row-->
@@ -96,6 +95,29 @@
                                 </a>
                             </div><!-- end col-->
                         </div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <a href="{{ route('admin.survei.index') }}">
+                                    <div class="card hospital-info card-hover card-rounded">
+                                        <div class="card-body">
+                                            <h4 class="header-title mt-0 mb-3">Daftar Review Pengajuan</h4>
+                                            <div class="media">
+                                                <div class="data-icon align-self-center">
+                                                    <i class="fa-solid fa-face-smile text-warning"></i>
+                                                </div>
+                                                <div class="media-body ml-3 align-self-center text-right">
+                                                    <h3 class="mt-0">{{ $review_pengajuan_count }}</h3>
+                                                    <span
+                                                        class="text-muted mb-0 text-nowrap">{{ Auth()->user()->divisi->nama_divisi }}</span>
+                                                </div><!--end media body-->
+                                            </div>
+                                        </div><!--end card-body-->
+                                    </div><!--end card-->
+                                </a>
+                            </div><!-- end col-->
+                        </div>
+
                     </div><!-- end col-->
                 </div>
 
