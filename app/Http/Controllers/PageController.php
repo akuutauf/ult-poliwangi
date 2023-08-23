@@ -9,6 +9,7 @@ use App\Models\Layanan;
 use App\Models\Pengajuan;
 use App\Models\Prodi;
 use App\Models\ProgressPengajuan;
+use App\Models\Survei;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -24,6 +25,7 @@ class PageController extends Controller
         $all_progress_pengajuan = ProgressPengajuan::all();
         $manajemen_pengajuan_count = 0;
         $pengajuan_selesai_count = 0;
+        $review_pengajuan_count = Survei::count();
 
         $nama_divisi_user = Auth()->user()->divisi->nama_divisi;
 
@@ -63,6 +65,8 @@ class PageController extends Controller
             }
         }
 
+        // mengambil jumlah review pengajuan setiap divisi
+
         $data = [
             // jumlah data
             'prodi_count' => Prodi::count(),
@@ -73,6 +77,7 @@ class PageController extends Controller
             'daftar_permohonan_count' => Pengajuan::where('submission_confirmed',  ['No'])->count(),
             'manajemen_pengajuan_count' => $manajemen_pengajuan_count,
             'pengajuan_selesai_count' => $pengajuan_selesai_count,
+            'review_pengajuan_count' => $review_pengajuan_count,
         ];
 
         return view('pages.admin.home', $data);

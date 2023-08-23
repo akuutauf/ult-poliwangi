@@ -133,14 +133,14 @@
                                 @csrf
 
                                 <label for="kode_tiket" class="form-label fw-bold mb-3">Lacak Dokumen Sekarang !</label>
-                                <div class="mb-3">
+                                <div class="input-group mb-3">
                                     <input type="text" class="form-control" name="kode_tiket" id="kode_tiket"
                                         placeholder="Masukkan Kode Tiket">
+                                    <button class="btn btn-theme-paste" type="button" id="pasteButton">Paste</button>
                                 </div>
 
                                 <div class="d-grid gap-2 mt-4">
-                                    <button type="submit" class="btn btn-theme" type="button">Lacak Status
-                                        Dokumen</button>
+                                    <button type="submit" class="btn btn-theme">Lacak Status Dokumen</button>
                                 </div>
                             </form>
 
@@ -189,5 +189,13 @@
     {{-- AOS initiate --}}
     <script>
         AOS.init();
+    </script>
+
+    <script>
+        document.getElementById('pasteButton').addEventListener('click', function() {
+            navigator.clipboard.readText().then(function(clipboardText) {
+                document.getElementById('kode_tiket').value = clipboardText;
+            });
+        });
     </script>
 @endsection

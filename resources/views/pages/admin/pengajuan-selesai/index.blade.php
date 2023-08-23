@@ -71,12 +71,12 @@
                                                     <td>{{ $data->kode_tiket }}</td>
                                                 </tr>
                                                 <!--end tr-->
+                                                @php
+                                                    $no++;
+                                                @endphp
                                             @endforeach
                                         </tbody>
 
-                                        @php
-                                            $no++;
-                                        @endphp
                                     </table>
                                 </div>
                             </div>

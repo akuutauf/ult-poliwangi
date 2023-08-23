@@ -15,6 +15,7 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PengajuanSelesai;
 use App\Http\Controllers\ProdiController;
+use App\Http\Controllers\SurveiController;
 use App\Http\Controllers\SurveiKepuasanPenggunaController;
 use App\Http\Controllers\TrackingPengajuanController;
 use App\Http\Controllers\TrackingSearch;
@@ -80,6 +81,7 @@ Route::middleware(['auth'])->group(function () {
 
     //daftar pengajuan selesai
     Route::get('/admin/manage-pengajuan/daftar-pengajuan-selesai', [PengajuanSelesai::class, 'index'])->name('admin.pengajuan.selesai.index');
+    Route::get('/admin/daftar-ulasan', [SurveiKepuasanPenggunaController::class, 'index'])->name('admin.survei.index');
 
     // divisi unit layanan terpadu
     Route::middleware([FilterDivisi::class . ':Unit Layanan Terpadu'])->group(function () {
