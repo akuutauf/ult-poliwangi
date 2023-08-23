@@ -1,7 +1,7 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title> Manajemen Pengajuan | ULT Poliwangi</title>
+    <title> Daftar Review Pengajuan | ULT Poliwangi</title>
 @endsection
 
 @php
@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">Pengajuan</h4>
+                            <h4 class="page-title">Daftar Ulasan</h4>
                         </div>
                         <!--end page-title-box-->
                     </div>

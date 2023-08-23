@@ -15,7 +15,6 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PengajuanSelesai;
 use App\Http\Controllers\ProdiController;
-use App\Http\Controllers\SurveiController;
 use App\Http\Controllers\SurveiKepuasanPenggunaController;
 use App\Http\Controllers\TrackingPengajuanController;
 use App\Http\Controllers\TrackingSearch;

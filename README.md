@@ -73,8 +73,6 @@ Features for Guest :
 
 ```
 - Congrats Your Application have been run succesfully
-```bash
-```
 ## Support and Thanks ✨
 
 For support credit, please email owner of this project : magangti2023@gmail.com. Thanks to our developper by TEFA Team 🎉🎉🎉
