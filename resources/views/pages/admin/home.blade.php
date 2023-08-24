@@ -1,7 +1,7 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title>Daftar Review Pengajuan | ULT Poliwangi</title>
+    <title>Dashboard Admin | ULT Poliwangi</title>
 @endsection
 
 @section('content')
