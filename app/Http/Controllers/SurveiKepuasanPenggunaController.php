@@ -16,8 +16,14 @@ class SurveiKepuasanPenggunaController extends Controller
      */
     public function index()
     {
+        $nama_divisi_user = Auth()->user()->divisi->nama_divisi;
+
+        $all_survei = Survei::whereHas('pengajuan.layanan.divisi', function ($query) use ($nama_divisi_user) {
+            $query->where('nama_divisi', $nama_divisi_user);
+        })->get();
+
         $data = [
-            'surveis' => Survei::all(),
+            'surveis' => $all_survei,
         ];
 
         return view('pages.admin.survei.index', $data);

@@ -42,6 +42,7 @@
                                                 <th>No</th>
                                                 <th>Nama</th>
                                                 <th>Email</th>
+                                                <th>Jenis Permohonan</th>
                                                 <th>Rating</th>
                                                 <th>Ulasan</th>
                                                 <th>Layanan Pengajuan</th>
@@ -57,8 +58,11 @@
                                                     <td>{{ $no }}</td>
                                                     <td>{{ $data->nama }}</td>
                                                     <td>{{ $data->email }}</td>
-                                                    <td><i class="fa-solid fa-star text-warning"></i> &ensp;
-                                                        {{ $data->rating }}</td>
+                                                    <td>{{ $data->pengajuan->jenis_permohonan }}</td>
+                                                    <td>
+                                                        <i class="fa-solid fa-star text-warning"></i> &ensp;
+                                                        {{ $data->rating }}
+                                                    </td>
                                                     <td>
                                                         @if (($data->saran == null) | ($data->saran == ''))
                                                             Tidak Ditambahkan

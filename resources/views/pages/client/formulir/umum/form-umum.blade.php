@@ -32,8 +32,8 @@
 
 
 @section('script')
-
-@livewireScripts
+    {{-- Start Livewire Script --}}
+    @livewireScripts
 
     {{-- Inisiasi datedroppper --}}
     <script>

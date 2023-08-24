@@ -25,13 +25,16 @@ class PageController extends Controller
         $all_progress_pengajuan = ProgressPengajuan::all();
         $manajemen_pengajuan_count = 0;
         $pengajuan_selesai_count = 0;
-        $review_pengajuan_count = Survei::count();
 
         $nama_divisi_user = Auth()->user()->divisi->nama_divisi;
 
         $all_pengajuan = Pengajuan::where('submission_confirmed', 'Accept')->whereHas('layanan.divisi', function ($query) use ($nama_divisi_user) {
             $query->where('nama_divisi', $nama_divisi_user);
         })->get();
+
+        $review_pengajuan_count = Survei::whereHas('pengajuan.layanan.divisi', function ($query) use ($nama_divisi_user) {
+            $query->where('nama_divisi', $nama_divisi_user);
+        })->count();
 
         // Mengambil jumlah data manajemen pengajuan
         foreach ($all_pengajuan as $pengajuan) {
