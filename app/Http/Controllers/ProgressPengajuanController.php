@@ -43,7 +43,7 @@ class ProgressPengajuanController extends Controller
 
         $validated = $request->validate([
             'create_pesan' => ['required', 'string'],
-            'file_dokumen' => 'nullable|mimes:pdf,docx,xlsx|max:10240',
+            'file_dokumen' => 'nullable|mimes:pdf|max:10240',
             'create_tanggal' => ['required', 'date'],
             'create_status' => ['required'],
         ]);

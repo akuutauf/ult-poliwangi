@@ -133,13 +133,15 @@
                                             {{ $message }}</div>
                                     @enderror
                                 </div>
-                            </div>
+                            </div>  
                         </div>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="form-label" for="file_dokumen">File Berkas (Opsional)</label>
+                                    <label class="form-label" for="file_dokumen">File Berkas <span class="text-primary">
+                                            *(Opsional, .pdf only, max
+                                            10Mb)</span></label>
                                     <div class="custom-file mb-3">
                                         <input type="file"
                                             class="custom-file-input form-control @error('file_dokumen') is-invalid @enderror"
