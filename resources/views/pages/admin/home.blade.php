@@ -96,7 +96,7 @@
                             </div><!-- end col-->
                         </div>
 
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-lg-12">
                                 <a href="{{ route('admin.survei.index') }}">
                                     <div class="card hospital-info card-hover card-rounded">
@@ -116,7 +116,7 @@
                                     </div><!--end card-->
                                 </a>
                             </div><!-- end col-->
-                        </div>
+                        </div> --}}
 
                     </div><!-- end col-->
                 </div>

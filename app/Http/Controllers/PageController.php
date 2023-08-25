@@ -32,9 +32,9 @@ class PageController extends Controller
             $query->where('nama_divisi', $nama_divisi_user);
         })->get();
 
-        $review_pengajuan_count = Survei::whereHas('pengajuan.layanan.divisi', function ($query) use ($nama_divisi_user) {
-            $query->where('nama_divisi', $nama_divisi_user);
-        })->count();
+        // $review_pengajuan_count = Survei::whereHas('pengajuan.layanan.divisi', function ($query) use ($nama_divisi_user) {
+        //     $query->where('nama_divisi', $nama_divisi_user);
+        // })->count();
 
         // Mengambil jumlah data manajemen pengajuan
         foreach ($all_pengajuan as $pengajuan) {
@@ -80,7 +80,7 @@ class PageController extends Controller
             'daftar_permohonan_count' => Pengajuan::where('submission_confirmed',  ['No'])->count(),
             'manajemen_pengajuan_count' => $manajemen_pengajuan_count,
             'pengajuan_selesai_count' => $pengajuan_selesai_count,
-            'review_pengajuan_count' => $review_pengajuan_count,
+            // 'review_pengajuan_count' => $review_pengajuan_count,
         ];
 
         return view('pages.admin.home', $data);

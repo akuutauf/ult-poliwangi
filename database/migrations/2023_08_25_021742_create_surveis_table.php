@@ -15,13 +15,9 @@ return new class extends Migration
     {
         Schema::create('surveis', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('rating')->nullable(false)->default(1);
-            $table->string('nama', 255)->nullable(false);
-            $table->string('email', 255)->nullable(false);
-            $table->text('saran', 255)->nullable(true);
-            $table->string('id_pengajuan')->nullable(false);
-            $table->foreign('id_pengajuan')->references('id')->on('pengajuans')->onDelete('cascade');
-            $table->timestamps();
+            $table->string('nama_survei', 255)->nullable(false);
+            $table->unsignedBigInteger('tahun')->nullable(false);
+            $table->enum('status', ['Wajib', 'Tidak Wajib'])->nullable(false);
         });
     }
 

@@ -56,8 +56,13 @@ class Pengajuan extends Model
         return $this->hasMany(ProgressPengajuan::class, 'id_pengajuan');
     }
 
-    public function survei()
+    public function saran()
     {
-        return $this->hasOne(Survei::class);
+        return $this->hasOne(Saran::class);
+    }
+
+    public function skor()
+    {
+        return $this->hasMany(Skor::class, 'id_pengajuan');
     }
 }
