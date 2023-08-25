@@ -41,9 +41,9 @@ class FormDosenController extends Controller
     {
         $validated = $request->validate([
             'nama_pemohon' => 'required|string',
-            'nomor_identitas' => 'required|numeric',
+            'nomor_identitas' => 'required|string|between:12,16',
             'email' => 'required|email',
-            'nomor_telepon' => 'required|numeric',
+            'nomor_telepon' => 'required|string|between:12,15',
             'id_prodi' => 'required',
             'id_layanan' => 'required',
             'tanggal_permohonan' => 'required|date',
