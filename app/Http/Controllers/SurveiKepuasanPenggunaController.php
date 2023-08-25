@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengajuan;
+use App\Models\Saran;
 use App\Models\Survei;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -36,9 +37,9 @@ class SurveiKepuasanPenggunaController extends Controller
      */
     public function create($id)
     {
-        $survei = Survei::where('id_pengajuan', $id)->first();
+        $saran = Saran::where('id_pengajuan', $id)->first();
 
-        if ($survei) {
+        if ($saran) {
             // Data ID pengajuan ditemukan di tabel Survei
             return redirect()->route('home.page');
         }

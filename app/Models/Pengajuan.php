@@ -63,6 +63,6 @@ class Pengajuan extends Model
 
     public function skor()
     {
-        return $this->hasMany(Skor::class, 'id_pengajuan');
+        return $this->hasMany(Skor::class);
     }
 }

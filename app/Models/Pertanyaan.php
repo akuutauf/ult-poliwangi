@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Pertanyaan extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'id',
         'pertanyaan'
     ];
 
-    public function pertanyaanSurvei()
+    public function pertanyaan_survei()
     {
         return $this->hasMany(PertanyaanSurvei::class);
     }

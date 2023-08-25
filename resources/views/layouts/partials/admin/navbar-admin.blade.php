@@ -23,7 +23,7 @@
                             href="#" role="button" aria-haspopup="false" aria-expanded="false">
                             <img src="{{ asset('images/profile-picture.jpg') }}" alt="profile-user"
                                 class="rounded-circle" />
-                            <span class="ml-1 nav-user-name hidden-sm"> {{ auth()->user()->name }}&nbsp; <i
+                            <span class="ml-1 nav-user-name hidden-sm">&commat;{{ auth()->user()->name }}&nbsp; <i
                                     class="mdi mdi-chevron-down"></i>
                             </span>
                         </a>
@@ -108,6 +108,37 @@
                                     <li>
                                         <a href="{{ route('admin.berkas.index') }}">
                                             <i class="fa fa-folder"></i>Berkas
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!--end submenu-->
+                            </li>
+                            <!--end has-submenu-->
+
+                            <li class="has-submenu">
+                                <a href="#">
+                                    <i class="fa-regular fa-circle-question"></i>
+                                    <span>Kelola Ulasan</span>
+                                </a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-clipboard-question"></i>Kelompok Pertanyaan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-circle-question"></i>Pertanyaan
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-square-poll-vertical"></i>Survei
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-face-smile-beam"></i>Skor dan Saran
                                         </a>
                                     </li>
                                 </ul>

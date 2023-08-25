@@ -19,6 +19,39 @@
                 <!-- end page title end breadcrumb -->
 
                 <div class="row justify-content-around">
+                    <div class="col-lg-12">
+                        <div class="card profile-card card-hover card-rounded">
+                            <div class="card-body pb-3">
+                                <div class="media p-2 align-items-center">
+                                    <div class="">
+                                        <img src="{{ asset('images/auth-login.png') }}" width="80" alt="user"
+                                            class="rounded-circle thumb-xl">
+                                    </div>
+
+                                    <div class="media-body ml-3 align-self-center">
+                                        <h5 class="pro-title">Unit Layanan Terpadu - Politeknik Negeri Banyuwangi</h5>
+                                        <p class="mb-2 text-muted">&commat;{{ Auth()->user()->name }}</p>
+                                        <ul class="list-inline list-unstyled profile-socials mb-0">
+                                            <li class="list-inline-item">
+                                                <a href="#" class="">
+                                                    <i class="fa-solid fa-star bg-soft-warning"></i> &ensp; 4.9 Average
+                                                    Rating
+                                                </a>
+                                            </li>
+                                            <span> | &ensp; </span>
+                                            <li class="list-inline-item">
+                                                <a href="#" class="">
+                                                    <i class="fa-solid fa-face-smile-beam bg-soft-purple"></i> &ensp; 500
+                                                    Pengulas
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div><!--end card-body-->
+                        </div><!--end card-->
+                    </div><!--end col-->
+
                     <div class="col-lg-8">
                         <div class="card hospital-info card-hover card-rounded">
                             <div class="card-body">
@@ -96,18 +129,19 @@
                             </div><!-- end col-->
                         </div>
 
-                        {{-- <div class="row">
+                        {{-- @if (Auth()->user()->divisi->nama_divisi == 'Unit Layanan Terpadu') --}}
+                        <div class="row">
                             <div class="col-lg-12">
                                 <a href="{{ route('admin.survei.index') }}">
                                     <div class="card hospital-info card-hover card-rounded">
                                         <div class="card-body">
-                                            <h4 class="header-title mt-0 mb-3">Daftar Review Pengajuan</h4>
+                                            <h4 class="header-title mt-0 mb-3">Daftar Skor dan Ulasan</h4>
                                             <div class="media">
                                                 <div class="data-icon align-self-center">
-                                                    <i class="fa-solid fa-face-smile text-warning"></i>
+                                                    <i class="fa-solid fa-face-smile-beam text-warning"></i>
                                                 </div>
                                                 <div class="media-body ml-3 align-self-center text-right">
-                                                    <h3 class="mt-0">{{ $review_pengajuan_count }}</h3>
+                                                    <h3 class="mt-0">Null</h3>
                                                     <span
                                                         class="text-muted mb-0 text-nowrap">{{ Auth()->user()->divisi->nama_divisi }}</span>
                                                 </div><!--end media body-->
@@ -116,7 +150,8 @@
                                     </div><!--end card-->
                                 </a>
                             </div><!-- end col-->
-                        </div> --}}
+                        </div>
+                        {{-- @endif --}}
 
                     </div><!-- end col-->
                 </div>
@@ -244,6 +279,73 @@
                         </div><!-- end col-->
                     @endif
 
+
+                </div><!--end row-->
+
+                <div class="row">
+                    {{-- for divisi ult --}}
+                    @if (Auth()->user()->divisi->nama_divisi == 'Unit Layanan Terpadu')
+                        <div class="col-lg-12 mb-2">
+                            <h4>Kelola Ulasan</h4>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <a href="#">
+                                <div class="card hospital-info card-hover card-rounded">
+                                    <div class="card-body">
+                                        <h4 class="header-title mt-0 mb-3">Manajemen Kelompok Pertanyaan</h4>
+                                        <div class="media">
+                                            <div class="data-icon align-self-center">
+                                                <i class="fa-solid fa-clipboard-question text-purple"></i>
+                                            </div>
+                                            <div class="media-body ml-3 align-self-center text-right">
+                                                <h3 class="mt-0">{{ $divisi_count }}</h3>
+                                                <span class="text-muted mb-0 text-nowrap">Unit Layanan Terpadu</span>
+                                            </div><!--end media body-->
+                                        </div>
+                                    </div><!--end card-body-->
+                                </div><!--end card-->
+                            </a>
+                        </div><!-- end col-->
+
+                        <div class="col-lg-4">
+                            <a href="#">
+                                <div class="card hospital-info card-hover card-rounded">
+                                    <div class="card-body">
+                                        <h4 class="header-title mt-0 mb-3">Manajemen Pertanyaan</h4>
+                                        <div class="media">
+                                            <div class="data-icon align-self-center">
+                                                <i class="fa-solid fa-circle-question text-salmon"></i>
+                                            </div>
+                                            <div class="media-body ml-3 align-self-center text-right">
+                                                <h3 class="mt-0">{{ $admin_count }}</h3>
+                                                <span class="text-muted mb-0 text-nowrap">Unit Layanan Terpadu</span>
+                                            </div><!--end media body-->
+                                        </div>
+                                    </div><!--end card-body-->
+                                </div><!--end card-->
+                            </a>
+                        </div><!-- end col-->
+
+                        <div class="col-lg-4">
+                            <a href="#">
+                                <div class="card hospital-info card-hover card-rounded">
+                                    <div class="card-body">
+                                        <h4 class="header-title mt-0 mb-3">Manajemen Survei</h4>
+                                        <div class="media">
+                                            <div class="data-icon align-self-center">
+                                                <i class="fa-solid fa-square-poll-vertical text-night"></i>
+                                            </div>
+                                            <div class="media-body ml-3 align-self-center text-right">
+                                                <h3 class="mt-0">{{ $admin_count }}</h3>
+                                                <span class="text-muted mb-0 text-nowrap">Unit Layanan Terpadu</span>
+                                            </div><!--end media body-->
+                                        </div>
+                                    </div><!--end card-body-->
+                                </div><!--end card-->
+                            </a>
+                        </div><!-- end col-->
+                    @endif
 
                 </div><!--end row-->
             </div>

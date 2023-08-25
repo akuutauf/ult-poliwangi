@@ -13,8 +13,8 @@
                     <div class="card-body">
                         <div class="px-3">
                             <div class="auth-logo-box">
-                                <a href="#" class="logo logo-admin"><img src="{{ asset('images/auth-login.png') }}"
-                                        width="80" alt="logo" class="auth-logo "></a>
+                                <span class="logo logo-admin"><img src="{{ asset('images/auth-login.png') }}" width="80"
+                                        alt="logo" class="auth-logo"></span>
                             </div><!--end auth-logo-box-->
 
                             <div class="text-center auth-logo-text">

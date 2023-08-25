@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Survei extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'id',
         'nama_survei',
@@ -15,7 +16,7 @@ class Survei extends Model
         'status'
     ];
 
-    public function pertanyaanSurvei()
+    public function pertanyaan_survei()
     {
         return $this->hasMany(PertanyaanSurvei::class);
     }

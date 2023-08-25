@@ -80,7 +80,7 @@ Route::middleware(['auth'])->group(function () {
 
     //daftar pengajuan selesai
     Route::get('/admin/manage-pengajuan/daftar-pengajuan-selesai', [PengajuanSelesai::class, 'index'])->name('admin.pengajuan.selesai.index');
-    Route::get('/admin/daftar-ulasan', [SurveiKepuasanPenggunaController::class, 'index'])->name('admin.survei.index');
+    // Route::get('/admin/daftar-ulasan', [SurveiKepuasanPenggunaController::class, 'index'])->name('admin.survei.index');
 
     // divisi unit layanan terpadu
     Route::middleware([FilterDivisi::class . ':Unit Layanan Terpadu'])->group(function () {

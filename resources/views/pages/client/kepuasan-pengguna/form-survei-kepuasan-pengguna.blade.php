@@ -28,110 +28,178 @@
                 </div>
             </div>
 
-            <div class="row py-5 d-flex justify-content-around">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-5 mb-5 order-2 order-md-1" data-aos="fade-up"
-                    data-aos-delay="600">
-                    <form action="{{ route('survei.kepuasan.pengguna.create', $data_pengajuan->id) }}" method="POST"
-                        class="p-3">
-                        @csrf
+            <form action="{{ route('survei.kepuasan.pengguna.create', $data_pengajuan->id) }}" method="POST"
+                class="p-3">
+                @csrf
 
-                        <div class="mb-2">
-                            <label for="rating" class="fw-medium text-center">Bagaimana Pelayanan Kami</label>
-                            <div class="rating d-flex justify-content-start py-4">
+                <div class="row py-5 d-flex justify-content-between">
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 mb-5" data-aos="zoom-in" data-aos-delay="900">
+                        <div class="pt-3">
+                            <h4 class="fw-bold">Penilaian Layanan</h4>
+                            <span class="text-secondary">Sesi Pertanyaan Pertama</span>
+                        </div>
+                    </div>
 
-                                <div class="px-2">
-                                    <!--begin::Star 1-->
-                                    <label class="rating-label" for="kt_rating_input_1">
-                                        <i class="fa-solid fa-star star-rating"></i>
-                                    </label>
-                                    <input class="rating-input" name="rating" value="1" type="radio"
-                                        id="kt_rating_input_1" />
-                                    <!--end::Star 1-->
-                                </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 mb-5" data-aos="fade-up" data-aos-delay="600">
+                        <div class="row d-flex justify-content-around">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-5">
+                                <div class="mb-2">
+                                    <label for="rating" class="fw-medium text-center">Bagaimana Pelayanan Kami</label>
+                                    <div class="rating d-flex justify-content-start py-4">
 
-                                <div class="px-2">
-                                    <!--begin::Star 2-->
-                                    <label class="rating-label" for="kt_rating_input_2">
-                                        <i class="fa-solid fa-star star-rating"></i>
-                                    </label>
-                                    <input class="rating-input" name="rating" value="2" type="radio"
-                                        id="kt_rating_input_2" name="rating" />
-                                    <!--end::Star 2-->
-                                </div>
+                                        <div class="px-2">
+                                            <!--begin::Star 1-->
+                                            <label class="rating-label" for="kt_rating_input_1">
+                                                <i class="fa-solid fa-star star-rating"></i>
+                                            </label>
+                                            <input class="rating-input" name="rating" value="1" type="radio"
+                                                id="kt_rating_input_1" />
+                                            <!--end::Star 1-->
+                                        </div>
 
-                                <div class="px-2">
-                                    <!--begin::Star 3-->
-                                    <label class="rating-label" for="kt_rating_input_3">
-                                        <i class="fa-solid fa-star star-rating"></i>
-                                    </label>
-                                    <input class="rating-input" name="rating" value="3" type="radio"
-                                        id="kt_rating_input_3" name="rating" />
-                                    <!--end::Star 3-->
-                                </div>
+                                        <div class="px-2">
+                                            <!--begin::Star 2-->
+                                            <label class="rating-label" for="kt_rating_input_2">
+                                                <i class="fa-solid fa-star star-rating"></i>
+                                            </label>
+                                            <input class="rating-input" name="rating" value="2" type="radio"
+                                                id="kt_rating_input_2" name="rating" />
+                                            <!--end::Star 2-->
+                                        </div>
 
-                                <div class="px-2">
-                                    <!--begin::Star 4-->
-                                    <label class="rating-label" for="kt_rating_input_4">
-                                        <i class="fa-solid fa-star star-rating"></i>
-                                    </label>
-                                    <input class="rating-input" name="rating" value="4" type="radio"
-                                        id="kt_rating_input_4" name="rating" />
-                                    <!--end::Star 4-->
-                                </div>
+                                        <div class="px-2">
+                                            <!--begin::Star 3-->
+                                            <label class="rating-label" for="kt_rating_input_3">
+                                                <i class="fa-solid fa-star star-rating"></i>
+                                            </label>
+                                            <input class="rating-input" name="rating" value="3" type="radio"
+                                                id="kt_rating_input_3" name="rating" />
+                                            <!--end::Star 3-->
+                                        </div>
 
-                                <div class="px-2">
-                                    <!--begin::Star 5-->
-                                    <label class="rating-label" for="kt_rating_input_5">
-                                        <i class="fa-solid fa-star star-rating"></i>
-                                    </label>
-                                    <input class="rating-input" name="rating" value="5" type="radio"
-                                        id="kt_rating_input_5" name="rating" />
-                                    <!--end::Star 5-->
+                                        <div class="px-2">
+                                            <!--begin::Star 4-->
+                                            <label class="rating-label" for="kt_rating_input_4">
+                                                <i class="fa-solid fa-star star-rating"></i>
+                                            </label>
+                                            <input class="rating-input" name="rating" value="4" type="radio"
+                                                id="kt_rating_input_4" name="rating" />
+                                            <!--end::Star 4-->
+                                        </div>
+
+                                        <div class="px-2">
+                                            <!--begin::Star 5-->
+                                            <label class="rating-label" for="kt_rating_input_5">
+                                                <i class="fa-solid fa-star star-rating"></i>
+                                            </label>
+                                            <input class="rating-input" name="rating" value="5" type="radio"
+                                                id="kt_rating_input_5" name="rating" />
+                                            <!--end::Star 5-->
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 
-                        </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-5">
+                                <div class="mb-2">
+                                    <label for="rating" class="fw-medium text-center">Bagaimana Pelayanan Kami</label>
+                                    <div class="rating d-flex justify-content-start py-4">
 
-                        <div class="mb-3">
-                            <label for="email" class="form-label fw-bold mb-3">Email</label>
-                            <input type="text" class="form-control @error('email') is-invalid @enderror" name="email"
-                                id="email" placeholder="Masukkan Email Anda" value="{{ $data_pengajuan->email }}">
-                        </div>
-                        @error('email')
-                            <div id="email" class="form-text pb-1">{{ $message }}</div>
-                        @enderror
+                                        <div class="px-2">
+                                            <!--begin::Star 1-->
+                                            <label class="rating-label" for="kt_rating_input_1">
+                                                <i class="fa-solid fa-star star-rating"></i>
+                                            </label>
+                                            <input class="rating-input" name="rating" value="1" type="radio"
+                                                id="kt_rating_input_1" />
+                                            <!--end::Star 1-->
+                                        </div>
 
-                        <div class="mb-3">
-                            <label for="nama" class="form-label fw-bold mb-3">Nama</label>
-                            <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"
-                                id="nama" placeholder="Nama Lengkap Anda" value="{{ $data_pengajuan->nama_pemohon }}">
-                        </div>
-                        @error('nama')
-                            <div id="nama" class="form-text pb-1">{{ $message }}</div>
-                        @enderror
+                                        <div class="px-2">
+                                            <!--begin::Star 2-->
+                                            <label class="rating-label" for="kt_rating_input_2">
+                                                <i class="fa-solid fa-star star-rating"></i>
+                                            </label>
+                                            <input class="rating-input" name="rating" value="2" type="radio"
+                                                id="kt_rating_input_2" name="rating" />
+                                            <!--end::Star 2-->
+                                        </div>
 
-                        <div class="mb-3">
-                            <label for="saran" class="form-label fw-bold mb-3">Saran</label>
-                            <textarea class="form-control @error('saran') is-invalid @enderror" name="saran" id="saran"
-                                placeholder="Berikan saran terbaik untuk kami" rows="5"></textarea>
-                            @error('saran')
-                                <div id="saran" class="form-text pb-1">{{ $message }}</div>
-                            @enderror
-                        </div>
+                                        <div class="px-2">
+                                            <!--begin::Star 3-->
+                                            <label class="rating-label" for="kt_rating_input_3">
+                                                <i class="fa-solid fa-star star-rating"></i>
+                                            </label>
+                                            <input class="rating-input" name="rating" value="3" type="radio"
+                                                id="kt_rating_input_3" name="rating" />
+                                            <!--end::Star 3-->
+                                        </div>
 
-                        <button type="submit" class="btn btn-theme mt-3" type="button">Submit Survei</button>
-                    </form>
+                                        <div class="px-2">
+                                            <!--begin::Star 4-->
+                                            <label class="rating-label" for="kt_rating_input_4">
+                                                <i class="fa-solid fa-star star-rating"></i>
+                                            </label>
+                                            <input class="rating-input" name="rating" value="4" type="radio"
+                                                id="kt_rating_input_4" name="rating" />
+                                            <!--end::Star 4-->
+                                        </div>
+
+                                        <div class="px-2">
+                                            <!--begin::Star 5-->
+                                            <label class="rating-label" for="kt_rating_input_5">
+                                                <i class="fa-solid fa-star star-rating"></i>
+                                            </label>
+                                            <input class="rating-input" name="rating" value="5" type="radio"
+                                                id="kt_rating_input_5" name="rating" />
+                                            <!--end::Star 5-->
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-6 col-lg-5 mb-5 order-1 order-md-2 d-flex" data-aos="zoom-in"
-                    data-aos-delay="900">
-                    <img src="{{ asset('images/survey-ilustration.svg') }}" class="img-fluid mx-auto my-auto p-4"
-                        alt="">
+                <div class="row">
+                    <div class="text-end py-4">
+                        <button type="submit" class="btn btn-theme">Submit Survei</button>
+                    </div>
                 </div>
-            </div>
+            </form>
 
         </div>
     </section>
+
+    {{-- <div class="mb-3">
+        <label for="email" class="form-label fw-bold mb-3">Email</label>
+        <input type="text" class="form-control @error('email') is-invalid @enderror" name="email"
+            id="email" placeholder="Masukkan Email Anda" value="{{ $data_pengajuan->email }}">
+        @error('email')
+            <div id="email" class="form-text pb-1">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <div class="mb-3">
+        <label for="nama" class="form-label fw-bold mb-3">Nama</label>
+        <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"
+            id="nama" placeholder="Nama Lengkap Anda"
+            value="{{ $data_pengajuan->nama_pemohon }}">
+        @error('nama')
+            <div id="nama" class="form-text pb-1">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <div class="mb-3">
+        <label for="saran" class="form-label fw-bold mb-3">Saran</label>
+        <textarea class="form-control @error('saran') is-invalid @enderror" name="saran" id="saran"
+            placeholder="Berikan saran terbaik untuk kami" rows="5"></textarea>
+        @error('saran')
+            <div id="saran" class="form-text pb-1">{{ $message }}</div>
+        @enderror
+    </div> --}}
 @endsection
 
 @section('script')

@@ -21,7 +21,7 @@ class Skor extends Model
         return $this->belongsTo(Pengajuan::class, 'id_pengajuan', 'id');
     }
 
-    public function pertanyaanSurvei()
+    public function pertanyaan_survei()
     {
         return $this->belongsTo(PertanyaanSurvei::class, 'id_pertanyaan_survei', 'id');
     }
