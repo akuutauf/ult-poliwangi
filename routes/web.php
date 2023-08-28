@@ -14,6 +14,7 @@ use App\Http\Controllers\FormUmumController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PengajuanSelesai;
+use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\ProdiController;
 use App\Http\Controllers\SurveiKepuasanPenggunaController;
 use App\Http\Controllers\TrackingPengajuanController;
@@ -126,5 +127,11 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/admin/manage-permohonan/detail-permohonan/{id_pengajuan}', [DaftarPermohonanController::class, 'update'])->name('admin.permohonan.update');
         Route::put('/admin/manage-permohonan/accept/{id_pengajuan}', [DaftarPermohonanController::class, 'accept_submission'])->name('admin.permohonan.accept');
         Route::put('/admin/manage-permohonan/decline/{id_pengajuan}', [DaftarPermohonanController::class, 'decline_submission'])->name('admin.permohonan.decline');
+
+        //pertanyaan
+        Route::get('/admin/manage-pertanyaan', [PertanyaanController::class, 'index'])->name('admin.pertanyaan.index');
+        Route::post('/admin/manage-pertanyaan/create', [PertanyaanController::class, 'store'])->name('admin.pertanyaan.create');
+        Route::get('/admin/manage-pertanyaan/delete/{id}', [PertanyaanController::class, 'destroy'])->name('admin.pertanyaan.destroy');
+        Route::put('/admin/manage-pertanyaan/{id}/update', [PertanyaanController::class, 'update'])->name('admin.pertanyaan.update');
     });
 });

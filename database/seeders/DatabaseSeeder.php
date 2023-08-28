@@ -10,6 +10,7 @@ use Database\Seeders\BerkasLayananSeeder;
 use Database\Seeders\BerkasSeeder;
 use Database\Seeders\DivisiSeeder;
 use Database\Seeders\LayananSeeder;
+use Database\Seeders\PertanyaanSeeder;
 use Database\Seeders\ProdiSeeder;
 use Database\Seeders\UserSeeder;
 use Illuminate\Database\Seeder;
@@ -33,6 +34,7 @@ class DatabaseSeeder extends Seeder
             BerkasLayananSeeder::class,
 
             ProdiSeeder::class,
+            PertanyaanSeeder::class,
         ]);
     }
 }
