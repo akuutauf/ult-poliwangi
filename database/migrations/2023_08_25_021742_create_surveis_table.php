@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('surveis', function (Blueprint $table) {
             $table->id();
             $table->string('nama_survei', 255)->nullable(false);
-            $table->tinyInteger('tahun')->nullable(false);
+            $table->smallInteger('tahun')->nullable(false);
             $table->enum('status', ['Aktif', 'Tidak Aktif'])->nullable(false);
+            $table->timestamps();
         });
     }
 

@@ -24,26 +24,31 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="mt-0 header-title">Form Update Pertanyaan Survei</h4>
-
-                                <form action="#" method="POST">
+                                <form action="{{ $action }}" method="POST">
+                                    @method('put')
+                                    @csrf
                                     <div class="row">
                                         <div class="col-md-12">
                                             <label class="form-label" for="">Survei</label>
                                             <div class="form-group mb-3">
                                                 <select class="form-control" required>
-                                                    <option>Pilih Survei</option>
-                                                    <option>Large select</option>
-                                                    <option>Small select</option>
+                                                    <option value="">Pilih Survei</option>
+                                                    @foreach ($survei as $data)
+                                                        <option value="{{ $data->id }}"
+                                                            {{ $pertanyaansurvei->id_survei == $data->id ? 'selected' : '' }}>
+                                                            {{ $data->nama_survei }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
                                             <table class="table table-bordered">
+
                                                 <thead>
                                                     <tr class="text-nowrap">
                                                         <th>Pertanyaan
-
                                                             @error('')
                                                                 <div id="" class="text-danger py-1">
                                                                     *pilih minimal satu pertanyaan
@@ -55,18 +60,36 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @foreach ($pertanyaan as $itempertanyaan)
+                                                        <tr>
+                                                            <td class="d-flex">
+                                                                <div class="form-check my-auto">
+                                                                    @php
+                                                                        $isChecked = false;
+                                                                    @endphp
 
-                                                    <tr>
-                                                        <td class="d-flex">
-                                                            <div class="form-check my-auto">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    value="" name="" id="">
-                                                                <label class="form-check-label" for="">
-                                                                    pppppp
-                                                                </label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                                    @foreach ($pertanyaansurvei as $item)
+                                                                        @if ($item->id_survei == $itemdata->id && $item->id_pertanyaan == $itempertanyaan->id)
+                                                                            @php
+                                                                                $isChecked = true;
+                                                                            @endphp
+                                                                        @endif
+                                                                    @endforeach
+
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        value="{{ $itempertanyaan->id }}"
+                                                                        name="update_berkas[]"
+                                                                        id="{{ $itempertanyaan->id }}"
+                                                                        @if ($isChecked) checked @endif>
+
+                                                                    <label class="form-check-label"
+                                                                        for="{{ $itempertanyaan->id }}">
+                                                                        {{ $itempertanyaan->nama_berkas }}
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
 
                                                 </tbody>
                                             </table>
@@ -74,6 +97,7 @@
                                     </div>
                                     <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
                                     <button type="button" class="btn btn-sm btn-danger">Batal</button>
+
                                 </form>
                             </div><!--end card-body-->
                         </div><!--end card-->

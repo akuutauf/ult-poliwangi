@@ -122,17 +122,17 @@
                                 </a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="{{ route('admin.pertanyaan.index') }}">
+                                        <a href="{{ route('admin.pertanyaan.survei.index') }}">
                                             <i class="fa-solid fa-clipboard-question"></i>Kelompok Pertanyaan
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="/pertanyaan">
+                                        <a href="{{ route('admin.pertanyaan.index') }}">
                                             <i class="fa-solid fa-circle-question"></i>Pertanyaan
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="{{ route('admin.survei.index') }}">
                                             <i class="fa-solid fa-square-poll-vertical"></i>Survei
                                         </a>
                                     </li>

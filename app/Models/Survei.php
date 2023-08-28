@@ -18,6 +18,6 @@ class Survei extends Model
 
     public function pertanyaan_survei()
     {
-        return $this->hasMany(PertanyaanSurvei::class);
+        return $this->hasMany(PertanyaanSurvei::class, 'id_survei', 'id');
     }
 }

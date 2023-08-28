@@ -88,6 +88,7 @@
                                                                                     placeholder="Ubah Isi Pertanyaan Anda"
                                                                                     value="{{ $item->pertanyaan }}">
                                                                                 @error('update_pertanyaan')
+
                                                                                     <div id="update_pertanyaan"
                                                                                         class="form-text pb-1">
                                                                                         {{ $message }}</div>

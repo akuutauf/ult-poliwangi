@@ -24,7 +24,8 @@
                         <div class="card">
                             <div class="card-body">
 
-                                <a href="/pertanyaan/create" type="button" class="btn btn-primary px-4 mt-0 mb-3"><i
+                                <a href="{{ route('admin.pertanyaan.survei.create') }}" type="button"
+                                    class="btn btn-primary px-4 mt-0 mb-3"><i
                                         class="mdi mdi-plus-circle-outline mr-2"></i>Tambah Pertanyaan Survei Baru</a>
                                 <div class="table-responsive">
                                     @php
@@ -42,28 +43,30 @@
                                         </thead>
 
                                         <tbody>
+                                            @foreach ($survei as $item)
+                                                <tr class="text-center">
+                                                    <td>{{ $no }}</td>
+                                                    <td>{{ $item->nama_survei }}</td>
+                                                    <td>{{ $item->tahun }}</td>
+                                                    <td>
 
-                                            <tr class="text-center">
-                                                <td>{{ $no }}</td>
-                                                <td>PPPP</td>
-                                                <td>2023</td>
-                                                <td>
+                                                        <a href="{{ route('admin.pertanyaan.survei.show', $item->id) }}"
+                                                            class="mr-2" title="Track Pengajuan">
+                                                            <i class="fa-solid fa-eye" style="color: #6b7a94;"></i>
+                                                        </a>
 
-                                                    <a href="" class="mr-2" title="Track Pengajuan">
-                                                        <i class="fas fa-magnifying-glass text-info font-16"></i>
-                                                    </a>
-
-                                                    <a href="/pertanyaan/update" class="mr-2"><i
-                                                            class="fas fa-edit text-info font-16"></i></a>
-                                                    <a href="#"><i
-                                                            class="fas fa-trash-alt text-danger font-16"></i></a>
-                                                </td>
-                                            </tr>
-                                            <!--end tr-->
+                                                        <a href="{{ route('admin.pertanyaan.survei.edit', $item->id) }}"
+                                                            class="mr-2"><i class="fas fa-edit text-info font-16"></i></a>
+                                                        <a href="{{ route('admin.pertanyaan.survei.delete', $item->id) }}"><i
+                                                                class="fas fa-trash-alt text-danger font-16"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <!--end tr-->
                                         </tbody>
                                         @php
                                             $no++;
                                         @endphp
+                                        @endforeach
 
                                     </table>
                                 </div>

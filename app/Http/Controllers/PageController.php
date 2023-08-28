@@ -7,6 +7,7 @@ use App\Models\Berkas;
 use App\Models\Divisi;
 use App\Models\Layanan;
 use App\Models\Pengajuan;
+use App\Models\Pertanyaan;
 use App\Models\Prodi;
 use App\Models\ProgressPengajuan;
 use App\Models\Survei;
@@ -77,6 +78,8 @@ class PageController extends Controller
             'admin_count' => Admin::count(),
             'layanan_count' => Layanan::count(),
             'berkas_count' => Berkas::count(),
+            'pertanyaan_count' => Pertanyaan::count(),
+            'survei_count' => Survei::count(),
             'daftar_permohonan_count' => Pengajuan::where('submission_confirmed',  ['No'])->count(),
             'manajemen_pengajuan_count' => $manajemen_pengajuan_count,
             'pengajuan_selesai_count' => $pengajuan_selesai_count,

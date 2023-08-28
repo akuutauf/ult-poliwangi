@@ -25,16 +25,27 @@
                             <div class="card-body">
                                 <h4 class="mt-0 header-title">Form Pertanyaan Survei</h4>
 
-                                <form action="#" method="POST">
+                                <form action="{{ route('admin.pertanyaan.survei.store') }}" method="POST">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <label class="form-label" for="">Survei</label>
+                                            <label class="form-label" for="create_id_survei">Survei</label>
                                             <div class="form-group mb-3">
-                                                <select class="form-control" required>
-                                                    <option>Pilih Survei</option>
-                                                    <option>Large select</option>
-                                                    <option>Small select</option>
+                                                <select
+                                                    class="form-control @error('create_id_survei')
+                                                    is-invalid
+                                                @enderror"
+                                                    id="create_id_survei" name="create_id_survei">
+                                                    <option value="">Pilih Survei</option>
+                                                    @foreach ($survei_option as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->nama_survei }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
+                                                @error('create_id_survei')
+                                                    <div id="create_id_survei" class="form-text pb-1">
+                                                        {{ $message }}</div>
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -44,7 +55,7 @@
                                                     <tr class="text-nowrap">
                                                         <th>Pertanyaan
 
-                                                            @error('')
+                                                            @error('pertanyaan')
                                                                 <div id="" class="text-danger py-1">
                                                                     *pilih minimal satu pertanyaan
                                                                 </div>
@@ -55,20 +66,23 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
-                                                    <tr>
-                                                        <td class="d-flex">
-                                                            <div class="form-check my-auto">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    value="" name="" id="">
-                                                                <label class="form-check-label" for="">
-                                                                    pppppp
-                                                                </label>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                    @foreach ($pertanyaan as $itempertanyaan)
+                                                        <tr>
+                                                            <td class="d-flex">
+                                                                <div class="form-check my-auto">
+                                                                    <input class="form-check-input" type="checkbox"
+                                                                        value="{{ $itempertanyaan->id }}"
+                                                                        name="pertanyaan[]" id="{{ $itempertanyaan->id }}">
+                                                                    <label class="form-check-label"
+                                                                        for="{{ $itempertanyaan->id }}">
+                                                                        {{ $itempertanyaan->pertanyaan }}
+                                                                    </label>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
 
                                                 </tbody>
+                                                @endforeach
                                             </table>
                                         </div>
                                     </div>
