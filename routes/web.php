@@ -21,6 +21,7 @@ use App\Http\Controllers\TrackingPengajuanController;
 use App\Http\Controllers\TrackingSearch;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\FilterDivisi;
+use App\Models\PertanyaanSurvei;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -133,5 +134,16 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/admin/manage-pertanyaan/create', [PertanyaanController::class, 'store'])->name('admin.pertanyaan.create');
         Route::get('/admin/manage-pertanyaan/delete/{id}', [PertanyaanController::class, 'destroy'])->name('admin.pertanyaan.destroy');
         Route::put('/admin/manage-pertanyaan/{id}/update', [PertanyaanController::class, 'update'])->name('admin.pertanyaan.update');
+
+        //kelola pertanyaan
+        Route::get('/pertanyaan', function () {
+            return view('pages.admin.manajemen-pertanyaan.index');
+        });
+        Route::get('/pertanyaan/create', function () {
+            return view('pages.admin.manajemen-pertanyaan.form-create');
+        });
+        Route::get('/pertanyaan/update', function () {
+            return view('pages.admin.manajemen-pertanyaan.form-update');
+        });
     });
 });

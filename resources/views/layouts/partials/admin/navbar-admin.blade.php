@@ -122,12 +122,12 @@
                                 </a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="#">
+                                        <a href="{{ route('admin.pertanyaan.index') }}">
                                             <i class="fa-solid fa-clipboard-question"></i>Kelompok Pertanyaan
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/pertanyaan">
                                             <i class="fa-solid fa-circle-question"></i>Pertanyaan
                                         </a>
                                     </li>

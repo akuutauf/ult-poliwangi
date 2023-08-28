@@ -290,7 +290,7 @@
                         </div>
 
                         <div class="col-lg-4">
-                            <a href="#">
+                            <a href="{{ route('admin.pertanyaan.index') }}">
                                 <div class="card hospital-info card-hover card-rounded">
                                     <div class="card-body">
                                         <h4 class="header-title mt-0 mb-3">Manajemen Kelompok Pertanyaan</h4>
