@@ -42,7 +42,7 @@ class PertanyaanController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'create_pertanyaan' => ['required', 'string', Rule::unique('pertanyaans', 'pertanyaan')]
+            'create_pertanyaan' => ['required', 'string']
         ]);
 
         // Periksa apakah karakter terakhir adalah '?'
@@ -95,7 +95,7 @@ class PertanyaanController extends Controller
 
         $validated = $request->validate([
             'update_pertanyaan' => [
-                'required', 'string', Rule::unique('pertanyaans', 'pertanyaan')->ignore($pertanyaan->id, 'id')
+                'required', 'string'
             ]
         ]);
 

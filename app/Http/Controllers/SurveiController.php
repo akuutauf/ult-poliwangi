@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Survei;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Validation\Rule;
 
 class SurveiController extends Controller
 {
@@ -13,7 +16,11 @@ class SurveiController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'surveis' => Survei::all(),
+        ];
+
+        return view('pages.admin.survei.index', $data);
     }
 
     /**
@@ -34,7 +41,21 @@ class SurveiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'create_nama_survei' => ['required', 'string', 'max:255', Rule::unique('surveis', 'nama_survei')],
+            'create_tahun' => ['required'],
+            'create_status' => ['required', 'string'],
+        ]);
+
+        $survei = new Survei();
+        $survei->nama_survei = $validated['create_nama_survei'];
+        $survei->tahun = $validated['create_tahun'];
+        $survei->status = $validated['create_status'];
+        $survei->save();
+
+        Alert::success('Success', 'Survei Berhasil Ditambahkan');
+
+        return redirect()->route('admin.survei.index');
     }
 
     /**
@@ -68,7 +89,23 @@ class SurveiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $survei = Survei::findOrFail($id);
+
+        $validated = $request->validate([
+            'update_nama_survei' => ['required', 'string', 'max:255', Rule::unique('surveis', 'nama_survei')->ignore($survei->id, 'id')],
+            'update_tahun' => ['required'],
+            'update_status' => ['required', 'string'],
+        ]);
+
+        Survei::where('id', $id)->update([
+            'nama_survei' => $validated['update_nama_survei'],
+            'tahun' => $validated['update_tahun'],
+            'status' => $validated['update_status'],
+        ]);
+
+        Alert::success('Success', 'Survei Berhasil Diupdate');
+
+        return redirect()->route('admin.survei.index');
     }
 
     /**
@@ -79,6 +116,11 @@ class SurveiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $survei = Survei::findOrFail($id);
+        $survei->delete();
+
+        Alert::success('Success', 'Survei Berhasil Dihapus');
+
+        return redirect()->route('admin.survei.index');
     }
 }

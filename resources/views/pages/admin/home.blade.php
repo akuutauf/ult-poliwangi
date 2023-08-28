@@ -299,7 +299,7 @@
                                                 <i class="fa-solid fa-clipboard-question text-purple"></i>
                                             </div>
                                             <div class="media-body ml-3 align-self-center text-right">
-                                                <h3 class="mt-0">{{ $divisi_count }}</h3>
+                                                <h3 class="mt-0">Null</h3>
                                                 <span class="text-muted mb-0 text-nowrap">Unit Layanan Terpadu</span>
                                             </div><!--end media body-->
                                         </div>
@@ -318,7 +318,7 @@
                                                 <i class="fa-solid fa-circle-question text-salmon"></i>
                                             </div>
                                             <div class="media-body ml-3 align-self-center text-right">
-                                                <h3 class="mt-0">Null</h3>
+                                                <h3 class="mt-0">{{ $pertanyaan_count }}</h3>
                                                 <span class="text-muted mb-0 text-nowrap">Unit Layanan Terpadu</span>
                                             </div><!--end media body-->
                                         </div>
@@ -328,7 +328,7 @@
                         </div><!-- end col-->
 
                         <div class="col-lg-4">
-                            <a href="#">
+                            <a href="{{ route('admin.survei.index') }}">
                                 <div class="card hospital-info card-hover card-rounded">
                                     <div class="card-body">
                                         <h4 class="header-title mt-0 mb-3">Manajemen Survei</h4>
@@ -337,7 +337,7 @@
                                                 <i class="fa-solid fa-square-poll-vertical text-night"></i>
                                             </div>
                                             <div class="media-body ml-3 align-self-center text-right">
-                                                <h3 class="mt-0">{{ $admin_count }}</h3>
+                                                <h3 class="mt-0">{{ $survei_count }}</h3>
                                                 <span class="text-muted mb-0 text-nowrap">Unit Layanan Terpadu</span>
                                             </div><!--end media body-->
                                         </div>

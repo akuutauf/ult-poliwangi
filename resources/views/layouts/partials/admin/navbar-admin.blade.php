@@ -127,12 +127,12 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="{{ route('admin.pertanyaan.index') }}">
                                             <i class="fa-solid fa-circle-question"></i>Pertanyaan
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="{{ route('admin.survei.index') }}">
                                             <i class="fa-solid fa-square-poll-vertical"></i>Survei
                                         </a>
                                     </li>
