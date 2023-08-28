@@ -166,6 +166,12 @@ body {
     font-weight: medium !important;
 }
 
+.card-service {
+    background-color: #005fb1 !important;
+    color: white !important;
+    border-radius: 35px !important;
+}
+
 /* tracking timeline */
 .slimScrollDiv {
     height: auto !important;
