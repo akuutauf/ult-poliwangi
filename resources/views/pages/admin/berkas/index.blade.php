@@ -13,7 +13,7 @@
                     <div class="col-sm-12">
                         <div class="page-title-box">
                             <!--end /div-->
-                            <h4 class="page-title">Berkas</h4>
+                            <h4 class="page-title">Manajemen Persyaratan Berkas</h4>
                         </div>
                         <!--end page-title-box-->
                     </div>
@@ -35,7 +35,7 @@
                                         <thead class="thead-light">
                                             <tr class="text-center">
                                                 <th width="10%">No</th>
-                                                <th>Nama Persyaratan</th>
+                                                <th class="text-left">Nama Persyaratan</th>
                                                 <th>Jenis Syarat</th>
                                                 <th width="10%">Action</th>
                                             </tr>
@@ -46,7 +46,7 @@
                                             @foreach ($berkas as $item)
                                                 <tr class="text-center">
                                                     <td>{{ $no }}</td>
-                                                    <td>{{ $item->nama_berkas }}</td>
+                                                    <td class="text-left">{{ $item->nama_berkas }}</td>
                                                     <td>{{ $item->jenis_berkas }}</td>
                                                     <td>
                                                         <a href="{{ route('admin.berkas.update', $item->id) }}"

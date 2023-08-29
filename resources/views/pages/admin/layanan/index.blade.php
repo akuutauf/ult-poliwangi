@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">Layanan</h4>
+                            <h4 class="page-title">Manajemen Layanan</h4>
                         </div>
                         <!--end page-title-box-->
                     </div>
@@ -34,8 +34,8 @@
                                         <thead class="thead-light">
                                             <tr class="text-center">
                                                 <th width="10%">No</th>
-                                                <th>Nama Divisi</th>
-                                                <th>Nama Layanan</th>
+                                                <th class="text-left">Nama Divisi</th>
+                                                <th class="text-left">Nama Layanan</th>
                                                 <th width="10%">Action</th>
                                             </tr>
                                             <!--end tr-->
@@ -45,8 +45,8 @@
                                             @foreach ($layanan as $item)
                                                 <tr class="text-center">
                                                     <td>{{ $no }}</td>
-                                                    <td>{{ $item->divisi->nama_divisi }}</td>
-                                                    <td>{{ $item->nama_layanan }}</td>
+                                                    <td class="text-left">{{ $item->divisi->nama_divisi }}</td>
+                                                    <td class="text-left">{{ $item->nama_layanan }}</td>
                                                     <td>
                                                         <a href="{{ route('admin.layanan.update', $item->id) }}"
                                                             class="mr-2" data-toggle="modal" data-animation="bounce"

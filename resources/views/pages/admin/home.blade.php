@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">Daftar Ulasan</h4>
+                            <h4 class="page-title">Dashboard Admin</h4>
                         </div><!--end page-title-box-->
                     </div><!--end col-->
                 </div><!--end row-->
@@ -290,7 +290,7 @@
                         </div>
 
                         <div class="col-lg-4">
-                            <a href="{{ route('admin.pertanyaan.index') }}">
+                            <a href="{{ route('admin.pertanyaan.survei.index') }}">
                                 <div class="card hospital-info card-hover card-rounded">
                                     <div class="card-body">
                                         <h4 class="header-title mt-0 mb-3">Manajemen Kelompok Pertanyaan</h4>
@@ -299,7 +299,7 @@
                                                 <i class="fa-solid fa-clipboard-question text-purple"></i>
                                             </div>
                                             <div class="media-body ml-3 align-self-center text-right">
-                                                <h3 class="mt-0">Null</h3>
+                                                <h3 class="mt-0">{{ $pertanyaan_survei_count }}</h3>
                                                 <span class="text-muted mb-0 text-nowrap">Unit Layanan Terpadu</span>
                                             </div><!--end media body-->
                                         </div>

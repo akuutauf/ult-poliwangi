@@ -24,7 +24,7 @@ class PertanyaanSurveiController extends Controller
             'survei' => $surveiWithPertanyaan,
             'pertanyaansurvei' => PertanyaanSurvei::all()
         ];
-        return view('pages.admin.manajemen-pertanyaan.index', $data);
+        return view('pages.admin.pertanyaan-survei.index', $data);
     }
 
     /**
@@ -43,7 +43,7 @@ class PertanyaanSurveiController extends Controller
             'pertanyaan' => Pertanyaan::all(),
             'survei' => Survei::all(),
         ];
-        return view('pages.admin.manajemen-pertanyaan.form-create', $data);
+        return view('pages.admin.pertanyaan-survei.form-create', $data);
     }
 
     /**
@@ -96,7 +96,7 @@ class PertanyaanSurveiController extends Controller
         $survei = Survei::findOrFail($id);
 
         // Kirim data ke view
-        return view('pages.admin.manajemen-pertanyaan.show', compact('pertanyaansurvei', 'survei'));
+        return view('pages.admin.pertanyaan-survei.show', compact('pertanyaansurvei', 'survei'));
     }
 
     /**
@@ -118,7 +118,7 @@ class PertanyaanSurveiController extends Controller
             'action' => route('admin.pertanyaan.survei.update', $id)
         ];
 
-        return view('pages.admin.manajemen-pertanyaan.form-update', $data);
+        return view('pages.admin.pertanyaan-survei.form-update', $data);
     }
 
     /**

@@ -14,7 +14,7 @@
                     <div class="col-sm-12">
                         <div class="page-title-box">
                             <!--end /div-->
-                            <h4 class="page-title">User</h4>
+                            <h4 class="page-title">Manajemen User</h4>
                         </div>
                         <!--end page-title-box-->
                     </div>
@@ -39,8 +39,8 @@
                                         <thead class="thead-light">
                                             <tr class="text-center">
                                                 <th width="10%">No</th>
-                                                <th>Username</th>
-                                                <th>Alamat Email</th>
+                                                <th class="text-left">Username User</th>
+                                                <th class="text-left">Email User</th>
                                                 <th width="10%">Action</th>
                                             </tr>
                                             <!--end tr-->
@@ -50,8 +50,8 @@
                                             @foreach ($user as $item)
                                                 <tr class="text-center">
                                                     <td>{{ $no }}</td>
-                                                    <td>{{ $item->name }}</td>
-                                                    <td>{{ $item->email }}</td>
+                                                    <td class="text-left">{{ $item->name }}</td>
+                                                    <td class="text-left">{{ $item->email }}</td>
                                                     <td>
                                                         <a href="{{ route('admin.user.update', $item->id) }}" class="mr-2"
                                                             data-toggle="modal" data-animation="bounce"
