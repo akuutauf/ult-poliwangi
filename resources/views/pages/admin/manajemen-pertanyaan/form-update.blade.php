@@ -29,32 +29,30 @@
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <label class="form-label" for="">Survei</label>
+                                            <label class="form-label" for="update_id_survei">Survei</label>
                                             <div class="form-group mb-3">
-                                                <select class="form-control" required>
+                                                <select class="form-control" disabled>
                                                     <option value="">Pilih Survei</option>
-                                                    @foreach ($survei as $data)
-                                                        <option value="{{ $data->id }}"
-                                                            {{ $pertanyaansurvei->id_survei == $data->id ? 'selected' : '' }}>
-                                                            {{ $data->nama_survei }}
-                                                        </option>
-                                                    @endforeach
+                                                    <option value="{{ $survei->id }}"
+                                                        {{ $pertanyaansurvei->contains('id_survei', $survei->id) ? 'selected' : '' }}>
+                                                        {{ $survei->nama_survei }}
+                                                    </option>
                                                 </select>
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
                                             <table class="table table-bordered">
-
                                                 <thead>
                                                     <tr class="text-nowrap">
                                                         <th>Pertanyaan
-                                                            @error('')
-                                                                <div id="" class="text-danger py-1">
+                                                            @error('pertanyaan')
+                                                                <div class="text-danger py-1">
                                                                     *pilih minimal satu pertanyaan
                                                                 </div>
                                                             @else
-                                                                <small>(Mohon Pilih Minimal Satu Pertanyaan)</small>
+                                                                <small><span>(Mohon Pilih Minimal Satu
+                                                                        Pertanyaan)</span></small>
                                                             @enderror
                                                         </th>
                                                     </tr>
@@ -65,40 +63,29 @@
                                                             <td class="d-flex">
                                                                 <div class="form-check my-auto">
                                                                     @php
-                                                                        $isChecked = false;
+                                                                        $isChecked = $pertanyaansurvei->contains('id_pertanyaan', $itempertanyaan->id);
                                                                     @endphp
-
-                                                                    @foreach ($pertanyaansurvei as $item)
-                                                                        @if ($item->id_survei == $itemdata->id && $item->id_pertanyaan == $itempertanyaan->id)
-                                                                            @php
-                                                                                $isChecked = true;
-                                                                            @endphp
-                                                                        @endif
-                                                                    @endforeach
-
                                                                     <input class="form-check-input" type="checkbox"
                                                                         value="{{ $itempertanyaan->id }}"
-                                                                        name="update_berkas[]"
-                                                                        id="{{ $itempertanyaan->id }}"
-                                                                        @if ($isChecked) checked @endif>
-
+                                                                        name="pertanyaan[]" id="{{ $itempertanyaan->id }}"
+                                                                        {{ $isChecked ? 'checked' : '' }}>
                                                                     <label class="form-check-label"
                                                                         for="{{ $itempertanyaan->id }}">
-                                                                        {{ $itempertanyaan->nama_berkas }}
+                                                                        {{ $itempertanyaan->pertanyaan }}
                                                                     </label>
                                                                 </div>
                                                             </td>
                                                         </tr>
                                                     @endforeach
-
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
-                                    <button type="button" class="btn btn-sm btn-danger">Batal</button>
-
+                                    <a href="{{ route('admin.pertanyaan.survei.index') }}"
+                                        class="btn btn-sm btn-danger">Batal</a>
                                 </form>
+
                             </div><!--end card-body-->
                         </div><!--end card-->
                     </div><!--end col-->

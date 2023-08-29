@@ -107,13 +107,14 @@ class PertanyaanSurveiController extends Controller
      */
     public function edit($id)
     {
-        $survei = Survei::findOrFail($id);
-        $pertanyaanSurvei = PertanyaanSurvei::where('id_survei', $id)->get();
+        $surveis = Survei::findOrFail($id);
+        $pertanyaanSurveis = PertanyaanSurvei::where('id_survei', $id)->get();
+        $pertanyaan = Pertanyaan::all();
 
         $data = [
-            'survei' => Survei::all(),
-            'pertanyaansurvei' => $pertanyaanSurvei,
-            'pertanyaan' => Pertanyaan::all(),
+            'survei' => $surveis,
+            'pertanyaansurvei' => $pertanyaanSurveis,
+            'pertanyaan' => $pertanyaan,
             'action' => route('admin.pertanyaan.survei.update', $id)
         ];
 
@@ -129,7 +130,42 @@ class PertanyaanSurveiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $validated = $request->validate([
+            'pertanyaan' => 'required|array|min:1',
+        ]);
+
+        $id_survei = $id;
+        $pertanyaanIDs = $validated['pertanyaan'];
+
+
+        $existingPertanyaanIDs = PertanyaanSurvei::where('id_survei', $id_survei)->pluck('id_pertanyaan')->toArray();
+
+        $pertanyaanToDelete = array_diff($existingPertanyaanIDs, $pertanyaanIDs);
+
+        if (!empty($pertanyaanToDelete)) {
+            PertanyaanSurvei::where('id_survei', $id_survei)
+                ->whereIn('id_pertanyaan', $pertanyaanToDelete)
+                ->delete();
+        }
+
+        $pertanyaanToAdd = array_diff($pertanyaanIDs, $existingPertanyaanIDs);
+
+        if (!empty($pertanyaanToAdd)) {
+            $newPertanyaan = [];
+            foreach ($pertanyaanToAdd as $pertanyaanID) {
+                $newPertanyaan[] = [
+                    'id_survei' => $id_survei,
+                    'id_pertanyaan' => $pertanyaanID,
+                ];
+            }
+            PertanyaanSurvei::insert($newPertanyaan);
+        }
+
+
+        Alert::success('Success', 'Pertanyaan Survei Berhasil Diupdate');
+
+        return redirect()->route('admin.pertanyaan.survei.index');
     }
 
     /**
@@ -140,9 +176,12 @@ class PertanyaanSurveiController extends Controller
      */
     public function destroy($id)
     {
+        $pertanyaanSurvei = PertanyaanSurvei::where('id_survei', $id)->get();
 
-        $pertanyaansurvei = PertanyaanSurvei::findOrFail($id);
-        $pertanyaansurvei->delete();
+        // Delete the PertanyaanSurvei records
+        $pertanyaanSurvei->each(function ($item) {
+            $item->delete();
+        });
         Alert::success('Success', 'Pertanyaan Survei Berhasil Dihapus');
 
         return redirect()->route('admin.pertanyaan.survei.index');
