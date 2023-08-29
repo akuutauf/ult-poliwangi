@@ -13,7 +13,7 @@
                     <div class="col-sm-12">
                         <div class="page-title-box">
                             <!--end /div-->
-                            <h4 class="page-title">Divisi</h4>
+                            <h4 class="page-title">Manajemen Divisi</h4>
                         </div>
                         <!--end page-title-box-->
                     </div>
@@ -35,7 +35,7 @@
                                         <thead class="thead-light">
                                             <tr class="text-center">
                                                 <th width="10%">No</th>
-                                                <th>Nama Divisi</th>
+                                                <th class="text-left">Nama Divisi</th>
                                                 <th width="10%">Action</th>
                                             </tr>
                                             <!--end tr-->
@@ -45,7 +45,7 @@
                                             @foreach ($divisi as $item)
                                                 <tr class="text-center">
                                                     <td>{{ $no }}</td>
-                                                    <td>{{ $item->nama_divisi }}</td>
+                                                    <td class="text-left">{{ $item->nama_divisi }}</td>
                                                     <td>
                                                         <a href="{{ route('admin.divisi.update', $item->id) }}"
                                                             class="mr-2" data-toggle="modal" data-animation="bounce"

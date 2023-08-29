@@ -8,6 +8,7 @@ use App\Models\Divisi;
 use App\Models\Layanan;
 use App\Models\Pengajuan;
 use App\Models\Pertanyaan;
+use App\Models\PertanyaanSurvei;
 use App\Models\Prodi;
 use App\Models\ProgressPengajuan;
 use App\Models\Survei;
@@ -26,16 +27,13 @@ class PageController extends Controller
         $all_progress_pengajuan = ProgressPengajuan::all();
         $manajemen_pengajuan_count = 0;
         $pengajuan_selesai_count = 0;
+        $pertanyaan_survei_count = PertanyaanSurvei::select('id_survei')->distinct()->count('id_survei');
 
         $nama_divisi_user = Auth()->user()->divisi->nama_divisi;
 
         $all_pengajuan = Pengajuan::where('submission_confirmed', 'Accept')->whereHas('layanan.divisi', function ($query) use ($nama_divisi_user) {
             $query->where('nama_divisi', $nama_divisi_user);
         })->get();
-
-        // $review_pengajuan_count = Survei::whereHas('pengajuan.layanan.divisi', function ($query) use ($nama_divisi_user) {
-        //     $query->where('nama_divisi', $nama_divisi_user);
-        // })->count();
 
         // Mengambil jumlah data manajemen pengajuan
         foreach ($all_pengajuan as $pengajuan) {
@@ -69,8 +67,6 @@ class PageController extends Controller
             }
         }
 
-        // mengambil jumlah review pengajuan setiap divisi
-
         $data = [
             // jumlah data
             'prodi_count' => Prodi::count(),
@@ -83,7 +79,7 @@ class PageController extends Controller
             'daftar_permohonan_count' => Pengajuan::where('submission_confirmed',  ['No'])->count(),
             'manajemen_pengajuan_count' => $manajemen_pengajuan_count,
             'pengajuan_selesai_count' => $pengajuan_selesai_count,
-            // 'review_pengajuan_count' => $review_pengajuan_count,
+            'pertanyaan_survei_count' => $pertanyaan_survei_count,
         ];
 
         return view('pages.admin.home', $data);

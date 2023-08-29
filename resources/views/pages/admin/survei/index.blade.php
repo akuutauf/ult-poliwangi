@@ -34,7 +34,7 @@
                                         <thead class="thead-light">
                                             <tr class="text-center">
                                                 <th width="10%">No</th>
-                                                <th>Nama Survei</th>
+                                                <th class="text-left">Nama Survei</th>
                                                 <th>Tahun</th>
                                                 <th>Status</th>
                                                 <th width="10%">Action</th>
@@ -47,7 +47,7 @@
                                             @foreach ($surveis as $item)
                                                 <tr class="text-center">
                                                     <td>{{ $no }}</td>
-                                                    <td>{{ $item->nama_survei }}</td>
+                                                    <td class="text-left">{{ $item->nama_survei }}</td>
                                                     <td>{{ $item->tahun }}</td>
                                                     <td>{{ $item->status }}</td>
                                                     <td>

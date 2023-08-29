@@ -34,7 +34,7 @@
                                         <thead class="thead-light">
                                             <tr class="text-center">
                                                 <th width="10%">No</th>
-                                                <th>Pertanyaan</th>
+                                                <th class="text-left">Pertanyaan</th>
                                                 <th width="10%">Action</th>
                                             </tr>
                                             <!--end tr-->
@@ -45,7 +45,7 @@
                                             @foreach ($pertanyaans as $item)
                                                 <tr class="text-center">
                                                     <td>{{ $no }}</td>
-                                                    <td>{{ $item->pertanyaan }}</td>
+                                                    <td class="text-left">{{ $item->pertanyaan }}</td>
                                                     <td>
                                                         <a href="{{ route('admin.pertanyaan.update', $item->id) }}"
                                                             class="mr-2" data-toggle="modal" data-animation="bounce"
@@ -88,7 +88,6 @@
                                                                                     placeholder="Ubah Isi Pertanyaan Anda"
                                                                                     value="{{ $item->pertanyaan }}">
                                                                                 @error('update_pertanyaan')
-
                                                                                     <div id="update_pertanyaan"
                                                                                         class="form-text pb-1">
                                                                                         {{ $message }}</div>

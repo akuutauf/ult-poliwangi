@@ -33,9 +33,17 @@
                             href="{{ route('home.page') }}#tentang_kami">Tentang Kami</a>
                     </li>
                     <li class="nav-item my-auto px-2">
-                        <a href="{{ route('home.page') }}#formulir" class="btn btn-theme px-3 py-2">
-                            Ajukan Permohonan
-                        </a>
+                        @auth
+                            <a href="{{ route('admin.dashboard.page') }}" class="btn btn-theme px-3 py-2">
+                                Dashboard
+                            </a>
+                        @endauth
+
+                        @guest
+                            <a href="{{ route('home.page') }}#formulir" class="btn btn-theme px-3 py-2">
+                                Ajukan Permohonan
+                            </a>
+                        @endguest
                     </li>
                 </ul>
             </div>

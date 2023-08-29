@@ -87,7 +87,8 @@
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-sm btn-primary">Tambah</button>
-                                    <button type="button" class="btn btn-sm btn-danger">Batal</button>
+                                    <a href="{{ route('admin.pertanyaan.survei.index') }}"
+                                        class="btn btn-sm btn-danger">Batal</a>
                                 </form>
                             </div><!--end card-body-->
                         </div><!--end card-->

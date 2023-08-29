@@ -117,7 +117,7 @@
 
                             <li class="has-submenu">
                                 <a href="#">
-                                    <i class="fa-regular fa-circle-question"></i>
+                                    <i class="fa-solid fa-face-laugh-beam"></i>
                                     <span>Kelola Ulasan</span>
                                 </a>
                                 <ul class="submenu">
@@ -138,7 +138,7 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fa-solid fa-face-smile-beam"></i>Skor dan Saran
+                                            <i class="fa-solid fa-star"></i>Skor dan Saran
                                         </a>
                                     </li>
                                 </ul>

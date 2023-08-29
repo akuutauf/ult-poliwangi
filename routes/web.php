@@ -143,23 +143,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/manajemen-survei/delete/{id}', [SurveiController::class, 'destroy'])->name('admin.survei.destroy');
         Route::put('/admin/manajemen-survei/{id}/update', [SurveiController::class, 'update'])->name('admin.survei.update');
 
-        //kelola pertanyaan survei
-        Route::get('/admin/kelola-pertanyaan', [PertanyaanSurveiController::class, 'index'])->name('admin.pertanyaan.survei.index');
-        Route::get('/admin/kelola-pertanyaan/create', [PertanyaanSurveiController::class, 'create'])->name('admin.pertanyaan.survei.create');
-        Route::post('/admin/kelola-pertanyaan/store', [PertanyaanSurveiController::class, 'store'])->name('admin.pertanyaan.survei.store');
-        Route::get('/admin/kelola-pertanyaan/{id}/edit', [PertanyaanSurveiController::class, 'edit'])->name('admin.pertanyaan.survei.edit');
-        Route::put('/admin/kelola-pertanyaan/{id}/update', [PertanyaanSurveiController::class, 'update'])->name('admin.pertanyaan.survei.update');
-        Route::get('/admin/kelola-pertanyaan/{id}/show', [PertanyaanSurveiController::class, 'show'])->name('admin.pertanyaan.survei.show');
-        Route::get('/admin/kelola-pertanyaan/{id}/delete', [PertanyaanSurveiController::class, 'destroy'])->name('admin.pertanyaan.survei.delete');
-
-        Route::get('/pertanyaan', function () {
-            return view('pages.admin.manajemen-pertanyaan.index');
-        });
-        Route::get('/pertanyaan/create', function () {
-            return view('pages.admin.manajemen-pertanyaan.form-create');
-        });
-        Route::get('/pertanyaan/update', function () {
-            return view('pages.admin.manajemen-pertanyaan.form-update');
-        });
+        //manajemen pertanyaan-survei survei
+        Route::get('/admin/manajemen-pertanyaan-survei', [PertanyaanSurveiController::class, 'index'])->name('admin.pertanyaan.survei.index');
+        Route::get('/admin/manajemen-pertanyaan-survei/create', [PertanyaanSurveiController::class, 'create'])->name('admin.pertanyaan.survei.create');
+        Route::post('/admin/manajemen-pertanyaan-survei/store', [PertanyaanSurveiController::class, 'store'])->name('admin.pertanyaan.survei.store');
+        Route::get('/admin/manajemen-pertanyaan-survei/{id}/edit', [PertanyaanSurveiController::class, 'edit'])->name('admin.pertanyaan.survei.edit');
+        Route::put('/admin/manajemen-pertanyaan-survei/{id}/update', [PertanyaanSurveiController::class, 'update'])->name('admin.pertanyaan.survei.update');
+        Route::get('/admin/manajemen-pertanyaan-survei/{id}/show', [PertanyaanSurveiController::class, 'show'])->name('admin.pertanyaan.survei.show');
+        Route::get('/admin/manajemen-pertanyaan-survei/{id}/delete', [PertanyaanSurveiController::class, 'destroy'])->name('admin.pertanyaan.survei.delete');
     });
 });
