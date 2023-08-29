@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pengajuan;
+use App\Models\PertanyaanSurvei;
 use App\Models\Saran;
 use App\Models\Survei;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class SurveiKepuasanPenggunaController extends Controller
@@ -38,6 +40,12 @@ class SurveiKepuasanPenggunaController extends Controller
     public function create($id)
     {
         $saran = Saran::where('id_pengajuan', $id)->first();
+        $activePertanyaanSurvei = PertanyaanSurvei::select('pertanyaan_surveis.*', 'surveis.*')
+            ->with('pertanyaan', 'survei')
+            ->join('surveis', 'pertanyaan_surveis.id_survei', '=', 'surveis.id')
+            ->where('surveis.status', 'Aktif')
+            ->get()
+            ->groupBy('id_survei');
 
         if ($saran) {
             // Data ID pengajuan ditemukan di tabel Survei
@@ -46,7 +54,10 @@ class SurveiKepuasanPenggunaController extends Controller
 
         $data = [
             'data_pengajuan' => Pengajuan::findOrFail($id),
+            'activePertanyaanSurvei' => $activePertanyaanSurvei,
         ];
+
+        // dd($data['activePertanyaanSurvei']);
 
         return view('pages.client.kepuasan-pengguna.form-survei-kepuasan-pengguna', $data);
     }
