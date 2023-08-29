@@ -33,9 +33,9 @@
                 @csrf
 
                 @foreach ($activePertanyaanSurvei as $surveiId => $items)
-                    <div class="mb-3 card p-5">
-                        <div class="row">
-                            <div class="col-12 col-sm-12 col-md-2 col-lg-1 mb-3" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="mb-3 card p-5" data-aos="zoom-in" data-aos-delay="300" data-aos-once="true">
+                        <div class="row" data-aos="zoom-in" data-aos-delay="600" data-aos-once="true">
+                            <div class="col-12 col-sm-12 col-md-2 col-lg-1 mb-2">
                                 <div class="d-flex">
                                     <div class="card-service p-2 mx-auto my-auto">
                                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24">
@@ -46,33 +46,32 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-12 col-md-10 col-lg-11 d-flex mb-2" data-aos="zoom-in"
-                                data-aos-delay="600">
+                            <div class="col-12 col-sm-12 col-md-10 col-lg-11 mb-1">
                                 <div class="my-auto">
-                                    <h3 class="fw-bold">{{ $items[0]->survei->nama_survei }}</h3>
+                                    <h3 class="fw-bold question-title pt-1">{{ $items[0]->survei->nama_survei }}</h3>
                                 </div>
                             </div>
                         </div>
 
                         @foreach ($items as $pertanyaan)
-                            <div class="row d-flex justify-content-around mt-1">
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-8 mb-1 d-flex" data-aos="fade-up"
-                                    data-aos-delay="900">
+                            <div class="row d-flex justify-content-around mt-3" data-aos="fade-up" data-aos-delay="600"
+                                data-aos-once="true">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-7 d-flex">
                                     <h5 for="rating" class="fw-medium my-auto text-justify">
                                         {{ $pertanyaan->pertanyaan->pertanyaan }}
                                     </h5>
                                 </div>
 
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-4 mb-1" data-aos="fade-up"
-                                    data-aos-delay="900">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-4">
                                     <div class="mb-2 d-flex">
                                         <div class="rating d-flex justify-content-start py-4 mx-auto">
                                             @for ($i = 1; $i <= 5; $i++)
                                                 <div class="px-2">
                                                     <label class="rating-label"
                                                         for="kt_rating_input_{{ $i }}_{{ $surveiId }}_{{ $pertanyaan->id_pertanyaan }}">
-                                                        <i class="fa-solid fa-star star-rating"></i>
+                                                        <i class="fa-solid fa-star star-rating question-star"></i>
                                                     </label>
+
                                                     <input class="rating-input"
                                                         name="rating_{{ $surveiId }}_{{ $pertanyaan->id_pertanyaan }}"
                                                         value="{{ $i }}" type="radio"
@@ -82,13 +81,19 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row d-flex justify-content-end">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-right question-col">
+                                        <span class="reaction-text-content"></span>
+                                    </div>
+                                </div>
                             </div>
                         @endforeach
                     </div>
                 @endforeach
 
-                <div class="card p-5">
-                    <div class="row" data-aos="fade-up" data-aos-delay="1200">
+                <div class="card p-4" data-aos="zoom-in" data-aos-delay="300" data-aos-once="true">
+                    <div class="row" data-aos="fade-up" data-aos-delay="600" data-aos-once="true">
                         <div class="mb-3">
                             <label for="email" class="form-label fw-bold mb-3">Email</label>
                             <input type="text" class="form-control @error('email') is-invalid @enderror" name="email"
@@ -183,5 +188,38 @@
                 copyAlert.textContent = "";
             }, 2000); // Menghilangkan pesan setelah 2 detik
         }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Dapatkan semua elemen rating dan reaksi
+            const ratingInputs = document.querySelectorAll(".rating-input");
+            const reactionTextContents = document.querySelectorAll(".reaction-text-content");
+
+            // Tambahkan event listener pada setiap elemen rating
+            ratingInputs.forEach(input => {
+                input.addEventListener("change", function() {
+                    const ratingValue = this.value;
+                    let reaction = "";
+
+                    if (ratingValue === "1") {
+                        reaction = "Sangat Buruk";
+                    } else if (ratingValue === "2") {
+                        reaction = "Buruk";
+                    } else if (ratingValue === "3") {
+                        reaction = "Cukup";
+                    } else if (ratingValue === "4") {
+                        reaction = "Bagus";
+                    } else if (ratingValue === "5") {
+                        reaction = "Sangat Bagus";
+                    }
+
+                    // Temukan elemen reaksi yang sesuai dengan ID atau class
+                    const reactionTextContent = this.closest(".row").querySelector(
+                        ".reaction-text-content");
+                    reactionTextContent.textContent = reaction;
+                });
+            });
+        });
     </script>
 @endsection

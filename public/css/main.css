@@ -283,3 +283,35 @@ body {
     -webkit-transform: rotate(0deg) !important;
     transform: rotate(0deg) !important;
 }
+
+.text-right {
+    text-align: right !important;
+}
+
+@media (max-width: 768px) {
+    .question-title {
+        text-align: center !important;
+    }
+
+    .question-col {
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 493px) {
+    .question-star {
+        font-size: 200% !important;
+    }
+}
+
+@media (max-width: 436px) {
+    .question-star {
+        font-size: 150% !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .question-star {
+        font-size: 120% !important;
+    }
+}
