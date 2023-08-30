@@ -73,9 +73,11 @@
                                                     </label>
 
                                                     <input class="rating-input"
-                                                        name="rating_{{ $surveiId }}_{{ $pertanyaan->id_pertanyaan }}"
+                                                        name="question_rating[{{ $surveiId }}][{{ $pertanyaan->id_pertanyaan }}]"
                                                         value="{{ $i }}" type="radio"
-                                                        id="kt_rating_input_{{ $i }}_{{ $surveiId }}_{{ $pertanyaan->id_pertanyaan }}" />
+                                                        id="kt_rating_input_{{ $i }}_{{ $surveiId }}_{{ $pertanyaan->id_pertanyaan }}"
+                                                        data-survei-id="{{ $surveiId }}"
+                                                        data-pertanyaan-id="{{ $pertanyaan->id_pertanyaan }}" />
                                                 </div>
                                             @endfor
                                         </div>
@@ -84,7 +86,8 @@
 
                                 <div class="row d-flex justify-content-end">
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-right question-col">
-                                        <span class="reaction-text-content"></span>
+                                        <span
+                                            class="reaction-text-content-{{ $surveiId }}-{{ $pertanyaan->id_pertanyaan }}"></span>
                                     </div>
                                 </div>
                             </div>
@@ -138,26 +141,6 @@
         AOS.init();
     </script>
 
-    {{-- Star Rating Script --}}
-    <script>
-        const ratingInputs = document.querySelectorAll('.rating-input');
-
-        ratingInputs.forEach(ratingInput => {
-            ratingInput.addEventListener('change', () => {
-                const currentRating = ratingInput.value;
-                const starLabels = ratingInput.parentNode.parentNode.querySelectorAll('.rating-label i');
-
-                starLabels.forEach((starLabel, index) => {
-                    if (index < currentRating) {
-                        starLabel.classList.add('checked');
-                    } else {
-                        starLabel.classList.remove('checked');
-                    }
-                });
-            });
-        });
-    </script>
-
     {{-- Copy Clipboard --}}
     <script>
         function copyToClipboard() {
@@ -190,34 +173,67 @@
         }
     </script>
 
+    {{-- Star Rating Script --}}
+    <script>
+        const ratingInputs = document.querySelectorAll('.rating-input');
+
+        ratingInputs.forEach(ratingInput => {
+            ratingInput.addEventListener('change', () => {
+                const currentRating = ratingInput.value;
+                const starLabels = ratingInput.parentNode.parentNode.querySelectorAll('.rating-label i');
+
+                starLabels.forEach((starLabel, index) => {
+                    if (index < currentRating) {
+                        starLabel.classList.add('checked');
+                    } else {
+                        starLabel.classList.remove('checked');
+                    }
+                });
+            });
+        });
+    </script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Dapatkan semua elemen rating dan reaksi
             const ratingInputs = document.querySelectorAll(".rating-input");
-            const reactionTextContents = document.querySelectorAll(".reaction-text-content");
 
-            // Tambahkan event listener pada setiap elemen rating
             ratingInputs.forEach(input => {
                 input.addEventListener("change", function() {
-                    const ratingValue = this.value;
+                    const currentRating = this.value;
+                    const starLabels = this.parentNode.parentNode.querySelectorAll(
+                        '.rating-label i');
+
+                    starLabels.forEach((starLabel, index) => {
+                        if (index < currentRating) {
+                            starLabel.classList.add('checked');
+                        } else {
+                            starLabel.classList.remove('checked');
+                        }
+                    });
+
+                    const surveiId = this.getAttribute("data-survei-id");
+                    const pertanyaanId = this.getAttribute("data-pertanyaan-id");
                     let reaction = "";
 
-                    if (ratingValue === "1") {
+                    if (currentRating === "1") {
                         reaction = "Sangat Buruk";
-                    } else if (ratingValue === "2") {
+                    } else if (currentRating === "2") {
                         reaction = "Buruk";
-                    } else if (ratingValue === "3") {
+                    } else if (currentRating === "3") {
                         reaction = "Cukup";
-                    } else if (ratingValue === "4") {
+                    } else if (currentRating === "4") {
                         reaction = "Bagus";
-                    } else if (ratingValue === "5") {
+                    } else if (currentRating === "5") {
                         reaction = "Sangat Bagus";
                     }
 
-                    // Temukan elemen reaksi yang sesuai dengan ID atau class
-                    const reactionTextContent = this.closest(".row").querySelector(
-                        ".reaction-text-content");
-                    reactionTextContent.textContent = reaction;
+                    const reactionTextContent = document.querySelector(
+                        `.reaction-text-content-${surveiId}-${pertanyaanId}`
+                    );
+
+                    if (reactionTextContent) {
+                        reactionTextContent.textContent = reaction;
+                    }
                 });
             });
         });

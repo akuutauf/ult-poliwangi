@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengajuan;
 use App\Models\PertanyaanSurvei;
 use App\Models\Saran;
+use App\Models\Skor;
 use App\Models\Survei;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -57,8 +58,6 @@ class SurveiKepuasanPenggunaController extends Controller
             'activePertanyaanSurvei' => $activePertanyaanSurvei,
         ];
 
-        // dd($data['activePertanyaanSurvei']);
-
         return view('pages.client.kepuasan-pengguna.form-survei-kepuasan-pengguna', $data);
     }
 
@@ -73,19 +72,28 @@ class SurveiKepuasanPenggunaController extends Controller
         $pengajuan = Pengajuan::findOrFail($id_pengajuan);
 
         $validated = $request->validate([
-            'rating' => 'required|numeric',
+            'question_rating' => 'required|array|min:1',
+            'question_rating.*' => 'required',
             'nama' => 'required|string',
             'email' => 'required|email',
-            'saran' => 'required|string'
+            'saran' => 'nullable'
         ]);
 
-        Survei::create([
-            'rating' => $validated['rating'],
-            'nama' => $validated['nama'],
-            'email' => $validated['email'],
-            'saran' => $validated['saran'],
-            'id_pengajuan' => $pengajuan->id,
-        ]);
+        dd($request);
+
+        // $saran = Saran::create([
+        //     'nama' => $validated['nama'],
+        //     'email' => $validated['email'],
+        //     'saran' => $validated['saran'],
+        //     'id_pengajuan' => $pengajuan->id,
+        // ]);
+
+        // Skor::create([
+        //     'skor' => $validated['question_rating'],
+        //     'id_pengajuan' => $pengajuan->id,
+        //     'id_pertanyaan_survei' => $validated['question_rating'],
+        //     'id_saran' => $saran->id,
+        // ]);
 
         Alert::success('Terima Kasih', 'Saran Telah Kami Tanggapi');
 
