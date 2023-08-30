@@ -73,27 +73,34 @@ class SurveiKepuasanPenggunaController extends Controller
 
         $validated = $request->validate([
             'question_rating' => 'required|array|min:1',
-            'question_rating.*' => 'required',
+            'question_rating.*' => 'required', // Example validation rules for ratings
             'nama' => 'required|string',
             'email' => 'required|email',
-            'saran' => 'nullable'
+            'saran' => 'nullable|string',
         ]);
 
-        dd($request);
 
-        // $saran = Saran::create([
-        //     'nama' => $validated['nama'],
-        //     'email' => $validated['email'],
-        //     'saran' => $validated['saran'],
-        //     'id_pengajuan' => $pengajuan->id,
-        // ]);
+        $saran = Saran::create([
+            'nama' => $validated['nama'],
+            'email' => $validated['email'],
+            'saran' => $validated['saran'],
+            'id_pengajuan' => $pengajuan->id,
+        ]);
 
-        // Skor::create([
-        //     'skor' => $validated['question_rating'],
-        //     'id_pengajuan' => $pengajuan->id,
-        //     'id_pertanyaan_survei' => $validated['question_rating'],
-        //     'id_saran' => $saran->id,
-        // ]);
+        // Loop through each question and its ratings
+        foreach ($validated['question_rating'] as $id_pertanyaan_survei => $ratings) {
+            foreach ($ratings as $skor) {
+                // Create skor only if the skor value is greater than 0
+                if (is_numeric($skor) && $skor >= 1) {
+                    Skor::create([
+                        'skor' => $skor,
+                        'id_pengajuan' => $pengajuan->id,
+                        'id_pertanyaan_survei' => $id_pertanyaan_survei,
+                        'id_saran' => $saran->id,
+                    ]);
+                }
+            }
+        }
 
         Alert::success('Terima Kasih', 'Saran Telah Kami Tanggapi');
 

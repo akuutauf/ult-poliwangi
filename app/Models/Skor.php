@@ -11,6 +11,7 @@ class Skor extends Model
 
     protected $fillable = [
         'id',
+        'skor',
         'id_pengajuan',
         'id_pertanyaan_survei',
         'id_saran'
