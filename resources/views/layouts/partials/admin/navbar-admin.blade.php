@@ -137,7 +137,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="{{ route('admin.saran.index') }}">
                                             <i class="fa-solid fa-star"></i>Skor dan Saran
                                         </a>
                                     </li>

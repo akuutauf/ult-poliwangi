@@ -25,13 +25,13 @@ class SurveiSeeder extends Seeder
             'id' => 2,
             'nama_survei' => 'Proses Pengajuan',
             'tahun' => 2023,
-            'status' => 'Aktif',
+            'status' => 'Tidak Aktif',
         ]);
         Survei::create([
             'id' => 3,
             'nama_survei' => 'Kualitas Informasi',
             'tahun' => 2023,
-            'status' => 'Tidak Aktif',
+            'status' => 'Aktif',
         ]);
         Survei::create([
             'id' => 4,

@@ -51,7 +51,7 @@ class FormUmumController extends Controller
             'nama_pemohon' => 'required|string',
             'nomor_identitas' => 'required|string|between:12,16',
             'email' => 'required|email',
-            'nomor_telepon' => 'required|string|between:12,15',
+            'nomor_telepon' => 'required|string|between:11,15',
             'id_prodi' => 'required',
             'id_layanan' => 'required',
             'tanggal_permohonan' => 'required|date',

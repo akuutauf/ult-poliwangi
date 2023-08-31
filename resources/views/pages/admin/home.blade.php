@@ -132,16 +132,16 @@
                         {{-- @if (Auth()->user()->divisi->nama_divisi == 'Unit Layanan Terpadu') --}}
                         <div class="row">
                             <div class="col-lg-12">
-                                <a href="#">
+                                <a href="{{ route('admin.saran.index') }}">
                                     <div class="card hospital-info card-hover card-rounded">
                                         <div class="card-body">
-                                            <h4 class="header-title mt-0 mb-3">Daftar Skor dan Ulasan</h4>
+                                            <h4 class="header-title mt-0 mb-3">Daftar Ulasan dan Skor</h4>
                                             <div class="media">
                                                 <div class="data-icon align-self-center">
                                                     <i class="fa-solid fa-face-smile-beam text-warning"></i>
                                                 </div>
                                                 <div class="media-body ml-3 align-self-center text-right">
-                                                    <h3 class="mt-0">Null</h3>
+                                                    <h3 class="mt-0">{{ $ulasan_count }}</h3>
                                                     <span
                                                         class="text-muted mb-0 text-nowrap">{{ Auth()->user()->divisi->nama_divisi }}</span>
                                                 </div><!--end media body-->

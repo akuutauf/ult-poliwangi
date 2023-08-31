@@ -1,7 +1,7 @@
 @extends('layouts.base-admin')
 
 @section('title')
-    <title> Daftar Saran | ULT Poliwangi</title>
+    <title> Daftar Ulasan | ULT Poliwangi</title>
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
-                            <h4 class="page-title">Daftar Saran</h4>
+                            <h4 class="page-title">Daftar Ulasan</h4>
                         </div>
                         <!--end page-title-box-->
                     </div>
@@ -32,38 +32,25 @@
                                             <tr class="text-center">
                                                 <th>No</th>
                                                 <th>Nama</th>
-                                                <th>Email</th>
-                                                <th>Jenis Permohonan</th>
-                                                <th>Saran</th>
-                                                <th>Kode Layanan</th>
-                                                <th width="10%">Action</th>
+                                                <th>Layanan Pengajuan</th>
+                                                <th>Pertanyaan</th>
+                                                <th>Rating</th>
                                             </tr>
                                             <!--end tr-->
                                         </thead>
 
                                         <tbody>
 
-                                            @foreach ($sarans as $data)
+                                            @foreach ($skors as $data)
                                                 <tr class="text-center">
                                                     <td>{{ $no }}</td>
-                                                    <td>{{ $data->nama }}</td>
-                                                    <td>{{ $data->email }}</td>
-                                                    <td>{{ $data->pengajuan->jenis_permohonan }}</td>
+                                                    <td>{{ $data->pengajuan->nama_pemohon }}</td>
+                                                    <td>{{ $data->pengajuan->layanan->nama_layanan }}</td>
+                                                    <td class="text-left">
+                                                        {{ $data->pertanyaan_survei->pertanyaan->pertanyaan }}</td>
                                                     <td>
-                                                        @if (($data->saran == null) | ($data->saran == ''))
-                                                            Tidak Ada Saran
-                                                        @else
-                                                            {{ $data->saran }}
-                                                        @endif
-                                                    </td>
-                                                    <td>{{ $data->pengajuan->kode_tiket }}</td>
-                                                    <td class="d-flex">
-                                                        <div class="mx-auto my-auto">
-                                                            <a href="{{ route('admin.ulasan.index', $data->id) }}"
-                                                                title="Lihat Skor">
-                                                                <i class="fas fa-magnifying-glass text-info font-16"></i>
-                                                            </a>
-                                                        </div>
+                                                        <i class="fa-solid fa-star text-warning"></i> &ensp;
+                                                        {{ $data->skor }}
                                                     </td>
                                                 </tr>
                                                 <!--end tr-->
