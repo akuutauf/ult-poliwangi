@@ -131,7 +131,6 @@
 
                             <form action="{{ route('tracking.pengajuan.search') }}" method="GET" class="p-3">
                                 @csrf
-
                                 <label for="kode_tiket" class="form-label fw-bold mb-3">Lacak Dokumen Sekarang !</label>
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" name="kode_tiket" id="kode_tiket"
