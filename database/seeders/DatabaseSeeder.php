@@ -37,6 +37,8 @@ class DatabaseSeeder extends Seeder
             ProdiSeeder::class,
             PertanyaanSeeder::class,
             SurveiSeeder::class,
+
+            PertanyaanSeeder::class,
         ]);
     }
 }

@@ -11,6 +11,7 @@ use App\Models\Pertanyaan;
 use App\Models\PertanyaanSurvei;
 use App\Models\Prodi;
 use App\Models\ProgressPengajuan;
+use App\Models\Saran;
 use App\Models\Survei;
 use Illuminate\Http\Request;
 
@@ -34,6 +35,10 @@ class PageController extends Controller
         $all_pengajuan = Pengajuan::where('submission_confirmed', 'Accept')->whereHas('layanan.divisi', function ($query) use ($nama_divisi_user) {
             $query->where('nama_divisi', $nama_divisi_user);
         })->get();
+
+        $ulasan_count = Saran::whereHas('pengajuan.layanan.divisi', function ($query) use ($nama_divisi_user) {
+            $query->where('nama_divisi', $nama_divisi_user);
+        })->count();
 
         // Mengambil jumlah data manajemen pengajuan
         foreach ($all_pengajuan as $pengajuan) {
@@ -80,6 +85,7 @@ class PageController extends Controller
             'manajemen_pengajuan_count' => $manajemen_pengajuan_count,
             'pengajuan_selesai_count' => $pengajuan_selesai_count,
             'pertanyaan_survei_count' => $pertanyaan_survei_count,
+            'ulasan_count' => $ulasan_count,
         ];
 
         return view('pages.admin.home', $data);

@@ -134,7 +134,7 @@
                                 <label for="kode_tiket" class="form-label fw-bold mb-3">Lacak Dokumen Sekarang !</label>
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control" name="kode_tiket" id="kode_tiket"
-                                        placeholder="Masukkan Kode Tiket">
+                                        placeholder="Masukkan Kode Tiket" required>
                                     <button class="btn btn-theme-paste" type="button" id="pasteButton">Paste</button>
                                 </div>
 

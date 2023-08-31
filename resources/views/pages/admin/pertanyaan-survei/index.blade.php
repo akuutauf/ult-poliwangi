@@ -53,7 +53,7 @@
                                                     <td>
 
                                                         <a href="{{ route('admin.pertanyaan.survei.show', $item->id) }}"
-                                                            class="mr-2" title="Track Pengajuan">
+                                                            class="mr-2" title="Lihat Pertanyaan">
                                                             <i class="fa-solid fa-eye" style="color: #6b7a94;"></i>
                                                         </a>
 

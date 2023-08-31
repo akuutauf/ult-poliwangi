@@ -22,15 +22,15 @@ class SurveiKepuasanPenggunaController extends Controller
     {
         $nama_divisi_user = Auth()->user()->divisi->nama_divisi;
 
-        $all_survei = Survei::whereHas('pengajuan.layanan.divisi', function ($query) use ($nama_divisi_user) {
+        $all_ulasan = Saran::whereHas('pengajuan.layanan.divisi', function ($query) use ($nama_divisi_user) {
             $query->where('nama_divisi', $nama_divisi_user);
         })->get();
 
         $data = [
-            'surveis' => $all_survei,
+            'sarans' => $all_ulasan,
         ];
 
-        return view('pages.admin.survei.index', $data);
+        return view('pages.admin.saran.index', $data);
     }
 
     /**
@@ -79,7 +79,6 @@ class SurveiKepuasanPenggunaController extends Controller
             'saran' => 'nullable|string',
         ]);
 
-
         $saran = Saran::create([
             'nama' => $validated['nama'],
             'email' => $validated['email'],
@@ -115,7 +114,24 @@ class SurveiKepuasanPenggunaController extends Controller
      */
     public function show($id)
     {
-        //
+        $nama_divisi_user = Auth()->user()->divisi->nama_divisi;
+        $skor = Skor::where('id_saran', $id)->with('pengajuan.layanan.divisi')->first();
+
+        // Pengecekan apakah data skor ditemukan atau tidak
+        if (!$skor) {
+            return view('pages.error.not-found-404');
+        }
+
+        // Pengecekan id divisi data skor berdasarkan divisi user yang sudah login
+        if ($skor->pengajuan->layanan->divisi->nama_divisi != $nama_divisi_user) {
+            return view('pages.error.not-have-access-403');
+        }
+
+        $data = [
+            'skors' => Skor::where('id_saran', $id)->get(),
+        ];
+
+        return view('pages.admin.skor.index', $data);
     }
 
     /**
