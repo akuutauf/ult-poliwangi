@@ -18,22 +18,22 @@ class PertanyaanSurveiSeeder extends Seeder
         PertanyaanSurvei::create([
             'id' => 1,
             'id_survei' => 1,
-            'id_survei' => 1,
+            'id_pertanyaan' => 1,
         ]);
         PertanyaanSurvei::create([
             'id' => 2,
             'id_survei' => 1,
-            'id_survei' => 7,
+            'id_pertanyaan' => 7,
         ]);
         PertanyaanSurvei::create([
             'id' => 3,
             'id_survei' => 3,
-            'id_survei' => 2,
+            'id_pertanyaan' => 2,
         ]);
         PertanyaanSurvei::create([
             'id' => 4,
             'id_survei' => 3,
-            'id_survei' => 5,
+            'id_pertanyaan' => 5,
         ]);
     }
 }

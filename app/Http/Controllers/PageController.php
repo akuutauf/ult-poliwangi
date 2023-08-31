@@ -12,6 +12,7 @@ use App\Models\PertanyaanSurvei;
 use App\Models\Prodi;
 use App\Models\ProgressPengajuan;
 use App\Models\Saran;
+use App\Models\Skor;
 use App\Models\Survei;
 use Illuminate\Http\Request;
 
@@ -72,6 +73,24 @@ class PageController extends Controller
             }
         }
 
+        // Mengambil semua data skor dari tabel
+        $skorData = Skor::all();
+
+        $totalSkor = 0;
+        $jumlahSkor = count($skorData);
+
+        // Menghitung total skor
+        foreach ($skorData as $skor) {
+            $totalSkor += $skor->skor;
+        }
+
+        // Menghitung rata-rata skor
+        if ($jumlahSkor > 0) {
+            $rataRataSkor = $totalSkor / $jumlahSkor;
+        } else {
+            $rataRataSkor = 0;
+        }
+
         $data = [
             // jumlah data
             'prodi_count' => Prodi::count(),
@@ -86,6 +105,7 @@ class PageController extends Controller
             'pengajuan_selesai_count' => $pengajuan_selesai_count,
             'pertanyaan_survei_count' => $pertanyaan_survei_count,
             'ulasan_count' => $ulasan_count,
+            'ratarata_skor' => $rataRataSkor
         ];
 
         return view('pages.admin.home', $data);

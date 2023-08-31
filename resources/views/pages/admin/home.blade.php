@@ -34,14 +34,16 @@
                                         <ul class="list-inline list-unstyled profile-socials mb-0">
                                             <li class="list-inline-item">
                                                 <a href="#" class="">
-                                                    <i class="fa-solid fa-star bg-soft-warning"></i> &ensp; 4.9 Average
+                                                    <i class="fa-solid fa-star bg-soft-warning"></i>
+                                                    &ensp;{{ $ratarata_skor }} Average
                                                     Rating
                                                 </a>
                                             </li>
                                             <span> | &ensp; </span>
                                             <li class="list-inline-item">
                                                 <a href="#" class="">
-                                                    <i class="fa-solid fa-face-smile-beam bg-soft-purple"></i> &ensp; 500
+                                                    <i class="fa-solid fa-face-smile-beam bg-soft-purple"></i>
+                                                    &ensp;{{ $ulasan_count }}
                                                     Pengulas
                                                 </a>
                                             </li>

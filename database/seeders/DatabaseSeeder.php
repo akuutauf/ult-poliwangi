@@ -11,6 +11,7 @@ use Database\Seeders\BerkasSeeder;
 use Database\Seeders\DivisiSeeder;
 use Database\Seeders\LayananSeeder;
 use Database\Seeders\PertanyaanSeeder;
+use Database\Seeders\PertanyaanSurveiSeeder;
 use Database\Seeders\ProdiSeeder;
 use Database\Seeders\SurveiSeeder;
 use Database\Seeders\UserSeeder;
@@ -38,7 +39,7 @@ class DatabaseSeeder extends Seeder
             PertanyaanSeeder::class,
             SurveiSeeder::class,
 
-            PertanyaanSeeder::class,
+            PertanyaanSurveiSeeder::class,
         ]);
     }
 }

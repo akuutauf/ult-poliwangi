@@ -33,6 +33,7 @@
                                                 <th>No</th>
                                                 <th>Nama</th>
                                                 <th>Layanan Pengajuan</th>
+                                                <th>Survei</th>
                                                 <th>Pertanyaan</th>
                                                 <th>Rating</th>
                                             </tr>
@@ -46,6 +47,7 @@
                                                     <td>{{ $no }}</td>
                                                     <td>{{ $data->pengajuan->nama_pemohon }}</td>
                                                     <td>{{ $data->pengajuan->layanan->nama_layanan }}</td>
+                                                    <td>{{ $data->pertanyaan_survei->survei->nama_survei }}</td>
                                                     <td class="text-left">
                                                         {{ $data->pertanyaan_survei->pertanyaan->pertanyaan }}</td>
                                                     <td>

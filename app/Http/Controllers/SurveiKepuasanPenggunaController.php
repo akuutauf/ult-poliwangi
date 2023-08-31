@@ -69,6 +69,8 @@ class SurveiKepuasanPenggunaController extends Controller
      */
     public function store(Request $request, $id_pengajuan)
     {
+
+        // dd($request);
         $pengajuan = Pengajuan::findOrFail($id_pengajuan);
 
         $validated = $request->validate([
