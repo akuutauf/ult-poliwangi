@@ -4,6 +4,18 @@
     <title>Dashboard Admin | ULT Poliwangi</title>
 @endsection
 
+@php
+    function formatBilangan($bilangan)
+    {
+        return number_format((float) $bilangan, 2, '.', '');
+    }
+    
+    function formatJumlah($jumlah)
+    {
+        return number_format((float) $jumlah, 0, ',', '.');
+    }
+@endphp
+
 @section('content')
     <div class="page-wrapper">
         <div class="page-content">
@@ -35,7 +47,7 @@
                                             <li class="list-inline-item">
                                                 <a href="#" class="">
                                                     <i class="fa-solid fa-star bg-soft-warning"></i>
-                                                    &ensp;{{ $ratarata_skor }} Average
+                                                    &ensp;{{ formatBilangan($ratarata_skor) }} Average
                                                     Rating
                                                 </a>
                                             </li>
@@ -43,7 +55,7 @@
                                             <li class="list-inline-item">
                                                 <a href="#" class="">
                                                     <i class="fa-solid fa-face-smile-beam bg-soft-purple"></i>
-                                                    &ensp;{{ $ulasan_count }}
+                                                    &ensp;{{ formatJumlah($ulasan_count) }}
                                                     Pengulas
                                                 </a>
                                             </li>
