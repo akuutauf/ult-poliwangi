@@ -33,9 +33,12 @@
                                         <p class="mb-2 text-muted">&commat;{{ Auth()->user()->name }}</p>
                                         <ul class="list-inline list-unstyled profile-socials mb-0">
                                             <li class="list-inline-item">
+                                                @php
+                                                    $formattedNumber = number_format($ratarata_skor, 2);
+                                                @endphp
                                                 <a href="#" class="">
                                                     <i class="fa-solid fa-star bg-soft-warning"></i>
-                                                    &ensp;{{ $ratarata_skor }} Average
+                                                    &ensp;{{ $formattedNumber }} Average
                                                     Rating
                                                 </a>
                                             </li>

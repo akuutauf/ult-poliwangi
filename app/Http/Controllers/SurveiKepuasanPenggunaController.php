@@ -67,7 +67,7 @@ class SurveiKepuasanPenggunaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id_pengajuan)
+    public function store(Request $request, $id_pengajuan,)
     {
 
         // dd($request);
@@ -81,6 +81,7 @@ class SurveiKepuasanPenggunaController extends Controller
             'saran' => 'nullable|string',
         ]);
 
+
         $saran = Saran::create([
             'nama' => $validated['nama'],
             'email' => $validated['email'],
@@ -88,15 +89,16 @@ class SurveiKepuasanPenggunaController extends Controller
             'id_pengajuan' => $pengajuan->id,
         ]);
 
+
         // Loop through each question and its ratings
-        foreach ($validated['question_rating'] as $id_pertanyaan_survei => $ratings) {
-            foreach ($ratings as $skor) {
+        foreach ($validated['question_rating'] as $id_survei => $id_pertanyaan_survei) {
+            foreach ($id_pertanyaan_survei as $id_pertanyaan => $skor) {
                 // Create skor only if the skor value is greater than 0
                 if (is_numeric($skor) && $skor >= 1) {
                     Skor::create([
                         'skor' => $skor,
                         'id_pengajuan' => $pengajuan->id,
-                        'id_pertanyaan_survei' => $id_pertanyaan_survei,
+                        'id_pertanyaan_survei' => $id_pertanyaan,
                         'id_saran' => $saran->id,
                     ]);
                 }
