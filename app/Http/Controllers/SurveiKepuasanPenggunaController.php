@@ -6,9 +6,7 @@ use App\Models\Pengajuan;
 use App\Models\PertanyaanSurvei;
 use App\Models\Saran;
 use App\Models\Skor;
-use App\Models\Survei;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class SurveiKepuasanPenggunaController extends Controller
@@ -69,8 +67,6 @@ class SurveiKepuasanPenggunaController extends Controller
      */
     public function store(Request $request, $id_pengajuan,)
     {
-
-        // dd($request);
         $pengajuan = Pengajuan::findOrFail($id_pengajuan);
 
         $validated = $request->validate([
@@ -81,7 +77,6 @@ class SurveiKepuasanPenggunaController extends Controller
             'saran' => 'nullable|string',
         ]);
 
-
         $saran = Saran::create([
             'nama' => $validated['nama'],
             'email' => $validated['email'],
@@ -89,18 +84,24 @@ class SurveiKepuasanPenggunaController extends Controller
             'id_pengajuan' => $pengajuan->id,
         ]);
 
-
         // Loop through each question and its ratings
         foreach ($validated['question_rating'] as $id_survei => $id_pertanyaan_survei) {
             foreach ($id_pertanyaan_survei as $id_pertanyaan => $skor) {
                 // Create skor only if the skor value is greater than 0
                 if (is_numeric($skor) && $skor >= 1) {
-                    Skor::create([
-                        'skor' => $skor,
-                        'id_pengajuan' => $pengajuan->id,
-                        'id_pertanyaan_survei' => $id_pertanyaan,
-                        'id_saran' => $saran->id,
-                    ]);
+                    // Dapatkan id_pertanyaan yang sesuai dengan id_pertanyaan_survei
+                    $pertanyaan_survei = PertanyaanSurvei::where('id_survei', $id_survei)
+                        ->where('id_pertanyaan', $id_pertanyaan)
+                        ->first();
+
+                    if ($pertanyaan_survei) {
+                        Skor::create([
+                            'skor' => $skor,
+                            'id_pengajuan' => $pengajuan->id,
+                            'id_pertanyaan_survei' => $pertanyaan_survei->id,
+                            'id_saran' => $saran->id,
+                        ]);
+                    }
                 }
             }
         }
@@ -132,7 +133,7 @@ class SurveiKepuasanPenggunaController extends Controller
         }
 
         $data = [
-            'skors' => Skor::where('id_saran', $id)->get(),
+            'skors' => Skor::where('id_saran', $id)->join('pertanyaan_surveis', 'skors.id_pertanyaan_survei', '=', 'pertanyaan_surveis.id')->join('surveis', 'pertanyaan_surveis.id_survei', '=', 'surveis.id')->orderBy('surveis.id', 'asc')->get(),
         ];
 
         return view('pages.admin.skor.index', $data);

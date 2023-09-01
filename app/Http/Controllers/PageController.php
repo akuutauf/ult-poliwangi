@@ -27,6 +27,7 @@ class PageController extends Controller
     {
         // inisialisasi variabel
         $all_progress_pengajuan = ProgressPengajuan::all();
+        $pengulas_count = Saran::count();
         $manajemen_pengajuan_count = 0;
         $pengajuan_selesai_count = 0;
         $pertanyaan_survei_count = PertanyaanSurvei::select('id_survei')->distinct()->count('id_survei');
@@ -105,7 +106,8 @@ class PageController extends Controller
             'pengajuan_selesai_count' => $pengajuan_selesai_count,
             'pertanyaan_survei_count' => $pertanyaan_survei_count,
             'ulasan_count' => $ulasan_count,
-            'ratarata_skor' => $rataRataSkor
+            'ratarata_skor' => $rataRataSkor,
+            'pengulas_count' => $pengulas_count,
         ];
 
         return view('pages.admin.home', $data);

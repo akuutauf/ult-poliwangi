@@ -36,7 +36,7 @@ class PertanyaanSurveiController extends Controller
     {
         $usedSurveiIds = PertanyaanSurvei::pluck('id_survei')->unique();
 
-        $usersWithoutAdmin = Survei::whereNotIn('id', $usedSurveiIds)->get();
+        $usersWithoutAdmin = Survei::where('status', 'Aktif')->whereNotIn('id', $usedSurveiIds)->get();
 
         $data = [
             'survei_option' => $usersWithoutAdmin,
@@ -73,7 +73,6 @@ class PertanyaanSurveiController extends Controller
                 ]);
             }
         }
-
 
         Alert::success('Success', 'Berhasil Menambahkan Pertanyaan Survei');
 
@@ -130,14 +129,12 @@ class PertanyaanSurveiController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $validated = $request->validate([
             'pertanyaan' => 'required|array|min:1',
         ]);
 
         $id_survei = $id;
         $pertanyaanIDs = $validated['pertanyaan'];
-
 
         $existingPertanyaanIDs = PertanyaanSurvei::where('id_survei', $id_survei)->pluck('id_pertanyaan')->toArray();
 
@@ -161,7 +158,6 @@ class PertanyaanSurveiController extends Controller
             }
             PertanyaanSurvei::insert($newPertanyaan);
         }
-
 
         Alert::success('Success', 'Pertanyaan Survei Berhasil Diupdate');
 

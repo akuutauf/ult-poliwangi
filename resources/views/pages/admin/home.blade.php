@@ -58,7 +58,7 @@
                                             <li class="list-inline-item">
                                                 <a href="#" class="">
                                                     <i class="fa-solid fa-face-smile-beam bg-soft-purple"></i>
-                                                    &ensp;{{ formatJumlah($ulasan_count) }}
+                                                    &ensp;{{ formatJumlah($pengulas_count) }}
                                                     Pengulas
                                                 </a>
                                             </li>
