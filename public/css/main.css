@@ -116,6 +116,11 @@ body {
     border: 2px solid #005fb1 !important;
 }
 
+.btn-grey {
+    background-color: grey !important;
+    color: white !important;
+}
+
 .text-purple {
     color: #614bc3 !important;
 }
@@ -159,6 +164,10 @@ body {
 
 .footer-text {
     font-size: 12px !important;
+}
+
+.panduan-text-size {
+    font-size: 20px !important;
 }
 
 .navbar-hover:hover {

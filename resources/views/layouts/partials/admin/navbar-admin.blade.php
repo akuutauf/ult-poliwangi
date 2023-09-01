@@ -171,6 +171,13 @@
                             <!--end has-submenu-->
                         @endif
 
+                        <li class="has-submenu">
+                            <a href="{{ route('admin.panduan.index') }}">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <span>Panduan</span>
+                            </a>
+                        </li>
+
                         <!--end has-submenu-->
                     </ul><!-- End navigation menu -->
                 </div> <!-- end navigation -->

@@ -13,6 +13,7 @@ use App\Http\Controllers\FormDosenController;
 use App\Http\Controllers\FormUmumController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PanduanPenggunaController;
 use App\Http\Controllers\PengajuanSelesai;
 use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\PertanyaanSurveiController;
@@ -23,7 +24,6 @@ use App\Http\Controllers\TrackingPengajuanController;
 use App\Http\Controllers\TrackingSearch;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\FilterDivisi;
-use App\Models\PertanyaanSurvei;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -86,6 +86,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/manajemen-pengajuan/daftar-pengajuan-selesai', [PengajuanSelesai::class, 'index'])->name('admin.pengajuan.selesai.index');
     Route::get('/admin/daftar-saran', [SurveiKepuasanPenggunaController::class, 'index'])->name('admin.saran.index');
     Route::get('/admin/daftar-saran/daftar-ulasan/{id_saran}', [SurveiKepuasanPenggunaController::class, 'show'])->name('admin.ulasan.index');
+
+    // panduan pengguna
+    Route::get('/admin/panduan-pengguna', [PanduanPenggunaController::class, 'index'])->name('admin.panduan.index');
+    Route::post('/admin/panduan-pengguna/store', [PanduanPenggunaController::class, 'store'])->name('admin.panduan.store');
+    Route::get('/admin/panduan-pengguna/delete/{id}', [PanduanPenggunaController::class, 'destroy'])->name('admin.panduan.destroy');
 
     // divisi unit layanan terpadu
     Route::middleware([FilterDivisi::class . ':Unit Layanan Terpadu'])->group(function () {

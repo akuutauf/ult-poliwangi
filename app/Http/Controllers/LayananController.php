@@ -26,9 +26,6 @@ class LayananController extends Controller
             'berkaslayanan' => BerkasLayanan::all()
         ];
 
-        // 'berkaslayanan' => BerkasLayanan::select('id_layanan')->distinct()->with('layanan')->get()
-        // dd($data['berkaslayanan']);
-
         return view('pages.admin.layanan.index', $data);
     }
 
