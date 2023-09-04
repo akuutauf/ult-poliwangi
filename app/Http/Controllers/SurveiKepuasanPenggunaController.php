@@ -22,7 +22,7 @@ class SurveiKepuasanPenggunaController extends Controller
 
         $all_ulasan = Saran::whereHas('pengajuan.layanan.divisi', function ($query) use ($nama_divisi_user) {
             $query->where('nama_divisi', $nama_divisi_user);
-        })->get();
+        })->orderBy('created_at', 'desc')->get();
 
         $data = [
             'sarans' => $all_ulasan,
