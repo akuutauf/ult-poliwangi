@@ -23,7 +23,7 @@ return new class extends Migration
             $table->date('tanggal_permohonan')->nullable(false);
             $table->string('nomor_telepon', 15)->nullable(false);
             $table->string('submission_confirmed', 20)->nullable(false)->default('No');
-            $table->unsignedBigInteger('id_prodi')->nullable(false);
+            $table->unsignedBigInteger('id_prodi')->nullable(true);
             $table->unsignedBigInteger('id_layanan')->nullable(false);
             $table->foreign('id_prodi')->references('id')->on('prodis')->onDelete('cascade');
             $table->foreign('id_layanan')->references('id')->on('layanans')->onDelete('cascade');

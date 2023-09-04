@@ -22,7 +22,7 @@ class PengajuanSelesai extends Controller
 
         $all_pengajuan = Pengajuan::where('submission_confirmed', 'Accept')->whereHas('layanan.divisi', function ($query) use ($nama_divisi_user) {
             $query->where('nama_divisi', $nama_divisi_user);
-        })->get();
+        })->orderBy('created_at', 'desc')->get();
 
         foreach ($all_pengajuan as $pengajuan) {
             // Ambil data progress pengajuan terakhir berdasarkan id_pengajuan

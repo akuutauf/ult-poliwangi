@@ -19,7 +19,7 @@
         <div class="container py-5">
             <div class="row py-5">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                    <h2 class="fw-bold"><i class="fa-solid fa-file-circle-plus"></i>&ensp; FORMULIR PENGAJUAN MAHASISWA</h2>
+                    <h2 class="fw-bold"><i class="fa-solid fa-file-circle-plus"></i>&ensp; FORMULIR PENGAJUAN UMUM</h2>
 
                     {{-- Livewire Pengajuan umum --}}
                     <livewire:formulir-pengajuan-umum></livewire:formulir-pengajuan-umum>

@@ -51,7 +51,7 @@
                 @enderror
             </div>
 
-            <div class="col-md-6 mb-1">
+            {{-- <div class="col-md-6 mb-1">
                 <label class="form-label" for="id_prodi">Program Studi</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fa-solid fa-graduation-cap"></i></span>
@@ -65,7 +65,7 @@
                 @error('id_prodi')
                     <div id="id_prodi" class="form-text pb-1">{{ $message }}</div>
                 @enderror
-            </div>
+            </div> --}}
 
             <div class="col-md-6 mb-1">
                 <label class="form-label" for="id_layanan">Layanan</label>

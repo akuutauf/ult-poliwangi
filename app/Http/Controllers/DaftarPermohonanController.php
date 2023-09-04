@@ -17,7 +17,9 @@ class DaftarPermohonanController extends Controller
     public function index()
     {
         $data = [
-            'pengajuans' => Pengajuan::where('submission_confirmed', 'No')->get(),
+            'pengajuans' => Pengajuan::where('submission_confirmed', 'No')
+                ->orderBy('created_at', 'desc')
+                ->get(),
         ];
 
         return view('pages.admin.permohonan.index', $data);

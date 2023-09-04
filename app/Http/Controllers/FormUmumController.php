@@ -52,7 +52,6 @@ class FormUmumController extends Controller
             'nomor_identitas' => 'required|string|between:12,16',
             'email' => 'required|email',
             'nomor_telepon' => 'required|string|between:11,15',
-            'id_prodi' => 'required',
             'id_layanan' => 'required',
             'tanggal_permohonan' => 'required|date',
         ]);
@@ -62,7 +61,6 @@ class FormUmumController extends Controller
             'nomor_identitas' => $validated['nomor_identitas'],
             'email' => $validated['email'],
             'nomor_telepon' => $validated['nomor_telepon'],
-            'id_prodi' => $validated['id_prodi'],
             'id_layanan' => $validated['id_layanan'],
             'tanggal_permohonan' => $validated['tanggal_permohonan'],
 
