@@ -66,7 +66,7 @@
 
                                 <center>
                                     <span>Kembali ke halaman <a href="{{ route('home.page') }}"
-                                            class="tag-menu fw-bold">Landing
+                                            class="tag-theme fw-bold">Landing
                                             Page </a></span>
                                 </center>
                             </form><!--end form-->

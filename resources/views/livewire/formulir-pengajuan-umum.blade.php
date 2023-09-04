@@ -51,21 +51,6 @@
                 @enderror
             </div>
 
-            {{-- <div class="col-md-6 mb-1">
-                <label class="form-label" for="id_prodi">Program Studi</label>
-                <div class="input-group mb-3">
-                    <span class="input-group-text"><i class="fa-solid fa-graduation-cap"></i></span>
-                    <select class="form-control @error('id_prodi') is-invalid @enderror" id="id_prodi" name="id_prodi">
-                        <option value="">Pilih Prodi</option>
-                        @foreach ($prodis as $data)
-                            <option value="{{ $data->id }}">{{ $data->nama_prodi }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                @error('id_prodi')
-                    <div id="id_prodi" class="form-text pb-1">{{ $message }}</div>
-                @enderror
-            </div> --}}
 
             <div class="col-md-6 mb-1">
                 <label class="form-label" for="id_layanan">Layanan</label>

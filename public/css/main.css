@@ -34,7 +34,7 @@ body {
 }
 
 .text-theme {
-    color: #005fb1 !important;
+    color: #004978 !important;
 }
 
 .card-hover {
@@ -77,43 +77,57 @@ body {
 }
 
 .btn-theme {
-    background-color: #005fb1 !important;
+    font-weight: 500 !important;
+    background-color: #004978 !important;
     color: white !important;
     border-radius: 8px !important;
-    border: 2px solid #005fb1 !important;
+    border: 2px solid #004978 !important;
 }
 
 .btn-theme:hover {
+    font-weight: 500 !important;
     background-color: white !important;
-    color: #005fb1 !important;
+    color: #004978 !important;
     border-radius: 8px !important;
-    border: 2px solid #005fb1 !important;
+    border: 2px solid #004978 !important;
+}
+
+.btn-theme-inverse {
+    font-weight: 500 !important;
+    background-color: #e5ac50 !important;
+    color: white !important;
+    border-radius: 8px !important;
+    /* border: 2px solid white !important; */
 }
 
 .btn-theme-two {
-    background-color: #005fb1 !important;
+    font-weight: 500 !important;
+    background-color: #e5ac50 !important;
     color: white !important;
-    border-radius: 20px !important;
-    border: 2px solid #005fb1 !important;
+    border-radius: 12px !important;
+    border: 2px solid #e5ac50 !important;
 }
 
 .btn-theme-two:hover {
+    font-weight: 500 !important;
     background-color: white !important;
-    color: #005fb1 !important;
-    border-radius: 20px !important;
-    border: 2px solid #005fb1 !important;
+    color: #e5ac50 !important;
+    border-radius: 12px !important;
+    border: 2px solid #e5ac50 !important;
 }
 
 .btn-theme-paste {
-    background-color: #005fb1 !important;
+    font-weight: 500 !important;
+    background-color: #e5ac50 !important;
     color: white !important;
-    border: 2px solid #005fb1 !important;
+    border: 2px solid #e5ac50 !important;
 }
 
 .btn-theme-paste:hover {
+    font-weight: 500 !important;
     background-color: white !important;
-    color: #005fb1 !important;
-    border: 2px solid #005fb1 !important;
+    color: #e5ac50 !important;
+    border: 2px solid #e5ac50 !important;
 }
 
 .btn-grey {
@@ -142,7 +156,7 @@ body {
 }
 
 .section-bg-two {
-    background-color: #e5f2fe !important;
+    background-color: #004978 !important;
 }
 
 .card-rounded {
@@ -150,16 +164,35 @@ body {
     border: 0px solid transparent !important;
 }
 
+.icon-footer {
+    font-size: 20px !important;
+}
+
 .footer-theme {
-    background-color: #005fb1 !important;
+    background-color: #202020 !important;
+}
+
+.text-footer {
+    color: #d5e2ea !important;
+}
+
+.bg-insta {
+    background-color: #f73466 !important;
+}
+
+.footer-text {
+    color: #d5e2ea !important;
 }
 
 .tag-menu {
+    font-weight: 600 !important;
     text-decoration: none !important;
 }
 
 .tag-menu:hover {
-    text-decoration: underline !important;
+    color: #e5ac50 !important;
+    font-weight: 600 !important;
+    /* text-decoration: underline !important; */
 }
 
 .footer-text {
@@ -170,13 +203,38 @@ body {
     font-size: 20px !important;
 }
 
-.navbar-hover:hover {
+/* Ganti warna latar belakang navbar */
+.navbar-theme {
+    background-color: rgba(
+        233,
+        241,
+        246,
+        0.9
+    ); /* Warna latar belakang dengan tingkat transparansi */
+    transition: background-color 0.3s ease; /* Efek transisi perubahan warna */
+}
+
+/* Ganti warna latar belakang navbar saat di-scroll */
+.navbar-theme.scrolled {
+    background-color: rgba(
+        255,
+        255,
+        255,
+        0.6
+    ); /* Warna latar belakang saat di-scroll */
+}
+
+.navbar-text-hover {
     color: #005fb1 !important;
     font-weight: medium !important;
 }
 
+.navbar-text-hover:hover {
+    color: #176b87 !important;
+}
+
 .card-service {
-    background-color: #005fb1 !important;
+    background-color: #004978 !important;
     color: white !important;
     border-radius: 35px !important;
 }
