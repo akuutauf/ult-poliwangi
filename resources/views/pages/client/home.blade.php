@@ -8,7 +8,7 @@
     <section class="container-fluid section-bg-one py-5">
         <div class="container py-5">
             <div class="row py-5">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5 order-2 order-md-1" data-aos="fade-up"
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 mt-5 order-2 order-md-1 mb-3 p-3" data-aos="fade-up"
                     data-aos-delay="300">
                     <h1 class="fw-bold">ULT POLIWANGI</h1>
                     <p class="fw-medium text-justify mt-4">
@@ -26,10 +26,10 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 order-1 order-md-2" data-aos="zoom-in" data-aos-delay="600">
-                    <center>
-                        <img src="{{ asset('images/landing-page.svg') }}" width="450" class="img-fluid" alt="">
-                    </center>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 order-1 order-md-2 d-flex" data-aos="zoom-in"
+                    data-aos-delay="600">
+                    <img src="{{ asset('images/landing-page.svg') }}" width="450" class="img-fluid p-5 mx-auto my-auto"
+                        alt="">
                 </div>
             </div>
         </div>
@@ -38,73 +38,79 @@
     <section id="formulir" class="container-fluid section-bg-two py-5">
         <div class="container py-5">
             <div class="row d-flex pt-5">
-                <h3 class="fw-bold mt-3 text-center">Kategori Permohonan Formulir</h3>
+                <h3 class="fw-bold mt-3 text-white text-center">Kategori Permohonan Formulir</h3>
             </div>
 
             <div class="row py-5 d-flex justify-content-around">
                 <div class="col-12 col-sm-12 col-md-5 col-lg-3 mb-4 card card-hover card-rounded" data-aos="fade-up"
                     data-aos-delay="300">
                     <div class="row d-flex justify-content-center">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <div class="card-body">
-                                <div>
-                                    <div class="card-body d-flex">
-                                        <img src="{{ asset('images/pemohon-dosen.png') }}" class="img-fluid mx-auto"
-                                            alt="">
+                        <a href="{{ route('pengajuan.dosen.page') }}">
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                                <div class="card-body">
+                                    <div>
+                                        <div class="card-body d-flex">
+                                            <img src="{{ asset('images/pemohon-dosen.png') }}" class="img-fluid mx-auto"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <center>
+                                            <small><a href="{{ route('pengajuan.dosen.page') }}"
+                                                    class="tag-menu text-black fw-medium">Dosen</a></small>
+                                        </center>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <center>
-                                        <small><a href="{{ route('pengajuan.dosen.page') }}"
-                                                class="tag-menu text-black fw-medium">Dosen</a></small>
-                                    </center>
-                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
                 <div class="col-12 col-sm-12 col-md-5 col-lg-3 mb-4 card card-hover card-rounded" data-aos="fade-up"
                     data-aos-delay="600">
                     <div class="row d-flex justify-content-center">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <div class="card-body">
-                                <div>
-                                    <div class="card-body d-flex">
-                                        <img src="{{ asset('images/pemohon-mahasiswa.png') }}" class="img-fluid mx-auto"
-                                            alt="">
+                        <a href="{{ route('pengajuan.mahasiswa.page') }}">
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                                <div class="card-body">
+                                    <div>
+                                        <div class="card-body d-flex">
+                                            <img src="{{ asset('images/pemohon-mahasiswa.png') }}" class="img-fluid mx-auto"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <center>
+                                            <small><a href="{{ route('pengajuan.mahasiswa.page') }}"
+                                                    class="tag-menu text-black fw-medium">Mahasiswa</a></small>
+                                        </center>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <center>
-                                        <small><a href="{{ route('pengajuan.mahasiswa.page') }}"
-                                                class="tag-menu text-black fw-medium">Mahasiswa</a></small>
-                                    </center>
-                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
                 <div class="col-12 col-sm-12 col-md-5 col-lg-3 mb-4 card card-hover card-rounded" data-aos="fade-up"
                     data-aos-delay="900">
                     <div class="row d-flex justify-content-center">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <div class="card-body">
-                                <div>
-                                    <div class="card-body d-flex">
-                                        <img src="{{ asset('images/pemohon-umum.png') }}" class="img-fluid mx-auto"
-                                            alt="">
+                        <a href="{{ route('pengajuan.umum.page') }}">
+                            <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                                <div class="card-body">
+                                    <div>
+                                        <div class="card-body d-flex">
+                                            <img src="{{ asset('images/pemohon-umum.png') }}" class="img-fluid mx-auto"
+                                                alt="">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <center>
+                                            <small><a href="{{ route('pengajuan.umum.page') }}"
+                                                    class="tag-menu text-black fw-medium">Umum</a></small>
+                                        </center>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <center>
-                                        <small><a href="{{ route('pengajuan.umum.page') }}"
-                                                class="tag-menu text-black fw-medium">Umum</a></small>
-                                    </center>
-                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
@@ -125,7 +131,7 @@
                             width="300" alt="">
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-5 mb-5" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-5 mb-5 mt-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="card card-rounded card-hover shadow">
                         <div class="card-body">
 
@@ -159,9 +165,9 @@
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6" data-aos="fade-up" data-aos-delay="300">
                     <div>
-                        <h2 class="fw-bold">Tentang Kami</h2>
+                        <h2 class="fw-bold text-white">Tentang Kami</h2>
 
-                        <p class="text-justify mt-4">
+                        <p class="text-justify mt-4 text-white">
                             Politeknik Negeri Banyuwangi adalah perguruan tinggi negeri yang terletak di Kabupaten
                             Banyuwangi, Jawa Timur, Indonesia. Berdiri sejak tahun 2014, politeknik ini menawarkan program
                             studi vokasi dan terapan yang berkualitas, sesuai kebutuhan industri dan pasar kerja. Dengan
@@ -173,7 +179,7 @@
                         </p>
 
                         <div class="mt-4">
-                            <a href="https://poliwangi.ac.id/" target="_blank" class="btn btn-theme px-3 py-2">
+                            <a href="https://poliwangi.ac.id/" target="_blank" class="btn btn-theme-inverse px-3 py-3">
                                 Lihat Selengkapnya
                             </a>
                         </div>

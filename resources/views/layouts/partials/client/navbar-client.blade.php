@@ -1,5 +1,5 @@
 <div class="container">
-    <nav class="navbar navbar-expand-lg fixed-top bg-white">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-theme py-3">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home.page') }}#">
                 <img src="{{ asset('images/logo-title-poliwangi.png') }}" class="img-fluid" width="45" alt="">
@@ -16,20 +16,19 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav d-flex">
                     <li class="nav-item my-auto px-2">
-                        <a class="nav-link fw-regular text-secondary navbar-hover"
-                            href="{{ route('home.page') }}#">Beranda</a>
+                        <a class="nav-link fw-regular navbar-text-hover" href="{{ route('home.page') }}#">Beranda</a>
                     </li>
                     <li class="nav-item my-auto px-2">
-                        <a class="nav-link fw-regular text-secondary navbar-hover"
+                        <a class="nav-link fw-regular navbar-text-hover"
                             href="{{ route('home.page') }}#formulir">Formulir</a>
                     </li>
                     <li class="nav-item my-auto px-2">
-                        <a class="nav-link fw-regular text-secondary navbar-hover"
+                        <a class="nav-link fw-regular navbar-text-hover"
                             href="{{ route('home.page') }}#lacak_dokumen">Lacak
                             Dokumen</a>
                     </li>
                     <li class="nav-item my-auto px-2">
-                        <a class="nav-link fw-regular text-secondary navbar-hover"
+                        <a class="nav-link fw-regular navbar-text-hover"
                             href="{{ route('home.page') }}#tentang_kami">Tentang Kami</a>
                     </li>
                     <li class="nav-item my-auto px-2">
@@ -51,3 +50,23 @@
         </div>
     </nav>
 </div>
+
+<script>
+    $(document).ready(function() {
+        // Deteksi scroll saat halaman dimuat
+        if ($(this).scrollTop() > 100) {
+            $('.navbar-theme').addClass('scrolled');
+        } else {
+            $('.navbar-theme').removeClass('scrolled');
+        }
+
+        // Deteksi scroll saat halaman di-scroll
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('.navbar-theme').addClass('scrolled');
+            } else {
+                $('.navbar-theme').removeClass('scrolled');
+            }
+        });
+    });
+</script>

@@ -12,20 +12,20 @@
             $slug = explode('-', $date);
             return $slug[2] . ' ' . $month[(int) $slug[1]] . ' ' . $slug[0];
         }
-
+        
         function tambahEstimasiHariKerja($tanggal, $estimasiHari)
         {
             $tanggalObj = new DateTime($tanggal);
-
+        
             for ($i = 1; $i <= $estimasiHari; $i++) {
                 $tanggalObj->modify('+1 day');
-
+        
                 // Loop untuk mengabaikan hari Sabtu dan Minggu
                 while ($tanggalObj->format('N') >= 6) {
                     $tanggalObj->modify('+1 day');
                 }
             }
-
+        
             return $tanggalObj->format('Y-m-d');
         }
     @endphp
@@ -70,7 +70,13 @@
                                             <p class="card-text">{{ $pengajuan->nomor_identitas }}</p>
 
                                             <h5 class="card-title">Program Studi</h5>
-                                            <p class="card-text">{{ $pengajuan->prodi->nama_prodi }}</p>
+                                            <p class="card-text">
+                                                @if ($pengajuan->id_prodi == null)
+                                                    Tidak Ada Prodi
+                                                @else
+                                                    {{ $data->prodi->nama_prodi }}
+                                                @endif
+                                            </p>
 
                                             <h5 class="card-title">Email</h5>
                                             <p class="card-text">{{ $pengajuan->email }}</p>

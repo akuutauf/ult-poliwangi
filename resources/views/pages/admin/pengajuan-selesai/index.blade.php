@@ -62,7 +62,13 @@
                                                     <td>{{ $no }}</td>
                                                     <td>{{ $data->nama_pemohon }}</td>
                                                     <td>{{ $data->nomor_identitas }}</td>
-                                                    <td>{{ $data->prodi->nama_prodi }}</td>
+                                                    <td>
+                                                        @if ($data->id_prodi == null)
+                                                            Tidak Ada Prodi
+                                                        @else
+                                                            {{ $data->prodi->nama_prodi }}
+                                                        @endif
+                                                    </td>
                                                     <td>{{ $data->email }}</td>
                                                     <td>{{ $data->jenis_permohonan }}</td>
                                                     <td>{{ $data->layanan->nama_layanan }}</td>

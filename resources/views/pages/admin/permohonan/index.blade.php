@@ -4,16 +4,14 @@
     <title> Daftar Permohonan | ULT Poliwangi</title>
 @endsection
 
-@section('css')
-    @php
-        function dateConversion($date)
-        {
-            $month = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-            $slug = explode('-', $date);
-            return $slug[2] . ' ' . $month[(int) $slug[1]] . ' ' . $slug[0];
-        }
-    @endphp
-@endsection
+@php
+    function dateConversion($date)
+    {
+        $month = [1 => 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+        $slug = explode('-', $date);
+        return $slug[2] . ' ' . $month[(int) $slug[1]] . ' ' . $slug[0];
+    }
+@endphp
 
 @section('content')
     <div class="page-wrapper">
@@ -64,7 +62,13 @@
                                                     <td>{{ $no }}</td>
                                                     <td>{{ $data->nama_pemohon }}</td>
                                                     <td>{{ $data->nomor_identitas }}</td>
-                                                    <td>{{ $data->prodi->nama_prodi }}</td>
+                                                    <td>
+                                                        @if ($data->id_prodi == null)
+                                                            Tidak Ada Prodi
+                                                        @else
+                                                            {{ $data->prodi->nama_prodi }}
+                                                        @endif
+                                                    </td>
                                                     {{-- <td>{{ $data->email }}</td> --}}
                                                     <td>{{ $data->jenis_permohonan }}</td>
                                                     <td>{{ $data->layanan->divisi->nama_divisi }}</td>

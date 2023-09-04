@@ -59,5 +59,10 @@ class AdminSeeder extends Seeder
             'id_user' => 9,
             'id_divisi' => 9,
         ]);
+
+        Admin::create([
+            'id_user' => 10,
+            'id_divisi' => 1,
+        ]);
     }
 }
