@@ -135,7 +135,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/admin/manajemen-permohonan/detail-permohonan/{id_pengajuan}', [DaftarPermohonanController::class, 'edit'])->name('admin.permohonan.edit');
         Route::put('/admin/manajemen-permohonan/detail-permohonan/{id_pengajuan}', [DaftarPermohonanController::class, 'update'])->name('admin.permohonan.update');
         Route::put('/admin/manajemen-permohonan/accept/{id_pengajuan}', [DaftarPermohonanController::class, 'accept_submission'])->name('admin.permohonan.accept');
-        Route::put('/admin/manajemen-permohonan/decline/{id_pengajuan}', [DaftarPermohonanController::class, 'decline_submission'])->name('admin.permohonan.decline');
+        Route::get('/admin/manajemen-permohonan/{id_pengajuan}/decline', [DaftarPermohonanController::class, 'decline_submission'])->name('admin.permohonan.decline');
 
         //pertanyaan
         Route::get('/admin/manajemen-pertanyaan', [PertanyaanController::class, 'index'])->name('admin.pertanyaan.index');

@@ -74,7 +74,7 @@
                                                 @if ($pengajuan->id_prodi == null)
                                                     Tidak Ada Prodi
                                                 @else
-                                                    {{ $data->prodi->nama_prodi }}
+                                                    {{ $pengajuan->prodi->nama_prodi }}
                                                 @endif
                                             </p>
 

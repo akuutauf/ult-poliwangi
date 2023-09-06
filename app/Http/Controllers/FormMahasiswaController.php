@@ -49,6 +49,11 @@ class FormMahasiswaController extends Controller
      */
     public function store(Request $request)
     {
+        if (preg_match('/[-+eE]/', $request->nomor_identitas) || preg_match('/[-+eE]/', $request->nomor_telepon)) {
+            Alert::error('Pengajuan Gagal', 'Mohon inputkan nomor identitas atau telepon yang valid');
+            return redirect()->route('pengajuan.mahasiswa.page');
+        }
+
         $validated = $request->validate([
             'nama_pemohon' => 'required|string',
             'nomor_identitas' => 'required|string|between:12,16',

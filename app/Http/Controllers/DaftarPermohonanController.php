@@ -38,9 +38,9 @@ class DaftarPermohonanController extends Controller
 
     public function decline_submission($id_permohonan)
     {
-        Pengajuan::where('id', $id_permohonan)->update([
-            'submission_confirmed' => 'Decline',
-        ]);
+        $pengajuan = Pengajuan::findOrFail($id_permohonan);
+
+        $pengajuan->delete();
 
         Alert::success('Success', 'Permohonan Berhasil Ditolak');
 

@@ -33,9 +33,6 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    @php
-                                        $no = 1;
-                                    @endphp
                                     <table id="datatable" class="table">
                                         <thead class="thead-light">
                                             <tr class="text-center">
@@ -50,12 +47,17 @@
                                                 <th>Tanggal</th>
                                                 <th>No.Telepon</th>
                                                 <th>Kodetiket</th>
+                                                <th>Ubah</th>
                                                 <th>Action</th>
                                             </tr>
                                             <!--end tr-->
                                         </thead>
 
                                         <tbody>
+
+                                            @php
+                                                $no = 1;
+                                            @endphp
 
                                             @foreach ($pengajuans as $data)
                                                 <tr class="text-center">
@@ -76,40 +78,46 @@
                                                     <td>{{ dateConversion($data->tanggal_permohonan) }}</td>
                                                     <td>{{ $data->nomor_telepon }}</td>
                                                     <td>{{ $data->kode_tiket }}</td>
-                                                    <td class="text-center">
-
+                                                    <td>
                                                         {{-- edit button --}}
                                                         <a href="{{ route('admin.permohonan.edit', $data->id) }}"
                                                             class="py-5">
                                                             <i class="fa-solid fa-pen-to-square text-info font-16"></i>
                                                         </a>
+                                                    </td>
+                                                    <td class="text-center">
 
-                                                        {{-- accept button --}}
-                                                        <form action="{{ route('admin.permohonan.accept', $data->id) }}"
-                                                            method="POST">
-                                                            @method('put')
-                                                            @csrf
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                {{-- accept button --}}
+                                                                <form
+                                                                    action="{{ route('admin.permohonan.accept', $data->id) }}"
+                                                                    method="POST">
+                                                                    @method('put')
+                                                                    @csrf
 
-                                                            <button type="submit" class="btn">
-                                                                <i
-                                                                    class="fa-regular fa-circle-check text-success font-16"></i>
-                                                            </button>
-                                                        </form>
+                                                                    <button type="submit" class="btn">
+                                                                        <i
+                                                                            class="fa-regular fa-circle-check text-success font-16"></i>
+                                                                    </button>
+                                                                </form>
+                                                            </div>
 
-                                                        {{-- decline button --}}
-                                                        <form action="{{ route('admin.permohonan.decline', $data->id) }}"
-                                                            method="POST">
-                                                            @method('put')
-                                                            @csrf
+                                                            <div class="col">
+                                                                {{-- decline button --}}
+                                                                <a type="button"
+                                                                    href="{{ route('admin.permohonan.decline', $data->id) }}"
+                                                                    class="btn">
+                                                                    <i
+                                                                        class="fa-regular fa-circle-xmark text-danger font-16"></i>
+                                                                </a>
+                                                            </div>
 
-                                                            <button type="submit" class="btn">
-                                                                <i
-                                                                    class="fa-regular fa-circle-xmark text-danger font-16"></i>
-                                                            </button>
-                                                        </form>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                                 <!--end tr-->
+
                                                 @php
                                                     $no++;
                                                 @endphp
