@@ -81,7 +81,7 @@
                                                     <td>
                                                         {{-- edit button --}}
                                                         <a href="{{ route('admin.permohonan.edit', $data->id) }}"
-                                                            class="py-5">
+                                                            class="py-5" title="Edit Permohonan">
                                                             <i class="fa-solid fa-pen-to-square text-info font-16"></i>
                                                         </a>
                                                     </td>
@@ -96,7 +96,8 @@
                                                                     @method('put')
                                                                     @csrf
 
-                                                                    <button type="submit" class="btn">
+                                                                    <button type="submit" class="btn"
+                                                                        title="Terima Pengajuan">
                                                                         <i
                                                                             class="fa-regular fa-circle-check text-success font-16"></i>
                                                                     </button>
@@ -107,7 +108,7 @@
                                                                 {{-- decline button --}}
                                                                 <a type="button"
                                                                     href="{{ route('admin.permohonan.decline', $data->id) }}"
-                                                                    class="btn">
+                                                                    class="btn" title="Tolak dan Hapus Pengajuan">
                                                                     <i
                                                                         class="fa-regular fa-circle-xmark text-danger font-16"></i>
                                                                 </a>

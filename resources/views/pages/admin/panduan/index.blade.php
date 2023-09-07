@@ -114,7 +114,7 @@
                                                             <label class="form-label" for="dokumen_file">File Panduan<span
                                                                     class="text-primary">
                                                                     *(Wajib, .pdf only, max
-                                                                    10Mb)</span></label>
+                                                                    30Mb)</span></label>
                                                             <div class="custom-file mb-3">
                                                                 <input type="file"
                                                                     class="custom-file-input form-control @error('dokumen_file') is-invalid @enderror"

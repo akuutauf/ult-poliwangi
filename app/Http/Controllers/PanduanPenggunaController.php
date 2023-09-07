@@ -46,7 +46,7 @@ class PanduanPenggunaController extends Controller
     {
         $validated = $request->validate([
             'nama_file' => ['required', 'string', Rule::unique('panduans', 'nama_file')],
-            'dokumen_file' => ['required', 'mimes:pdf', 'max:10240'],
+            'dokumen_file' => ['required', 'mimes:pdf', 'max:30720'],
         ]);
 
         $saveData = [];
