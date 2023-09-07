@@ -49,7 +49,7 @@ class FormUmumController extends Controller
     {
         if (preg_match('/[+eE-]/', $request->nomor_telepon)) {
             Alert::error('Pengajuan Gagal', 'Mohon Inputkan Nomor Telepon yang Valid');
-            return redirect()->route('pengajuan.mahasiswa.page');
+            return redirect()->route('pengajuan.umum.page');
         }
 
         $validated = $request->validate([
