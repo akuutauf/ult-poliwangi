@@ -19,13 +19,14 @@
                 <label for="nomor_identitas" class="form-label">Nomor Identitas</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fa-solid fa-address-card"></i></span>
-                    <input type="number" class="form-control @error('nomor_identitas') is-invalid @enderror"
-                        id="nomor_identitas" name="nomor_identitas" placeholder="No KTP / NIM">
+                    <input type="text" class="form-control @error('nomor_identitas') is-invalid @enderror"
+                        id="nomor_identitas" name="nomor_identitas" placeholder="No KTP / NIM" pattern="[0-9]*">
                 </div>
                 @error('nomor_identitas')
                     <div id="nomor_identitas" class="form-text pb-1">{{ $message }}</div>
                 @enderror
             </div>
+
 
             <div class="col-md-6 mb-1">
                 <label for="email" class="form-label">Email</label>

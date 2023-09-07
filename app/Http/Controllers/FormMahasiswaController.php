@@ -49,8 +49,8 @@ class FormMahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        if (preg_match('/[-+eE]/', $request->nomor_identitas) || preg_match('/[-+eE]/', $request->nomor_telepon)) {
-            Alert::error('Pengajuan Gagal', 'Mohon inputkan nomor identitas atau telepon yang valid');
+        if (preg_match('/[+eE-]/', $request->nomor_telepon)) {
+            Alert::error('Pengajuan Gagal', 'Mohon Inputkan Nomor Telepon yang Valid');
             return redirect()->route('pengajuan.mahasiswa.page');
         }
 

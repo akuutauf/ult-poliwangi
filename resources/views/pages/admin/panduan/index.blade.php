@@ -99,7 +99,7 @@
                                                             <input type="text"
                                                                 class="form-control @error('nama_file') is-invalid @enderror"
                                                                 id="nama_file" name="nama_file" value=""
-                                                                placeholder="Nama User">
+                                                                placeholder="Nama File">
                                                             @error('nama_file')
                                                                 <div id="nama_file" class="form-text pb-1">
                                                                     {{ $message }}</div>
@@ -114,7 +114,7 @@
                                                             <label class="form-label" for="dokumen_file">File Panduan<span
                                                                     class="text-primary">
                                                                     *(Wajib, .pdf only, max
-                                                                    10Mb)</span></label>
+                                                                    20Mb)</span></label>
                                                             <div class="custom-file mb-3">
                                                                 <input type="file"
                                                                     class="custom-file-input form-control @error('dokumen_file') is-invalid @enderror"
