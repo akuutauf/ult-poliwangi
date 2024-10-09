@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        // admin
         User::create([
             'id' => 1,
             'name' => 'ultpoliwangi',
@@ -78,6 +79,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('other123')
         ]);
 
+        // admin
         User::create([
             'id' => 10,
             'name' => 'tefa',

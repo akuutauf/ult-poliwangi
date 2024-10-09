@@ -4,6 +4,11 @@
     <title>Login | ULT Poliwangi</title>
 @endsection
 
+@section('css')
+    {{-- chapta google --}}
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+@endsection
+
 @section('content')
     <!-- Log In page -->
     <div class="row vh-100 ">
@@ -56,6 +61,13 @@
                                         <div id="passwordHelp" class="form-text">{{ $message }}</div>
                                     @enderror
                                 </div><!--end form-group-->
+
+                                <div class="form-group">
+                                    <center>
+                                        <!-- reCAPTCHA -->
+                                        <div class="g-recaptcha" data-sitekey="{{ env('SITE_KEY') }}"></div>
+                                    </center>
+                                </div>
 
                                 <div class="form-group mb-4 row">
                                     <div class="col-12 mt-2">

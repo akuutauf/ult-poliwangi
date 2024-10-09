@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rules;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -23,6 +23,25 @@ class AuthController extends Controller
             'name' => ['required', 'string'],
             'password' => ['required', Rules\Password::defaults()],
         ]);
+
+        // Validasi CAPTCHA
+        $request->validate([
+            'g-recaptcha-response' => ['required'],
+        ]);
+
+        // Verifikasi CAPTCHA
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => env('SECRET_KEY'),
+            'response' => $request->input('g-recaptcha-response'),
+        ]);
+
+        $captchaResponse = json_decode($response->body());
+
+        if (!$captchaResponse->success) {
+            return back()->withErrors([
+                'captcha' => 'Captcha verification failed, please try again.',
+            ])->onlyInput('name');
+        }
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
@@ -49,7 +68,6 @@ class AuthController extends Controller
             'name' => 'Username and password invalid.',
         ])->onlyInput('name');
     }
-
 
     public function doLogout(Request $request)
     {
