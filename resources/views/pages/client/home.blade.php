@@ -179,25 +179,10 @@
                         </p>
 
                         <div class="mt-4">
-                            <div class="row d-flex justify-content-center">
-                                <div class="d-flex col-12 col-sm-12 col-md-12 col-lg-5 py-2">
-                                    <div class="mx-auto my-auto">
-                                        <a href="https://poliwangi.ac.id/" target="_blank"
-                                            class="btn btn-theme-inverse px-3 py-3">
-                                            Lihat Selengkapnya &nbsp; <i class="fa-solid fa-circle-info"></i>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex col-12 col-sm-12 col-md-12 col-lg-5 py-2">
-                                    <div class="mx-auto my-auto">
-                                        <a href="{{ route('maklumat.pelayanan.poliwangi') }}" target="_blank"
-                                            class="btn btn-theme-inverse-two px-3 py-3">
-                                            Maklumat Pelayanan &nbsp; <i class="fa-solid fa-bullhorn"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            <a href="https://poliwangi.ac.id/" target="_blank"
+                                class="btn btn-theme-inverse-two px-3 py-3">
+                                Lihat Selengkapnya &nbsp; <i class="fa-solid fa-circle-info"></i>
+                            </a>
                         </div>
                     </div>
                 </div>

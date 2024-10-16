@@ -29,6 +29,10 @@
                     </li>
                     <li class="nav-item my-auto px-2">
                         <a class="nav-link fw-regular navbar-text-hover"
+                            href="{{ route('maklumat.pelayanan.poliwangi') }}#lacak_dokumen">Maklumat Layanan</a>
+                    </li>
+                    <li class="nav-item my-auto px-2">
+                        <a class="nav-link fw-regular navbar-text-hover"
                             href="{{ route('home.page') }}#tentang_kami">Tentang Kami</a>
                     </li>
                     <li class="nav-item my-auto px-2">
