@@ -39,6 +39,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'home_page'])->name('home.page');
 Route::get('/logout', [AuthController::class, 'doLogout'])->name('do.logout');
+Route::get('/maklumat-pelayanan-poliwangi', [PageController::class, 'maklumat_pelayanan_page'])->name('maklumat.pelayanan.poliwangi');
 
 // route not found and not have access
 Route::fallback(function () {

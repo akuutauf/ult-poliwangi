@@ -112,4 +112,9 @@ class PageController extends Controller
 
         return view('pages.admin.home', $data);
     }
+
+    public function maklumat_pelayanan_page()
+    {
+        return view('pages.client.maklumat-layanan');
+    }
 }

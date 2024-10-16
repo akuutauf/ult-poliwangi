@@ -100,6 +100,14 @@ body {
     /* border: 2px solid white !important; */
 }
 
+.btn-theme-inverse-two {
+    font-weight: 500 !important;
+    background-color: #004978 !important;
+    color: white !important;
+    border-radius: 8px !important;
+    border: 2px solid white !important;
+}
+
 .btn-theme-two {
     font-weight: 500 !important;
     background-color: #e5ac50 !important;
