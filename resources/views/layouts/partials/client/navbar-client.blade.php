@@ -32,6 +32,10 @@
                             href="{{ route('maklumat.pelayanan.poliwangi') }}#lacak_dokumen">Maklumat Layanan</a>
                     </li>
                     <li class="nav-item my-auto px-2">
+                        <a class="nav-link fw-regular navbar-text-hover" href="https://sippn.menpan.go.id/"
+                            target="_blank">SIPPN</a>
+                    </li>
+                    <li class="nav-item my-auto px-2">
                         <a class="nav-link fw-regular navbar-text-hover"
                             href="{{ route('home.page') }}#tentang_kami">Tentang Kami</a>
                     </li>
@@ -43,7 +47,7 @@
                         @endauth
 
                         @guest
-                            <a href="{{ route('home.page') }}#formulir" class="btn btn-theme px-3 py-2">
+                            <a href="{{ route('home.page') }}#formulir" class="btn btn-theme-permohonan px-3 py-2">
                                 Ajukan Permohonan
                             </a>
                         @endguest

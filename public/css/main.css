@@ -138,6 +138,38 @@ body {
     border: 2px solid #e5ac50 !important;
 }
 
+.btn-theme-permohonan {
+    font-weight: 500 !important;
+    background-color: #004978 !important;
+    color: white !important;
+    border-radius: 8px !important;
+    border: 2px solid #004978 !important;
+}
+
+.btn-theme-permohonan:hover {
+    font-weight: 500 !important;
+    background-color: rgba(233, 241, 246, 0.9) !important;
+    color: #004978 !important;
+    border-radius: 8px !important;
+    border: 2px solid #004978 !important;
+}
+
+.btn-theme-permohonan.scrolled {
+    font-weight: 500 !important;
+    background-color: #004978 !important;
+    color: white !important;
+    border-radius: 8px !important;
+    border: 2px solid #004978 !important;
+}
+
+.btn-theme-permohonan.scrolled:hover {
+    font-weight: 500 !important;
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    color: white !important;
+    border-radius: 8px !important;
+    border: 2px solid #004978 !important;
+}
+
 .btn-grey {
     background-color: grey !important;
     color: white !important;
