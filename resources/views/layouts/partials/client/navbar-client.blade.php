@@ -31,6 +31,7 @@
                         <a class="nav-link fw-regular navbar-text-hover"
                             href="{{ route('maklumat.pelayanan.poliwangi') }}#lacak_dokumen">Maklumat Layanan</a>
                     </li>
+                    {{-- SIPPN Menpan --}}
                     <li class="nav-item my-auto px-2">
                         <a class="nav-link fw-regular navbar-text-hover" href="https://sippn.menpan.go.id/"
                             target="_blank">SIPPN</a>
